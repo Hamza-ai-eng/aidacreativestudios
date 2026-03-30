@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { SITE } from "@/lib/constants";
+import { Watermelon } from "@/components/shared/watermelon";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -10,7 +11,7 @@ export function Footer() {
   const links = [
     { href: `/${locale}`, label: tn("home") },
     { href: `/${locale}/services`, label: tn("services") },
-    { href: `/${locale}/insights`, label: tn("insights") },
+    { href: `/${locale}/insights`, label: tn("voice") },
     { href: `/${locale}/about`, label: tn("about") },
     { href: `/${locale}/contact`, label: tn("contact") },
   ];
@@ -36,7 +37,7 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="text-[var(--terracotta)] font-space font-semibold text-sm uppercase tracking-wider mb-4">
+            <h4 className="text-[var(--accent)] font-space font-semibold text-sm uppercase tracking-wider mb-4">
               {t("navigation")}
             </h4>
             <div className="flex flex-col gap-3">
@@ -54,15 +55,22 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-[var(--terracotta)] font-space font-semibold text-sm uppercase tracking-wider mb-4">
+            <h4 className="text-[var(--accent)] font-space font-semibold text-sm uppercase tracking-wider mb-4">
               {t("getInTouch")}
             </h4>
             <div className="flex flex-col gap-3 text-sm text-[var(--stone-gray)]">
+              <div className="flex items-center gap-3 mb-3">
+                <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] transition-colors" aria-label="Instagram">Instagram</a>
+                <span className="text-[var(--mist)]">·</span>
+                <a href={SITE.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] transition-colors" aria-label="TikTok">TikTok</a>
+                <span className="text-[var(--mist)]">·</span>
+                <a href={SITE.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] transition-colors" aria-label="Facebook">Facebook</a>
+              </div>
               <Link
                 href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--terracotta)] transition-colors"
+                className="hover:text-[var(--accent)] transition-colors"
               >
                 WhatsApp
               </Link>
@@ -73,10 +81,10 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="gold-divider mt-12 mb-6" />
+        <div className="accent-divider mt-12 mb-6" />
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[var(--text-muted)]">
           <span>{t("copyright", { year: new Date().getFullYear() })}</span>
-          <span>{t("madeWith")} <span className="inline-block w-[14px] h-[7px] rounded-t-full bg-gradient-to-b from-[#5B7553] via-white to-[#CE2C30] opacity-60 hover:opacity-100 transition-opacity cursor-default" aria-hidden="true" title="🍉" /></span>
+          <span>{t("madeWith")}</span>
         </div>
       </div>
     </footer>

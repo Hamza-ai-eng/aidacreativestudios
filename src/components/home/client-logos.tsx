@@ -24,7 +24,7 @@ export function ClientLogos() {
         <div className="marquee-track">
           {[...clients, ...clients, ...clients, ...clients].map((client, i) => (
             <div key={i} className="flex-shrink-0 mx-12 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[var(--terracotta-dim)] flex items-center justify-center text-[var(--terracotta)] font-serif font-bold text-sm">
+              <div className="w-8 h-8 rounded-lg bg-[var(--accent-dim)] flex items-center justify-center text-[var(--accent)] font-serif font-bold text-sm">
                 {client.name[0]}
               </div>
               <span className="text-[var(--stone-gray)] text-sm whitespace-nowrap font-medium">

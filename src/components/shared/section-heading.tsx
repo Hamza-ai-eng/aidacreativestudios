@@ -28,7 +28,7 @@ export function SectionHeading({
       {label && (
         <span className={cn(
           "font-space text-sm font-semibold uppercase tracking-[0.25em] mb-3 block",
-          dark ? "text-[var(--terracotta-light)]" : "text-[var(--terracotta)]"
+          dark ? "text-[var(--accent-light)]" : "text-[var(--accent)]"
         )}>
           {label}
         </span>
@@ -49,7 +49,7 @@ export function SectionHeading({
         </p>
       )}
       <div className={cn(
-        "gold-divider max-w-20 mt-8",
+        "accent-divider max-w-20 mt-8",
         align === "center" && "mx-auto"
       )} />
     </div>

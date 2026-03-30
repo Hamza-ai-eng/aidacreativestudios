@@ -3,23 +3,20 @@
     "home": "Home",
     "services": "Services",
     "insights": "Insights",
+    "voice": "Our Voice",
     "about": "About",
     "contact": "Contact",
     "getInTouch": "Let's Build"
   },
   "hero": {
-    "badge": "Creative Agency — East Jerusalem",
-    "headline1": "World-Class",
-    "headline2": "Design",
+    "badge": "Creative Consulting — East Jerusalem",
+    "headline1": "Visibility",
+    "headline2": "is Survival",
     "headline3": "for Palestinian",
     "headline4": "Businesses",
-    "subline": "Your business deserves the same visual firepower that global brands get. We bring award-level brand design, social media strategy, and print production to East Jerusalem — at prices that actually make sense.",
-    "cta1": "Get My Free Consultation",
-    "cta1micro": "We respond within the hour",
-    "cta2": "Read Our Insights",
-    "tagline": "Studio-grade creative. Local market pricing.",
-    "audit": "Get Your Free Arabic Content Audit",
-    "auditMicro": "We'll review your social media, brand, and Google presence — free"
+    "subline": "39% of Palestinian businesses have no online presence. We change that — with brand identity, social media strategy, and digital presence built for East Jerusalem businesses that refuse to be invisible.",
+    "cta1": "Let's Build Together",
+    "tagline": "The only trilingual creative agency in East Jerusalem."
   },
   "services": {
     "label": "Our Services",
@@ -28,10 +25,6 @@
     "allServices": "View All Services & Pricing",
     "pageTitle": "Creative Services for Palestinian Businesses",
     "pageSubtitle": "Brand identity, social media, photography, Google profiles, menus, video, ads, and websites — designed in East Jerusalem, delivered worldwide.",
-    "pricingLabel": "Transparent Pricing",
-    "pricingTitle": "No Surprises. No Hidden Fees.",
-    "pricingSubtitle": "All prices in Israeli New Shekel (₪), VAT-inclusive. What you see is what you pay.",
-    "getQuote": "Get Your Free Quote",
     "brandIdentity": "Brand Identity Design",
     "brandIdentityDesc": "Stand out in a crowded market. We build complete visual identity systems — logo variants, color palettes, typography, and brand guidelines — that make your business look like it's been around for decades.",
     "socialMedia": "Social Media Management",
@@ -162,22 +155,25 @@
     "madeWith": "Designed with love in Jerusalem"
   },
   "clients": {
+    "label": "Our Clients",
+    "title": "Businesses We've Transformed",
+    "subtitle": "Real Palestinian businesses. Real growth. Real impact.",
     "trusted": "Trusted by growing businesses across East Jerusalem"
   },
   "insights": {
-    "label": "Insights",
-    "title": "Learn. Build. Grow.",
-    "subtitle": "Expert guides on branding, social media, and digital growth for Palestinian businesses. New articles every week.",
+    "label": "Our Voice",
+    "title": "We Build Because We Believe.",
+    "subtitle": "Every Palestinian business has a story the world needs to hear. We don't just design logos — we build visibility for communities that have been made invisible. From Shu'fat to Gaza to the diaspora, our voice carries the stories of those who build, create, and refuse to disappear.",
     "backToInsights": "Back to Insights",
     "minRead": "min read",
     "share": "Share",
     "collections": {
-      "brand-building": "Brand Building",
+      "brand-building": "Business Growth",
       "social-media": "Social Media",
-      "ai-design": "AI & Design",
-      "local-business": "Local Business",
-      "seasonal": "Seasonal Marketing",
-      "design-essentials": "Design Essentials"
+      "ai-design": "AI & Creativity",
+      "local-business": "Palestine",
+      "seasonal": "Client Stories",
+      "design-essentials": "Behind the Studio"
     },
     "articles": {
       "brandingCost": "How Much Does Branding Actually Cost?",

@@ -2,6 +2,7 @@
 
 import { Sparkles, Heart, Cpu, Ear, Search, PenTool, Rocket } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Watermelon } from "@/components/shared/watermelon";
 import { GlassPanel } from "@/components/shared/glass-panel";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -41,11 +42,11 @@ export function AboutContent() {
             <ScrollReveal>
               <GlassPanel className="aspect-square flex items-center justify-center bg-[var(--sand)]">
                 <div className="text-center">
-                  <div className="w-24 h-24 rounded-full bg-[var(--terracotta-dim)] flex items-center justify-center mx-auto mb-4">
-                    <span className="font-serif text-4xl text-[var(--terracotta)]">H</span>
+                  <div className="w-24 h-24 rounded-full bg-[var(--accent-dim)] flex items-center justify-center mx-auto mb-4">
+                    <span className="font-serif text-4xl text-[var(--accent)]">H</span>
                   </div>
                   <h3 className="font-serif text-2xl text-[var(--ink)]">{t("founderName")}</h3>
-                  <p className="text-[var(--terracotta)] font-space text-sm mt-1">{t("founderRole")}</p>
+                  <p className="text-[var(--accent)] font-space text-sm mt-1">{t("founderRole")}</p>
                 </div>
               </GlassPanel>
             </ScrollReveal>
@@ -81,7 +82,7 @@ export function AboutContent() {
               <ScrollReveal key={a.step} delay={i * 0.12}>
                 <div className="relative h-full">
                   {/* Step number */}
-                  <span className="font-space text-[var(--terracotta)] text-xs font-bold tracking-wider opacity-60 mb-3 block">
+                  <span className="font-space text-[var(--accent)] text-xs font-bold tracking-wider opacity-60 mb-3 block">
                     {a.step}
                   </span>
                   {/* Icon */}
@@ -109,8 +110,8 @@ export function AboutContent() {
             {values.map((v, i) => (
               <ScrollReveal key={v.title} delay={i * 0.15}>
                 <GlassPanel hover className="h-full text-center">
-                  <div className="w-14 h-14 rounded-xl bg-[var(--terracotta-dim)] flex items-center justify-center mx-auto mb-5">
-                    <v.icon size={28} className="text-[var(--terracotta)]" />
+                  <div className="w-14 h-14 rounded-xl bg-[var(--accent-dim)] flex items-center justify-center mx-auto mb-5">
+                    <v.icon size={28} className="text-[var(--accent)]" />
                   </div>
                   <h3 className="font-serif text-xl text-[var(--ink)] mb-3">{v.title}</h3>
                   <p className="text-[var(--stone-gray)] text-sm leading-relaxed">{v.description}</p>
@@ -126,15 +127,12 @@ export function AboutContent() {
       <section className="section-dark py-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <ScrollReveal>
-            <p className="font-serif text-3xl md:text-4xl text-[var(--terracotta-light)] leading-relaxed">
+            <p className="font-serif text-3xl md:text-4xl text-[var(--accent-light)] leading-relaxed">
               &ldquo;{t("quoteAr")}&rdquo;
             </p>
-            {/* بطيخ — for those who see */}
-            <div className="flex justify-center gap-2 mt-6" aria-hidden="true" title="🍉">
-              <span className="w-[8px] h-[4px] rounded-t-full bg-[#5B7553] opacity-35" />
-              <span className="w-[8px] h-[4px] rounded-t-full bg-[#CE2C30] opacity-30" />
-              <span className="w-[8px] h-[4px] rounded-t-full bg-[#2A3328] opacity-25" />
-              <span className="w-[3px] h-[4px] bg-[#2A3328] opacity-15 rounded-full" />
+            {/* بطيخ */}
+            <div className="flex justify-center mt-6 opacity-25 hover:opacity-60 transition-opacity">
+              <Watermelon size="sm" />
             </div>
           </ScrollReveal>
         </div>

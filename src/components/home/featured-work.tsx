@@ -71,14 +71,14 @@ export function FeaturedWork() {
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <span className="font-space text-xs text-[var(--terracotta-light)] font-semibold uppercase tracking-wider">
+                          <span className="font-space text-xs text-[var(--accent-light)] font-semibold uppercase tracking-wider">
                             {project.category}
                           </span>
                           <h3 className="font-serif text-2xl text-[var(--sand)] mt-1">
                             {project.title}
                           </h3>
                         </div>
-                        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-[var(--terracotta)] group-hover:border-[var(--terracotta)] transition-all">
+                        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-[var(--accent)] group-hover:border-[var(--accent)] transition-all">
                           <ArrowUpRight
                             size={18}
                             className="text-white/50 group-hover:text-white transition-colors"

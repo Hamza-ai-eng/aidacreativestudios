@@ -25,7 +25,7 @@ export function ActionButton({
     variant === "outline" &&
       "border-2 border-[var(--ink)] text-[var(--ink)] hover:bg-[var(--ink)] hover:text-[var(--sand)]",
     variant === "terracotta" &&
-      "bg-[var(--terracotta)] text-white hover:shadow-[var(--shadow-terracotta)] hover:scale-105",
+      "bg-[var(--accent)] text-white hover:shadow-[var(--shadow-accent)] hover:scale-105",
     size === "default" && "px-6 py-3 text-sm",
     size === "lg" && "px-8 py-4 text-base",
     className

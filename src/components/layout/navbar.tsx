@@ -8,21 +8,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { LanguageSwitcher } from "./language-switcher";
 import { cn } from "@/lib/utils";
-import { SITE } from "@/lib/constants";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [bannerDismissed, setBannerDismissed] = useState(false);
   const pathname = usePathname();
   const t = useTranslations("nav");
-  const th = useTranslations("hero");
   const locale = useLocale();
 
   const links = [
     { href: `/${locale}`, label: t("home") },
     { href: `/${locale}/services`, label: t("services") },
-    { href: `/${locale}/insights`, label: t("insights") },
+    { href: `/${locale}/insights`, label: t("voice") },
     { href: `/${locale}/about`, label: t("about") },
     { href: `/${locale}/contact`, label: t("contact") },
   ];
@@ -38,33 +35,9 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <>
-    {/* Free Audit Banner */}
-    {!bannerDismissed && (
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-[var(--terracotta)] text-white text-center py-1.5 px-4">
-        <div className="flex items-center justify-center gap-3">
-          <a
-            href={SITE.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-space text-xs sm:text-sm font-medium hover:underline"
-          >
-            {th("audit")}
-          </a>
-          <button
-            onClick={() => setBannerDismissed(true)}
-            className="text-white/70 hover:text-white text-xs ms-2"
-            aria-label="Dismiss"
-          >
-            <X size={14} />
-          </button>
-        </div>
-      </div>
-    )}
     <header
       className={cn(
-        "fixed left-0 right-0 z-50 transition-all duration-500",
-        bannerDismissed ? "top-0" : "top-[32px]",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
           ? "bg-[var(--sand)]/90 backdrop-blur-xl border-b border-[var(--border)] shadow-sm"
           : "bg-transparent"
@@ -73,7 +46,7 @@ export function Navbar() {
       <nav className="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-xl bg-[var(--ink)] flex items-center justify-center text-[var(--sand)] font-serif font-bold text-lg transition-all group-hover:rounded-2xl group-hover:bg-[var(--terracotta)]">
+          <div className="w-9 h-9 rounded-xl bg-[var(--ink)] flex items-center justify-center text-[var(--sand)] font-serif font-bold text-lg transition-all group-hover:rounded-2xl group-hover:bg-[var(--accent)]">
             A
           </div>
           <span className="font-serif text-lg text-[var(--ink)] hidden sm:block">
@@ -90,7 +63,7 @@ export function Navbar() {
               className={cn(
                 "font-space text-sm font-medium transition-colors duration-300",
                 pathname === link.href
-                  ? "text-[var(--terracotta)]"
+                  ? "text-[var(--accent)]"
                   : "text-[var(--stone-gray)] hover:text-[var(--ink)]"
               )}
             >
@@ -100,7 +73,7 @@ export function Navbar() {
           <LanguageSwitcher />
           <Link
             href={`/${locale}/contact`}
-            className="ms-2 px-5 py-2 rounded-full bg-[var(--ink)] text-[var(--sand)] font-space text-sm font-semibold transition-all hover:bg-[var(--terracotta)] hover:scale-105"
+            className="ms-2 px-5 py-2 rounded-full bg-[var(--ink)] text-[var(--sand)] font-space text-sm font-semibold transition-all hover:bg-[var(--accent)] hover:scale-105"
           >
             {t("getInTouch")}
           </Link>
@@ -136,7 +109,7 @@ export function Navbar() {
                   className={cn(
                     "font-space text-lg font-medium transition-colors",
                     pathname === link.href
-                      ? "text-[var(--terracotta)]"
+                      ? "text-[var(--accent)]"
                       : "text-[var(--stone-gray)]"
                   )}
                 >
@@ -148,6 +121,5 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </header>
-    </>
   );
 }

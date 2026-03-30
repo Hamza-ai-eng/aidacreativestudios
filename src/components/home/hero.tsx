@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { ArrowDown } from "lucide-react";
 import { GoldButton } from "@/components/shared/gold-button";
 import { SITE } from "@/lib/constants";
+import { Watermelon } from "@/components/shared/watermelon";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -46,11 +47,11 @@ export function Hero() {
       {/* Multi-layer parallax blobs */}
       <motion.div
         style={{ y: y1 }}
-        className="absolute top-16 -start-40 w-[500px] h-[500px] bg-[var(--terracotta)]/8 blob-1 blur-3xl animate-float-slow"
+        className="absolute top-16 -start-40 w-[500px] h-[500px] bg-[var(--accent)]/8 blob-1 blur-3xl animate-float-slow"
       />
       <motion.div
         style={{ y: y2 }}
-        className="absolute bottom-16 -end-40 w-[400px] h-[400px] bg-[var(--terracotta)]/8 blob-2 blur-3xl animate-float"
+        className="absolute bottom-16 -end-40 w-[400px] h-[400px] bg-[var(--accent)]/8 blob-2 blur-3xl animate-float"
       />
       <motion.div
         style={{ y: y3 }}
@@ -68,17 +69,19 @@ export function Hero() {
       />
       <motion.div
         style={{ y: y3 }}
-        className="absolute bottom-32 end-16 w-20 h-20 border-2 border-[var(--terracotta)]/15 rotate-45 animate-float"
+        className="absolute bottom-32 end-16 w-20 h-20 border-2 border-[var(--accent)]/15 rotate-45 animate-float"
       />
       <motion.div
         style={{ y: y1 }}
         className="absolute top-1/2 start-16 w-12 h-12 border-2 border-[var(--olive)]/15 rounded-lg rotate-12"
       />
-      <div className="absolute top-1/3 start-1/3 w-3 h-3 rounded-full bg-[var(--terracotta)]/40" />
-      <div className="absolute bottom-1/4 end-1/3 w-2 h-2 rounded-full bg-[var(--terracotta)]/30" />
+      <div className="absolute top-1/3 start-1/3 w-3 h-3 rounded-full bg-[var(--accent)]/40" />
+      <div className="absolute bottom-1/4 end-1/3 w-2 h-2 rounded-full bg-[var(--accent)]/30" />
       <div className="absolute top-2/3 end-1/4 w-4 h-4 rounded-full bg-[var(--olive)]/20" />
       {/* بطيخ */}
-      <div className="absolute bottom-[18%] start-[12%] w-8 h-4 rounded-t-full bg-gradient-to-b from-[#5B7553] via-[#F4EDE4] to-[#CE2C30] opacity-[0.18] hover:opacity-40 transition-opacity" aria-hidden="true" title="🍉" />
+      <div className="absolute bottom-[18%] start-[12%] opacity-20 hover:opacity-50 transition-opacity" title="🍉">
+        <Watermelon size="lg" />
+      </div>
 
       {/* Dot grid subtle background */}
       <div className="absolute inset-0 dot-grid opacity-30" />
@@ -94,8 +97,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border)] bg-[var(--limestone)]/80 backdrop-blur-sm font-space text-[var(--terracotta)] text-sm font-medium shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[var(--terracotta)] animate-pulse" />
+          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border)] bg-[var(--limestone)]/80 backdrop-blur-sm font-space text-[var(--accent)] text-sm font-medium shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
             {t("badge")}
           </span>
         </motion.div>
@@ -109,7 +112,7 @@ export function Hero() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0 }}
-              className="inline-block me-[0.25em] text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] text-gold-gradient drop-shadow-sm"
+              className="inline-block me-[0.25em] text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] text-accent-gradient drop-shadow-sm"
             >
               {word}
             </motion.span>
@@ -154,14 +157,7 @@ export function Hero() {
             <GoldButton href={SITE.whatsapp} external variant="terracotta" size="lg">
               {t("cta1")}
             </GoldButton>
-            <GoldButton href="/insights" variant="outline" size="lg">
-              {t("cta2")}
-            </GoldButton>
           </div>
-          {/* Microcopy — reduces friction, boosts conversion */}
-          <span className="font-space text-xs text-[var(--text-muted)] tracking-wide">
-            {t("cta1micro")}
-          </span>
         </motion.div>
 
         {/* Tagline */}

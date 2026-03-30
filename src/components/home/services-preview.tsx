@@ -34,10 +34,10 @@ export function ServicesPreview() {
                 accent={item.accent}
                 className={`h-full ${i === 1 ? "md:-translate-y-4" : ""}`}
               >
-                <div className="w-14 h-14 rounded-2xl bg-[var(--terracotta-dim)] flex items-center justify-center mb-6">
-                  <item.icon size={26} className="text-[var(--terracotta)]" />
+                <div className="w-14 h-14 rounded-2xl bg-[var(--accent-dim)] flex items-center justify-center mb-6">
+                  <item.icon size={26} className="text-[var(--accent)]" />
                 </div>
-                <h3 className="font-serif text-xl text-[var(--ink)] mb-3 terracotta-underline inline-block">
+                <h3 className="font-serif text-xl text-[var(--ink)] mb-3 accent-underline inline-block">
                   {item.title}
                 </h3>
                 <p className="text-[var(--stone-gray)] text-sm leading-relaxed mt-5">

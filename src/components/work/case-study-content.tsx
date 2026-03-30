@@ -37,14 +37,14 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
         <div className="relative z-10 mx-auto max-w-5xl px-6">
           <Link
             href={`/${locale}/work`}
-            className="inline-flex items-center gap-2 text-[var(--text-muted)] text-sm hover:text-[var(--terracotta)] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-[var(--text-muted)] text-sm hover:text-[var(--accent)] transition-colors mb-8"
           >
             <ArrowLeft size={16} />
             {t("backToWork")}
           </Link>
 
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="font-space text-[var(--terracotta)] text-sm font-semibold uppercase tracking-[0.2em]">
+            <span className="font-space text-[var(--accent)] text-sm font-semibold uppercase tracking-[0.2em]">
               {study.category}
             </span>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-[var(--ink)] mt-3 mb-4">
@@ -67,7 +67,7 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
             {study.results.map((r, i) => (
               <ScrollReveal key={r.label} delay={i * 0.1}>
                 <GlassPanel className="text-center bg-[var(--sand)]">
-                  <div className="text-3xl font-serif text-gold-gradient mb-1">{r.value}</div>
+                  <div className="text-3xl font-serif text-accent-gradient mb-1">{r.value}</div>
                   <div className="font-space text-xs text-[var(--stone-gray)] uppercase tracking-wider">{r.label}</div>
                 </GlassPanel>
               </ScrollReveal>
@@ -80,13 +80,13 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
       <section className="py-24">
         <div className="mx-auto max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
           <ScrollReveal>
-            <h3 className="font-space text-[var(--terracotta)] font-semibold text-sm uppercase tracking-[0.2em] mb-4">
+            <h3 className="font-space text-[var(--accent)] font-semibold text-sm uppercase tracking-[0.2em] mb-4">
               {t("theChallenge")}
             </h3>
             <p className="text-[var(--stone-gray)] leading-relaxed">{study.challenge}</p>
           </ScrollReveal>
           <ScrollReveal delay={0.15}>
-            <h3 className="font-space text-[var(--terracotta)] font-semibold text-sm uppercase tracking-[0.2em] mb-4">
+            <h3 className="font-space text-[var(--accent)] font-semibold text-sm uppercase tracking-[0.2em] mb-4">
               {t("ourSolution")}
             </h3>
             <p className="text-[var(--stone-gray)] leading-relaxed">{study.solution}</p>
@@ -99,7 +99,7 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
       <section className="section-dark py-24">
         <div className="mx-auto max-w-5xl px-6">
           <ScrollReveal>
-            <h3 className="font-space text-[var(--terracotta-light)] font-semibold text-sm uppercase tracking-[0.2em] mb-12 text-center">
+            <h3 className="font-space text-[var(--accent-light)] font-semibold text-sm uppercase tracking-[0.2em] mb-12 text-center">
               {t("process")}
             </h3>
           </ScrollReveal>
@@ -107,7 +107,7 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
             {study.process.map((p, i) => (
               <ScrollReveal key={p.step} delay={i * 0.1}>
                 <div className="p-6 rounded-2xl border border-white/10 bg-white/5 h-full">
-                  <div className="text-[var(--terracotta-light)] font-serif text-3xl mb-3 opacity-40">
+                  <div className="text-[var(--accent-light)] font-serif text-3xl mb-3 opacity-40">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <h4 className="font-semibold text-[var(--sand)] mb-2">{p.step}</h4>
@@ -124,7 +124,7 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
       <section className="py-24">
         <div className="mx-auto max-w-5xl px-6">
           <ScrollReveal>
-            <h3 className="font-space text-[var(--terracotta)] font-semibold text-sm uppercase tracking-[0.2em] mb-8 text-center">
+            <h3 className="font-space text-[var(--accent)] font-semibold text-sm uppercase tracking-[0.2em] mb-8 text-center">
               {t("colorPalette")}
             </h3>
           </ScrollReveal>
@@ -147,7 +147,7 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
         <section className="py-24 bg-[var(--limestone)]">
           <div className="mx-auto max-w-5xl px-6">
             <ScrollReveal>
-              <h3 className="font-space text-[var(--terracotta)] font-semibold text-sm uppercase tracking-[0.2em] mb-8 text-center">
+              <h3 className="font-space text-[var(--accent)] font-semibold text-sm uppercase tracking-[0.2em] mb-8 text-center">
                 {t("logoVariants")}
               </h3>
             </ScrollReveal>
@@ -155,8 +155,8 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
               {study.logoVariants.map((variant, i) => (
                 <ScrollReveal key={variant} delay={i * 0.08}>
                   <GlassPanel className="text-center py-8 bg-[var(--sand)]">
-                    <div className="w-16 h-16 rounded-xl bg-[var(--terracotta-dim)] flex items-center justify-center mx-auto mb-3">
-                      <span className="font-serif text-2xl text-[var(--terracotta)]">G</span>
+                    <div className="w-16 h-16 rounded-xl bg-[var(--accent-dim)] flex items-center justify-center mx-auto mb-3">
+                      <span className="font-serif text-2xl text-[var(--accent)]">G</span>
                     </div>
                     <span className="font-space text-sm text-[var(--stone-gray)]">{variant}</span>
                   </GlassPanel>
@@ -171,7 +171,7 @@ export function CaseStudyContent({ study }: { study: CaseStudy }) {
         <section className="py-24 bg-[var(--limestone)]">
           <div className="mx-auto max-w-5xl px-6">
             <ScrollReveal>
-              <h3 className="font-space text-[var(--terracotta)] font-semibold text-sm uppercase tracking-[0.2em] mb-8 text-center">
+              <h3 className="font-space text-[var(--accent)] font-semibold text-sm uppercase tracking-[0.2em] mb-8 text-center">
                 {t("menuThemes")}
               </h3>
             </ScrollReveal>

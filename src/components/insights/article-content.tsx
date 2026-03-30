@@ -19,7 +19,7 @@ export function ArticleContent({ article }: { article: Article }) {
         <div className="relative z-10 mx-auto max-w-3xl px-6">
           <Link
             href={`/${locale}/insights`}
-            className="inline-flex items-center gap-2 text-[var(--text-muted)] text-sm hover:text-[var(--terracotta)] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-[var(--text-muted)] text-sm hover:text-[var(--accent)] transition-colors mb-8"
           >
             <ArrowLeft size={16} />
             {t("backToInsights")}
@@ -53,7 +53,7 @@ export function ArticleContent({ article }: { article: Article }) {
               </span>
               <button
                 onClick={() => navigator.share?.({ url: window.location.href, title: t(`articles.${article.titleKey}`) })}
-                className="ms-auto flex items-center gap-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--terracotta)] transition-colors"
+                className="ms-auto flex items-center gap-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors"
               >
                 <Share2 size={14} />
                 {t("share")}

@@ -74,11 +74,11 @@ export function ContactContent() {
               <GlassPanel>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Mail size={18} className="text-[var(--terracotta)]" />
+                    <Mail size={18} className="text-[var(--accent)]" />
                     <span className="text-[var(--stone-gray)] text-sm">{SITE.email}</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <MapPin size={18} className="text-[var(--terracotta)]" />
+                    <MapPin size={18} className="text-[var(--accent)]" />
                     <span className="text-[var(--stone-gray)] text-sm">{SITE.location}</span>
                   </div>
                 </div>
@@ -91,8 +91,8 @@ export function ContactContent() {
             <GlassPanel>
               {submitted ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-[var(--terracotta-dim)] flex items-center justify-center mx-auto mb-4">
-                    <Check size={28} className="text-[var(--terracotta)]" />
+                  <div className="w-16 h-16 rounded-full bg-[var(--accent-dim)] flex items-center justify-center mx-auto mb-4">
+                    <Check size={28} className="text-[var(--accent)]" />
                   </div>
                   <h3 className="font-serif text-2xl text-[var(--ink)] mb-2">{t("sentTitle")}</h3>
                   <p className="text-[var(--stone-gray)] text-sm">{t("sentDesc")}</p>
@@ -108,7 +108,7 @@ export function ContactContent() {
                         key={i}
                         className={`h-1.5 rounded-full transition-all ${
                           i <= step
-                            ? "bg-[var(--terracotta)] w-8"
+                            ? "bg-[var(--accent)] w-8"
                             : "bg-[var(--mist)] w-4"
                         }`}
                       />
@@ -133,7 +133,7 @@ export function ContactContent() {
                               required
                               value={formState.name}
                               onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--terracotta)] transition-colors"
+                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
                               placeholder={t("namePlaceholder")}
                               autoFocus
                             />
@@ -145,7 +145,7 @@ export function ContactContent() {
                               required
                               value={formState.email}
                               onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--terracotta)] transition-colors"
+                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
                               placeholder={t("emailPlaceholder")}
                             />
                           </div>
@@ -155,7 +155,7 @@ export function ContactContent() {
                               type="text"
                               value={formState.company}
                               onChange={(e) => setFormState({ ...formState, company: e.target.value })}
-                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--terracotta)] transition-colors"
+                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
                               placeholder={t("companyPlaceholder")}
                             />
                           </div>
@@ -169,7 +169,7 @@ export function ContactContent() {
                             <select
                               value={formState.service}
                               onChange={(e) => setFormState({ ...formState, service: e.target.value })}
-                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--terracotta)] transition-colors"
+                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
                             >
                               <option value="">{t("servicePlaceholder")}</option>
                               <option value="branding">{t("serviceOptions.branding")}</option>
@@ -186,7 +186,7 @@ export function ContactContent() {
                             <select
                               value={formState.budget}
                               onChange={(e) => setFormState({ ...formState, budget: e.target.value })}
-                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--terracotta)] transition-colors"
+                              className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
                             >
                               <option value="">{t("budgetPlaceholder")}</option>
                               <option value="500-1500">500 – 1,500 ₪</option>
@@ -206,7 +206,7 @@ export function ContactContent() {
                             rows={6}
                             value={formState.message}
                             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                            className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--terracotta)] transition-colors resize-none"
+                            className="w-full px-4 py-3 rounded-xl bg-[var(--sand)] border border-[var(--border)] text-[var(--ink)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
                             placeholder={t("messagePlaceholder")}
                             autoFocus
                           />
@@ -235,7 +235,7 @@ export function ContactContent() {
                         type="button"
                         onClick={() => canProceed && setStep(step + 1)}
                         disabled={!canProceed}
-                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--terracotta)] text-white font-space font-semibold text-sm transition-all hover:shadow-lg hover:scale-[1.02] disabled:opacity-40 disabled:cursor-not-allowed"
+                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-white font-space font-semibold text-sm transition-all hover:shadow-lg hover:scale-[1.02] disabled:opacity-40 disabled:cursor-not-allowed"
                       >
                         {t("next")}
                         <ArrowRight size={16} />
@@ -245,7 +245,7 @@ export function ContactContent() {
                         type="button"
                         onClick={handleSubmit}
                         disabled={sending || !canProceed}
-                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--terracotta)] text-white font-space font-semibold text-sm transition-all hover:shadow-lg hover:scale-[1.02] disabled:opacity-50"
+                        className="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-white font-space font-semibold text-sm transition-all hover:shadow-lg hover:scale-[1.02] disabled:opacity-50"
                       >
                         {sending ? t("sending") : t("submit")}
                         <Send size={16} />

@@ -71,7 +71,7 @@ export function InsightsContent() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-serif text-xl text-[var(--ink)] mb-3 group-hover:text-[var(--terracotta)] transition-colors leading-snug">
+                      <h3 className="font-serif text-xl text-[var(--ink)] mb-3 group-hover:text-[var(--accent)] transition-colors leading-snug">
                         {t(`articles.${article.titleKey}`)}
                       </h3>
 

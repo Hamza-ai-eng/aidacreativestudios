@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | AIDA Creative Studios",
   },
   description:
-    "Award-level brand identity, social media content, restaurant menu design, and campaign strategy for Palestinian businesses in East Jerusalem. AI-powered creative agency serving Shu'fat, Jerusalem, and beyond.",
+    "Brand identity, social media management, and digital strategy for Palestinian businesses in East Jerusalem. The only trilingual creative agency serving Shu'fat, Jerusalem, and beyond.",
   keywords: [
     "creative agency East Jerusalem",
     "brand design Jerusalem",
@@ -115,8 +115,9 @@ export default async function LocaleLayout({
               priceRange: "₪₪",
               image: "https://aidacreativestudios.com/brand/og-image.jpg",
               sameAs: [
-                "https://instagram.com/aidacreative",
-                "https://facebook.com/aidacreative",
+                "https://www.instagram.com/aida.creative.consultancy/",
+                "https://www.facebook.com/profile.php?id=61587116201810",
+                "https://www.tiktok.com/@aida.creative",
               ],
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",

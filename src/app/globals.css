@@ -8,9 +8,9 @@
   --sand: #F4EDE4;
   --limestone: #E8DFD0;
   --stone: #D4C9B5;
-  --terracotta: #B85C38;
-  --terracotta-light: #D4845E;
-  --terracotta-dim: rgba(184, 92, 56, 0.1);
+  --accent: #4A7C8A;
+  --accent-light: #6BA3B3;
+  --accent-dim: rgba(74, 124, 138, 0.1);
   --olive: #5B7553;
   --olive-dark: #2A3328;
   --blue: #4A7C8A;
@@ -20,7 +20,7 @@
   --mist: #C8C0B4;
 
   /* WCAG AA text-safe variants (4.5:1+ on sand) */
-  --terracotta-text: #8E4428;
+  --accent-text: #2E5A66;
   --olive-text: #3D5038;
   --blue-text: #2E5A66;
 
@@ -33,7 +33,7 @@
   --bg: var(--sand);
   --surface: var(--limestone);
   --surface-hover: var(--stone);
-  --border: rgba(184, 92, 56, 0.15);
+  --border: rgba(74, 124, 138, 0.15);
 
   /* Text */
   --text-primary: var(--ink);
@@ -43,16 +43,16 @@
   /* Shadows */
   --shadow-card: 0 4px 24px rgba(43, 38, 34, 0.06), 0 1px 4px rgba(43, 38, 34, 0.04);
   --shadow-hover: 0 8px 40px rgba(43, 38, 34, 0.1), 0 2px 8px rgba(43, 38, 34, 0.06);
-  --shadow-terracotta: 0 4px 24px rgba(184, 92, 56, 0.2);
+  --shadow-accent: 0 4px 24px rgba(74, 124, 138, 0.2);
 }
 
 @theme inline {
   --color-sand: var(--sand);
   --color-limestone: var(--limestone);
   --color-stone: var(--stone);
-  --color-terracotta: var(--terracotta);
-  --color-terracotta-light: var(--terracotta-light);
-  --color-terracotta-dim: var(--terracotta-dim);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dim: var(--accent-dim);
   --color-olive: var(--olive);
   --color-olive-dark: var(--olive-dark);
   --color-blue: var(--blue);
@@ -178,16 +178,16 @@ body {
 .font-hebrew { font-family: var(--font-heebo), system-ui, sans-serif; }
 
 /* Terracotta gradient for headlines — replaces gold gradient */
-.text-terracotta-gradient {
-  background: linear-gradient(135deg, #B85C38, #D4845E, #B85C38);
+.text-accent-gradient {
+  background: linear-gradient(135deg, #4A7C8A, #6BA3B3, #4A7C8A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* Legacy: keep gold-gradient class working but map to terracotta */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #B85C38, #D4845E, #B85C38);
+.text-accent-gradient-alt {
+  background: linear-gradient(135deg, #4A7C8A, #6BA3B3, #4A7C8A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -195,15 +195,15 @@ body {
 
 /* ── Dividers ── */
 
-.terracotta-divider {
+.accent-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 /* Legacy alias */
 .gold-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 /* ── Paper texture overlay ── */
@@ -231,7 +231,7 @@ body {
 
 .warm-panel:hover {
   box-shadow: var(--shadow-hover);
-  border-color: rgba(184, 92, 56, 0.25);
+  border-color: rgba(74, 124, 138, 0.25);
 }
 
 /* ── Dark section (olive contrast) ── */
@@ -242,8 +242,8 @@ body {
 }
 
 .section-dark .text-gold-gradient,
-.section-dark .text-terracotta-gradient {
-  background: linear-gradient(135deg, #D4845E, #F5E6C0, #D4845E);
+.section-dark .text-accent-gradient {
+  background: linear-gradient(135deg, #6BA3B3, #E8DFD0, #6BA3B3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -291,8 +291,8 @@ body {
 
 /* ── Terracotta left border accent (was gold) ── */
 
-.gold-border-start {
-  border-inline-start: 3px solid var(--terracotta);
+.accent-border-start {
+  border-inline-start: 3px solid var(--accent);
   padding-inline-start: 16px;
 }
 
@@ -305,17 +305,17 @@ body {
 
 /* ── Terracotta underline accent ── */
 
-.terracotta-underline {
+.accent-underline {
   position: relative;
 }
-.terracotta-underline::after {
+.accent-underline::after {
   content: "";
   position: absolute;
   bottom: -4px;
   inset-inline-start: 0;
   width: 40px;
   height: 3px;
-  background: var(--terracotta);
+  background: var(--accent);
   border-radius: 2px;
 }
 
@@ -327,7 +327,7 @@ body {
   font-family: var(--font-reem-kufi), sans-serif;
   font-size: 18rem;
   font-weight: 700;
-  color: var(--terracotta);
+  color: var(--accent);
   opacity: 0.02;
   pointer-events: none;
   z-index: 0;

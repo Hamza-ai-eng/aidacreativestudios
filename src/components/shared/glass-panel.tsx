@@ -18,7 +18,7 @@ export function GlassPanel({
       className={cn(
         "warm-panel p-6",
         hover && "tilt-card cursor-default",
-        accent === "terracotta" && "gold-border-start",
+        accent === "terracotta" && "accent-border-start",
         accent === "blue" && "blue-border-start",
         className
       )}

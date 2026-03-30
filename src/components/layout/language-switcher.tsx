@@ -43,7 +43,7 @@ export function LanguageSwitcher() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--terracotta)] transition-colors text-sm"
+        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent)] transition-colors text-sm"
         aria-label="Change language"
       >
         <Globe size={15} />
@@ -59,7 +59,7 @@ export function LanguageSwitcher() {
               className={cn(
                 "w-full px-4 py-2.5 text-start text-sm transition-colors flex items-center justify-between",
                 l.code === locale
-                  ? "bg-[var(--terracotta-dim)] text-[var(--terracotta)] font-semibold"
+                  ? "bg-[var(--accent-dim)] text-[var(--accent)] font-semibold"
                   : "text-[var(--text-secondary)] hover:bg-[var(--surface-hover)]"
               )}
             >
