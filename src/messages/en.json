@@ -6,7 +6,8 @@
     "voice": "Our Voice",
     "about": "About",
     "contact": "Contact",
-    "getInTouch": "Let's Build"
+    "getInTouch": "Let's Build",
+    "clients": "Clients"
   },
   "hero": {
     "badge": "Creative Consulting — East Jerusalem",
@@ -158,7 +159,12 @@
     "label": "Our Clients",
     "title": "Businesses We've Transformed",
     "subtitle": "Real Palestinian businesses. Real growth. Real impact.",
-    "trusted": "Trusted by growing businesses across East Jerusalem"
+    "trusted": "Trusted by growing businesses across East Jerusalem",
+    "backToClients": "Back to Clients",
+    "contactInfo": "Contact Information",
+    "socialMedia": "Social Media",
+    "servicesProvided": "Services We Provided",
+    "comingSoon": "Social media profiles coming soon."
   },
   "insights": {
     "label": "Our Voice",

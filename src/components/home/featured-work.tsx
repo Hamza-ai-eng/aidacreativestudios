@@ -25,7 +25,7 @@ export function FeaturedWork() {
     {
       slug: "al-daya",
       title: t("alDaya.title"),
-      titleAr: "الدايعة شعفاط",
+      titleAr: "الضيعة شعفاط",
       category: t("alDaya.category"),
       description: t("alDaya.description"),
       gradient: "from-green-800/30 via-orange-700/20 to-stone-400/10",

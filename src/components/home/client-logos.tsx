@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal";
 
 const clients = [
   { name: "Golden Line Mobile", nameAr: "جولدن لاين موبايل" },
-  { name: "Al-Day'a Shu'afat", nameAr: "الدايعة شعفاط" },
+  { name: "Al-Day'a Shu'afat", nameAr: "الضيعة شعفاط" },
   { name: "AIDA Creative", nameAr: "أيدا كرييتف" },
 ];
 

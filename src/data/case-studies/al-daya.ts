@@ -1,7 +1,7 @@
 export const alDaya = {
   slug: "al-daya",
   title: "Al-Day'a Shu'afat",
-  titleAr: "الدايعة شعفاط",
+  titleAr: "الضيعة شعفاط",
   tagline: "Village Soul, City Style",
   taglineAr: "طعم الضيعة الأصيل في قلب شعفاط",
   category: "Menu Design & Branding",

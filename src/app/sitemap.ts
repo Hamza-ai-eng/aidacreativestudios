@@ -7,6 +7,9 @@ const LOCALES = ["en", "ar", "he"];
 const pages = [
   { path: "", priority: 1, changeFrequency: "weekly" as const },
   { path: "/services", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/clients", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/clients/golden-line-mobile", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/clients/al-daya", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/insights", priority: 0.9, changeFrequency: "weekly" as const },
   { path: "/work", priority: 0.8, changeFrequency: "monthly" as const },
   { path: "/work/golden-line-mobile", priority: 0.7, changeFrequency: "monthly" as const },

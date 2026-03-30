@@ -11,6 +11,7 @@ export function Footer() {
   const links = [
     { href: `/${locale}`, label: tn("home") },
     { href: `/${locale}/services`, label: tn("services") },
+    { href: `/${locale}/clients`, label: tn("clients") },
     { href: `/${locale}/insights`, label: tn("voice") },
     { href: `/${locale}/about`, label: tn("about") },
     { href: `/${locale}/contact`, label: tn("contact") },

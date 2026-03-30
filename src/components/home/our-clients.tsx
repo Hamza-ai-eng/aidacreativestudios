@@ -21,7 +21,7 @@ const clients = [
   },
   {
     nameEn: "Al-Day\'a Shu\'afat",
-    nameAr: "الدايعة شعفاط",
+    nameAr: "الضيعة شعفاط",
     descEn: "Authentic Arabic cuisine — shawarma, grills, and family meals with delivery across Shu\'fat and nearby neighborhoods.",
     descAr: "أكل عربي أصيل — شاورما، مشاوي، ووجبات عائلية مع توصيل بشعفاط والأحياء المجاورة.",
     location: "Shu\'fat, East Jerusalem",
