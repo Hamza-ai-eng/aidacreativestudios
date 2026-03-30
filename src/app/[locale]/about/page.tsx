@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { AboutContent } from "@/components/about/about-content";
 import { CTABanner } from "@/components/home/cta-banner";
 

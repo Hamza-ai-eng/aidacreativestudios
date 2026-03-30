@@ -113,7 +113,7 @@ export default async function LocaleLayout({
                 longitude: 35.2293,
               },
               priceRange: "₪₪",
-              image: "https://aidacreativestudios.com/brand/og-image.jpg",
+              image: "https://aidacreativestudios.com/og-image.png",
               sameAs: [
                 "https://www.instagram.com/aida.creative.consultancy/",
                 "https://www.facebook.com/profile.php?id=61587116201810",

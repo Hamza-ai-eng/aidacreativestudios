@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useTranslations, useLocale } from "next-intl";
 import { Palette, Instagram, Cpu, MapPin, Calendar, Layers, Clock } from "lucide-react";
+import { ArticleCover } from "@/components/shared/article-cover";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { GlassPanel } from "@/components/shared/glass-panel";
@@ -59,6 +60,14 @@ export function InsightsContent() {
                 <ScrollReveal key={article.slug} delay={i * 0.08}>
                   <Link href={`/${locale}/insights/${article.slug}`} className="group block h-full">
                     <GlassPanel hover className="h-full flex flex-col">
+                      {/* Cover image */}
+                      <ArticleCover
+                        title={t(`articles.${article.titleKey}`)}
+                        collection={t(`collections.${article.collection}`)}
+                        color={col?.color || "#4A7C8A"}
+                        className="mb-4 -mx-6 -mt-6 rounded-b-none"
+                      />
+
                       {/* Collection badge */}
                       <div className="flex items-center gap-2 mb-4">
                         <span

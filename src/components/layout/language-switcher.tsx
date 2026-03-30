@@ -6,11 +6,13 @@ import { useRouter, usePathname } from "next/navigation";
 import { Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const LOCALES = [
+// Hebrew kept for SEO (routes + hreflang work) but hidden from UI
+const ALL_LOCALES = [
   { code: "en", label: "English", flag: "EN" },
   { code: "ar", label: "العربية", flag: "ع" },
   { code: "he", label: "עברית", flag: "ע" },
 ] as const;
+const LOCALES = ALL_LOCALES.filter(l => l.code !== "he");
 
 export function LanguageSwitcher() {
   const locale = useLocale();
@@ -37,7 +39,7 @@ export function LanguageSwitcher() {
     setOpen(false);
   }
 
-  const current = LOCALES.find((l) => l.code === locale) ?? LOCALES[0];
+  const current = ALL_LOCALES.find((l) => l.code === locale) ?? ALL_LOCALES[0];
 
   return (
     <div ref={ref} className="relative">

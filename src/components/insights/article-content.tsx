@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { ArrowLeft, Clock, Share2 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
+import { ArticleCover } from "@/components/shared/article-cover";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { CTABanner } from "@/components/home/cta-banner";
-import { COLLECTIONS, type Article } from "@/data/insights/articles";
+import { articles as allArticles, COLLECTIONS, type Article } from "@/data/insights/articles";
 
 export function ArticleContent({ article }: { article: Article }) {
   const t = useTranslations("insights");
@@ -63,6 +64,17 @@ export function ArticleContent({ article }: { article: Article }) {
         </div>
       </section>
 
+      {/* Cover image */}
+      <section className="pb-8">
+        <div className="mx-auto max-w-3xl px-6">
+          <ArticleCover
+            title={t(`articles.\${article.titleKey}`)}
+            collection={t(`collections.\${article.collection}`)}
+            color={col?.color || "#4A7C8A"}
+          />
+        </div>
+      </section>
+
       {/* Article body */}
       <section className="pb-24">
         <div className="mx-auto max-w-3xl px-6">
@@ -75,6 +87,36 @@ export function ArticleContent({ article }: { article: Article }) {
               ))}
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Related articles — internal linking for SEO */}
+      <section className="py-16 bg-[var(--limestone)]">
+        <div className="mx-auto max-w-3xl px-6">
+          <h3 className="font-space text-[var(--accent)] text-sm font-semibold uppercase tracking-wider mb-6">
+            {t("label")}
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {allArticles
+              .filter((a) => a.slug !== article.slug)
+              .slice(0, 2)
+              .map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/${locale}/insights/${related.slug}`}
+                  className="group block"
+                >
+                  <div className="p-4 rounded-xl border border-[var(--border)] hover:border-[var(--accent)] transition-colors">
+                    <h4 className="font-serif text-base text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors leading-snug">
+                      {t(`articles.${related.titleKey}`)}
+                    </h4>
+                    <span className="text-xs text-[var(--text-muted)] font-space mt-2 block">
+                      {related.readingTime} {t("minRead")}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+          </div>
         </div>
       </section>
 

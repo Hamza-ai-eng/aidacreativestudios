@@ -81,7 +81,7 @@ export function ClientDetailContent({ client }: { client: Client }) {
                     <a
                       href={client.whatsapp}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer me"
                       className="flex items-center gap-3 text-green-600 hover:text-green-700 transition-colors"
                     >
                       <MessageCircle size={18} />
@@ -104,7 +104,7 @@ export function ClientDetailContent({ client }: { client: Client }) {
                     <a
                       href={client.facebook}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer me"
                       className="flex items-center gap-3 text-[var(--stone-gray)] hover:text-[var(--ink)] transition-colors"
                     >
                       <Facebook size={18} className="text-[var(--accent)]" />
@@ -117,7 +117,7 @@ export function ClientDetailContent({ client }: { client: Client }) {
                     <a
                       href={client.instagram}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer me"
                       className="flex items-center gap-3 text-[var(--stone-gray)] hover:text-[var(--ink)] transition-colors"
                     >
                       <Instagram size={18} className="text-[var(--accent)]" />
@@ -130,7 +130,7 @@ export function ClientDetailContent({ client }: { client: Client }) {
                     <a
                       href={client.tiktok}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer me"
                       className="flex items-center gap-3 text-[var(--stone-gray)] hover:text-[var(--ink)] transition-colors"
                     >
                       <ExternalLink size={18} className="text-[var(--accent)]" />

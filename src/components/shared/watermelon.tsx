@@ -15,7 +15,7 @@ export function Watermelon({ size = "md", className = "" }: WatermelonProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-hidden="true"
+      role="img" aria-label="Watermelon slice — Palestinian symbol"
     >
       {/* Green rind */}
       <path d="M2 20 C2 9 9 2 17 2 C25 2 32 9 32 20 Z" fill="#3D5038" />
