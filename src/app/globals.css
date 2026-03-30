@@ -1,0 +1,378 @@
+@import "tailwindcss";
+
+/* ── AIDA Creative Studios · "Jaffa Poster" Design System ── */
+/* Warm in a cold landscape. Every competitor is cyan/teal/green. We are terracotta and stone. */
+
+:root {
+  /* Core palette — Jaffa Poster: Mediterranean warmth meets Jerusalem stone */
+  --sand: #F4EDE4;
+  --limestone: #E8DFD0;
+  --stone: #D4C9B5;
+  --terracotta: #B85C38;
+  --terracotta-light: #D4845E;
+  --terracotta-dim: rgba(184, 92, 56, 0.1);
+  --olive: #5B7553;
+  --olive-dark: #2A3328;
+  --blue: #4A7C8A;
+  --blue-dim: rgba(74, 124, 138, 0.1);
+  --ink: #2B2622;
+  --stone-gray: #8A7F74;
+  --mist: #C8C0B4;
+
+  /* WCAG AA text-safe variants (4.5:1+ on sand) */
+  --terracotta-text: #8E4428;
+  --olive-text: #3D5038;
+  --blue-text: #2E5A66;
+
+  /* Legacy compat — gold demoted to decorative only */
+  --gold: #C5A059;
+  --gold-light: #E8D5A3;
+  --gold-dim: rgba(197, 160, 89, 0.08);
+
+  /* Surfaces */
+  --bg: var(--sand);
+  --surface: var(--limestone);
+  --surface-hover: var(--stone);
+  --border: rgba(184, 92, 56, 0.15);
+
+  /* Text */
+  --text-primary: var(--ink);
+  --text-secondary: var(--stone-gray);
+  --text-muted: #9A9490;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(43, 38, 34, 0.06), 0 1px 4px rgba(43, 38, 34, 0.04);
+  --shadow-hover: 0 8px 40px rgba(43, 38, 34, 0.1), 0 2px 8px rgba(43, 38, 34, 0.06);
+  --shadow-terracotta: 0 4px 24px rgba(184, 92, 56, 0.2);
+}
+
+@theme inline {
+  --color-sand: var(--sand);
+  --color-limestone: var(--limestone);
+  --color-stone: var(--stone);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-light: var(--terracotta-light);
+  --color-terracotta-dim: var(--terracotta-dim);
+  --color-olive: var(--olive);
+  --color-olive-dark: var(--olive-dark);
+  --color-blue: var(--blue);
+  --color-blue-dim: var(--blue-dim);
+  --color-ink: var(--ink);
+  --color-stone-gray: var(--stone-gray);
+  --color-mist: var(--mist);
+  /* Legacy */
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dim: var(--gold-dim);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-arabic: var(--font-cairo);
+  --font-arabic-display: var(--font-reem-kufi);
+  --font-hebrew: var(--font-heebo);
+  --font-space: var(--font-space);
+
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-slide-up: slide-up 0.6s ease-out both;
+  --animate-slide-right: slide-right 0.5s ease-out both;
+  --animate-scale-in: scale-in 0.4s ease-out both;
+}
+
+/* ── Keyframes ── */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-right {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-2%, -2%); }
+  30% { transform: translate(3%, -1%); }
+  50% { transform: translate(-1%, 3%); }
+  70% { transform: translate(2%, 1%); }
+  90% { transform: translate(-3%, 2%); }
+}
+
+/* ── Base ── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL font switching */
+[dir="rtl"][lang="ar"] body { font-family: var(--font-cairo), system-ui, sans-serif; }
+[dir="rtl"][lang="he"] body { font-family: var(--font-heebo), system-ui, sans-serif; }
+
+/* Arabic display headlines — Reem Kufi: geometric Kufi heritage, says "designer" not "literary" */
+[dir="rtl"][lang="ar"] h1,
+[dir="rtl"][lang="ar"] h2 {
+  font-family: var(--font-reem-kufi), var(--font-cairo), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+::selection {
+  background: rgba(206, 44, 48, 0.25);
+  color: var(--ink);
+}
+
+/* 🍉 */
+.watermelon-seed {
+  width: 4px;
+  height: 6px;
+  background: #2A3328;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  display: inline-block;
+}
+
+.bateekh-slice::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 12px;
+  background: linear-gradient(to bottom, #5B7553 0%, #5B7553 25%, #F4EDE4 25%, #F4EDE4 35%, #CE2C30 35%, #CE2C30 100%);
+  border-radius: 24px 24px 0 0;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* ── Typography utilities ── */
+
+.font-space { font-family: var(--font-space), system-ui, sans-serif; }
+.font-arabic { font-family: var(--font-cairo), system-ui, sans-serif; }
+.font-hebrew { font-family: var(--font-heebo), system-ui, sans-serif; }
+
+/* Terracotta gradient for headlines — replaces gold gradient */
+.text-terracotta-gradient {
+  background: linear-gradient(135deg, #B85C38, #D4845E, #B85C38);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Legacy: keep gold-gradient class working but map to terracotta */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B85C38, #D4845E, #B85C38);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Dividers ── */
+
+.terracotta-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+}
+
+/* Legacy alias */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--terracotta), transparent);
+}
+
+/* ── Paper texture overlay ── */
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  animation: grain 8s steps(10) infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Warm panel ── */
+
+.warm-panel {
+  background: var(--limestone);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.warm-panel:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(184, 92, 56, 0.25);
+}
+
+/* ── Dark section (olive contrast) ── */
+
+.section-dark {
+  background: var(--olive-dark);
+  color: var(--sand);
+}
+
+.section-dark .text-gold-gradient,
+.section-dark .text-terracotta-gradient {
+  background: linear-gradient(135deg, #D4845E, #F5E6C0, #D4845E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Organic blob shapes ── */
+
+.blob-1 {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+.blob-2 {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* ── Dot grid pattern ── */
+
+.dot-grid {
+  background-image: radial-gradient(circle, var(--mist) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Gradient overlays for sections ── */
+
+.gradient-sand {
+  background: linear-gradient(180deg, var(--sand) 0%, var(--limestone) 100%);
+}
+
+.gradient-limestone {
+  background: linear-gradient(180deg, var(--limestone) 0%, var(--sand) 100%);
+}
+
+/* ── Card tilt on hover ── */
+
+.tilt-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-card:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-1deg);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ── Terracotta left border accent (was gold) ── */
+
+.gold-border-start {
+  border-inline-start: 3px solid var(--terracotta);
+  padding-inline-start: 16px;
+}
+
+/* ── Blue left border accent (new) ── */
+
+.blue-border-start {
+  border-inline-start: 3px solid var(--blue);
+  padding-inline-start: 16px;
+}
+
+/* ── Terracotta underline accent ── */
+
+.terracotta-underline {
+  position: relative;
+}
+.terracotta-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  inset-inline-start: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--terracotta);
+  border-radius: 2px;
+}
+
+/* ── Calligraphic watermark — now Reem Kufi ── */
+
+.calligraphy-watermark::after {
+  content: "إبداع";
+  position: absolute;
+  font-family: var(--font-reem-kufi), sans-serif;
+  font-size: 18rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 0;
+  inset-inline-end: -5%;
+  top: 10%;
+  line-height: 1;
+}
+
+/* ── Floating animation ── */
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 10s ease-in-out infinite;
+}
+
+/* ── Marquee ── */
+
+.marquee-track {
+  display: flex;
+  animation: marquee 30s linear infinite;
+}
+
+/* ── Wavy divider ── */
+
+.wavy-divider {
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+}
+
+.wavy-divider svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Reduced motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
