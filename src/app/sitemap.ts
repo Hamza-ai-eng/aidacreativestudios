@@ -16,6 +16,9 @@ const pages = [
   { path: "/work/al-daya", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/contact", priority: 0.9, changeFrequency: "yearly" as const },
+  { path: "/seo/branding", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/seo/social-media", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/seo/menu-design", priority: 0.8, changeFrequency: "monthly" as const },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

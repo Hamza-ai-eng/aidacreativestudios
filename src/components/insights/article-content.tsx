@@ -68,8 +68,8 @@ export function ArticleContent({ article }: { article: Article }) {
       <section className="pb-8">
         <div className="mx-auto max-w-3xl px-6">
           <ArticleCover
-            title={t(`articles.\${article.titleKey}`)}
-            collection={t(`collections.\${article.collection}`)}
+            title={t(`articles.${article.titleKey}`)}
+            collection={t(`collections.${article.collection}`)}
             color={col?.color || "#4A7C8A"}
           />
         </div>

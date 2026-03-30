@@ -3,6 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { articles } from "@/data/insights/articles";
 import { ArticleContent } from "@/components/insights/article-content";
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
 }

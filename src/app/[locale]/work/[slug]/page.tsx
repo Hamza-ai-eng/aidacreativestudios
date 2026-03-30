@@ -11,6 +11,8 @@ const caseStudies = {
 
 type CaseStudyKey = keyof typeof caseStudies;
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return Object.keys(caseStudies).map((slug) => ({ slug }));
 }

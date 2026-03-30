@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { clients } from "@/data/clients";
 import { ClientDetailContent } from "@/components/clients/client-detail-content";
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return clients.map((c) => ({ slug: c.slug }));
 }
