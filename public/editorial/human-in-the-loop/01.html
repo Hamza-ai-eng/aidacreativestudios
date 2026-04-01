@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 01 — The Kill List Machine | Human in the Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1A1714;
+    --surface: #F5F0E8;
+    --accent: #C41230;
+    --muted: #6B6259;
+    --art: #C8924A;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  html[lang="ar"] { direction: rtl; }
+  html:not([lang="ar"]) .lang-ar { display: none !important; }
+  html[lang="ar"] .lang-en { display: none !important; }
+
+  body { background: var(--bg); color: var(--surface); font-family: 'EB Garamond', serif; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,23,20,0.96); backdrop-filter: blur(8px);
+    height: 52px; display: flex; align-items: center;
+    padding: 0 2rem; border-bottom: 1px solid rgba(245,240,232,0.08);
+  }
+  .nav-left { flex: 1; }
+  .nav-left a { color: var(--muted); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-left a:hover { color: var(--surface); }
+  .nav-center { flex: 2; text-align: center; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .nav-center .file-num { color: var(--art); font-weight: 600; }
+  .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .lang-btn { background: none; border: 1px solid rgba(245,240,232,0.2); color: var(--muted); padding: 0.25rem 0.6rem; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--art); color: var(--art); }
+
+  /* HERO */
+  .hero {
+    position: relative; height: 60vh; min-height: 400px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden; margin-top: 52px;
+  }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(26,23,20,0.1) 0%, rgba(26,23,20,0.4) 40%, rgba(26,23,20,0.92) 100%);
+  }
+  .hero-ghost {
+    position: absolute; right: 5%; bottom: -0.1em;
+    font-family: 'Playfair Display', serif; font-size: clamp(8rem, 22vw, 18rem); font-weight: 900;
+    color: var(--art); opacity: 0.12; line-height: 1; pointer-events: none; user-select: none;
+    letter-spacing: -0.04em;
+  }
+  html[lang="ar"] .hero-ghost { right: auto; left: 5%; }
+  .hero-content { position: relative; z-index: 2; padding: 2.5rem 3rem; max-width: 900px; }
+  .hero-file-label {
+    font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--art); margin-bottom: 0.75rem;
+  }
+  .hero-title-en {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05;
+    color: var(--surface); margin-bottom: 0.5rem;
+  }
+  .hero-title-ar {
+    font-family: 'Amiri', serif; font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2;
+    color: var(--surface); margin-bottom: 0.5rem;
+  }
+  .hero-subtitle {
+    font-family: 'EB Garamond', serif; font-style: italic;
+    font-size: 1.05rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem;
+  }
+  .hero-subtitle-ar {
+    font-family: 'Amiri', serif; font-style: italic;
+    font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem;
+  }
+  .byline { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: rgba(245,240,232,0.5); letter-spacing: 0.03em; }
+  .byline-ar { font-family: 'Amiri', serif; font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+
+  /* ARTICLE BODY */
+  .article-wrap { background: var(--surface); color: #1A1714; }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-body p {
+    font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.85;
+    color: #1A1714; margin-bottom: 1.4em;
+  }
+  .article-body p.ar {
+    font-family: 'Amiri', serif; font-size: 20px; line-height: 1.9;
+    direction: rtl; text-align: right;
+  }
+  .article-body h2 {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 1.55rem; color: #1A1714; margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem; border-bottom: 2px solid var(--art);
+  }
+  .article-body h2.ar {
+    font-family: 'Amiri', serif; font-size: 1.7rem;
+    direction: rtl; text-align: right;
+  }
+  .article-body hr {
+    border: none; border-top: 1px solid rgba(26,23,20,0.15);
+    margin: 2rem 0;
+  }
+  .article-body em { font-style: italic; }
+  .article-body strong { font-weight: 600; }
+  .sources {
+    margin-top: 3rem; padding-top: 1.5rem;
+    border-top: 1px solid rgba(26,23,20,0.15);
+    font-size: 0.85rem; color: var(--muted); line-height: 1.6;
+  }
+  .sources p, .sources li { font-size: 0.85rem; font-family: 'EB Garamond', serif; }
+  .sources ul { padding-left: 1.2rem; }
+
+  /* PULL QUOTE */
+  .pull-quote-section {
+    background: var(--bg); padding: 5rem 2rem;
+  }
+  .pull-quote-inner { max-width: 720px; margin: 0 auto; }
+  .pull-quote {
+    border-left: 4px solid var(--art);
+    padding: 1.5rem 2rem;
+  }
+  html[lang="ar"] .pull-quote {
+    border-left: none; border-right: 4px solid var(--art);
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: clamp(1.2rem, 2.5vw, 1.65rem); line-height: 1.5;
+    color: var(--surface);
+  }
+  .pull-quote p.ar {
+    font-family: 'Amiri', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    direction: rtl; text-align: right;
+  }
+
+  /* ARTICLE FOOTER */
+  .article-footer { background: var(--surface); padding: 3rem 2rem; }
+  .article-footer-inner { max-width: 720px; margin: 0 auto; }
+  .file-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .file-nav a {
+    font-family: 'EB Garamond', serif; font-size: 0.9rem;
+    color: var(--muted); text-decoration: none; letter-spacing: 0.03em;
+    border-bottom: 1px solid transparent; transition: all 0.2s;
+    padding-bottom: 2px;
+  }
+  .file-nav a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .series-link { text-align: center; margin-bottom: 2rem; }
+  .series-link a {
+    font-family: 'EB Garamond', serif; font-size: 0.9rem;
+    color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid rgba(107,98,89,0.4);
+    padding-bottom: 2px; transition: all 0.2s;
+  }
+  .series-link a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .author-bio {
+    font-family: 'EB Garamond', serif; font-size: 0.9rem;
+    color: var(--muted); border-top: 1px solid rgba(26,23,20,0.12);
+    padding-top: 1.5rem; line-height: 1.6;
+  }
+  .author-bio-ar { font-family: 'Amiri', serif; font-size: 0.95rem; direction: rtl; text-align: right; }
+
+  /* SITE FOOTER */
+  footer {
+    background: var(--bg); text-align: center; padding: 2rem;
+    font-family: 'EB Garamond', serif; font-size: 0.8rem;
+    color: var(--muted); letter-spacing: 0.05em;
+    border-top: 1px solid rgba(245,240,232,0.06);
+  }
+
+  .article-image-panel{width:100%;margin:4rem 0;position:relative;overflow:hidden;}
+  .aip-image{width:100%;height:420px;background-size:cover;background-position:center;}
+  @media (max-width: 600px) {
+    .hero-content { padding: 1.5rem; }
+    .article-body { padding: 2.5rem 1.2rem; }
+    nav { padding: 0 1rem; }
+    .nav-center { font-size: 0.75rem; }
+    .aip-image{height:260px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="lang-en">Human in the Loop</a>
+    <a href="index.html" class="lang-ar">إنسان في الدوامة</a>
+  </div>
+  <div class="nav-center">
+    <span class="lang-en"><span class="file-num">File 01</span> &mdash; The Kill List Machine</span>
+    <span class="lang-ar"><span class="file-num">الملف 01</span> &mdash; آلة القتل</span>
+  </div>
+  <div class="nav-right">
+    <a href="/en/insights" class="lang-btn lang-en" style="text-decoration:none;font-size:0.75rem">← AIDA</a>
+    <a href="/ar/insights" class="lang-btn lang-ar" style="text-decoration:none;font-size:0.75rem">AIDA →</a>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/leonardo/v4/01-A_v4.jpg" alt="The Kill List Machine">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">01</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Human in the Loop &mdash; File 01 of 07</div>
+    <div class="hero-file-label lang-ar">إنسان في الدوامة &mdash; الملف 01 من 07</div>
+    <h1 class="hero-title-en lang-en">The Kill List Machine</h1>
+    <h1 class="hero-title-ar lang-ar">آلة القتل</h1>
+    <p class="hero-subtitle lang-en"><em>How Israel&rsquo;s AI targeting system turned Gaza into a trial run for automated war</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>كيف حوّل نظام الذكاء الاصطناعي الإسرائيلي غزة لمختبر للحرب الآلية</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; April 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أبريل 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <!-- ENGLISH -->
+    <div class="lang-en">
+      <p>A woman is setting the table when it happens. Her children are in the next room. She can hear them.</p>
+      <hr>
+      <p>I keep thinking about the name they gave the second system.</p>
+      <p>Not Lavender &mdash; that&rsquo;s the one everyone is talking about, the AI that built the kill list. The other one. The one that worked alongside it. They called it &ldquo;Where&rsquo;s Daddy?&rdquo;</p>
+      <p>The name tells you what it did. It tracked the men on Lavender&rsquo;s list and waited. Not in a general sense &mdash; specifically. It waited for them to go home. It waited for them to be with their families. Israeli forces linked the two systems: Lavender to identify, Where&rsquo;s Daddy to locate, and the strike came when the man was home.</p>
+      <p>Someone named that system. Someone on a team, building targeting software for the most heavily bombed territory on earth, looked at the function &mdash; wait for the father to come home, then strike &mdash; and called it Where&rsquo;s Daddy?</p>
+      <p>I don&rsquo;t know why the name stays with me more than the numbers. The numbers are there. Lavender marked 37,000 Palestinians for assassination in the first weeks of the war &mdash; roughly the entire population of Ramallah, every person in the city, marked in the first weeks of a single war. Israeli intelligence officers spent an average of twenty seconds reviewing each name before authorizing a strike. The system&rsquo;s known internal error rate: ten percent. The military approved it anyway.</p>
+      <p>The name is something else. The name is casual. The name belongs to a team that had been doing this long enough to afford casualness.</p>
+      <hr>
+      <p>Lavender is an AI-based targeting system developed by Israeli military intelligence. The April 2024 investigation by +972 Magazine and Local Call &mdash; based on testimony from six Israeli intelligence officers who worked with the system during the war on Gaza &mdash; disclosed how it operated and what it was permitted to do.</p>
+      <p>The system processed data on nearly the entire population of Gaza and produced what it classified as human targets: people it identified as members &mdash; including low-ranking operatives &mdash; of the military wings of Hamas or Palestinian Islamic Jihad. In the first weeks of the war, Lavender generated a list of approximately 37,000 Palestinians marked for potential assassination.</p>
+      <p>Its companion system, the Gospel &mdash; known in Hebrew as Habsora &mdash; did not identify people. It identified buildings: structures the military classified as serving a military function. Together, the two systems formed what one Israeli intelligence source described to investigators as &ldquo;a mass assassination factory.&rdquo;</p>
+      <p>The description was not a protest. It was an explanation of how the factory worked.</p>
+      <hr>
+      <p>The legal framework governing targeting decisions in warfare is built on one principle: a human being must make the decision to kill. Not a process. Not a system. A person who can be held accountable, who can exercise judgment, who can weigh civilian harm against military necessity.</p>
+      <p>Lavender did not remove that person. It kept one there &mdash; technically. An Israeli officer reviewed each name before authorizing a strike. That review lasted, on average, twenty seconds.</p>
+      <p>The officers told investigators the review was not substantive. They were not examining the evidence behind Lavender&rsquo;s classification. In most cases, they were verifying one thing: that the target was male. Twenty seconds to confirm the person&rsquo;s sex. Then the authorization.</p>
+      <p>&ldquo;The whole point,&rdquo; one officer told investigators, &ldquo;was to make it go fast.&rdquo;</p>
+      <p>It is the precise calibration of what &ldquo;human oversight&rdquo; means when human oversight is the obstacle to scale.</p>
+      <p>The legal requirement for meaningful human oversight was satisfied, on paper, by a checkbox. The checkbox took twenty seconds. Then a family&rsquo;s address became a strike coordinate.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/01-D_v3_vintage_114326.jpg')"></div>
+      </div>
+      <p>The system had a known error rate. By Lavender&rsquo;s own internal standards, it misidentified targets approximately ten percent of the time. The military knew this before the war. Approval for widespread deployment came anyway.</p>
+      <p>Ten percent of 37,000 is 3,700 people. Not meeting even the system&rsquo;s own loose criteria &mdash; criteria that included civil defense workers in its training data &mdash; yet flagged for assassination. Some were struck. Their homes were destroyed. The people inside were killed. In most cases, no individual officer reviewed the specific evidence against them. The machine decided. The human, twenty seconds later, agreed.</p>
+      <p>UN Special Rapporteur on human rights and counterterrorism Ben Saul said after the investigation&rsquo;s publication: if the details are accurate, &ldquo;many Israeli strikes in Gaza would constitute the war crimes of launching disproportionate attacks.&rdquo;</p>
+      <hr>
+      <p>The mathematics of acceptable harm were explicit.</p>
+      <p>The officers on record described thresholds the Israeli military established: for every junior Hamas operative that Lavender marked &mdash; a driver, a logistics coordinator, a low-ranking member &mdash; Israeli forces were permitted to kill up to fifteen or twenty civilians. For senior Hamas officials, that threshold rose. On several occasions, the military authorized strikes on single commanders that killed more than a hundred people.</p>
+      <p>They were permitted deaths calculated in advance.</p>
+      <p>&ldquo;Dumb bombs&rdquo; &mdash; unguided munitions, cheaper, less precise &mdash; were used on lower-ranking targets. One officer explained the reasoning plainly: you don&rsquo;t use expensive precision weapons on unimportant people.</p>
+      <hr>
+      <p>It used to be a political question about who Palestinians are. Now it is a computational one. A machine built on incomplete data, with a ten percent error rate, approved for deployment anyway, giving officers twenty seconds to review its conclusions &mdash; that machine processes your life. Whether you go home tonight. Whether you are still alive in the morning.</p>
+      <p>Where&rsquo;s Daddy? knows when you&rsquo;re home.</p>
+      <hr>
+      <p>International humanitarian law was written for humans making decisions about other humans. It was built on the premise that killing requires a person &mdash; a specific person with rank, authority, and accountability &mdash; to weigh the evidence, the proportionality, the necessity.</p>
+      <p>Lavender did not remove that person. It turned them into an approval mechanism. It reduced human judgment to a twenty-second identity check and moved fast enough that the war could scale in ways no previous war had scaled.</p>
+      <p>This is not a story about a machine that went wrong. The machine performed as designed. The machine performed as approved. The machine performed within a policy framework that permitted the deaths of fifteen to twenty civilians for every junior operative it identified.</p>
+      <p>The machine did not design that policy. People did.</p>
+      <p>Somewhere &mdash; in a meeting, in a document, in a decision chain that ran through the Israeli military and its legal advisors &mdash; a number was agreed upon. Fifteen. Twenty. A hundred. Twenty seconds to confirm a name, and then the number applied.</p>
+      <p>Those people have names. And somewhere, in a system they built and named, a function still waits: it knows when the father is home. It knows what to do when he gets there.</p>
+      <p>The woman setting the table heard him come in. That is what the system waited for. That is what made the moment the right moment. She was not a target. She was the confirmation.</p>
+      <p>Where&rsquo;s Daddy?</p>
+      <div class="sources">
+        <p><em>Sources: +972 Magazine and Local Call, &ldquo;Lavender: The AI Machine Directing Israel&rsquo;s Bombing Spree in Gaza,&rdquo; Yuval Abraham, April 2024. UN Special Rapporteur Ben Saul, statement April 2024. AI Incident Database, Incident 672.</em></p>
+      </div>
+    </div>
+
+    <!-- ARABIC -->
+    <div class="lang-ar">
+      <p class="ar">في امرأة كانت عم تحضّر طاولة العشاء لما صار. أولادها كانوا في الغرفة الجانبة. كانت بتسمع أصواتهم.</p>
+      <hr>
+      <p class="ar">بفكر كثير باسم النظام التاني.</p>
+      <p class="ar">مش لافندر — هادا اللي كل الناس عم تحكي عنه هلق، نظام الذكاء الاصطناعي اللي بنى قوائم القتل. يعني النظام التاني، اللي اشتغل جنبه. سمّوه «وين أبو؟»</p>
+      <p class="ar">الاسم بحكيلك شو عمل. كان يرصد الناس على قائمة لافندر ويستنى. مش بمعنى عام — بالضبط. كان يستنى لحتى يرجعوا على البيت. يستنى لحتى يكونوا مع عيلاتهم. الجيش الإسرائيلي ربط النظامين ببعض: لافندر يحدد، «وين أبو؟» يلاقي، والضربة بتيجي لما الراجل يكون في بيته.</p>
+      <p class="ar">حدا سمّى هاد النظام هيك. حدا في فريق عم يبني برنامج استهداف لأكثر منطقة تتقصف بالعالم، شاف الوظيفة — استنى لحتى يرجع الأب على البيت، وبعدين اضرب — وحطّلها اسم: «وين أبو؟»</p>
+      <p class="ar">مش عارف ليش الاسم بيضل في بالي أكثر من الأرقام. الأرقام موجودة. لافندر حطّ سبعة وثلاثين ألف فلسطيني على قائمة الاغتيال في الأسابيع الأولى من الحرب. عشرين ثانية — المعدل اللي قضاه ضابط استخبارات إسرائيلي على كل اسم قبل يوافق على الضربة. نسبة خطأ معروفة بعشرة بالمئة. ووافقوا عليه رغم هيك.</p>
+      <p class="ar">الاسم شي تاني. الاسم مريح. الاسم بيخص فريق اشتغل على الموضوع لوقت كافٍ لحتى صار يقدر يكون مريح.</p>
+      <hr>
+      <p class="ar">لافندر نظام استهداف مبني على الذكاء الاصطناعي طوّرته الاستخبارات العسكرية الإسرائيلية. تحقيق أبريل 2024 الصادر عن مجلة +972 ولوكال كول كشف كيف اشتغل النظام وشو كان مسموحاً له يعمل.</p>
+      <p class="ar">النظام حلّل بيانات ما يقارب كل سكان غزة وأنتج قوائم بما وصفه بالأهداف البشرية. في الأسابيع الأولى من الحرب، أنتج لافندر قائمة بحوالي سبعة وثلاثين ألف فلسطيني محددين للاغتيال المحتمل.</p>
+      <p class="ar">النظام المرافق، الإنجيل — هبسورا بالعبري — ما كان يحدد أشخاص. كان يحدد مباني. النظامان معاً كوّنا ما وصفه مصدر استخباراتي إسرائيلي للمحققين بـ"مصنع الاغتيال الجماعي." الوصف ما كان احتجاجاً. كان شرحاً لكيفية عمل المصنع.</p>
+      <hr>
+      <p class="ar">الإطار القانوني اللي بيحكم قرارات الاستهداف في الحرب مبني على مبدأ واحد: لازم إنسان يتخذ قرار القتل. مش عملية. مش نظام. شخص يمكن محاسبته.</p>
+      <p class="ar">لافندر ما حذف الإنسان من الحلقة. خلّى واحداً فيها — من الناحية التقنية. ضابط إسرائيلي راجع كل اسم قبل يوافق على الضربة. هاي المراجعة أخذت بالمعدل عشرين ثانية.</p>
+      <p class="ar">الضباط اللي تحدثوا للتحقيق قالوا إن المراجعة ما كانت جوهرية. كانوا في معظم الحالات يتحققون من شي واحد: إنه الهدف ذكر. عشرين ثانية يأكدوا جنس الشخص. وبعدين الإذن.</p>
+      <p class="ar">قال ضابط للمحققين: "النقطة الكاملة كانت تسريعه."</p>
+      <p class="ar">الشرط القانوني للرقابة البشرية الفعلية اتحقق على الورق بمربع اختيار. المربع أخذ عشرين ثانية. وبعدين عنوان عيلة صار إحداثيات ضربة.</p>
+      <hr>
+      <p class="ar">النظام كانت عنده نسبة خطأ معروفة. بمعاييره الداخلية، لافندر كان يخطئ في تحديد الأهداف تقريباً عشرة بالمئة من الوقت. الجيش عرف هاد قبل الحرب. الموافقة على التوسع في الاستخدام جاءت رغم ذلك.</p>
+      <p class="ar">عشرة بالمئة من سبعة وثلاثين ألف — ثلاثة آلاف وسبعمائة شخص. في معظم الحالات، ما فحص أي ضابط الأدلة المحددة ضدهم. الآلة قررت. الإنسان، بعد عشرين ثانية، وافق.</p>
+      <p class="ar">أعلن المقرر الخاص للأمم المتحدة بن سول: إذا كانت التفاصيل دقيقة، فإن "كثيراً من الضربات الإسرائيلية في غزة ستشكّل جرائم حرب تتمثل في شنّ هجمات غير متناسبة."</p>
+      <hr>
+      <p class="ar">رياضيات الضرر المقبول كانت صريحة. لكل عنصر من رتبة دنيا في حماس حدده لافندر، كان مسموحاً للجيش الإسرائيلي قتل ما يصل لخمسة عشر أو عشرين مدنياً. للمسؤولين الكبار، الرقم ارتفع.</p>
+      <p class="ar">هي وفيات مسموح بها حُسبت مسبقاً.</p>
+      <p class="ar">"القنابل الغبية" — الذخائر غير الموجّهة، الأرخص، الأقل دقة — استُخدمت مع الأهداف من الرتب الدنيا. شرح ضابط المنطق مباشرةً: ما تستخدم أسلحة دقيقة غالية على ناس مش مهمين.</p>
+      <hr>
+      <p class="ar">كان سؤالاً سياسياً عن هوية الفلسطينيين. صار حسابياً. آلة بتعالجك بُنيت على بيانات ناقصة، نسبة خطأها عشرة بالمئة، أُقرّت رغم ذلك، أعطت الضباط عشرين ثانية يراجعوا استنتاجاتها. «وين أبو؟» بيعرف لما انت في البيت.</p>
+      <hr>
+      <p class="ar">القانون الإنساني الدولي اتكتب لبشر بيتخذون قرارات بحق بشر. لافندر ما حذف هاد الشخص. حوّله لآلية موافقة. اختصر الحكم البشري لفحص هوية مدته عشرين ثانية.</p>
+      <p class="ar">هاد مش حكاية عن آلة انحرفت عن مسارها. الآلة اشتغلت كما صُممت. كما أُقرّت. ضمن إطار سياسة سمح بموت خمسة عشر لعشرين مدنياً لكل عنصر صغير حددته. الآلة ما صمّمت هاي السياسة. ناس صمّموها.</p>
+      <p class="ar">هؤلاء الناس عندهم أسماء. وفي مكان ما، في نظام بنوه وسمّوه، وظيفة لسا قايمة: بتعرف لما الأب في البيت. بتعرف شو تعمل لما يرجع.</p>
+      <p class="ar">المرأة اللي كانت عم تحضّر طاولة العشاء سمعته بيدخل. هاد هو اللي النظام انتظر له. هي ما كانت هدفاً. هي كانت التأكيد.</p>
+      <p class="ar">وين أبو؟</p>
+      <div class="sources">
+        <p class="ar"><em>المصادر: مجلة +972 ولوكال كول، "لافندر: الآلة التي توجّه موجة القصف الإسرائيلية في غزة"، يوفال أبراهام، أبريل 2024. المقرر الخاص للأمم المتحدة بن سول، تصريح أبريل 2024. قاعدة بيانات حوادث الذكاء الاصطناعي، الحادثة 672.</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;Lavender did not remove that person. It turned them into an approval mechanism. It reduced human judgment to a twenty-second identity check and moved fast enough that the war could scale in ways no previous war had scaled.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;لافندر ما حذف الإنسان. حوّله لآلية موافقة. اختصر الحكم البشري لفحص هوية مدته عشرين ثانية، وتحرّك بسرعة كافية لتتوسع الحرب بطرق ما توسعت فيها أي حرب سابقة.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <span class="lang-en" style="color:var(--muted); font-family:'EB Garamond',serif; font-size:0.9rem;">&nbsp;</span>
+      <span class="lang-ar" style="color:var(--muted); font-family:'Amiri',serif; font-size:0.9rem;">&nbsp;</span>
+      <a href="02.html" class="lang-en">Next File &rarr; The Checkpoint Camera</a>
+      <a href="02.html" class="lang-ar">الملف التالي &larr; كاميرا الحاجز</a>
+    </div>
+    <div class="series-link">
+      <a href="index.html" class="lang-en">Back to Human in the Loop</a>
+      <a href="index.html" class="lang-ar">العودة إلى إنسان في الدوامة</a>
+    </div>
+    <div class="author-bio lang-en">
+      <strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Human in the Loop is a seven-part series on artificial intelligence and the Palestinian condition.
+    </div>
+    <div class="author-bio author-bio-ar lang-ar">
+      <strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إنسان في الدوامة سلسلة من سبعة ملفات عن الذكاء الاصطناعي والحالة الفلسطينية.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('hitl-lang', lang);
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+  }
+  (function() {
+    var saved = localStorage.getItem('hitl-lang') || 'en';
+    setLang(saved);
+  })();
+</script>
+</body>
+</html>

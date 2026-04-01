@@ -1,4 +1,4 @@
-import { Playfair_Display, Inter, Cairo, Heebo, Space_Grotesk, Reem_Kufi } from "next/font/google";
+import { Playfair_Display, Inter, Cairo, Heebo, Space_Grotesk, Amiri } from "next/font/google";
 
 export const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -18,9 +18,10 @@ export const cairo = Cairo({
   display: "swap",
 });
 
-export const reemKufi = Reem_Kufi({
+export const amiri = Amiri({
   subsets: ["arabic", "latin"],
-  variable: "--font-reem-kufi",
+  weight: ["400", "700"],
+  variable: "--font-amiri",
   display: "swap",
 });
 

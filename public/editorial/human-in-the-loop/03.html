@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 03 — The Stateless Database | Human in the Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#1A1714;--surface:#F5F0E8;--accent:#C41230;--muted:#6B6259;--art:#4E9FD8;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;}html[lang="ar"]{direction:rtl;}
+  html:not([lang="ar"]) .lang-ar{display:none!important;}html[lang="ar"] .lang-en{display:none!important;}
+  body{background:var(--bg);color:var(--surface);font-family:'EB Garamond',serif;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,23,20,0.96);backdrop-filter:blur(8px);height:52px;display:flex;align-items:center;padding:0 2rem;border-bottom:1px solid rgba(245,240,232,0.08);}
+  .nav-left{flex:1;}.nav-left a{color:var(--muted);text-decoration:none;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s;}.nav-left a:hover{color:var(--surface);}
+  .nav-center{flex:2;text-align:center;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.05em;color:var(--muted);}.nav-center .file-num{color:var(--art);font-weight:600;}
+  .nav-right{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:0.5rem;}
+  .lang-btn{background:none;border:1px solid rgba(245,240,232,0.2);color:var(--muted);padding:0.25rem 0.6rem;font-size:0.78rem;cursor:pointer;transition:all 0.2s;}.lang-btn:hover,.lang-btn.active{border-color:var(--art);color:var(--art);}
+  .hero{position:relative;height:60vh;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;margin-top:52px;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.1) 0%,rgba(26,23,20,0.4) 40%,rgba(26,23,20,0.92) 100%);}
+  .hero-ghost{position:absolute;right:5%;bottom:-0.1em;font-family:'Playfair Display',serif;font-size:clamp(8rem,22vw,18rem);font-weight:900;color:var(--art);opacity:0.12;line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.04em;}
+  html[lang="ar"] .hero-ghost{right:auto;left:5%;}
+  .hero-content{position:relative;z-index:2;padding:2.5rem 3rem;max-width:900px;}
+  .hero-file-label{font-family:'EB Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--art);margin-bottom:0.75rem;}
+  .hero-title-en{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);line-height:1.05;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1.2;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .hero-subtitle-ar{font-family:'Amiri',serif;font-style:italic;font-size:1.1rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .byline{font-family:'EB Garamond',serif;font-size:0.85rem;color:rgba(245,240,232,0.5);letter-spacing:0.03em;}
+  .byline-ar{font-family:'Amiri',serif;font-size:0.9rem;color:rgba(245,240,232,0.5);}
+  .article-wrap{background:var(--surface);color:#1A1714;}
+  .article-body{max-width:720px;margin:0 auto;padding:4rem 2rem;}
+  .article-body p{font-family:'EB Garamond',serif;font-size:19px;line-height:1.85;color:#1A1714;margin-bottom:1.4em;}
+  .article-body p.ar{font-family:'Amiri',serif;font-size:20px;line-height:1.9;direction:rtl;text-align:right;}
+  .article-body h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.55rem;color:#1A1714;margin:2.5rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--art);}
+  .article-body h2.ar{font-family:'Amiri',serif;font-size:1.7rem;direction:rtl;text-align:right;}
+  .article-body hr{border:none;border-top:1px solid rgba(26,23,20,0.15);margin:2rem 0;}
+  .sources{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(26,23,20,0.15);font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  .sources p{font-size:0.85rem;font-family:'EB Garamond',serif;}
+  .pull-quote-section{background:var(--bg);padding:5rem 2rem;}
+  .pull-quote-inner{max-width:720px;margin:0 auto;}
+  .pull-quote{border-left:4px solid var(--art);padding:1.5rem 2rem;}
+  html[lang="ar"] .pull-quote{border-left:none;border-right:4px solid var(--art);}
+  .pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.5;color:var(--surface);}
+  .pull-quote p.ar{font-family:'Amiri',serif;font-size:clamp(1.3rem,2.5vw,1.75rem);direction:rtl;text-align:right;}
+  .article-footer{background:var(--surface);padding:3rem 2rem;}
+  .article-footer-inner{max-width:720px;margin:0 auto;}
+  .file-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+  .file-nav a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;padding-bottom:2px;}.file-nav a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .series-link{text-align:center;margin-bottom:2rem;}.series-link a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(107,98,89,0.4);padding-bottom:2px;transition:all 0.2s;}.series-link a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .author-bio{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);border-top:1px solid rgba(26,23,20,0.12);padding-top:1.5rem;line-height:1.6;}
+  .author-bio-ar{font-family:'Amiri',serif;font-size:0.95rem;direction:rtl;text-align:right;}
+  footer{background:var(--bg);text-align:center;padding:2rem;font-family:'EB Garamond',serif;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;border-top:1px solid rgba(245,240,232,0.06);}
+  .article-image-panel{width:100%;margin:4rem 0;position:relative;overflow:hidden;}
+  .aip-image{width:100%;height:420px;background-size:cover;background-position:center;}
+  @media(max-width:600px){.hero-content{padding:1.5rem;}.article-body{padding:2.5rem 1.2rem;}nav{padding:0 1rem;}.nav-center{font-size:0.75rem;}.aip-image{height:260px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Human in the Loop</a><a href="index.html" class="lang-ar">إنسان في الدوامة</a></div>
+  <div class="nav-center"><span class="lang-en"><span class="file-num">File 03</span> &mdash; The Stateless Database</span><span class="lang-ar"><span class="file-num">الملف 03</span> &mdash; قاعدة البيانات بلا جنسية</span></div>
+  <div class="nav-right"><a href="/en/insights" id="aida-back" class="lang-btn lang-en" style="text-decoration:none;font-size:0.75rem">← AIDA</a><a href="/ar/insights" class="lang-btn lang-ar" style="text-decoration:none;font-size:0.75rem">AIDA →</a><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button><button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button></div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/leonardo/v3/03-D_v3_phoenix_113919.jpg" alt="The Stateless Database">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">03</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Human in the Loop &mdash; File 03 of 07</div>
+    <div class="hero-file-label lang-ar">إنسان في الدوامة &mdash; الملف 03 من 07</div>
+    <h1 class="hero-title-en lang-en">The Stateless Database</h1>
+    <h1 class="hero-title-ar lang-ar">قاعدة البيانات بلا جنسية</h1>
+    <p class="hero-subtitle lang-en"><em>What happens to your iris scan when you have no government to protect you</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>ماذا يصير لمسح القزحية لما ما في حكومة بتحميك</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; April 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أبريل 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+    <div class="lang-en">
+      <p>The machine is about the size of a tablet. It sits on a counter at the food distribution point. You step up to it. You place your face in front of the lens. It reads the pattern in your iris &mdash; the texture of your eye, the geography of it, something so specific to you that even your other eye is different &mdash; and within seconds the system confirms: yes, you are who you say you are. Yes, you are eligible. Yes, you may eat today.</p>
+      <p>Before you step up, you sign a form. The form says you consent to the collection of your biometric data. It explains that the data will be stored. It explains that it may be shared with partners. It explains, in careful language, that this registration is required to receive assistance.</p>
+      <p>It does not say: if you refuse, you do not eat.</p>
+      <p>It doesn&rsquo;t have to say it. You already know.</p>
+      <p>The transaction completes. The data stays.</p>
+      <hr>
+      <p>The iris scan has become the entry point to humanitarian aid for millions of refugees worldwide. In Jordan, the World Food Programme and UNHCR &mdash; working with IrisGuard, a UK-based biometric technology company &mdash; deployed iris recognition across refugee camps and urban assistance programs from 2016 onward. IrisGuard now registers 2.7 million people across five countries, capturing more than 5.5 million irises. The company processes an estimated 1.2 billion US dollars a year in humanitarian cash &mdash; nearly ten percent of all distributed humanitarian aid. UNHCR&rsquo;s broader biometric database holds records on approximately 12 million people across 90 country operations.</p>
+      <p>WFP&rsquo;s own documentation states: &ldquo;a beneficiaries&rsquo; refusal to provide the required information may make it impossible for WFP to provide assistance.&rdquo;</p>
+      <p>That sentence is everything. It is the system, in plain language, describing itself.</p>
+      <hr>
+      <p>The Palestinian refugees living in Lebanon&rsquo;s camps &mdash; Shatila, Bourj el-Barajneh, Nahr el-Bared &mdash; have been there since 1948. Since the Nakba. Seventy-seven years in some cases. Their grandparents fled. Their parents were born in the camps. They were born in the camps. And across those generations, each birth was registered, each family recorded, each body entered into a system. UNRWA, the United Nations agency for Palestinian refugees, maintains active files on 5.9 million people &mdash; roughly the entire population of Denmark &mdash; each one unable to request deletion, none of them having chosen to be there. It has scanned and preserved more than 17 million documents &mdash; birth certificates, property deeds, registration papers &mdash; some reaching back to Mandatory Palestine before the state of Israel existed.</p>
+      <p>The data is older than the displacement. The data predates the children.</p>
+      <p>UNRWA&rsquo;s records accumulate across generations by design: the descendants of Palestine refugee men inherit their registration status. To receive services, a child must be registered. Registration means entering the database. The database does not age out. There is no sunset clause. There is no mechanism by which a Palestinian refugee &mdash; or their child, or their grandchild &mdash; can request that their record be deleted.</p>
+      <p>Indefinite data retention is not a bureaucratic oversight. It is a structural condition that mirrors the indefinite deferral of Palestinian return &mdash; the same logic that produced the camps has produced the database.</p>
+      <hr>
+      <p>There is a form. The form has a consent checkbox.</p>
+      <p>This is the dark comedy of humanitarian biometrics: the consent that is not consent, dressed in the language of consent, filed and archived as consent. You sign because you need to eat. The system records this as voluntary.</p>
+      <p>Hannah Arendt wrote about the banality of evil &mdash; the way atrocity is administered through forms and procedures, through bureaucracies that make it look like paperwork. The iris scanner is not evil. The consent form is not evil. But the architecture &mdash; the architecture is a machine that extracts the most intimate data from the most vulnerable people on earth, under conditions that make refusal impossible, and calls the result &ldquo;informed consent.&rdquo;</p>
+      <p>One refugee, describing her registration to researchers, cut through the bureaucratic language: &ldquo;As a refugee, we do not have much say. You do as you are told.&rdquo;</p>
+      <p>The paperwork survives. The checkbox remains checked. The data accumulates.</p>
+      <hr>
+      <p>Between 2018 and 2021, the Bangladesh government submitted at least 830,000 names of Rohingya refugees &mdash; along with their biometric data &mdash; to Myanmar&rsquo;s government. The stated purpose: &ldquo;repatriation verification.&rdquo; UNHCR had collected the data. Refugees said they registered because they were told it was required to receive aid. They were not told their information would be sent to Myanmar &mdash; the country whose military had driven them out, whose military had conducted a documented genocide against them.</p>
+      <p>The Rohingya who discovered their names on verified repatriation lists went into hiding.</p>
+      <p>Then, in February 2021, the military staged a coup. Myanmar&rsquo;s military &mdash; the same institution that organized the ethnic cleansing of the Rohingya &mdash; came to power and took control of the state&rsquo;s databases. Biometrics are not like a name or a document number. You cannot change your iris. You cannot get a new face. The data is permanent. The risk travels with it permanently.</p>
+      <p>The data stays. The coup comes. The data stays.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/03-A_v3_phoenix_113832.jpg')"></div>
+      </div>
+      <p>Now think about what &ldquo;future hostile government&rdquo; means for a Palestinian refugee.</p>
+      <p>Lebanon requested access to UNHCR&rsquo;s iris biometric database in 2014. UNHCR refused that specific request. But the request was made. The data exists. And Lebanon is not a stable state with stable governments.</p>
+      <p>Jordan hosts more than 2.2 million Palestinian refugees registered with UNRWA. Jordan also participates in UNHCR&rsquo;s iris biometric program. Jordan has a peace treaty with Israel. The data exists in both systems there.</p>
+      <p>UNHCR says it does not share biometric data with anyone. It said similar things about the Rohingya.</p>
+      <hr>
+      <p>Palestinian refugees cannot verify what is in their files. They cannot correct errors. They cannot request deletion. They cannot know who has queried their record or why. They have no government to act on their behalf if something goes wrong. They have no court with jurisdiction to hear a complaint.</p>
+      <p>There is no Palestinian data protection authority. There is no Palestinian commissioner for information rights. There is no minister to write to. The Palestinian Authority in Ramallah has no authority over UNRWA&rsquo;s database, no jurisdiction in Lebanon or Jordan, and no diplomatic standing that reaches into the servers where these records live.</p>
+      <p>What accumulates across generations is not just data. It is exposure. Each generation registered adds another layer to a profile that no one can close.</p>
+      <hr>
+      <p>The iris scan at the food distribution point is not the story of a company behaving badly or an agency failing in its duty. The structure is the problem. The structure asks the most vulnerable people on earth to surrender the most permanent data they possess, in exchange for the minimum required to survive. The structure collects this data indefinitely. The structure cannot guarantee what happens to it when governments change, when coups occur, when servers are breached, when a state with jurisdiction demands access.</p>
+      <p>The people inside it had no meaningful say in its design.</p>
+      <hr>
+      <p>The machine is still running.</p>
+      <p>You step up to it. The lens reads your eye. The match confirms in the EyeCloud server. The transaction completes. The receipt prints. You take your food.</p>
+      <p>The data stays.</p>
+      <p>Long after you have finished what they gave you today, long after your children have grown up and registered their own children, long after the political configurations of the Middle East have shifted in ways no one predicted, the data stays. Your iris pattern, stored on a server you cannot visit, administered by an agency you cannot vote for, protected by laws that were not written for you, held in a system with no mechanism for you to leave it.</p>
+      <p>You ate.</p>
+      <p>The machine remembers.</p>
+      <div class="sources">
+        <p><em>Sources: Access Now (2024); Human Rights Watch, &ldquo;UN Shared Rohingya Data Without Informed Consent&rdquo; (June 2021); The New Humanitarian (June 2021); Context/Thomson Reuters Foundation; UNHCR registration documentation; UNRWA eligibility and registration; The Engine Room, &ldquo;Biometrics in the Humanitarian Sector&rdquo; (2023); Nadera Shalhoub-Kevorkian, <em>Security Theology, Surveillance and the Politics of Fear</em> (2015).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">شوف الجهاز. حجمه تقريبًا حجم تابلت. واقف على الطاولة عند نقطة توزيع المساعدات. بتوقف قدامه. بتحط وجهك قبل العدسة. بتقرأ النمط في قزحية عينك — خارطة عينك، شيء خاص فيك لدرجة إنه حتى عينك التانية مختلفة — وبثوانٍ بتيجي النتيجة: آه، أنت فلان. آه، أنت مؤهل. آه، ممكن تاكل اليوم.</p>
+      <p class="ar">قبل ما تقف هناك، بتوقع على ورقة. الورقة بتقول إنك موافق على جمع بياناتك البيومترية. بتشرح إنه البيانات رح تتخزن. بتشرح، بلغة قانونية دقيقة، إن هاد التسجيل مطلوب عشان تاخد المساعدة.</p>
+      <p class="ar">ما بتقول: لو رفضت، ما رح تاكل. ما بدها تقول هيك. أنت بتعرف هيك أصلًا. المعاملة بتخلص. البيانات بتبقى.</p>
+      <hr>
+      <p class="ar">مسح القزحية صار باب الدخول على المساعدات الإنسانية لملايين اللاجئين حول العالم. في الأردن، برنامج الغذاء العالمي والمفوضية السامية للأمم المتحدة لشؤون اللاجئين بالشراكة مع IrisGuard طلعوا بنظام رصد القزحية البيومترية. IrisGuard هلأ سجّلت 2.7 مليون شخص في خمس دول. الشركة بتتعامل مع حوالي 1.2 مليار دولار في السنة من المساعدات. قاعدة معطيات المفوضية بحالها بتضم تقريبًا 12 مليون سجل في 90 دولة.</p>
+      <p class="ar">وثائق برنامج الغذاء العالمي نفسها بتقول: "رفض المستفيد تقديم المعلومات المطلوبة ممكن يخليه يخسر المساعدة." هاي الجملة هي كل شيء. هيك النظام بيشرح حاله.</p>
+      <hr>
+      <p class="ar">اللاجئون الفلسطينيون الساكنين في مخيمات لبنان — شاتيلا، برج البراجنة، نهر البارد — موجودين من عام 1948. من النكبة. سبعة وسبعين سنة بالنسبة لبعضهم. سيدتهم فرت. أهلهم اتولدوا في المخيمات. هم اتولدوا في المخيمات. الأونروا بتحتفظ بملفات فعلية لـ5.9 مليون شخص. مسحت وحفظت أكتر من 17 مليون وثيقة — شهادات ميلاد، صكوك ملكية، وثائق تسجيل — بعضها من فلسطين الانتدابية قبل ما دولة إسرائيل توجد.</p>
+      <p class="ar">البيانات أقدم من التهجير. البيانات قبل الأولاد.</p>
+      <p class="ar">سجلات الأونروا بتتراكم عبر الأجيال بالتصميم. ما في بند انتهاء. ما في آلية تخلي لاجئ فلسطيني — أو أولاده أو أحفاده — يطلب حذف سجله.</p>
+      <hr>
+      <p class="ar">في ورقة. الورقة فيها خانة للموافقة. هاي هي الكوميديا السوداء للبيومترية الإنسانية: موافقة مش موافقة، ملبوسة بلبس الموافقة، ومحفوظة كموافقة. بتوقع لأنك محتاج تاكل. النظام بيسجل هاد كاختياري.</p>
+      <p class="ar">لاجئة وصفت تسجيلها للباحثين بكلام واضح: "كلاجئة، ما عنا كتير رأي. بتعمل اللي بقولوك إياه." الأوراق بتبقى. الخانة بتبقى محددة. البيانات بتتراكم.</p>
+      <hr>
+      <p class="ar">بين 2018 و2021، حكومة بنغلاديش سلّمت أسماء أكتر من 830,000 لاجئ روهينغي مع معطياتهم البيومترية لحكومة ميانمار. الهدف المعلن كان «التحقق من أهلية الإعادة». اللاجئون قالوا إنهم سجلوا لأنهم قالولهم إنه ضروري. ما قالولهم إنه معلوماتهم رح تتبعت لميانمار — البلد اللي جيشها طردهم، اللي جيشها نفذ إبادة موثقة ضدهم.</p>
+      <p class="ar">الروهينغيون اللي اكتشفوا أسمائهم على قوائم الإعادة الموثقة راحوا يختبوا. وبعدين، في فبراير 2021، العسكر انقلبوا. جيش ميانمار — نفس المؤسسة اللي نظمت التطهير العرقي للروهينغيين — وصل للسلطة وأمسك بقواعد البيانات.</p>
+      <p class="ar">البيانات بتبقى. الانقلاب بييجي. البيانات بتبقى.</p>
+      <hr>
+      <p class="ar">هلأ فكر شو معناها "حكومة معادية مستقبلية" بالنسبة للاجئ فلسطيني. لبنان طلب الوصول على قاعدة بيانات المفوضية البيومترية عام 2014. المفوضية رفضت. بس الطلب اتعمل. والبيانات موجودة. الأردن بيستضيف أكتر من 2.2 مليون لاجئ فلسطيني. المفوضية بتقول إنها ما بتشارك البيانات. قالت نفس الكلام عن الروهينغيين.</p>
+      <hr>
+      <p class="ar">اللاجئون الفلسطينيون ما يقدروا يتحققوا شو في ملفاتهم. ما يقدروا يصلحوا أغلاط. ما يقدروا يطلبوا الحذف. ما في حكومة تتصرف لصالحهم. ما في سلطة فلسطينية لحماية البيانات. ما في وزير داخلية. ما في برلمان تعتصم عنده.</p>
+      <p class="ar">البيانات بتتراكم عبر الأجيال. مش بس معلومات. تراكم تعرّض. وما في نقيض للتراكم.</p>
+      <hr>
+      <p class="ar">الجهاز لسا شغال. بتوقف قدامه. العدسة بتقرأ عينك. البيانات بتبقى. بعيد بعد ما خلصت اللي أعطوك إياه اليوم، بعيد بعد ما كبر أولادك وسجلوا أولادهم، البيانات بتبقى. خارطة قزحيتك، مخزونة على سيرفر ما بتقدر تزوره، مُدارة من وكالة ما بتقدر تنتخبها، محفوظة في نظام ما في طريقة تطلع منه.</p>
+      <p class="ar">أكلت. الجهاز بيتذكر.</p>
+      <div class="sources">
+        <p class="ar"><em>المصادر: Access Now (2024)؛ هيومن رايتس ووتش، "الأمم المتحدة شاركت بيانات الروهينغيين بدون موافقة مستنيرة" (يونيو 2021)؛ توثيقات UNHCR للتسجيل؛ الأونروا، الأهلية والتسجيل؛ The Engine Room، "البيومترية في القطاع الإنساني" (2023)؛ نادرة شلهوب كيفوركيان، لاهوت الأمن (2015).</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The iris scan literalizes this completely. The eye is the document. The document is in the database. The database is permanent. The person is stateless.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;مسح القزحية يجسّد هاد كله. العين هي الوثيقة. الوثيقة في قاعدة البيانات. قاعدة البيانات دائمة. الشخص بلا جنسية.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="02.html" class="lang-en">&larr; File 02: The Checkpoint Camera</a>
+      <a href="02.html" class="lang-ar">الملف 02: كاميرا الحاجز &rarr;</a>
+      <a href="04.html" class="lang-en">File 04: The Silenced Feed &rarr;</a>
+      <a href="04.html" class="lang-ar">&larr; الملف 04: التغذية الصامتة</a>
+    </div>
+    <div class="series-link"><a href="index.html" class="lang-en">Back to Human in the Loop</a><a href="index.html" class="lang-ar">العودة إلى إنسان في الدوامة</a></div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Human in the Loop is a seven-part series on artificial intelligence and the Palestinian condition.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إنسان في الدوامة سلسلة من سبعة ملفات عن الذكاء الاصطناعي والحالة الفلسطينية.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang){document.documentElement.lang=lang;localStorage.setItem('hitl-lang',lang);document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-ar').classList.toggle('active',lang==='ar');}
+  (function(){var saved=localStorage.getItem('hitl-lang')||'en';setLang(saved);})();
+</script>
+</body>
+</html>

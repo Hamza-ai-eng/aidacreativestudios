@@ -68,7 +68,7 @@
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
   --font-arabic: var(--font-cairo);
-  --font-arabic-display: var(--font-reem-kufi);
+  --font-arabic-display: var(--font-amiri);
   --font-hebrew: var(--font-heebo);
   --font-space: var(--font-space);
 
@@ -137,10 +137,10 @@ body {
 [dir="rtl"][lang="ar"] body { font-family: var(--font-cairo), system-ui, sans-serif; }
 [dir="rtl"][lang="he"] body { font-family: var(--font-heebo), system-ui, sans-serif; }
 
-/* Arabic display headlines — Reem Kufi: geometric Kufi heritage, says "designer" not "literary" */
+/* Arabic display headlines — Amiri: classical Naskh, editorial weight without calligraphic decoration */
 [dir="rtl"][lang="ar"] h1,
 [dir="rtl"][lang="ar"] h2 {
-  font-family: var(--font-reem-kufi), var(--font-cairo), sans-serif;
+  font-family: var(--font-amiri), var(--font-cairo), sans-serif;
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.25;
@@ -319,12 +319,12 @@ body {
   border-radius: 2px;
 }
 
-/* ── Calligraphic watermark — now Reem Kufi ── */
+/* ── Display watermark — Amiri ── */
 
 .calligraphy-watermark::after {
   content: "إبداع";
   position: absolute;
-  font-family: var(--font-reem-kufi), sans-serif;
+  font-family: var(--font-amiri), sans-serif;
   font-size: 18rem;
   font-weight: 700;
   color: var(--accent);

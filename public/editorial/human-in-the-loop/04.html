@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 04 — The Silenced Feed | Human in the Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#1A1714;--surface:#F5F0E8;--accent:#C41230;--muted:#6B6259;--art:#7B5B8E;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;}html[lang="ar"]{direction:rtl;}
+  html:not([lang="ar"]) .lang-ar{display:none!important;}html[lang="ar"] .lang-en{display:none!important;}
+  body{background:var(--bg);color:var(--surface);font-family:'EB Garamond',serif;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,23,20,0.96);backdrop-filter:blur(8px);height:52px;display:flex;align-items:center;padding:0 2rem;border-bottom:1px solid rgba(245,240,232,0.08);}
+  .nav-left{flex:1;}.nav-left a{color:var(--muted);text-decoration:none;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s;}.nav-left a:hover{color:var(--surface);}
+  .nav-center{flex:2;text-align:center;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.05em;color:var(--muted);}.nav-center .file-num{color:var(--art);font-weight:600;}
+  .nav-right{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:0.5rem;}
+  .lang-btn{background:none;border:1px solid rgba(245,240,232,0.2);color:var(--muted);padding:0.25rem 0.6rem;font-size:0.78rem;cursor:pointer;transition:all 0.2s;}.lang-btn:hover,.lang-btn.active{border-color:var(--art);color:var(--art);}
+  .hero{position:relative;height:60vh;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;margin-top:52px;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.1) 0%,rgba(26,23,20,0.4) 40%,rgba(26,23,20,0.92) 100%);}
+  .hero-ghost{position:absolute;right:5%;bottom:-0.1em;font-family:'Playfair Display',serif;font-size:clamp(8rem,22vw,18rem);font-weight:900;color:var(--art);opacity:0.12;line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.04em;}
+  html[lang="ar"] .hero-ghost{right:auto;left:5%;}
+  .hero-content{position:relative;z-index:2;padding:2.5rem 3rem;max-width:900px;}
+  .hero-file-label{font-family:'EB Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--art);margin-bottom:0.75rem;}
+  .hero-title-en{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);line-height:1.05;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1.2;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .hero-subtitle-ar{font-family:'Amiri',serif;font-style:italic;font-size:1.1rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .byline{font-family:'EB Garamond',serif;font-size:0.85rem;color:rgba(245,240,232,0.5);letter-spacing:0.03em;}
+  .byline-ar{font-family:'Amiri',serif;font-size:0.9rem;color:rgba(245,240,232,0.5);}
+  .article-wrap{background:var(--surface);color:#1A1714;}
+  .article-body{max-width:720px;margin:0 auto;padding:4rem 2rem;}
+  .article-body p{font-family:'EB Garamond',serif;font-size:19px;line-height:1.85;color:#1A1714;margin-bottom:1.4em;}
+  .article-body p.ar{font-family:'Amiri',serif;font-size:20px;line-height:1.9;direction:rtl;text-align:right;}
+  .article-body h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.55rem;color:#1A1714;margin:2.5rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--art);}
+  .article-body h2.ar{font-family:'Amiri',serif;font-size:1.7rem;direction:rtl;text-align:right;}
+  .article-body hr{border:none;border-top:1px solid rgba(26,23,20,0.15);margin:2rem 0;}
+  .article-body blockquote{border-left:3px solid var(--art);padding:0.5rem 1.2rem;margin:1.5rem 0;color:var(--muted);}
+  .article-body blockquote.ar{border-left:none;border-right:3px solid var(--art);direction:rtl;text-align:right;}
+  .sources{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(26,23,20,0.15);font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  .sources p{font-size:0.85rem;font-family:'EB Garamond',serif;}
+  .pull-quote-section{background:var(--bg);padding:5rem 2rem;}
+  .pull-quote-inner{max-width:720px;margin:0 auto;}
+  .pull-quote{border-left:4px solid var(--art);padding:1.5rem 2rem;}
+  html[lang="ar"] .pull-quote{border-left:none;border-right:4px solid var(--art);}
+  .pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.5;color:var(--surface);}
+  .pull-quote p.ar{font-family:'Amiri',serif;font-size:clamp(1.3rem,2.5vw,1.75rem);direction:rtl;text-align:right;}
+  .article-footer{background:var(--surface);padding:3rem 2rem;}
+  .article-footer-inner{max-width:720px;margin:0 auto;}
+  .file-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+  .file-nav a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;padding-bottom:2px;}.file-nav a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .series-link{text-align:center;margin-bottom:2rem;}.series-link a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(107,98,89,0.4);padding-bottom:2px;transition:all 0.2s;}.series-link a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .author-bio{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);border-top:1px solid rgba(26,23,20,0.12);padding-top:1.5rem;line-height:1.6;}
+  .author-bio-ar{font-family:'Amiri',serif;font-size:0.95rem;direction:rtl;text-align:right;}
+  footer{background:var(--bg);text-align:center;padding:2rem;font-family:'EB Garamond',serif;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;border-top:1px solid rgba(245,240,232,0.06);}
+  .article-image-panel{width:100%;margin:4rem 0;position:relative;overflow:hidden;}
+  .aip-image{width:100%;height:420px;background-size:cover;background-position:center;}
+  @media(max-width:600px){.hero-content{padding:1.5rem;}.article-body{padding:2.5rem 1.2rem;}nav{padding:0 1rem;}.nav-center{font-size:0.75rem;}.aip-image{height:260px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Human in the Loop</a><a href="index.html" class="lang-ar">إنسان في الدوامة</a></div>
+  <div class="nav-center"><span class="lang-en"><span class="file-num">File 04</span> &mdash; The Silenced Feed</span><span class="lang-ar"><span class="file-num">الملف 04</span> &mdash; التغذية الصامتة</span></div>
+  <div class="nav-right"><a href="/en/insights" id="aida-back" class="lang-btn lang-en" style="text-decoration:none;font-size:0.75rem">← AIDA</a><a href="/ar/insights" class="lang-btn lang-ar" style="text-decoration:none;font-size:0.75rem">AIDA →</a><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button><button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button></div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/leonardo/v3/04-A_v3_phoenix_113942.jpg" alt="The Silenced Feed">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">04</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Human in the Loop &mdash; File 04 of 07</div>
+    <div class="hero-file-label lang-ar">إنسان في الدوامة &mdash; الملف 04 من 07</div>
+    <h1 class="hero-title-en lang-en">The Silenced Feed</h1>
+    <h1 class="hero-title-ar lang-ar">التغذية الصامتة</h1>
+    <p class="hero-subtitle lang-en"><em>Meta&rsquo;s content moderation and the systematic disappearance of Palestinian voices</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>إدارة ميتا للمحتوى والاختفاء الممنهج للأصوات الفلسطينية</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; April 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أبريل 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+    <div class="lang-en">
+      <h2>I.</h2>
+      <p>The notification arrives without ceremony.</p>
+      <p><em>Your post has been removed for violating our Community Standards.</em></p>
+      <p>No elaboration. No appeal process that functions. No human who read the post, weighed it, decided. Just the notification, the absence where your post used to be, and a silence that looks exactly like consent.</p>
+      <p>The post was a video of an olive harvest. Or a photograph of a family in a courtyard. Or the text of a poem by a man who was about to die.</p>
+      <p>Meta would later call it a technical error.</p>
+      <p>That notification, sent to Palestinians millions of times since October 7, 2023, is the most precise description of what Meta is: a system that decides, in milliseconds, whose speech is speech and whose speech is a violation.</p>
+      <h2>II.</h2>
+      <p>7amleh &mdash; The Arab Center for the Advancement of Social Media &mdash; documented 4,400 violations in its <em>Hashtag Palestine 2023</em> report. Not incidents. Not complaints. Documented violations: content removed, accounts suspended, hashtags restricted, voices cut from the feed mid-sentence. Sixty-nine percent of those violations occurred after October 7, 2023. In the weeks when the world most needed to hear from Gaza, the feed went quiet.</p>
+      <p>Human Rights Watch reviewed 1,050 specific cases of content removed or accounts suspended on Instagram and Facebook between October and November 2023. Of those 1,050 cases, 1,049 involved peaceful content in support of Palestine. One involved content supporting Israel. One. Out of one thousand and fifty.</p>
+      <p>This is a ratio. It is the ratio of whose speech Meta treats as a threat.</p>
+      <p>At the same time, 7amleh&rsquo;s AI-powered Violence Indicator monitored Hebrew-language content across social media and documented nearly three million instances of violent, hateful, or inciting content in Hebrew directed against Palestinians. Most of it stayed up. Meta&rsquo;s content moderation machinery demonstrated no comparable effectiveness when the language changed.</p>
+      <p>The architecture is clear. Arabic content gets flagged, reviewed, removed. Hebrew incitement flourishes. This is not a technical failure. It is a structural design.</p>
+      <p>Then there are the numbers Meta did not publish. Internal data obtained by Drop Site News revealed that Meta complied with 94 percent of Israeli government takedown requests after October 7 &mdash; removing over 90,000 posts, at an average of thirty seconds per post. The requests came from the Israeli government. They applied globally. They targeted users across sixty countries. And the AI system Meta is currently training on its moderation decisions will inherit every one of those choices as its baseline for what is permissible.</p>
+      <h2>III.</h2>
+      <p>Meta attributed some of the suppression of Palestinian content in October 2023 to a technical error.</p>
+      <p>A technical error blocked the hashtag for Al-Aqsa Mosque &mdash; one of the most significant sites in Islam &mdash; because, Meta said, the hashtag had been mistakenly associated with a terrorist organization. A technical error prevented Palestinian users from posting Instagram Stories. A technical error had been cited in 2021 when Meta suppressed content during the last outbreak of violence. Business for Social Responsibility, in a report commissioned by Meta itself, found that the company&rsquo;s moderation in 2021 had an &ldquo;adverse human rights impact&rdquo; on Palestinian users. Meta made commitments to change.</p>
+      <p>It did not change.</p>
+      <p>In December 2023, Human Rights Watch published <em>Meta&rsquo;s Broken Promises</em>. The title is precise: these were not failures of implementation. They were failures of intent. The promises were made. They were not kept.</p>
+      <p>A technical error. Offered twice, across two different episodes of mass killing, as the explanation for why Palestinian voices could not be heard. Let it stand. It is its own indictment.</p>
+      <h2>IV.</h2>
+      <p>Meta reaches three billion people. It is, for most of the world, the internet &mdash; the place where news arrives, where families communicate, where political reality is made and unmade. It was not built with Palestinians in mind. Its content moderation systems were trained on data that did not account for Arabic linguistic context, for the particular registers of Palestinian political speech, for the difference between reporting an atrocity and celebrating one.</p>
+      <p>65.3 percent of Palestinians in East Jerusalem report that using social media poses a personal risk to them. 70 percent exercise self-censorship for fear of retribution. These are not the numbers of a community that is being heard. These are the numbers of a community that has learned, through thousands of notifications, that the platform is not safe for their speech.</p>
+      <p>Inside Meta, the leadership structure reveals why. The company&rsquo;s Head of Global Integrity was a former official of Unit 8200 &mdash; the Israeli military&rsquo;s signals intelligence division. Meta&rsquo;s Director of Public Policy for Israel and the Jewish Diaspora, a former senior advisor to Prime Minister Netanyahu, used her position to flag pro-Palestinian content and, according to internal communications, instructed staff to review content mentioning Ghassan Kanafani &mdash; an Arab novelist, one of the most important Palestinian writers of the twentieth century, dead for more than fifty years.</p>
+      <p>They are still afraid of his words.</p>
+      <p>This is the system. Not an algorithm that misfired. Not a technical error. A system built, staffed, and governed by people who decided, at every level, that Palestinian speech is the speech that must be managed.</p>
+      <h2>V.</h2>
+      <p>Refaat Alareer pinned the poem to his Twitter profile five weeks before he was killed.</p>
+      <p>He had written it in 2011. He called it <em>&ldquo;If I Must Die.&rdquo;</em> Twenty lines. It asked, if he had to die, that someone make of his death a kite &mdash; a white kite for a child to fly against the sky, a thread of light for those who wait on the other side.</p>
+      <p>He posted it on Instagram two months before December 6, 2023. He shared it again as the bombs fell closer. Israeli accounts sent him death threats online. On December 6, an Israeli airstrike targeted with surgical precision the building where he was staying in northern Gaza, killing him, his brother, his sister, and four of his nieces and nephews.</p>
+      <p>His daughter Shaimaa &mdash; the one he had dedicated the poem to, the one who was supposed to fly the kite &mdash; was killed a few months later, along with her newborn baby.</p>
+      <p>Here is what happened on the platforms while he was alive: Palestinian content was being suppressed. Hashtags were being shadowbanned. Accounts were being suspended. The Violence Indicator was counting three million Hebrew-language inciting posts, most of which stayed up. A man in Gaza was writing poems and having them removed, or reduced, or restricted, or swallowed by an algorithm that had learned not to see him.</p>
+      <p>Here is what happened after he was killed: the poem went viral. Thirty-three million views on Twitter alone. Translated into more than 250 languages. Read at vigils. Performed at protests. Described by critic Ken Chen as &ldquo;the most famous poem written in my lifetime.&rdquo;</p>
+      <p>The poem did not go viral because of the platforms. It went viral despite them. The machine that spent months suppressing Palestinian voices could not contain this one voice, because the voice no longer had a body that could be killed again.</p>
+      <p>Palestinians are simultaneously hypervisible and invisible &mdash; their suffering watched by millions, their speech removed by machines. They are seen dying. They are not permitted to speak about it.</p>
+      <p>Refaat Alareer broke through. The cost was his life.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/04-B_v3_phoenix_114006.jpg')"></div>
+      </div>
+      <h2>VI.</h2>
+      <p>Meta publishes transparency reports. They count what is removed: how many posts, from which countries, for which categories of violation.</p>
+      <p>They do not count what is left up.</p>
+      <p>They do not count the three million Hebrew-language incitement posts that 7amleh documented and that Meta&rsquo;s systems failed to catch. They do not count the 90,000 Palestinian posts removed in thirty seconds each at the request of a foreign government. They do not count the journalist in Gaza who had her account suspended three times and lost her entire audience. They do not count the activist in the West Bank who stopped posting because the surveillance and the censorship are the same operation.</p>
+      <p>The transparency report is a document of what Meta chose to see.</p>
+      <h2>VII.</h2>
+      <p>The suppression of Palestinian voices on Meta platforms is structural &mdash; embedded in policy, in training data, in leadership, in the company&rsquo;s relationship with the Israeli state, in the AI systems being trained right now on the precedents set by 90,000 removals in thirty seconds.</p>
+      <p><em>Erased and Suppressed</em> &mdash; a December 2024 report &mdash; documented 3,576 instances of violations and censorship in 2024 alone. The violations did not slow down. They accelerated.</p>
+      <p>The feed is not broken. The feed is working as designed.</p>
+      <p>Not a technical error. A structural one.</p>
+      <h2>VIII.</h2>
+      <p>Here, at the end, we return to the notification.</p>
+      <p><em>Your post has been removed for violating our Community Standards.</em></p>
+      <p>Somewhere in the months before December 6, 2023, Refaat Alareer posted a poem about dying with the hope that his death might carry light to someone. The platforms processed it. Some version of it was suppressed or restricted or reduced. He posted it again. He pinned it.</p>
+      <p>He was killed.</p>
+      <p>The poem then did what poems do when the person who wrote them is no longer alive to have their account suspended: it moved. It crossed into languages that have no word for &ldquo;algorithm.&rdquo; It was read by people who had never heard of Gaza and would never forget it.</p>
+      <p>The question is not whether Palestinian voices break through. Some do. Refaat Alareer broke through.</p>
+      <p>The question is what it costs.</p>
+      <p>He wrote it in 2011. He pinned it to his profile in November 2023. He was killed on December 6th.</p>
+      <blockquote>
+        <em>If I must die,<br>you must live<br>to tell my story</em>
+      </blockquote>
+      <div class="sources">
+        <p><em>Sources: 7amleh, Hashtag Palestine 2023 (January 2024); 7amleh, Erased and Suppressed (December 2024); Human Rights Watch, Meta&rsquo;s Broken Promises (December 2023); Drop Site News, leaked Meta compliance data (2024); TechCrunch (October 2023); Wikipedia, &ldquo;If I Must Die&rdquo;; ArabLit (June 2024).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <h2 class="ar">أولاً.</h2>
+      <p class="ar">الإشعار بييجي بدون مقدمات.</p>
+      <p class="ar"><em>تم حذف منشورك لأنه ينتهك معايير مجتمعنا.</em></p>
+      <p class="ar">ما في شرح. ما في استئناف حقيقي. ما في إنسان قرأ المنشور وفكّر وقرر. بس إشعار، وفراغ بالمكان اللي كان في منشورك، وصمت يشبه الموافقة.</p>
+      <p class="ar">المنشور كان فيديو لقطاف الزيتون. أو صورة عيلة قاعدة في الديوان. أو نص قصيدة لرجل كان رح يموت. ميتا رح تقول بعدين إنه كان خطأ تقني.</p>
+      <p class="ar">هاد الإشعار، اللي اتبعث للفلسطينيين ملايين المرات من بعد 7 أكتوبر 2023، هو أدق وصف لشو هي ميتا: نظام بيقرر بالميلي ثانية مين كلامه كلام ومين كلامه انتهاك.</p>
+      <h2 class="ar">ثانياً.</h2>
+      <p class="ar">حملة — المركز العربي لتطوير الإعلام الاجتماعي — وثّقت 4,400 انتهاك في تقرير هاشتاق فلسطين 2023. تسعة وستون بالمئة من هاي الانتهاكات صارت بعد 7 أكتوبر 2023. في الأسابيع اللي كان العالم محتاج أكتر ما يكون يسمع من غزة — التغذية صارت صامتة.</p>
+      <p class="ar">منظمة هيومن رايتس ووتش راجعت 1,050 حالة. من هاي الـ1,050 حالة، 1,049 كانت محتوى سلمي داعم لفلسطين. حالة وحدة كانت محتوى مؤيد لإسرائيل. وحدة. من ألف وخمسين.</p>
+      <p class="ar">هاد نسبة. نسبة مين كلامه ميتا بتعتبره تهديد.</p>
+      <p class="ar">وبنفس الوقت، وثّق مؤشر العنف التابع لحملة قرابة ثلاثة ملايين منشور عنيف أو محرّض بالعبرية موجّه ضد الفلسطينيين. معظمه ظل طالع. هيكل النظام واضح. المحتوى العربي يُحذف. التحريض العبري يزدهر. هاد مش خلل تقني. هاد خلل هيكلي.</p>
+      <p class="ar">معطيات داخلية بيّنت أن ميتا امتثلت لـ94 بالمئة من طلبات الحكومة الإسرائيلية لحذف المنشورات بعد 7 أكتوبر — أكثر من 90,000 منشور انحذف بمعدل ثلاثين ثانية لكل منشور.</p>
+      <h2 class="ar">ثالثاً.</h2>
+      <p class="ar">ميتا شرحت بعض قمع المحتوى الفلسطيني كنتيجة «خطأ تقني». «خطأ تقني» حجب هاشتاق المسجد الأقصى. «خطأ تقني» منع المستخدمين الفلسطينيين من نشر ستوريات. ميتا ما غيّرت شي. في ديسمبر 2023، هيومن رايتس ووتش نشرت تقرير «وعود ميتا المكسورة». الوعود اتقالت. ما اتنفذت.</p>
+      <h2 class="ar">رابعاً.</h2>
+      <p class="ar">65.3 بالمئة من الفلسطينيين في القدس الشرقية بيحكوا إن استخدام منصات التواصل بحط عليهم خطر شخصي. 70 بالمئة بيمارسوا رقابة ذاتية خوفاً من التبعات.</p>
+      <p class="ar">داخلياً، هيكل قيادة ميتا بيوضح ليش. رئيس الأمن والنزاهة كان مسؤول سابق في وحدة 8200. مديرة السياسات العامة، المستشارة السابقة لنتنياهو، وجّهت موظفين للبحث ومراجعة المحتوى اللي بذكر غسان كنفاني — رجل مات من أكثر من خمسين سنة.</p>
+      <p class="ar">هلق لساهم خايفين من كلامه. هاد هو النظام. مش خوارزمية أخطأت. نظام اتبنى واتشغّل واتحكم بأشخاص قرروا بكل مستوى إن الكلام الفلسطيني هو الكلام اللي لازم يتدار.</p>
+      <h2 class="ar">خامساً.</h2>
+      <p class="ar">رفعت العرعير ثبّت القصيدة على بروفايله على تويتر بخمسة أسابيع قبل ما ينقتل. كتبها سنة 2011. سماها «لو كان لا بد أن أموت.» عشرون سطر.</p>
+      <p class="ar">في 6 ديسمبر، ضربة جوية إسرائيلية استهدفت البناية اللي كان فيها في شمال غزة بدقة جراحية، قتلته هو وأخوه وأخته وأربعة من أبناء وبنات إخوته. بنته شيماء — اللي أهدى إلها القصيدة — قتلت بعد شهور، هي وطفلتها المولودة حديثاً.</p>
+      <p class="ar">بعد ما اتقتل: القصيدة صارت فيروسية. ثلاثة وثلاثين مليون مشاهدة على تويتر لحالها. ترجمت لأكثر من 250 لغة. الآلة اللي قضت أشهر تقمع الأصوات الفلسطينية ما قدرت تحتوي هاد الصوت — لأن الصوت ما عاد في جسد ممكن ينقتل تاني.</p>
+      <p class="ar">الفلسطينيون في نفس الوقت مرئيون جداً ومحجوبون جداً. بيتشافوا وهم بيموتوا. ما يُسمح إلهم يحكوا عن هاد. رفعت العرعير اخترق. الثمن كان حياته.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/04-B_v3_phoenix_114006.jpg')"></div>
+      </div>
+      <h2 class="ar">سابعاً.</h2>
+      <p class="ar">قمع الأصوات الفلسطينية على منصات ميتا هو هيكلي. وثّق تقرير «ممحوّ ومكموم» (ديسمبر 2024) 3,576 حالة انتهاك ورقابة في 2024 لحالها. الانتهاكات ما تباطأت. تسارعت.</p>
+      <p class="ar">التغذية مش مكسورة. التغذية شغّالة كما صُممت. مش خطأ تقني. خطأ هيكلي.</p>
+      <h2 class="ar">ثامناً.</h2>
+      <p class="ar">هون، في الآخر، برجع للإشعار. <em>تم حذف منشورك لأنه ينتهك معايير مجتمعنا.</em></p>
+      <p class="ar">رفعت العرعير نشر قصيدة عن الموت وهو برجي إن موته يحمل نور لحدا. نشر تاني. ثبّت. انقتل.</p>
+      <p class="ar">السؤال مش هل الأصوات الفلسطينية بتخترق. بعض منها بيخترق. رفعت العرعير اخترق. السؤال هو شو بيكلف هاد.</p>
+      <blockquote class="ar">
+        <em>لو كان لا بد أن أموت،<br>فعليك أن تعيش<br>لتحكي قصتي</em>
+      </blockquote>
+      <div class="sources">
+        <p class="ar"><em>المصادر: حملة، هاشتاق فلسطين 2023 (يناير 2024)؛ حملة، ممحوّ ومكموم (ديسمبر 2024)؛ هيومن رايتس ووتش، وعود ميتا المكسورة (ديسمبر 2023)؛ Drop Site News (2024)؛ ويكيبيديا، "لو كان لا بد أن أموت".</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The machine processed everything it could process and then could not process a man&rsquo;s decision to speak anyway. That is not a victory. That is what it looks like when the only way to be heard is to be gone.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;الآلة عالجت كل شي قدرت تعالجه وبعدين ما قدرت تعالج قرار رجل يحكي بالرغم من كل شي. هاد مش انتصار. هاد شو يطلع عليه لمّا الطريقة الوحيدة تنسمع هي إنك تروح.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="03.html" class="lang-en">&larr; File 03: The Stateless Database</a>
+      <a href="03.html" class="lang-ar">الملف 03: قاعدة البيانات بلا جنسية &rarr;</a>
+      <a href="05.html" class="lang-en">File 05: The Language They Didn&rsquo;t Train &rarr;</a>
+      <a href="05.html" class="lang-ar">&larr; الملف 05: اللغة التي ما دربوها</a>
+    </div>
+    <div class="series-link"><a href="index.html" class="lang-en">Back to Human in the Loop</a><a href="index.html" class="lang-ar">العودة إلى إنسان في الدوامة</a></div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Human in the Loop is a seven-part series on artificial intelligence and the Palestinian condition.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إنسان في الدوامة سلسلة من سبعة ملفات عن الذكاء الاصطناعي والحالة الفلسطينية.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang){document.documentElement.lang=lang;localStorage.setItem('hitl-lang',lang);document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-ar').classList.toggle('active',lang==='ar');}
+  (function(){var saved=localStorage.getItem('hitl-lang')||'en';setLang(saved);})();
+</script>
+</body>
+</html>

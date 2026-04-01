@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 02 — The Checkpoint Camera | Human in the Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#1A1714; --surface:#F5F0E8; --accent:#C41230; --muted:#6B6259; --art:#2D7845; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;}
+  html[lang="ar"]{direction:rtl;}
+  html:not([lang="ar"]) .lang-ar{display:none!important;}
+  html[lang="ar"] .lang-en{display:none!important;}
+  body{background:var(--bg);color:var(--surface);font-family:'EB Garamond',serif;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,23,20,0.96);backdrop-filter:blur(8px);height:52px;display:flex;align-items:center;padding:0 2rem;border-bottom:1px solid rgba(245,240,232,0.08);}
+  .nav-left{flex:1;}.nav-left a{color:var(--muted);text-decoration:none;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s;}.nav-left a:hover{color:var(--surface);}
+  .nav-center{flex:2;text-align:center;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.05em;color:var(--muted);}
+  .nav-center .file-num{color:var(--art);font-weight:600;}
+  .nav-right{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:0.5rem;}
+  .lang-btn{background:none;border:1px solid rgba(245,240,232,0.2);color:var(--muted);padding:0.25rem 0.6rem;font-size:0.78rem;cursor:pointer;transition:all 0.2s;letter-spacing:0.03em;}
+  .lang-btn:hover,.lang-btn.active{border-color:var(--art);color:var(--art);}
+  .hero{position:relative;height:60vh;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;margin-top:52px;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.1) 0%,rgba(26,23,20,0.4) 40%,rgba(26,23,20,0.92) 100%);}
+  .hero-ghost{position:absolute;right:5%;bottom:-0.1em;font-family:'Playfair Display',serif;font-size:clamp(8rem,22vw,18rem);font-weight:900;color:var(--art);opacity:0.12;line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.04em;}
+  html[lang="ar"] .hero-ghost{right:auto;left:5%;}
+  .hero-content{position:relative;z-index:2;padding:2.5rem 3rem;max-width:900px;}
+  .hero-file-label{font-family:'EB Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--art);margin-bottom:0.75rem;}
+  .hero-title-en{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);line-height:1.05;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1.2;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .hero-subtitle-ar{font-family:'Amiri',serif;font-style:italic;font-size:1.1rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .byline{font-family:'EB Garamond',serif;font-size:0.85rem;color:rgba(245,240,232,0.5);letter-spacing:0.03em;}
+  .byline-ar{font-family:'Amiri',serif;font-size:0.9rem;color:rgba(245,240,232,0.5);}
+  .article-wrap{background:var(--surface);color:#1A1714;}
+  .article-body{max-width:720px;margin:0 auto;padding:4rem 2rem;}
+  .article-body p{font-family:'EB Garamond',serif;font-size:19px;line-height:1.85;color:#1A1714;margin-bottom:1.4em;}
+  .article-body p.ar{font-family:'Amiri',serif;font-size:20px;line-height:1.9;direction:rtl;text-align:right;}
+  .article-body h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.55rem;color:#1A1714;margin:2.5rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--art);}
+  .article-body h2.ar{font-family:'Amiri',serif;font-size:1.7rem;direction:rtl;text-align:right;}
+  .article-body hr{border:none;border-top:1px solid rgba(26,23,20,0.15);margin:2rem 0;}
+  .article-body em{font-style:italic;}.article-body strong{font-weight:600;}
+  .sources{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(26,23,20,0.15);font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  .sources p,.sources li{font-size:0.85rem;font-family:'EB Garamond',serif;}
+  .sources ul{padding-left:1.2rem;}
+  .pull-quote-section{background:var(--bg);padding:5rem 2rem;}
+  .pull-quote-inner{max-width:720px;margin:0 auto;}
+  .pull-quote{border-left:4px solid var(--art);padding:1.5rem 2rem;}
+  html[lang="ar"] .pull-quote{border-left:none;border-right:4px solid var(--art);}
+  .pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.5;color:var(--surface);}
+  .pull-quote p.ar{font-family:'Amiri',serif;font-size:clamp(1.3rem,2.5vw,1.75rem);direction:rtl;text-align:right;}
+  .article-footer{background:var(--surface);padding:3rem 2rem;}
+  .article-footer-inner{max-width:720px;margin:0 auto;}
+  .file-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+  .file-nav a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;letter-spacing:0.03em;border-bottom:1px solid transparent;transition:all 0.2s;padding-bottom:2px;}
+  .file-nav a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .series-link{text-align:center;margin-bottom:2rem;}
+  .series-link a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(107,98,89,0.4);padding-bottom:2px;transition:all 0.2s;}
+  .series-link a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .author-bio{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);border-top:1px solid rgba(26,23,20,0.12);padding-top:1.5rem;line-height:1.6;}
+  .author-bio-ar{font-family:'Amiri',serif;font-size:0.95rem;direction:rtl;text-align:right;}
+  footer{background:var(--bg);text-align:center;padding:2rem;font-family:'EB Garamond',serif;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;border-top:1px solid rgba(245,240,232,0.06);}
+  .article-image-panel{width:100%;margin:4rem 0;position:relative;overflow:hidden;}
+  .aip-image{width:100%;height:420px;background-size:cover;background-position:center;}
+  @media(max-width:600px){.hero-content{padding:1.5rem;}.article-body{padding:2.5rem 1.2rem;}nav{padding:0 1rem;}.nav-center{font-size:0.75rem;}.aip-image{height:260px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Human in the Loop</a><a href="index.html" class="lang-ar">إنسان في الدوامة</a></div>
+  <div class="nav-center"><span class="lang-en"><span class="file-num">File 02</span> &mdash; The Checkpoint Camera</span><span class="lang-ar"><span class="file-num">الملف 02</span> &mdash; كاميرا الحاجز</span></div>
+  <div class="nav-right"><a href="/en/insights" id="aida-back" class="lang-btn lang-en" style="text-decoration:none;font-size:0.75rem">← AIDA</a><a href="/ar/insights" class="lang-btn lang-ar" style="text-decoration:none;font-size:0.75rem">AIDA →</a><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button><button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button></div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/leonardo/v4/02-A_v4.jpg" alt="The Checkpoint Camera">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">02</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Human in the Loop &mdash; File 02 of 07</div>
+    <div class="hero-file-label lang-ar">إنسان في الدوامة &mdash; الملف 02 من 07</div>
+    <h1 class="hero-title-en lang-en">The Checkpoint Camera</h1>
+    <h1 class="hero-title-ar lang-ar">كاميرا الحاجز</h1>
+    <p class="hero-subtitle lang-en"><em>How Israel gamified the mass surveillance of Palestinian civilians</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>كيف حوّل الجيش الإسرائيلي مراقبة الفلسطينيين الجماعية إلى لعبة</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; April 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أبريل 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+    <div class="lang-en">
+      <p>A woman walks to the market in Hebron on a Tuesday morning. She carries a cloth bag. She buys her vegetables &mdash; tomatoes, perhaps, whatever is in season. A soldier on the street opens an app on his phone and photographs her face without a word. She walks on. She doesn&rsquo;t know.</p>
+      <p>By the time she gets home, she is in a database.</p>
+      <hr>
+      <p>Someone won this week.</p>
+      <p>A unit somewhere in the West Bank &mdash; Hebron, most likely &mdash; topped the leaderboard. Most faces scanned. Most Palestinians photographed and fed into the database. Their prize: extra days off. Time at home with their family.</p>
+      <p>Here is how they earned it.</p>
+      <hr>
+      <p>The app is called Blue Wolf. Israeli soldiers carry it on their phones and tablets. They point it at Palestinians &mdash; at checkpoints, in markets, on the street, outside their front doors, sometimes inside their homes in the middle of the night. The camera captures the face. The face uploads to a system the soldiers call Wolf Pack. Wolf Pack holds profiles on virtually every Palestinian in the West Bank: photograph, family history, place of residence, education, security classification. Every face gets a color. Green means go. Yellow means stop and question. Red means arrest.</p>
+      <p>The soldiers described it to <em>The Washington Post</em> in 2021. One called it &ldquo;Facebook for Palestinians.&rdquo; He meant it as a joke. He was not wrong.</p>
+      <p>To encourage soldiers to photograph as many Palestinians as possible, Israeli commanders introduced a competition. Units ranked on a weekly leaderboard. The unit that uploaded the most faces won. Prizes varied. The most reliable reward: paid leave. Extra days away from the occupation. You photograph enough Palestinians, you get to go home.</p>
+      <p>The incentive structure was designed to produce exactly this outcome: a database that grows whether or not any individual soldier believes in what they are building, because the system does not require belief &mdash; only participation.</p>
+      <p>One Israeli soldier, testifying anonymously to Breaking the Silence &mdash; the Israeli veterans&rsquo; organization &mdash; described the logic plainly: &ldquo;The division is running a competition to see who can enter the most new names into the computer.&rdquo;</p>
+      <p>More names. More faces. More Palestinians in the database.</p>
+      <hr>
+      <p>The soldiers called the database &ldquo;Facebook for Palestinians.&rdquo; The more precise comparison, given what was actually happening, is Pok&eacute;mon. You go out into the territory. You collect them. You score points. You rank up. The entire occupied West Bank becomes a hunting map, and the hunted are the people who live there &mdash; going to work, going to the market, walking their children to school. They have no idea their face is being taken. They have no way to refuse. There is no form to fill out, no legal process to invoke, no court in which to object.</p>
+      <p>Someone designed the incentive structure, ran the weekly scores, handed out the prizes, and went home believing they had done their job. The horror doesn&rsquo;t need the comedy to carry it.</p>
+      <hr>
+      <p>The Wolf Pack database is not a supplementary tool. It is comprehensive infrastructure. Former soldiers who spoke to <em>The Washington Post</em> described it as containing profiles on virtually every Palestinian in the West Bank &mdash; approximately three million people. Photographs. Family members. Known associates. Security ratings.</p>
+      <p>Palestinian children are in it. Amnesty International documented soldiers photographing children for the database &mdash; including through nighttime raids on homes: soldiers entering in the dark, cameras out, photographing frightened families in their beds. The Israeli military later acknowledged that these raids became &ldquo;no longer necessary&rdquo; following &ldquo;developments and improvements in the military&rsquo;s information-gathering abilities.&rdquo; They had built a better machine. The machine could do the work without soldiers standing over sleeping children.</p>
+      <p>This was framed as progress.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v4/02-A_v4.jpg')"></div>
+      </div>
+      <p>In occupied East Jerusalem, the photography requires no soldier at all. Amnesty International mapped the camera infrastructure across a ten-square-kilometre area &mdash; the Old City, Sheikh Jarrah, the surrounding streets &mdash; and documented one to two CCTV cameras every five metres. The cameras belong to the Mabat 2000 network, upgraded since 2017 to incorporate facial recognition. Some are manufactured by Hikvision, the Chinese company whose own marketing confirms the hardware integrates with facial recognition software. Some are manufactured by the Dutch company TKH Security.</p>
+      <p>The Palestinians who live and walk and pray in that ten-square-kilometre area are, at all times, being seen. Not watched in the sense of occasional observation. Seen continuously, comprehensively, algorithmically. Their faces run through the system each time they pass a camera. Their movement is logged. The data is held by the Israeli authorities who control whether they can stay in their city, renew their residency, pass through a checkpoint, return home from abroad.</p>
+      <p>Ori Givati, advocacy director for Breaking the Silence, said it directly: Palestinians have &ldquo;no more private space.&rdquo; &ldquo;If in the past some might have felt that at least their private information was under their control, we took that away as well.&rdquo;</p>
+      <hr>
+      <p>A woman walks to the market in Hebron on a Tuesday morning. A soldier opens Blue Wolf and photographs her. Her face uploads to Wolf Pack. The system finds her records &mdash; or creates them. She goes home. She buys her vegetables. She knows nothing about what just happened to her data, who holds it, how it is classified, what color it has been assigned.</p>
+      <p>Her face is now in a database alongside the faces of virtually every other Palestinian in the West Bank. The database grows because soldiers are rewarded for growing it. Every Palestinian who lives under Israeli military control exists inside a surveillance infrastructure of this scale and intimacy.</p>
+      <p>No legal framework governs it. No independent oversight. No notification requirement. No mechanism to challenge what is recorded, contest a classification, or request deletion. The system operates entirely outside the reach of the people it surveils.</p>
+      <hr>
+      <p>Matt Mahmoudi, Amnesty International&rsquo;s lead researcher on AI and human rights, named what the leaderboard does to surveillance logic: &ldquo;You&rsquo;re operating by a gamified logic in which you will do everything in your power to map as many Palestinian faces as possible. Palestinians have become numbers that have either green, yellow or red lights associated with them on a computer screen.&rdquo;</p>
+      <p>This is what Nadera Shalhoub-Kevorkian calls security theology. Security is the word that forecloses all other words. Once something is named security, it leaves the domain of argument, accountability, law. It simply is. The system simply runs.</p>
+      <p>The Coded Gaze &mdash; Joy Buolamwini&rsquo;s framework for the bias built into facial recognition &mdash; names the other layer. The machine was trained on certain faces and not others. The color-coded system &mdash; green, yellow, red &mdash; was designed by the same intelligence apparatus that classified the face being scanned. The machine looks at a Palestinian face and renders a verdict. No human is required to review it. No one is accountable for what it decides.</p>
+      <hr>
+      <p>An Israeli soldier who worked on the Hebron Smart City project &mdash; the network of surveillance cameras blanketing the city &mdash; told <em>The Washington Post</em> plainly: &ldquo;It&rsquo;s a total violation of privacy of an entire people.&rdquo;</p>
+      <p>He said this. He worked on the project anyway. This is also how the system works: not through ignorance, but through structure. The individual soldier sees what is happening. The individual programmer understands what is being built. The system proceeds regardless, because the system does not require their consent any more than it requires the consent of the Palestinians being photographed.</p>
+      <p>The occupation has always worked this way. Technology makes it faster, larger, more precise.</p>
+      <hr>
+      <p>Someone is on the leaderboard right now.</p>
+      <p>They are photographing Palestinians &mdash; at a checkpoint in Hebron, on a street in the Old City, outside a house in the middle of the night. They are ranking up. Their unit is competitive. Their commander checks the scores each week.</p>
+      <p>The face they just photographed is in the database. The person it belongs to does not know. Has no way of knowing. Has no mechanism, legal or otherwise, to find out, contest it, or make it stop.</p>
+      <p>The soldier goes home on Friday. Extra leave. Time with their family.</p>
+      <p>The face stays in the database.</p>
+      <p>The database grows.</p>
+      <p>The woman with the cloth bag walked home on a Tuesday. She set her vegetables on the table. She did not know her face had been taken. She does not know now. She will never be told. The database does not notify the people inside it. It simply holds them &mdash; holds her face, holds the color the system assigned her, holds everything the system decided about her that morning on the street in Hebron, while she was thinking about tomatoes.</p>
+      <div class="sources">
+        <p><em>Sources: The Washington Post (November 5, 2021); Amnesty International, &ldquo;Automated Apartheid&rdquo; (May 2023); Breaking the Silence testimonies (2021&ndash;2023); Middle East Eye; AI Incident Database Entry #368.</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">أنتِ عم تمشي عالسوق بالخليل صبح يوم ثلاثاء. معك شنطة قماش. بتشتري خضارك — طماطم، أو اللي موجود بالموسم. جندي على الشارع بفتح تطبيق على تلفونه وبيصوّر وجهك بدون ما يحكي كلمة. بتكملي. ما بتعرفي.</p>
+      <p class="ar">بوقت وصولك لبيتك، أنتِ بقاعدة بيانات.</p>
+      <hr>
+      <p class="ar">في واحد فاز هاد الأسبوع. وحدة في مكان ما بالضفة الغربية — الخليل على الأغلب — طلعت على رأس القائمة. أكتر وجه تصوّروه. أكتر فلسطيني دخّلوه بقاعدة البيانات. الجائزة: أيام إجازة إضافية. وقت مع العيلة. هاد كيف كسبوها.</p>
+      <hr>
+      <p class="ar">التطبيق اسمه Blue Wolf. الجنود الإسرائيليين بحملوه على هواتفهم وتابلتاتهم. بوجّهوه نحو الفلسطينيين — على الحواجز، بالأسواق، بالشوارع، قدام بيوتهم، وأحياناً جوّا البيوت بنص الليل. الكاميرا بتاخذ الوجه. الوجه بيطلع على نظام بيسمّوه Wolf Pack. Wolf Pack فيه معلومات عن كل فلسطيني تقريباً بالضفة: الصورة، العيلة، مكان السكن، التعليم، التصنيف الأمني. كل وجه بياخذ لون. أخضر يعني امشي. أصفر يعني وقّف وتحقّق. أحمر يعني اعتقل.</p>
+      <p class="ar">الجنود حكوا هاد للـ Washington Post سنة 2021. واحد منهم سمّاه «فيسبوك للفلسطينيين». قالها كنكتة. ما كان غلطان.</p>
+      <p class="ar">وعشان يحفّزوا الجنود يصوّروا أكبر عدد ممكن من الفلسطينيين، المسؤولون أطلقوا «المسابقة». كل وحدة بتاخذ ترتيب أسبوعي. اللي بتدخّل أكتر وجوه بتفوز. الجائزة الأكيدة: إجازة مدفوعة. بتصوّر كفاية من الفلسطينيين، بترجع لبيتك.</p>
+      <p class="ar">جندي إسرائيلي، شهد بشكل مجهول لمنظمة Breaking the Silence، وصف المنطق بشكل مباشر: "الفرقة عم تنظّم «المسابقة» لتشوف مين بيدخّل أكتر أسماء جديدة بالحاسوب."</p>
+      <hr>
+      <p class="ar">كلمة الجنود على قاعدة البيانات كانت "فيسبوك للفلسطينيين." بس المقارنة الأدق هي Pokémon. بتطلع عالمنطقة. بتجمّعهم. بتسجّل نقاط. بتتقدّم بالترتيب. كل الضفة الغربية المحتلة بتتحوّل لخريطة صيد. ما في طريقة يرفضوا فيها. ما في ورقة يملّوها، ما في عملية قانونية يلجؤوا إليها، ما في محكمة يقدروا يعترضوا فيها.</p>
+      <p class="ar">حدا صمّم هيكل الحوافز، حسب النتايج الأسبوعية، وزّع الجوائز، ورجع لبيته وهو مقتنع إنه عمل شغله. الهول ما بيحتاج الكوميديا تحمله.</p>
+      <hr>
+      <p class="ar">قاعدة بيانات Wolf Pack مش أداة مساعدة. هي بنية تحتية شاملة. صور. أفراد العيلة. معارف. تصنيفات أمنية. القاعدة بتكبر كل ما جندي بيفتح Blue Wolf ويوجّه كاميرا نحو وجه.</p>
+      <p class="ar">فيها أطفال فلسطينيون. وثّقت منظمة العفو الدولية جنوداً يصوّرون أطفالاً للقاعدة — بما في ذلك خلال مداهمات ليلية على البيوت. الجيش الإسرائيلي اعترف لاحقاً إن هاي المداهمات صارت "ما لازمة" بعد "تطورات وتحسينات بقدرات جمع المعلومات العسكرية." بنوا ماكينة أحسن. هاد اتوصف كتقدم.</p>
+      <hr>
+      <p class="ar">بالقدس الشرقية المحتلة، التصوير ما بحتاج جندي أصلاً. رسمت منظمة العفو الدولية خريطة البنية التحتية للكاميرات على مساحة عشرة كيلومترات مربعة — البلدة القديمة، الشيخ جراح، الشوارع المحيطة — ووثّقت كاميرا إلى كاميرتين كل خمسة أمتار. الكاميرات تابعة لشبكة Mabat 2000، اتطوّرت من 2017 لتضمّ تقنيات التعرف على الوجه.</p>
+      <p class="ar">الفلسطينيون اللي بيحيوا وبيمشوا وبيصلّوا بهاي العشرة كيلومترات، بكل وقت، مرصودون. بيتشافوا باستمرار، بشكل شامل، بطريقة آلية. أوري جيفاتي، مدير المناصرة في Breaking the Silence، قالها بصراحة: الفلسطينيون "ما في عندهم مساحة خاصة بعد الآن."</p>
+      <hr>
+      <p class="ar">مات محمودي، الباحث الرئيسي في منظمة العفو الدولية، وصف شو بتعمل القائمة التنافسية بمنطق المراقبة: "عم تشتغل بمنطق مُلعَّب بتعمل فيه كل شي بسلطتك عشان ترسم خريطة أكبر عدد ممكن من الوجوه الفلسطينية. الفلسطينيون صاروا أرقام ليها إما أخضر أو أصفر أو أحمر على شاشة حاسوب."</p>
+      <p class="ar">الآلة بتحكم على وجه فلسطيني وبتصدر حكم. ما في إنسان مطلوب يراجعه. ما في أحد مسؤول عمّا بتقرره.</p>
+      <hr>
+      <p class="ar">جندي إسرائيلي اشتغل على مشروع Hebron Smart City قال للـ Washington Post بصراحة: "هاد انتهاك كامل لخصوصية شعب بأكمله." قالها. واشتغل بالمشروع بعدين. الاحتلال دايماً اشتغل هيك. التكنولوجيا بتخلّيه أسرع، وأكبر، وأدق.</p>
+      <hr>
+      <p class="ar">في واحد على القائمة هلق. عم يصوّر فلسطينيين. الجندي برجع لبيته يوم الجمعة. إجازة إضافية. وقت مع عيلته. الوجه بيضل بقاعدة البيانات. القاعدة بتكبر.</p>
+      <p class="ar">أنتِ صاحبة الشنطة القماش رجعتِ لبيتك يوم ثلاثاء. حطيتِ الخضار على الطاولة. ما علمتِ إن وجهك اتاخذ. ما بتعلمي هلأ. ما رح يخبروكِ أبدًا. قاعدة البيانات ما بتبلّغ الناس اللي جوّاها. بس بتضل تحملهم — بتحمل وجهك، بتحمل اللون اللي أعطاكِ إياه النظام، بتحمل كل شي قرره عنكِ صبح ذاك اليوم في شارع بالخليل، وأنتِ كانت تفكيرك بالطماطم.</p>
+      <div class="sources">
+        <p class="ar"><em>المصادر: Washington Post (5 نوفمبر 2021)؛ منظمة العفو الدولية، "الفصل العنصري الآلي" (مايو 2023)؛ شهادات Breaking the Silence (2021-2023)؛ Middle East Eye؛ قاعدة بيانات حوادث الذكاء الاصطناعي، الحادثة 368.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The machine looks at a Palestinian face and renders a verdict. No human is required to review it. No one is accountable for what it decides.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;الآلة بتحكم على وجه فلسطيني وبتصدر حكم. ما في إنسان مطلوب يراجعه. ما في أحد مسؤول عمّا بتقرره.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="01.html" class="lang-en">&larr; File 01: The Kill List Machine</a>
+      <a href="01.html" class="lang-ar">الملف 01: آلة القتل &rarr;</a>
+      <a href="03.html" class="lang-en">File 03: The Stateless Database &rarr;</a>
+      <a href="03.html" class="lang-ar">&larr; الملف 03: قاعدة البيانات بلا جنسية</a>
+    </div>
+    <div class="series-link"><a href="index.html" class="lang-en">Back to Human in the Loop</a><a href="index.html" class="lang-ar">العودة إلى إنسان في الدوامة</a></div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Human in the Loop is a seven-part series on artificial intelligence and the Palestinian condition.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إنسان في الدوامة سلسلة من سبعة ملفات عن الذكاء الاصطناعي والحالة الفلسطينية.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang){document.documentElement.lang=lang;localStorage.setItem('hitl-lang',lang);document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-ar').classList.toggle('active',lang==='ar');}
+  (function(){var saved=localStorage.getItem('hitl-lang')||'en';setLang(saved);})();
+</script>
+</body>
+</html>

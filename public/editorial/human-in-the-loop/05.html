@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 05 — The Language They Didn't Train | Human in the Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#1A1714;--surface:#F5F0E8;--accent:#C41230;--muted:#6B6259;--art:#D4A82A;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;}html[lang="ar"]{direction:rtl;}
+  html:not([lang="ar"]) .lang-ar{display:none!important;}html[lang="ar"] .lang-en{display:none!important;}
+  body{background:var(--bg);color:var(--surface);font-family:'EB Garamond',serif;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,23,20,0.96);backdrop-filter:blur(8px);height:52px;display:flex;align-items:center;padding:0 2rem;border-bottom:1px solid rgba(245,240,232,0.08);}
+  .nav-left{flex:1;}.nav-left a{color:var(--muted);text-decoration:none;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s;}.nav-left a:hover{color:var(--surface);}
+  .nav-center{flex:2;text-align:center;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.05em;color:var(--muted);}.nav-center .file-num{color:var(--art);font-weight:600;}
+  .nav-right{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:0.5rem;}
+  .lang-btn{background:none;border:1px solid rgba(245,240,232,0.2);color:var(--muted);padding:0.25rem 0.6rem;font-size:0.78rem;cursor:pointer;transition:all 0.2s;}.lang-btn:hover,.lang-btn.active{border-color:var(--art);color:var(--art);}
+  .hero{position:relative;height:60vh;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;margin-top:52px;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.1) 0%,rgba(26,23,20,0.4) 40%,rgba(26,23,20,0.92) 100%);}
+  .hero-ghost{position:absolute;right:5%;bottom:-0.1em;font-family:'Playfair Display',serif;font-size:clamp(8rem,22vw,18rem);font-weight:900;color:var(--art);opacity:0.12;line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.04em;}
+  html[lang="ar"] .hero-ghost{right:auto;left:5%;}
+  .hero-content{position:relative;z-index:2;padding:2.5rem 3rem;max-width:900px;}
+  .hero-file-label{font-family:'EB Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--art);margin-bottom:0.75rem;}
+  .hero-title-en{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);line-height:1.05;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1.2;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .hero-subtitle-ar{font-family:'Amiri',serif;font-style:italic;font-size:1.1rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .byline{font-family:'EB Garamond',serif;font-size:0.85rem;color:rgba(245,240,232,0.5);letter-spacing:0.03em;}
+  .byline-ar{font-family:'Amiri',serif;font-size:0.9rem;color:rgba(245,240,232,0.5);}
+  .article-wrap{background:var(--surface);color:#1A1714;}
+  .article-body{max-width:720px;margin:0 auto;padding:4rem 2rem;}
+  .article-body p{font-family:'EB Garamond',serif;font-size:19px;line-height:1.85;color:#1A1714;margin-bottom:1.4em;}
+  .article-body p.ar{font-family:'Amiri',serif;font-size:20px;line-height:1.9;direction:rtl;text-align:right;}
+  .article-body h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.55rem;color:#1A1714;margin:2.5rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--art);}
+  .article-body h2.ar{font-family:'Amiri',serif;font-size:1.7rem;direction:rtl;text-align:right;}
+  .article-body hr{border:none;border-top:1px solid rgba(26,23,20,0.15);margin:2rem 0;}
+  .article-notice{background:rgba(212,168,42,0.08);border-left:3px solid var(--art);padding:1rem 1.2rem;margin-bottom:2rem;font-family:'Amiri',serif;font-size:1rem;direction:rtl;text-align:right;color:#4a3e00;}
+  .sources{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(26,23,20,0.15);font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  .sources p{font-size:0.85rem;font-family:'EB Garamond',serif;}
+  .pull-quote-section{background:var(--bg);padding:5rem 2rem;}
+  .pull-quote-inner{max-width:720px;margin:0 auto;}
+  .pull-quote{border-left:4px solid var(--art);padding:1.5rem 2rem;}
+  html[lang="ar"] .pull-quote{border-left:none;border-right:4px solid var(--art);}
+  .pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.5;color:var(--surface);}
+  .pull-quote p.ar{font-family:'Amiri',serif;font-size:clamp(1.3rem,2.5vw,1.75rem);direction:rtl;text-align:right;}
+  .article-footer{background:var(--surface);padding:3rem 2rem;}
+  .article-footer-inner{max-width:720px;margin:0 auto;}
+  .file-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+  .file-nav a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;padding-bottom:2px;}.file-nav a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .series-link{text-align:center;margin-bottom:2rem;}.series-link a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(107,98,89,0.4);padding-bottom:2px;transition:all 0.2s;}.series-link a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .author-bio{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);border-top:1px solid rgba(26,23,20,0.12);padding-top:1.5rem;line-height:1.6;}
+  .author-bio-ar{font-family:'Amiri',serif;font-size:0.95rem;direction:rtl;text-align:right;}
+  footer{background:var(--bg);text-align:center;padding:2rem;font-family:'EB Garamond',serif;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;border-top:1px solid rgba(245,240,232,0.06);}
+  .article-image-panel{width:100%;margin:4rem 0;position:relative;overflow:hidden;}
+  .aip-image{width:100%;height:420px;background-size:cover;background-position:center;}
+  @media(max-width:600px){.hero-content{padding:1.5rem;}.article-body{padding:2.5rem 1.2rem;}nav{padding:0 1rem;}.nav-center{font-size:0.75rem;}.aip-image{height:260px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Human in the Loop</a><a href="index.html" class="lang-ar">إنسان في الدوامة</a></div>
+  <div class="nav-center"><span class="lang-en"><span class="file-num">File 05</span> &mdash; The Language They Didn&rsquo;t Train</span><span class="lang-ar"><span class="file-num">الملف 05</span> &mdash; اللغة التي ما دربوها</span></div>
+  <div class="nav-right"><a href="/en/insights" id="aida-back" class="lang-btn lang-en" style="text-decoration:none;font-size:0.75rem">← AIDA</a><a href="/ar/insights" class="lang-btn lang-ar" style="text-decoration:none;font-size:0.75rem">AIDA →</a><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button><button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button></div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/leonardo/v3/05-C_v3_visionxl_114428.jpg" alt="The Language They Didn't Train">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">05</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Human in the Loop &mdash; File 05 of 07</div>
+    <div class="hero-file-label lang-ar">إنسان في الدوامة &mdash; الملف 05 من 07</div>
+    <h1 class="hero-title-en lang-en">The Language They Didn&rsquo;t Train</h1>
+    <h1 class="hero-title-ar lang-ar">اللغة التي ما دربوها</h1>
+    <p class="hero-subtitle lang-en"><em>Palestinian Arabic and the new map of linguistic erasure</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>اللهجة الفلسطينية وخريطة المحو اللغوي الجديدة</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; April 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أبريل 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+    <div class="lang-en">
+      <p>She was a university student in Ramallah &mdash; studying linguistics, which made what happened next harder to ignore. She typed the sentence the way she actually talks &mdash; the way anyone from there talks. Not the Arabic of textbooks. The Arabic of the kitchen, the camp, the checkpoint queue. The Arabic that begins <em>yalla ya &lsquo;ammi</em> and ends with a joke that only works if you know which village you&rsquo;re from. She typed it into one of the large language models. She was testing something for a paper.</p>
+      <p>She watched what came back.</p>
+      <p>The machine answered in fusha. Modern Standard Arabic. The formal register. Grammatically correct. Culturally inert. The machine had taken her sentence, recognized it as &ldquo;Arabic,&rdquo; and responded in the Arabic it was trained on &mdash; which is not her Arabic. It heard her voice and replied in someone else&rsquo;s.</p>
+      <p>The joke was already dead.</p>
+      <h2>The Shape of the Silence</h2>
+      <p>Arabic is spoken natively by more than 400 million people. It is the seventh most-used language on the internet. And yet, according to multiple analyses of web-crawled datasets &mdash; the raw material from which large language models are trained &mdash; fewer than one percent of all online pages are in Arabic. The gap between how many people speak a language and how much of that language exists in machine-readable form is not a coincidence. It is a map of power.</p>
+      <p>The &ldquo;Stochastic Parrots&rdquo; paper, published in 2021 by Emily Bender, Timnit Gebru, Angelina McMillan-Major, and Margaret Mitchell, named this plainly: work on large language models is dominated by English. The question the authors asked was pointed: why do communities paying the environmental price of training ever-larger English language models not see similar models produced for languages like Sudanese Arabic &mdash; or Palestinian Arabic?</p>
+      <p>Arabic is not one language. It is a diaspora of languages sharing a script and a name and a classical ancestor that nobody speaks at home. Modern Standard Arabic &mdash; fusha &mdash; is the official form, written, broadcast, standardized. It is nobody&rsquo;s mother tongue. The dialects &mdash; Egyptian, Gulf, Moroccan, Levantine &mdash; are what people actually speak. Most NLP research, most training data, most benchmark evaluation focuses on fusha. The dialects are secondary. The one that does not count.</p>
+      <p>Within the dialects, there is a further hierarchy. Egyptian Arabic is the most documented. Gulf Arabic has attracted commercial interest. Levantine Arabic has less. And within Levantine, Palestinian Arabic is specifically, structurally, nearly absent.</p>
+      <h2>The Curras Problem</h2>
+      <p>The Curras corpus &mdash; the first morphologically annotated corpus of Palestinian Arabic, built by Professor Mustafa Jarrar at Birzeit University &mdash; contains approximately 56,000 tokens. The Currasat expansion, announced at the United Nations in December 2022, extended work across six Arabic dialects, bringing total annotated material to 1.3 million words across all dialects combined.</p>
+      <p>1.3 million words, across six dialects, announced at the United Nations.</p>
+      <p>For comparison: GPT-3 was trained on roughly 300 billion tokens of text. The entire Currasat corpus represents a fraction of a fraction of the data used to train a single English-dominant model.</p>
+      <p>Jarrar was, as one report noted, only the second person in history to train a computer in an Arabic dialect. The first was the U.S. Army, training on Egyptian Arabic. The U.S. Army had its own reasons. Birzeit University had different reasons: to preserve a language that is running out of people to speak it in the place it comes from.</p>
+      <h2>The Machine Doesn&rsquo;t Know Lifta</h2>
+      <p>Lifta was a village on the western edge of Jerusalem. Its population of 2,550 was expelled in January 1948 &mdash; among the first driven out in the war Palestinians call the Nakba. The stone houses of Lifta still stand, visible from the highway into Jerusalem. But the dialect of Lifta &mdash; the specific idioms, the particular intonation, the words that meant one thing in Lifta and something slightly different in Beit Nuba or Saffuriyya &mdash; exists only in the mouths of survivors, and now their grandchildren, in refugee camps in Lebanon and Jordan.</p>
+      <p>The Palestinian Oral History Archive at the American University of Beirut holds more than 1,000 hours of testimony from first-generation refugees. PalestineRemembered.com has recorded over 700 oral history interviews, more than 3,500 hours of recording.</p>
+      <p>None of them are in any AI training corpus.</p>
+      <p>The machine has not read the testimony of the woman from Saffuriyya who describes how to make musakhan the way her mother made it in the house that no longer exists. The machine has not processed the jokes that only work if you know the rivalry between Hebron and Nablus. The machine does not know the difference between how someone from the Galilee says <em>halla&rsquo;</em> and how someone from the south says it &mdash; because in the south they say something different, and in Lifta they said something else entirely, and now Lifta is a ruin visible from the highway and no one will ever train a model on the way its people spoke.</p>
+      <h2>The Dark Comedy of It</h2>
+      <p>The same AI systems that cannot understand Palestinian Arabic &mdash; that flatten it into fusha, that miss the register of grief and the register of a specific regional humor, that cannot locate the village &mdash; will confidently explain Palestinian culture to you. In fusha. In English.</p>
+      <p>They will explain Palestinians, in the language Palestinians do not speak at home, to people who have never been there.</p>
+      <h2>What the Machine Does Not Know</h2>
+      <p>Mourid Barghouti wrote about language as the thing that connects a person to their original place. In exile, the dialect is the bridge. Not fusha. Not the standard. The specific voice of the specific place. <em>Haad</em> instead of <em>hadha</em>. <em>Bfakkar</em> instead of <em>a&lsquo;taqid</em>. The particle <em>ya&lsquo;ni</em> carrying its weight of indefinition and shared understanding. The word <em>wein</em> that locates you geographically, tells you which Arabic you are speaking, tells you where you are from even when you are not there.</p>
+      <p>The machine cannot cross that bridge. When the machine does not know the dialect, it severs that connection one more time. It performs, in the register of technology, the same act performed in the register of war and law and urban planning: the erasure of the specific place in favor of the general category.</p>
+      <p>You are not from Lifta. You are &ldquo;Arab.&rdquo; You are not speaking the Arabic of your grandmother&rsquo;s village. You are speaking &ldquo;Arabic.&rdquo;</p>
+      <p>The Arabic it was trained on does not know your grandmother&rsquo;s village.</p>
+      <p>The Arabic it was trained on does not know your grandmother.</p>
+      <h2>The Gap Is the Argument</h2>
+      <p>There is a word in Palestinian dialect &mdash; <em>ghurba</em> (&lrm;غربة&lrm;) &mdash; that means exile, estrangement, foreignness. Every Arabic speaker knows it. But the way it sits in Palestinian Arabic, the weight it carries after seventy-eight years of displacement, after the camp and the diaspora and the checkpoint and the return that has not come &mdash; that weight is not in the dictionary. It cannot be captured in a corpus of 56,000 tokens. It cannot be inferred from fusha. It lives in the specific utterance, in the specific body, in the specific register of a specific community in a specific place.</p>
+      <p>The machine does not know the village. The name is not in the database. The word carries a geography the machine cannot locate.</p>
+      <p>The student in Ramallah typed her sentence and watched what came back. The machine responded in the Arabic it was trained on. She read the answer. She already knew what it would say. She had known before she typed.</p>
+      <div class="sources">
+        <p><em>Sources: Bender et al., &ldquo;Stochastic Parrots&rdquo; (FAccT 2021); Jarrar et al., Curras corpus (2014, 2017); Birzeit University, Currasat press release (December 2022); Bouamor et al., MADAR corpus (LREC 2018); Khalidi, <em>All That Remains</em> (1992); American University of Beirut, Palestinian Oral History Archive; Couldry &amp; Mejias, <em>The Costs of Connection</em> (2019).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <div class="article-notice">ملاحظة للقارئ: هاي المقالة مكتوبة باللهجة الفلسطينية العامية — مش بالفصحى. هاد مو غلط. هاد هو النقطة كلها.</div>
+      <p class="ar">كانت طالبة جامعة من رام الله — طالبة لغويات، اللي خلّى اللي صار بعدها أصعب تتجاهله. كتبت الجملة كيف ما بتحكي فعلاً — كيف ما بيحكي أي واحد من هناك. مش العربي تبع الكتب. العربي تبع المطبخ والمخيم وطابور الحاجز. العربي اللي بيبدأ بـ "يلا يا عمي" وبينتهي بنكتة ما بتفهمها إلا إذا عارف من وين أنت. كتبتها لأحد نماذج اللغة الكبيرة. كانت تختبر إشي لورقة بحثية.</p>
+      <p class="ar">شافت شو رجعلها. الجواب جاء بالفصحى. صح من ناحية القواعد. فاضي من ناحية الروح. الآلة سمعت صوتها وردت بلغة حدا ثاني. لغة بلا ذاكرة. كلماتك. ما هي في قاموسه. النكتة ماتت من زمان.</p>
+      <h2 class="ar">شكل الصمت</h2>
+      <p class="ar">في أكتر من أربعمية مليون إنسان بيحكوا العربية كلغة أم. العربية السابعة بالانترنت من ناحية عدد المستخدمين. ومع هيك، أقل من واحد بالمية من صفحات الإنترنت مكتوبة بالعربية. الفجوة بين كم واحد بيحكي اللغة وكم منها موجود بشكل رقمي مو بالصدفة. هي خريطة السلطة.</p>
+      <p class="ar">العربية مش لغة واحدة. هي مجموعة لغات بيشتركوا بخط الكتابة وباسم واحد. الفصحى محدا بيحكيها بالبيت. اللهجات — المصرية، الخليجية، المغربية، الشامية — هي اللي الناس بتحكيها فعلاً. معظم بحوث NLP ومعظم بيانات التدريب بتركز على الفصحى. اللهجات ثانوية. غير رسمية. ما بتعدّ. هاد مو تجاهل. هاد محو.</p>
+      <h2 class="ar">مشكلة كُرّاس</h2>
+      <p class="ar">كُرّاس — أول موروث لغوي فلسطيني معلّم صرفياً بشكل علمي، بناه الدكتور مصطفى جرار من جامعة بيرزيت — يحتوي تقريباً على 56,000 رمز لغوي. مشروع كُرّاسات الأوسع، اللي انطلق من مقر الأمم المتحدة بنيويورك في ديسمبر 2022، بمجموع 1.3 مليون كلمة لكل اللهجات مجتمعة.</p>
+      <p class="ar">1.3 مليون كلمة، على ست لهجات، أُعلن عنها من الأمم المتحدة. للمقارنة: GPT-3 تدرب على ما يقارب 300 مليار رمز. معطيات كُرّاسات كلها هي كسر من كسر البيانات المستخدمة لتدريب نموذج واحد.</p>
+      <h2 class="ar">الآلة ما بتعرف لفتا</h2>
+      <p class="ar">لفتا كانت قرية على الطرف الغربي من القدس. سكانها — 2,550 نفس — طُردوا في يناير 1948. بيوت لفتا الحجرية لسا قايمة، مرئية من الطريق السريع لداخل القدس. بتشوفها وأنت عم تمشي. بس لهجة لفتا موجودة بس بأفواه الناجين وأحفادهم بالمخيمات.</p>
+      <p class="ar">أرشيف التاريخ الشفهي الفلسطيني في الجامعة الأمريكية ببيروت بيضم أكتر من 1,000 ساعة شهادات. موقع فلسطين المحتلة سجّل أكتر من 700 مقابلة شفهية. ما في واحدة منهم بأي بيانات تدريب لأي نموذج ذكاء اصطناعي.</p>
+      <p class="ar">الآلة ما قرأتش شهادة المرأة من صفورية اللي بتحكي كيف كانت أمها تعمل المسخن بالبيت اللي ما صار بيبقى. الآلة ما بتعرف الفرق بين طريقة حكي حدا من الجليل لكلمة "هلق" وطريقة حكيها من الجنوب. لأنو بلفتا كانوا بيحكوا إشي آخر كلياً، وهلق لفتا حجارة تشوفها من الطريق ومحدا رح يدرّب نموذج على طريقة حكي أهلها.</p>
+      <h2 class="ar">الكوميديا السوداء بالموضوع</h2>
+      <p class="ar">نفس أنظمة الذكاء الاصطناعي اللي ما بتفهم اللهجة الفلسطينية رح تشرحلك الثقافة الفلسطينية بثقة. بالفصحى. بالإنجليزية. رح تشرح الفلسطينيين، باللغة اللي الفلسطينيين ما بيحكوها بالبيت، لناس ما رحوا هونيك.</p>
+      <h2 class="ar">اللغة كجسر</h2>
+      <p class="ar">مريد البرغوثي كتب عن اللغة كالجسر اللي بيوصل الإنسان بمكانه الأصلي. لما تكون بالغربة، اللهجة هي الجسر. مش الفصحى. الصوت المحدد للمكان المحدد. <em>هاد</em> بدل <em>هذا</em>. <em>بفكر</em> بدل <em>أعتقد</em>. حرف <em>يعني</em> شايل ثقله من الغموض والتفاهم المشترك. كلمة <em>وين</em> بتحدد مكانك الجغرافي، بتقلك أي عربية عم بتحكي.</p>
+      <p class="ar">الآلة ما بتقدر تعبر الجسر هاد. لما الآلة ما بتعرف لهجتك، بتعمل القطيعة مرة ثانية. بتؤدي، بوسيط التكنولوجيا، نفس الفعل اللي اتعمل بوسيط الحرب والقانون: محو المكان المحدد لصالح الفئة العامة.</p>
+      <p class="ar">أنت مش من لفتا. أنت «عربي.» ما عم بتحكي عربي قريتك. عم بتحكي «عربي.» الآلة رح تجاوب بالعربي اللي اتدربت عليه. العربي اللي اتدربت عليه ما بيعرف قرية جدتك. العربي اللي اتدربت عليه ما بيعرف جدتك.</p>
+      <p class="ar">الطالبة من رام الله كتبت جملتها وشافت شو رجعلها. الآلة جاوبت بالعربي اللي اتدربت عليه. قرأت الجواب. كانت عارفة قبل ما تكتب.</p>
+      <div class="sources">
+        <p class="ar"><em>المصادر: Bender وآخرون، "الببغاوات العشوائية" (FAccT 2021)؛ جرار وآخرون، كُرّاس (2014، 2017)؛ جامعة بيرزيت، إعلان كُرّاسات (ديسمبر 2022)؛ بوعمر وآخرون، مشروع MADAR (2018)؛ خالدي، "كل ما تبقى" (1992)؛ الجامعة الأمريكية ببيروت، أرشيف التاريخ الشفهي الفلسطيني.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The same AI systems that cannot understand Palestinian Arabic will confidently explain Palestinian culture to you. In fusha. In English. They will explain Palestinians, in the language Palestinians do not speak at home, to people who have never been there.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;نفس أنظمة الذكاء الاصطناعي اللي ما بتفهم اللهجة الفلسطينية رح تشرحلك الثقافة الفلسطينية بثقة. بالفصحى. بالإنجليزية. رح تشرح الفلسطينيين، باللغة اللي الفلسطينيين ما بيحكوها بالبيت، لناس ما رحوا هونيك.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="04.html" class="lang-en">&larr; File 04: The Silenced Feed</a>
+      <a href="04.html" class="lang-ar">الملف 04: التغذية الصامتة &rarr;</a>
+      <a href="06.html" class="lang-en">File 06: The Engineer&rsquo;s Dilemma &rarr;</a>
+      <a href="06.html" class="lang-ar">&larr; الملف 06: معضلة المهندس</a>
+    </div>
+    <div class="series-link"><a href="index.html" class="lang-en">Back to Human in the Loop</a><a href="index.html" class="lang-ar">العودة إلى إنسان في الدوامة</a></div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Human in the Loop is a seven-part series on artificial intelligence and the Palestinian condition.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إنسان في الدوامة سلسلة من سبعة ملفات عن الذكاء الاصطناعي والحالة الفلسطينية.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang){document.documentElement.lang=lang;localStorage.setItem('hitl-lang',lang);document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-ar').classList.toggle('active',lang==='ar');}
+  (function(){var saved=localStorage.getItem('hitl-lang')||'en';setLang(saved);})();
+</script>
+</body>
+</html>

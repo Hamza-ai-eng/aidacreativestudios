@@ -1,75 +1,32 @@
-export interface Article {
+export interface Series {
   slug: string;
-  collection: "brand-building" | "social-media" | "ai-design" | "local-business" | "seasonal" | "design-essentials";
-  publishedAt: string;
-  readingTime: number;
-  titleKey: string;
-  descKey: string;
-  bodyKey: string;
+  status: "live" | "coming-soon";
+  fileCount: number;
+  accentColor: string;
+  externalPath?: string;
 }
 
-export const COLLECTIONS = [
-  { id: "brand-building", color: "#B85C38", icon: "Palette" },
-  { id: "social-media", color: "#4A7C8A", icon: "Instagram" },
-  { id: "ai-design", color: "#5B7553", icon: "Cpu" },
-  { id: "local-business", color: "#8E4428", icon: "MapPin" },
-  { id: "seasonal", color: "#B85C38", icon: "Calendar" },
-  { id: "design-essentials", color: "#2E5A66", icon: "Layers" },
-] as const;
-
-export const articles: Article[] = [
+export const SERIES: Series[] = [
   {
-    slug: "how-much-does-branding-cost",
-    collection: "brand-building",
-    publishedAt: "2026-03-29",
-    readingTime: 8,
-    titleKey: "brandingCost",
-    descKey: "brandingCostDesc",
-    bodyKey: "brandingCostBody",
+    slug: "human-in-the-loop",
+    status: "live",
+    fileCount: 7,
+    accentColor: "#C41230",
+    externalPath: "/editorial/human-in-the-loop/index.html",
   },
   {
-    slug: "ai-logo-generators-vs-professional-designers",
-    collection: "ai-design",
-    publishedAt: "2026-03-29",
-    readingTime: 10,
-    titleKey: "aiVsDesigner",
-    descKey: "aiVsDesignerDesc",
-    bodyKey: "aiVsDesignerBody",
+    slug: "the-brand-that-stays",
+    status: "coming-soon",
+    fileCount: 5,
+    accentColor: "#B85C38",
   },
   {
-    slug: "arabic-social-media-captions-that-convert",
-    collection: "social-media",
-    publishedAt: "2026-03-29",
-    readingTime: 7,
-    titleKey: "arabicCaptions",
-    descKey: "arabicCaptionsDesc",
-    bodyKey: "arabicCaptionsBody",
-  },
-  {
-    slug: "instagram-marketing-small-business",
-    collection: "social-media",
-    publishedAt: "2026-03-29",
-    readingTime: 9,
-    titleKey: "instagramMarketing",
-    descKey: "instagramMarketingDesc",
-    bodyKey: "instagramMarketingBody",
-  },
-  {
-    slug: "palestinian-businesses-digital-marketing",
-    collection: "local-business",
-    publishedAt: "2026-03-29",
-    readingTime: 11,
-    titleKey: "palestinianDigital",
-    descKey: "palestinianDigitalDesc",
-    bodyKey: "palestinianDigitalBody",
-  },
-  {
-    slug: "small-business-branding-101",
-    collection: "brand-building",
-    publishedAt: "2026-03-29",
-    readingTime: 12,
-    titleKey: "branding101",
-    descKey: "branding101Desc",
-    bodyKey: "branding101Body",
+    slug: "speaking-arabic",
+    status: "coming-soon",
+    fileCount: 4,
+    accentColor: "#4A7C8A",
   },
 ];
+
+// ── Archived SEO articles (offline, pending full editorial treatment) ──
+// Restored from: C:/AIDA_System/data/archive/aida-voice-articles/articles.ts

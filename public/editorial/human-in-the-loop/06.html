@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 06 — The Engineer's Dilemma | Human in the Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#1A1714;--surface:#F5F0E8;--accent:#C41230;--muted:#6B6259;--art:#3A5F9A;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;}html[lang="ar"]{direction:rtl;}
+  html:not([lang="ar"]) .lang-ar{display:none!important;}html[lang="ar"] .lang-en{display:none!important;}
+  body{background:var(--bg);color:var(--surface);font-family:'EB Garamond',serif;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,23,20,0.96);backdrop-filter:blur(8px);height:52px;display:flex;align-items:center;padding:0 2rem;border-bottom:1px solid rgba(245,240,232,0.08);}
+  .nav-left{flex:1;}.nav-left a{color:var(--muted);text-decoration:none;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s;}.nav-left a:hover{color:var(--surface);}
+  .nav-center{flex:2;text-align:center;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.05em;color:var(--muted);}.nav-center .file-num{color:var(--art);font-weight:600;}
+  .nav-right{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:0.5rem;}
+  .lang-btn{background:none;border:1px solid rgba(245,240,232,0.2);color:var(--muted);padding:0.25rem 0.6rem;font-size:0.78rem;cursor:pointer;transition:all 0.2s;}.lang-btn:hover,.lang-btn.active{border-color:var(--art);color:var(--art);}
+  .hero{position:relative;height:60vh;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;margin-top:52px;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.1) 0%,rgba(26,23,20,0.4) 40%,rgba(26,23,20,0.92) 100%);}
+  .hero-ghost{position:absolute;right:5%;bottom:-0.1em;font-family:'Playfair Display',serif;font-size:clamp(8rem,22vw,18rem);font-weight:900;color:var(--art);opacity:0.12;line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.04em;}
+  html[lang="ar"] .hero-ghost{right:auto;left:5%;}
+  .hero-content{position:relative;z-index:2;padding:2.5rem 3rem;max-width:900px;}
+  .hero-file-label{font-family:'EB Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--art);margin-bottom:0.75rem;}
+  .hero-title-en{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);line-height:1.05;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1.2;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .hero-subtitle-ar{font-family:'Amiri',serif;font-style:italic;font-size:1.1rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .byline{font-family:'EB Garamond',serif;font-size:0.85rem;color:rgba(245,240,232,0.5);letter-spacing:0.03em;}
+  .byline-ar{font-family:'Amiri',serif;font-size:0.9rem;color:rgba(245,240,232,0.5);}
+  .article-wrap{background:var(--surface);color:#1A1714;}
+  .article-body{max-width:720px;margin:0 auto;padding:4rem 2rem;}
+  .article-body p{font-family:'EB Garamond',serif;font-size:19px;line-height:1.85;color:#1A1714;margin-bottom:1.4em;}
+  .article-body p.ar{font-family:'Amiri',serif;font-size:20px;line-height:1.9;direction:rtl;text-align:right;}
+  .article-body h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.55rem;color:#1A1714;margin:2.5rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--art);}
+  .article-body h2.ar{font-family:'Amiri',serif;font-size:1.7rem;direction:rtl;text-align:right;}
+  .article-body hr{border:none;border-top:1px solid rgba(26,23,20,0.15);margin:2rem 0;}
+  .sources{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(26,23,20,0.15);font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  .sources p{font-size:0.85rem;font-family:'EB Garamond',serif;}
+  .pull-quote-section{background:var(--bg);padding:5rem 2rem;}
+  .pull-quote-inner{max-width:720px;margin:0 auto;}
+  .pull-quote{border-left:4px solid var(--art);padding:1.5rem 2rem;}
+  html[lang="ar"] .pull-quote{border-left:none;border-right:4px solid var(--art);}
+  .pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.5;color:var(--surface);}
+  .pull-quote p.ar{font-family:'Amiri',serif;font-size:clamp(1.3rem,2.5vw,1.75rem);direction:rtl;text-align:right;}
+  .article-footer{background:var(--surface);padding:3rem 2rem;}
+  .article-footer-inner{max-width:720px;margin:0 auto;}
+  .file-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+  .file-nav a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;padding-bottom:2px;}.file-nav a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .series-link{text-align:center;margin-bottom:2rem;}.series-link a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(107,98,89,0.4);padding-bottom:2px;transition:all 0.2s;}.series-link a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .author-bio{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);border-top:1px solid rgba(26,23,20,0.12);padding-top:1.5rem;line-height:1.6;}
+  .author-bio-ar{font-family:'Amiri',serif;font-size:0.95rem;direction:rtl;text-align:right;}
+  footer{background:var(--bg);text-align:center;padding:2rem;font-family:'EB Garamond',serif;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;border-top:1px solid rgba(245,240,232,0.06);}
+  .article-image-panel{width:100%;margin:4rem 0;position:relative;overflow:hidden;}
+  .aip-image{width:100%;height:420px;background-size:cover;background-position:center;}
+  @media(max-width:600px){.hero-content{padding:1.5rem;}.article-body{padding:2.5rem 1.2rem;}nav{padding:0 1rem;}.nav-center{font-size:0.75rem;}.aip-image{height:260px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Human in the Loop</a><a href="index.html" class="lang-ar">إنسان في الدوامة</a></div>
+  <div class="nav-center"><span class="lang-en"><span class="file-num">File 06</span> &mdash; The Engineer&rsquo;s Dilemma</span><span class="lang-ar"><span class="file-num">الملف 06</span> &mdash; معضلة المهندس</span></div>
+  <div class="nav-right"><a href="/en/insights" id="aida-back" class="lang-btn lang-en" style="text-decoration:none;font-size:0.75rem">← AIDA</a><a href="/ar/insights" class="lang-btn lang-ar" style="text-decoration:none;font-size:0.75rem">AIDA →</a><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button><button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button></div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/leonardo/v3/06-A_v3_visionxl_114447.jpg" alt="The Engineer's Dilemma">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">06</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Human in the Loop &mdash; File 06 of 07</div>
+    <div class="hero-file-label lang-ar">إنسان في الدوامة &mdash; الملف 06 من 07</div>
+    <h1 class="hero-title-en lang-en">The Engineer&rsquo;s Dilemma</h1>
+    <h1 class="hero-title-ar lang-ar">معضلة المهندس</h1>
+    <p class="hero-subtitle lang-en"><em>Palestinian tech workers and the moral architecture of complicity</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>العمال الفلسطينيون في شركات التكنولوجيا والبنية الأخلاقية للتواطؤ</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; April 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أبريل 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+    <div class="lang-en">
+      <p>The Slack message arrives on a Tuesday afternoon.</p>
+      <p>A colleague sent a link &mdash; no explanation, just the URL. She opens it. She reads. A few seconds. Maybe thirty. She closes the laptop.</p>
+      <p>She sits there.</p>
+      <p>Then she opens the laptop again and finishes the ticket she was working on. The ticket number is still on the screen.</p>
+      <p>This article does not tell you what she did after that. What it examines is what that moment contains. What any person would have to carry from that moment forward, back into the code, back into the standup meeting, back into the product roadmap with its clean milestones and its due dates.</p>
+      <p>Because the link she opened was about her company. And the thing her company built is being used in a place where her family lives.</p>
+      <h2>The Contract</h2>
+      <p>In April 2021, the Israeli Finance Ministry announced it had signed a joint cloud computing contract with Google and Amazon. Value: $1.2 billion. Purpose: moving government ministries and the defense establishment onto cloud infrastructure. The contract is called Project Nimbus.</p>
+      <p>Under the deal, Google Cloud and Amazon Web Services provide cloud computing, artificial intelligence, and machine learning capabilities to Israeli government agencies, including the military. The AI tools available include facial detection, automated image categorization, object tracking, and sentiment analysis. Leaked contract documents revealed that Israel inserted unusual provisions: Google and Amazon are prohibited from restricting how Israel uses their products, even if the use would breach their own terms of service.</p>
+      <p>Google&rsquo;s own consultants warned it before signing. Business for Social Responsibility, a human rights firm hired by Google, recommended withholding machine learning and AI technologies from the Israeli military to reduce potential harms. Google signed anyway.</p>
+      <p>Project Nimbus is not a metaphor. It is a contract. It has line items and service-level agreements and renewal clauses. And it has Palestinian engineers who report to work every day inside the companies that signed it.</p>
+      <h2>The Usage Spike</h2>
+      <p>In February 2025, the Associated Press published the results of an investigation into AI usage by the Israeli military. Israeli military usage of Microsoft and OpenAI artificial intelligence tools spiked to nearly 200 times its pre-October 7 levels in the weeks following the attack &mdash; documented through internal company data.</p>
+      <p>The data stored on Microsoft servers by Israeli military systems reached more than 13.6 petabytes &mdash; roughly 350 times the digital memory needed to store every book in the Library of Congress. The AP documented how the system worked: Azure cloud servers transcribed, translated, and processed intelligence gathered through mass surveillance. Those outputs were cross-referenced with Israel&rsquo;s own AI-enabled targeting systems.</p>
+      <p>A list of high school students in Gaza was misidentified by an AI system as potential militants. The spreadsheet, titled &ldquo;finals&rdquo; in Arabic, contained at least a thousand names from an exam list. Had it not been caught, those students could have been wrongly flagged.</p>
+      <p>The dark comedy: the HR policy that governs Palestinian engineers at Microsoft is written and enforced by the same institution that acknowledges providing AI and cloud services to the military targeting their families. The employee manual is maintained by the employer. The grievance process leads to the grievance.</p>
+      <h2>The People Who Stayed</h2>
+      <p>Staying is not passivity.</p>
+      <p>Emaan Haseem is a Google software engineer who joined protests outside the company&rsquo;s offices in Sunnyvale, California, against Project Nimbus. She said she did not want to lose her job. She said it was impossible to keep coming to work without loudly condemning Project Nimbus. She named both things at once. The economic fact and the moral fact. Neither canceling the other.</p>
+      <p>Ahmed Shahrour was a Palestinian software engineer at Amazon&rsquo;s Whole Foods division in Seattle. On September 8, 2025, he published an open letter and posted to multiple internal Slack channels, protesting Amazon&rsquo;s role in Project Nimbus. He emailed CEO Andy Jassy directly. He said that when he posted, more than 100 Amazon workers messaged him privately. He estimated that 85 percent were supportive &mdash; and that nearly all of them said they were too afraid to publicly acknowledge the post.</p>
+      <p>Within hours, Amazon suspended Shahrour with pay. It revoked his access to company tools. It deleted his Slack posts. Five weeks later, Amazon fired him, citing violations of conduct policy and &ldquo;misuse of company resources&rdquo; for posting &ldquo;non-work-related messages.&rdquo;</p>
+      <p>The architecture of his firing is clean. He violated policy. The policy prohibits non-work-related activity. The non-work-related activity was objecting to the use of his work. The HR category that covers this &mdash; objecting to your employer&rsquo;s role in a weapons program that targets your family &mdash; is called &ldquo;non-work-related.&rdquo;</p>
+      <h2>The People Who Were Fired Anyway</h2>
+      <p>Hossam Nasr is a software engineer. Abdo Mohamed is a data scientist. Both worked at Microsoft. Both are members of the No Azure for Apartheid campaign.</p>
+      <p>On October 24, 2024, they organized a vigil at Microsoft&rsquo;s campus in Redmond, Washington, for Palestinians killed in Gaza. The event was structured through Microsoft&rsquo;s own Employee Give Campaign. More than 200 colleagues attended. That same night, Nasr and Mohamed were notified by phone that they were terminated. More than 7,000 people signed their petition. None of it changed anything.</p>
+      <p>On April 16, 2024, dozens of Google employees staged sit-ins in New York and Sunnyvale. They occupied Google Cloud CEO Thomas Kurian&rsquo;s office for over nine hours. Nine were arrested. In the days that followed, Google fired more than 50 workers. It used in-office surveillance footage to identify participants who had worn masks.</p>
+      <p>One Google employee had been fired in March 2024, three days after a video went viral of them saying: &ldquo;I refuse to build technology that empowers genocide.&rdquo; The video was replayed 8 million times. The engineer was gone in 72 hours.</p>
+      <h2>The People Still Inside</h2>
+      <p>Nisreen Jaradat was a senior tech support engineer at Microsoft. She spent months working inside the system &mdash; filing internal complaints, circulating petitions, attempting to present company leadership with a document signed by over 2,000 employees.</p>
+      <p>She describes the internal email filter: Microsoft had quietly configured its systems so that emails containing the words &ldquo;Palestine,&rdquo; &ldquo;Gaza,&rdquo; &ldquo;genocide,&rdquo; and &ldquo;apartheid&rdquo; would not send. She bypassed the restriction within 48 hours, reached thousands of colleagues, and received financial sanctions.</p>
+      <p>She was fired on August 28, 2025, after joining protests outside Microsoft&rsquo;s headquarters.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/06-C_v3_visionxl_114511.jpg')"></div>
+      </div>
+      <h2>What the Dilemma Actually Contains</h2>
+      <p>For Palestinian engineers at these companies: the product you helped ship on Tuesday may be used to locate a target on Wednesday. The AI you helped train may be querying a database of intercepted phone calls from people you grew up with. The cloud infrastructure you maintain is storing, somewhere, 13.6 petabytes of data about a war being conducted on your family&rsquo;s city.</p>
+      <p>What do you do with that?</p>
+      <p>There is no clean answer. There is the person who stays and organizes and believes the inside is the only leverage point. There is the person who leaves and finds moral clarity at the cost of income and visa status. There is the person who stays silent, sends money to family, does not attend the vigil, and is not in this article.</p>
+      <p>There is also the journalist writing this on a laptop manufactured by a company with its own defense contracts, transmitted through infrastructure owned by the same three companies named in every paragraph above.</p>
+      <p>The system does not offer a position outside itself. That is what makes it a system.</p>
+      <h2>The Ticket</h2>
+      <p>She closed the laptop. She sat there. Then she opened it again.</p>
+      <p>This article does not tell you if she went to the organizing meeting. Or if she sent the internal email. Or if she signed the petition, or kept her name off it because her mother is in Rafah and she is the one sending money home. It does not tell you if she still works there. It does not tell you if Project Nimbus still runs.</p>
+      <p>It does.</p>
+      <div class="sources">
+        <p><em>Sources: AP Investigation (February 2025); +972 Magazine / The Intercept on Project Nimbus; Washington Post (April 2024); NPR (April 2024); Common Dreams on Microsoft firings; Mondoweiss (May 2025); CNBC on Ahmed Shahrour (September&ndash;October 2025); Al Jazeera (August 2025); CNBC on Microsoft email filters (May 2025); No Tech for Apartheid campaign.</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">الرسالة وصلت يوم الثلاثاء بعد الضهر. زميل بعثلها لينك بدون ما يشرح إشي. فتحته. قرأت. ثلاثين ثانية، ربما أقل. سكّرت اللابتوب. وقعدت. بعدين فتحته تاني وكملت الشغل اللي كانت عم تشتغل عليه. رقم التذكرة لسا على الشاشة.</p>
+      <p class="ar">هاد المقال مش رح يقلك إيش عملت بعدها. اللي رح يحاول يعمله هو إنه يفهم هاد اللحظة. لأن اللينك اللي فتحته كان عن شركتها. والإشي اللي بنته شركتها عم يُستخدم بالمكان اللي فيه عيلتها.</p>
+      <h2 class="ar">العقد</h2>
+      <p class="ar">في أبريل 2021، أعلنت وزارة المالية الإسرائيلية إنها وقّعت عقد مشترك مع Google وAmazon لخدمات الحوسبة السحابية. القيمة: مليار ومية مليون دولار. الاسم: مشروع نيمبوس.</p>
+      <p class="ar">بموجب العقد، بتوفر Google Cloud وAmazon خدمات سحابية وذكاء اصطناعي للجهات الحكومية الإسرائيلية، بما فيها الجيش. وثائق مسرّبة كشفت إن إسرائيل اشترطت في العقد إنه ما يكون لـ Google وAmazon حق تقييد كيفية استخدام منتجاتهم.</p>
+      <p class="ar">استشاريو Google حذّروها قبل ما توقّع. وصوا بحجب تقنيات الذكاء الاصطناعي عن الجيش الإسرائيلي. Google وقّعت على أي حال. مشروع نيمبوس مش استعارة. هو عقد. وفيه مهندسين فلسطينيين بيروحوا على شغلهم كل يوم داخل الشركات اللي وقّعته.</p>
+      <h2 class="ar">القفزة في الاستخدام</h2>
+      <p class="ar">الاستخدام الإسرائيلي لأدوات الذكاء الاصطناعي من Microsoft وOpenAI قفز لحوالي مئتي ضعف مستواه قبل السابع من أكتوبر. البيانات المخزّنة على سيرفرات Microsoft وصلت لأكثر من 13.6 بيتابايت — قريب 350 ضعف الذاكرة الرقمية اللي بدها تخزّن كل كتاب في مكتبة الكونغرس.</p>
+      <p class="ar">الـ AP وثّقت كمان أخطاء: نظام ذكاء اصطناعي حدد قائمة طلاب مدرسة ثانوية في غزة كأهداف محتملة. الجدول الإلكتروني كان عنوانه "الامتحانات النهائية" بالعربي. لو ما انتبهوا، كان هؤلاء الطلاب ممكن يتم استهدافهم.</p>
+      <p class="ar">والطرافة السوداء: سياسة الموارد البشرية اللي بتحكم المهندسين الفلسطينيين في Microsoft هي نفس المؤسسة اللي تعترف إنها بتوفر الذكاء الاصطناعي للجيش اللي عم يستهدف عيلاتهم. دليل الموظف بيكتبه صاحب العمل. مسار الشكاوى بيوصّل على صاحب الشكوى.</p>
+      <h2 class="ar">اللي ضلّوا</h2>
+      <p class="ar">الضلولي مش معناها السكوت. إيمان هاشم مهندسة برمجيات في Google. وقفت قدام بناية شركتها وقالت: "نحن نعرف إن الإبادة الجارية في غزة هي أول إبادة جماعية بالذكاء الاصطناعي." سمّت الإتنين مع بعض. الحقيقة الاقتصادية والحقيقة الأخلاقية. من غير ما تلغي وحدة التانية.</p>
+      <p class="ar">أحمد شهرور مهندس برمجيات فلسطيني في Amazon. في 8 سبتمبر 2025، نشر رسالة مفتوحة وبعثها لقنوات Slack داخلية، احتجاجاً على دور Amazon في مشروع نيمبوس. أكثر من 100 موظف أرسلوا له برسائل خاصة داعمة. Amazon علّقته بعد ساعات وفصلته بعد خمسة أسابيع.</p>
+      <h2 class="ar">اللي طلعوا وطردوهم</h2>
+      <p class="ar">حسام نصر وعبدو محمد نظّموا وقفة تضامنية في حرم مقر Microsoft في ريدموند. أكثر من مئتين موظف حضروا. بنفس الليلة، اتصلت بهم Microsoft وأبلغتهم إنهم فُصلوا. أكثر من سبعة آلاف شخص وقّعوا عريضتهم. ما غيّر إشي.</p>
+      <p class="ar">عند Google، موظف اتفصل بعد ثلاثة أيام من فيديو انتشر بعد ما وقف في فعالية داخلية وقال: "أرفض أن أبني تقنية تُمكّن الإبادة الجماعية." الفيديو انعرض ثمانية ملايين مرة. المهندس راح في سبعة وسبعين ساعة.</p>
+      <h2 class="ar">اللي لسا جوا</h2>
+      <p class="ar">نسرين جرادات وصفت فلتر الإيميل الداخلي: Microsoft ضبطت أنظمتها بشكل خفي عشان الإيميلات اللي فيها كلمة "فلسطين" أو "غزة" أو "إبادة جماعية" ما تُرسَل. هي تجاوزت الحظر خلال ثمانية وأربعين ساعة وتلقّت جزاءات مالية. فُصلت في 28 أغسطس 2025.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/06-C_v3_visionxl_114511.jpg')"></div>
+      </div>
+      <h2 class="ar">إيش فيها المعضلة بالحقيقة</h2>
+      <p class="ar">بالنسبة للمهندسين الفلسطينيين في هاي الشركات: المنتج اللي ساعدت تبنيه يوم الثلاثاء ممكن يُستخدم لتحديد هدف يوم الأربعاء. الذكاء الاصطناعي اللي ساعدت في تدريبه ممكن يكون عم يفحص قاعدة بيانات مكالمات هاتفية مسجّلة لأناس كبرت معهم. البنية التحتية السحابية اللي عم تصونها عم تخزّن، بمكان ما، 13.6 بيتابايت من البيانات عن حرب عم تُشنّ على مدينة عيلتك.</p>
+      <p class="ar">ما في جواب نظيف. في اللي بيضل وبينظّم. وفي اللي بيطلع ويحصّل وضوحاً أخلاقياً بثمن دخله ووضع إقامته. وفي اللي بيضل وما يحكي ويبعث فلوس على عيلته وما في له ذكر في هاد المقال. النظام ما بيعرض موقفاً خارج نفسه. هاد اللي بيخليه نظاماً.</p>
+      <h2 class="ar">التذكرة</h2>
+      <p class="ar">سكّرت اللابتوب. قعدت. بعدين فتحته تاني. هاد المقال مش رح يقلك إذا راحت على اجتماع التنظيم. أو إذا بعثت الإيميل الداخلي. أو إذا وقّعت على العريضة، أو ما حطّت اسمها عليها لأن أمها في رفح وهي اللي عم تبعتلها فلوس. مش رح يقلك إذا مشروع نيمبوس لسا شغّال.</p>
+      <p class="ar">لسا شغّال.</p>
+      <div class="sources">
+        <p class="ar"><em>المصادر: تحقيق AP (فبراير 2025)؛ مجلة +972 وThe Intercept عن مشروع نيمبوس؛ Washington Post (أبريل 2024)؛ Common Dreams عن فصل موظفي Microsoft؛ Mondoweiss (مايو 2025)؛ CNBC عن أحمد شهرور (سبتمبر-أكتوبر 2025)؛ CNBC عن فلتر الإيميل (مايو 2025)؛ حملة No Tech for Apartheid.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The product you helped ship on Tuesday may be used to locate a target on Wednesday. The AI you helped train may be querying a database of intercepted phone calls from people you grew up with.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;المنتج اللي ساعدت تبنيه يوم الثلاثاء ممكن يُستخدم لتحديد هدف يوم الأربعاء. الذكاء الاصطناعي اللي ساعدت في تدريبه ممكن يكون عم يفحص قاعدة بيانات مكالمات هاتفية مسجّلة لأناس كبرت معهم.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="05.html" class="lang-en">&larr; File 05: The Language They Didn&rsquo;t Train</a>
+      <a href="05.html" class="lang-ar">الملف 05: اللغة التي ما دربوها &rarr;</a>
+      <a href="07.html" class="lang-en">File 07: Signal in the Rubble &rarr;</a>
+      <a href="07.html" class="lang-ar">&larr; الملف 07: إشارة من تحت الركام</a>
+    </div>
+    <div class="series-link"><a href="index.html" class="lang-en">Back to Human in the Loop</a><a href="index.html" class="lang-ar">العودة إلى إنسان في الدوامة</a></div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Human in the Loop is a seven-part series on artificial intelligence and the Palestinian condition.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إنسان في الدوامة سلسلة من سبعة ملفات عن الذكاء الاصطناعي والحالة الفلسطينية.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang){document.documentElement.lang=lang;localStorage.setItem('hitl-lang',lang);document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-ar').classList.toggle('active',lang==='ar');}
+  (function(){var saved=localStorage.getItem('hitl-lang')||'en';setLang(saved);})();
+</script>
+</body>
+</html>

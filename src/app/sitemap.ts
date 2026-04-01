@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { articles } from "@/data/insights/articles";
 
 const BASE = "https://aidacreativestudios.com";
 const LOCALES = ["en", "ar", "he"];
@@ -35,23 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: Object.fromEntries(
             LOCALES.map((l) => [l, `${BASE}/${l}${page.path}`])
-          ),
-        },
-      });
-    }
-  }
-
-  // Insight articles
-  for (const article of articles) {
-    for (const locale of LOCALES) {
-      entries.push({
-        url: `${BASE}/${locale}/insights/${article.slug}`,
-        lastModified: new Date(article.publishedAt),
-        changeFrequency: "monthly",
-        priority: 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            LOCALES.map((l) => [l, `${BASE}/${l}/insights/${article.slug}`])
           ),
         },
       });

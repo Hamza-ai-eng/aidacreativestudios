@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 07 — Signal in the Rubble | Human in the Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#1A1714;--surface:#F5F0E8;--accent:#C41230;--muted:#6B6259;--art:#B8956A;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{font-size:16px;}html[lang="ar"]{direction:rtl;}
+  html:not([lang="ar"]) .lang-ar{display:none!important;}html[lang="ar"] .lang-en{display:none!important;}
+  body{background:var(--bg);color:var(--surface);font-family:'EB Garamond',serif;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,23,20,0.96);backdrop-filter:blur(8px);height:52px;display:flex;align-items:center;padding:0 2rem;border-bottom:1px solid rgba(245,240,232,0.08);}
+  .nav-left{flex:1;}.nav-left a{color:var(--muted);text-decoration:none;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.04em;transition:color 0.2s;}.nav-left a:hover{color:var(--surface);}
+  .nav-center{flex:2;text-align:center;font-family:'EB Garamond',serif;font-size:0.85rem;letter-spacing:0.05em;color:var(--muted);}.nav-center .file-num{color:var(--art);font-weight:600;}
+  .nav-right{flex:1;display:flex;justify-content:flex-end;align-items:center;gap:0.5rem;}
+  .lang-btn{background:none;border:1px solid rgba(245,240,232,0.2);color:var(--muted);padding:0.25rem 0.6rem;font-size:0.78rem;cursor:pointer;transition:all 0.2s;}.lang-btn:hover,.lang-btn.active{border-color:var(--art);color:var(--art);}
+  .hero{position:relative;height:60vh;min-height:400px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;margin-top:52px;}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,0.1) 0%,rgba(26,23,20,0.4) 40%,rgba(26,23,20,0.92) 100%);}
+  .hero-ghost{position:absolute;right:5%;bottom:-0.1em;font-family:'Playfair Display',serif;font-size:clamp(8rem,22vw,18rem);font-weight:900;color:var(--art);opacity:0.12;line-height:1;pointer-events:none;user-select:none;letter-spacing:-0.04em;}
+  html[lang="ar"] .hero-ghost{right:auto;left:5%;}
+  .hero-content{position:relative;z-index:2;padding:2.5rem 3rem;max-width:900px;}
+  .hero-file-label{font-family:'EB Garamond',serif;font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--art);margin-bottom:0.75rem;}
+  .hero-title-en{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,5vw,3.8rem);line-height:1.05;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1.2;color:var(--surface);margin-bottom:0.5rem;}
+  .hero-subtitle{font-family:'EB Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .hero-subtitle-ar{font-family:'Amiri',serif;font-style:italic;font-size:1.1rem;color:rgba(245,240,232,0.7);margin-bottom:1rem;}
+  .byline{font-family:'EB Garamond',serif;font-size:0.85rem;color:rgba(245,240,232,0.5);letter-spacing:0.03em;}
+  .byline-ar{font-family:'Amiri',serif;font-size:0.9rem;color:rgba(245,240,232,0.5);}
+  .article-wrap{background:var(--surface);color:#1A1714;}
+  .article-body{max-width:720px;margin:0 auto;padding:4rem 2rem;}
+  .article-body p{font-family:'EB Garamond',serif;font-size:19px;line-height:1.85;color:#1A1714;margin-bottom:1.4em;}
+  .article-body p.ar{font-family:'Amiri',serif;font-size:20px;line-height:1.9;direction:rtl;text-align:right;}
+  .article-body h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.55rem;color:#1A1714;margin:2.5rem 0 1rem;padding-bottom:0.4rem;border-bottom:2px solid var(--art);}
+  .article-body h2.ar{font-family:'Amiri',serif;font-size:1.7rem;direction:rtl;text-align:right;}
+  .article-body hr{border:none;border-top:1px solid rgba(26,23,20,0.15);margin:2rem 0;}
+  .sources{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(26,23,20,0.15);font-size:0.85rem;color:var(--muted);line-height:1.6;}
+  .sources p{font-size:0.85rem;font-family:'EB Garamond',serif;}
+  .pull-quote-section{background:var(--bg);padding:5rem 2rem;}
+  .pull-quote-inner{max-width:720px;margin:0 auto;}
+  .pull-quote{border-left:4px solid var(--art);padding:1.5rem 2rem;}
+  html[lang="ar"] .pull-quote{border-left:none;border-right:4px solid var(--art);}
+  .pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.65rem);line-height:1.5;color:var(--surface);}
+  .pull-quote p.ar{font-family:'Amiri',serif;font-size:clamp(1.3rem,2.5vw,1.75rem);direction:rtl;text-align:right;}
+  .article-footer{background:var(--surface);padding:3rem 2rem;}
+  .article-footer-inner{max-width:720px;margin:0 auto;}
+  .file-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem;}
+  .file-nav a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s;padding-bottom:2px;}.file-nav a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .series-link{text-align:center;margin-bottom:2rem;}.series-link a{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(107,98,89,0.4);padding-bottom:2px;transition:all 0.2s;}.series-link a:hover{color:#1A1714;border-bottom-color:var(--art);}
+  .author-bio{font-family:'EB Garamond',serif;font-size:0.9rem;color:var(--muted);border-top:1px solid rgba(26,23,20,0.12);padding-top:1.5rem;line-height:1.6;}
+  .author-bio-ar{font-family:'Amiri',serif;font-size:0.95rem;direction:rtl;text-align:right;}
+  footer{background:var(--bg);text-align:center;padding:2rem;font-family:'EB Garamond',serif;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;border-top:1px solid rgba(245,240,232,0.06);}
+  .article-image-panel{width:100%;margin:4rem 0;position:relative;overflow:hidden;}
+  .aip-image{width:100%;height:420px;background-size:cover;background-position:center;}
+  @media(max-width:600px){.hero-content{padding:1.5rem;}.article-body{padding:2.5rem 1.2rem;}nav{padding:0 1rem;}.nav-center{font-size:0.75rem;}.aip-image{height:260px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Human in the Loop</a><a href="index.html" class="lang-ar">إنسان في الدوامة</a></div>
+  <div class="nav-center"><span class="lang-en"><span class="file-num">File 07</span> &mdash; Signal in the Rubble</span><span class="lang-ar"><span class="file-num">الملف 07</span> &mdash; إشارة من تحت الركام</span></div>
+  <div class="nav-right"><a href="/en/insights" id="aida-back" class="lang-btn lang-en" style="text-decoration:none;font-size:0.75rem">← AIDA</a><a href="/ar/insights" class="lang-btn lang-ar" style="text-decoration:none;font-size:0.75rem">AIDA →</a><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button><button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button></div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/leonardo/v3/07-A_v3_visionxl_114535.jpg" alt="Signal in the Rubble">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">07</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Human in the Loop &mdash; File 07 of 07</div>
+    <div class="hero-file-label lang-ar">إنسان في الدوامة &mdash; الملف 07 من 07</div>
+    <h1 class="hero-title-en lang-en">Signal in the Rubble</h1>
+    <h1 class="hero-title-ar lang-ar">إشارة من تحت الركام</h1>
+    <p class="hero-subtitle lang-en"><em>Gaza&rsquo;s tech workers and the impossible condition of building in the ruins</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>عمال التكنولوجيا في غزة والمستحيل من البناء في الأنقاض</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; April 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أبريل 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+    <div class="lang-en">
+      <p>The Wi-Fi comes back for one hour.</p>
+      <p>The laptop is at 12%. The power bank is in the bag with the documents, the phone, and a book that survived. One hour. What do you do with one hour?</p>
+      <p>You open the IDE. You open the job board. You open ChatGPT &mdash; the product made by OpenAI, whose systems the Israeli military accessed at nearly 200 times their pre-war rate in the weeks after October 7, 2023, running on Microsoft Azure infrastructure that leaked documents confirm was used to support targeting operations across Israel&rsquo;s air, ground, and naval forces.</p>
+      <p>You type the cover letter anyway.</p>
+      <p>Her name is Shaima Abu al-Atta. She is a student and a freelancer. She has been displaced. She keeps working. She will appear again at the end of this article &mdash; the same person, in the same place, the Wi-Fi cut, the laptop at 8%, the application somewhere in the infrastructure. By then you will understand what it costs.</p>
+      <p>This is where the series ends. Not with resolution. With this.</p>
+      <h2>I. What Was There</h2>
+      <p>Before October 7, 2023, Gaza had a tech sector.</p>
+      <p>Say that again, because it gets lost: Gaza had a tech sector. Software engineers. Graphic designers. Digital marketers. Video editors. Content creators working for clients in Europe, North America, and the Gulf. Translators. Data annotators. UX developers building products used by people who had no idea where the hands that built them were located.</p>
+      <p>According to Maher Shbeir, a board member of Gaza&rsquo;s IT Companies Union, the territory&rsquo;s entrepreneurs and remote workers were generating approximately <strong>$6 million per month</strong> before the war &mdash; from one of the most comprehensively blockaded territories on earth, over one of the most restricted internet connections in the world, with only 2G mobile access for years while the rest of the planet moved to 5G.</p>
+      <p>Gaza Sky Geeks, the territory&rsquo;s only tech accelerator, founded with support from Google and Mercy Corps in 2011, had by 2018 partnered with Upwork to bring more than 4,000 Gazan freelancers onto the global marketplace. Graduates earned an average of $1,110 per month within a year &mdash; more than four times the average wage in a territory where unemployment had already reached <strong>46 percent</strong> by mid-2023.</p>
+      <p>Nvidia worked with at least 100 engineers in Gaza. Manara, a platform connecting Arab engineers with global companies, had around 100 software engineers in Gaza working remotely for firms in Silicon Valley and Europe. Nine business incubators. Fifteen business accelerators.</p>
+      <p>They were doing it. They were actually doing it.</p>
+      <h2>II. What Was Done To It</h2>
+      <p>The Israeli military&rsquo;s assault on Gaza, beginning October 7, 2023, destroyed this with a methodical completeness the numbers barely capture.</p>
+      <p>By the end of 2024, Gaza&rsquo;s GDP had contracted by <strong>83 percent</strong> compared to 2023, according to UNCTAD. GDP per capita fell to approximately <strong>$161 per year</strong> &mdash; less than 50 cents per day. UNCTAD described what happened as the erasure of seven decades of human development. At Gaza&rsquo;s pre-war average growth rate, full economic recovery would not be achieved until <strong>2092</strong>.</p>
+      <p>The telecommunications sector was specifically targeted. Its value dropped from $13 million in 2023 to $1.5 million in 2024: an <strong>89 percent collapse</strong>. PalTel reported its network remained 80 percent offline. Israel had denied Gaza access to 4G while the West Bank received it &mdash; for years. Not infrastructure lag. It is the deliberate calibration of how much connectivity a population under siege is permitted. 2G was all they had. Now even that was gone.</p>
+      <p>By April 2025, UNCTAD estimated that <strong>70 percent of all structures</strong> in Gaza had been damaged or destroyed. Unemployment &mdash; already 46 percent before the war &mdash; became meaningless to measure because the economy had ceased to exist.</p>
+      <p>The wall the blockade had never fully built &mdash; the digital border &mdash; was built by the bombs.</p>
+      <h2>III. What Remains</h2>
+      <p>Muhannad Quraik is a final-year information technology student. He was displaced twice: first from Rafah, then from Khan Younis. He invested his family&rsquo;s savings into a beach workspace at Mawasi Khan Younis. Solar panels for electricity &mdash; which meant work had to end at sunset. A generator for backup. An internet connection. Tables and chairs facing the sea.</p>
+      <p>Every day, forty to fifty entrepreneurs, programmers, engineers, and journalists arrive. They open their laptops. They work.</p>
+      <p>&ldquo;There&rsquo;s a 100 percent chance of complete loss at any moment for various reasons,&rdquo; Muhannad told The New Arab in September 2024, &ldquo;including the possibility of displacement, aerial bombardment, or naval attacks by the Israeli forces, since the project is located directly on the beach.&rdquo; He knew this when he built it. He built it anyway.</p>
+      <p>In Deir al-Balah, software engineer Sharif Naim founded TAQAT in April 2024 &mdash; a tech hub that began with a single solar panel and a car battery. By late 2025, TAQAT had expanded to three locations. More than 400 active freelancers. Over 100,000 hours of work generated monthly. The hub&rsquo;s members were earning more than $500,000 per month &mdash; a number that must be held against what came before: $6 million per month, across thousands of workers, before the war.</p>
+      <p>Two thousand people are on the waitlist.</p>
+      <p>Shaima Abu al-Atta works from the hub. She was displaced. She kept working. &ldquo;For a very long time, we were just being displaced from one place to another, and we completely lost hope,&rdquo; she told Al Jazeera in December 2025. &ldquo;We just always look for another way to get connected, always find another way.&rdquo;</p>
+      <p>And then: &ldquo;This is what actually gave us purpose &mdash; because if we didn&rsquo;t do this, we would just die surviving and not doing anything. We would die internally.&rdquo;</p>
+      <p><em>Die surviving.</em> Not die fighting. Not die resisting. Die surviving. She is not describing heroism. She is describing the alternative: what happens to a person when the work &mdash; the code, the design, the deadline, the client &mdash; is also the thing keeping the self intact.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/07-C_v3_visionxl_114558.jpg')"></div>
+      </div>
+      <h2>IV. The Paradox</h2>
+      <p>When a Gaza tech worker opens ChatGPT to write a cover letter, or uses GitHub Copilot to accelerate their code, or queries Claude to debug a function at 11% battery with the Wi-Fi about to cut out &mdash; they are using infrastructure built, hosted, and maintained by companies whose services are contracted to the military conducting the war around them.</p>
+      <p>OpenAI&rsquo;s models run on Microsoft Azure. Microsoft Azure&rsquo;s usage by the Israeli military spiked to nearly <strong>200 times</strong> its pre-war rate in the weeks after October 7. Leaked documents confirmed Azure was used by units across Israel&rsquo;s air, ground, and naval forces &mdash; including for intelligence activities.</p>
+      <p>Google and Amazon hold the $1.2 billion <strong>Project Nimbus</strong> contract &mdash; cloud services explicitly provided to Israel&rsquo;s government and defense establishment, with contractual clauses forbidding either company from denying service due to boycott pressure. The same Google that helped found Gaza Sky Geeks in 2011 fired fifty of its own workers in April 2024 for protesting that contract.</p>
+      <p>The same computational infrastructure that powers the targeting system powers the rebuild.</p>
+      <p>The cover letter written on ChatGPT, from a tent, applying to a company in a country that exported the weapons, running on the same cloud platform that stores the targeting data &mdash; this is not a metaphor. There is no neutral environment. There is no neutral tool. There is the tool and the weapon and the same company and the same infrastructure and the decision &mdash; made under bombardment, with 12% battery &mdash; to send the application anyway.</p>
+      <p>There is no resolution. The computational infrastructure of the 21st century was not built for Palestinians. It was built in the United States, mostly, by companies whose governments arm the state that occupies and bombs Palestinian territory. Palestinians did not build this infrastructure. Their data was extracted for it &mdash; their faces, their voices, their communications &mdash; without consent, for purposes used against them.</p>
+      <p>And yet. The same infrastructure is what Muhannad Quraik&rsquo;s forty daily visitors use. It is what Shaima Abu al-Atta logs into when the Wi-Fi comes back. There is no other infrastructure. There is this one. The same one.</p>
+      <h2>V. The Hour</h2>
+      <p>The Wi-Fi comes back for one hour.</p>
+      <p>The laptop is at 12%. The power bank is in the bag with the documents, the phone, and the book.</p>
+      <p>What do you do with one hour?</p>
+      <p>You use the tools that are available. You open ChatGPT, which runs on Azure, which stores 13.6 petabytes of Israeli military data on its servers &mdash; roughly 350 times the digital memory needed to store every book in the Library of Congress. You open Google, which holds the Nimbus contract. You write the best cover letter you can. You submit it to the company in Berlin, or Toronto, or London.</p>
+      <p>You send the application.</p>
+      <p>The Wi-Fi cuts out.</p>
+      <p>The laptop goes to 8%.</p>
+      <p>You do not know if the application went through. You do not know if there will be another hour of Wi-Fi tomorrow, or electricity, or whether the hub will still be standing.</p>
+      <p>What you built today: you built it. What you sent today: you sent it. The code compiled. The design exported. The invoice submitted. The application in transit on the servers of a company whose government and whose contracts are part of the architecture of what is being done to you.</p>
+      <p>This is where the series ends.</p>
+      <p>Not because the paradox resolves. Because it doesn&rsquo;t.</p>
+      <p>Gaza&rsquo;s tech sector generated $6 million a month before the war. The economy contracted 83 percent. The telecom sector lost 89 percent of its value. Unemployment exceeds 80 percent. The reconstruction, UNCTAD says, at historical growth rates, will not be complete until 2092.</p>
+      <p>And there are 2,000 people on the waitlist for a desk with a solar panel.</p>
+      <p>The Wi-Fi cuts out.</p>
+      <p>The laptop goes dark.</p>
+      <p>The application is somewhere in the infrastructure.</p>
+      <div class="sources">
+        <p><em>Sources: Al Jazeera, Gaza tech workers (December 2025); The New Arab, beach workspace (September 2024); UNCTAD, Gaza economy collapsed 83% (2024); UNCTAD, worst economic collapse (November 2025); 7amleh, digital economy collapse; PCBS Labour Force Survey Q2 2023; Upwork / Gaza Sky Geeks; The Media Line, TAQAT hub (2025); CounterPunch (September 2025); Associated Press / BHRCC, Azure usage spike; Data Center Dynamics, Microsoft confirms AI services; Al Jazeera, Project Nimbus (April 2024); Al-Shabaka, Gaza telecommunications.</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">الإنترنت رجع لساعة.</p>
+      <p class="ar">اللابتوب على 12%. البور بانك في الشنطة مع الأوراق والموبايل وكتاب ما زال هيك. ساعة. شو بتعمل بساعة؟</p>
+      <p class="ar">بتفتح المحرر. بتفتح لوحة الشغل. بتفتح ChatGPT — المنتج اللي بنته OpenAI، اللي الجيش الإسرائيلي استخدم أنظمته بمعدل ارتفع قريب 200 مرة عن مستواه قبل السابع من أكتوبر، شغّال على بنية تحتية بتاعة Microsoft Azure، وثائق مسرّبة أكّدت إنها استخدمت لدعم عمليات الاستهداف عبر قوات الجو والبر والبحر الإسرائيلية.</p>
+      <p class="ar">بتكتب خطاب التقديم على أي حال.</p>
+      <p class="ar">اسمها شيماء أبو العطا. طالبة وفريلانسر. اتهجّرت. واصلت. هون بتنتهي هاي السلسلة. مش بحل. بهيك.</p>
+      <h2 class="ar">أولاً: شو كان موجود</h2>
+      <p class="ar">قبل السابع من أكتوبر 2023، كان في غزة قطاع تكنولوجيا.</p>
+      <p class="ar">قولها تاني، لأنها بتضيع: كان في غزة قطاع تكنولوجيا. مهندسو برمجيات. مصممون غرافيك. مسوّقون رقميون. محررو فيديو. منشئو محتوى بيشتغلوا لعملاء في أوروبا وأمريكا والخليج. مترجمون. مطورو تجارب مستخدم ببنوا منتجات بيستخدمها ناس ما كانوا يعرفوا وين الإيدين اللي بنتها.</p>
+      <p class="ar">حسب ماهر شبير، عضو مجلس إدارة اتحاد شركات تكنولوجيا المعلومات في غزة، رواد الأعمال والعمال عن بُعد كانوا بيولّدوا قريب <strong>ستة ملايين دولار شهرياً</strong> قبل الحرب. Gaza Sky Geeks، المسرّع التكنولوجي الوحيد في غزة، كان بحلول 2018 شريك مع Upwork لإدخال أكثر من أربعة آلاف فريلانسر غزاوي لسوق العمل العالمي.</p>
+      <p class="ar">كانوا بيعملوها. بالفعل كانوا بيعملوها.</p>
+      <h2 class="ar">ثانياً: شو صار فيها</h2>
+      <p class="ar">بنهاية 2024، انكمش الناتج المحلي الإجمالي لغزة بنسبة <strong>83%</strong> مقارنة بـ2023. نصيب الفرد نزل لحوالي <strong>161 دولار سنوياً</strong>. وصفت أونكتاد ما جرى بأنه محو لسبعة عقود من التنمية البشرية. التعافي الكامل ما رح يصير قبل <strong>2092</strong>.</p>
+      <p class="ar">قطاع الاتصالات استُهدف بالذات. قيمته انهارت من 13 مليون دولار في 2023 لـ1.5 مليون في 2024: انهيار بنسبة <strong>89%</strong>. إسرائيل حرمت غزة من الجيل الرابع بينما حصل الضفة عليه. الجيل الثاني كان كل ما في الأمر. هلق حتى هاد راح.</p>
+      <p class="ar">الجدار اللي الحصار ما قدر يبنيه بالكامل — الحدود الرقمية — القنابل بنته.</p>
+      <h2 class="ar">ثالثاً: شو باقي</h2>
+      <p class="ar">مهند قريق طالب سنة رابعة تكنولوجيا معلومات. اتهجّر مرتين. حطّ كل مدخرات عيلته في مساحة عمل على شاطئ المواصي خانيونس. ألواح شمسية للكهربا. مولّد احتياطي. إنترنت. طاولات وكراسي مواجهة البحر.</p>
+      <p class="ar">كل يوم بيجي أربعين لخمسين رائد أعمال ومبرمج ومهندس وصحفي. بيفتحوا اللابتوب. بيشتغلوا. «في احتمال 100% للخسارة الكاملة في أي لحظة»، قال مهند لـThe New Arab في سبتمبر 2024. كان عارف هاد لما بناه. بناه على أي حال.</p>
+      <p class="ar">في دير البلح، المهندس شريف نعيم أسس «طاقات» في أبريل 2024 — بدأ بلوح شمسي وبطارية سيارة. بنهاية 2025، طاقات صار عنده ثلاث فروع. أكثر من 400 فريلانسر فعّال. أكثر من 100,000 ساعة عمل شهرياً. أعضاء المركز بيكسبوا أكثر من 500,000 دولار شهرياً.</p>
+      <p class="ar">ألفان شخص على قايمة الانتظار.</p>
+      <p class="ar">شيماء أبو العطا بتشتغل من المركز. اتهجّرت. واصلت. «مدة طويلة كنا عم ننتقل من مكان لمكان وما بقي عندنا أمل»، قالت لـAl Jazeera في ديسمبر 2025. «دايماً بندور على طريقة ثانية نتواصل فيها، دايماً بنلاقي طريقة.»</p>
+      <p class="ar">وبعدين: «هاد اللي طلع فيه هدفنا — لأنه لو ما عملنا هاد، كنا رح نموت وإحنا بنتحمل بس وما عم نعمل إشي. كنا رح نموت من الداخل.»</p>
+      <p class="ar"><em>نموت من الداخل.</em> مش نموت قاومين. مش نموت مقاومين. نموت من الداخل.</p>
+      <div class="article-image-panel">
+        <div class="aip-image" style="background-image:url('../images/leonardo/v3/07-C_v3_visionxl_114558.jpg')"></div>
+      </div>
+      <h2 class="ar">رابعاً: التناقض</h2>
+      <p class="ar">لما مبرمج غزاوي بيفتح ChatGPT يكتب خطاب تقديم — عم يستخدم بنية تحتية بنتها وبتستضيفها وبتصونها شركات بعقودها مع الجيش اللي عم ينفّذ الحرب حواليه.</p>
+      <p class="ar">نماذج OpenAI بتشتغل على Microsoft Azure. استخدام الجيش الإسرائيلي لـMicrosoft Azure قفز لقريب 200 مرة معدله قبل الحرب. وثائق مسرّبة بتُظهر استخدام Azure من قبل وحدات الجو والبر والبحر الإسرائيلية.</p>
+      <p class="ar">Google وAmazon بيمسكوا عقد «Project Nimbus» بمليار ومئتين مليون دولار — خدمات سحابية مخصصة للحكومة الإسرائيلية ومنظومة دفاعها. Google نفسها اللي ساعدت بتأسيس Gaza Sky Geeks سنة 2011 فصلت خمسين موظفاً في أبريل 2024 لأنهم احتجوا على هاد العقد.</p>
+      <p class="ar">نفس البنية التحتية الحوسبية اللي بتشغّل منظومة الاستهداف هي اللي بتشغّل عملية إعادة البناء.</p>
+      <p class="ar">ما في بيئة محايدة. ما في أداة محايدة. في الأداة والسلاح ونفس الشركة ونفس البنية التحتية والقرار — بيتخذ تحت القصف، على 12% بطارية — إنو يرسل الطلب على أي حال.</p>
+      <p class="ar">ما في بنية تحتية ثانية. في هاي الواحدة. نفسها.</p>
+      <h2 class="ar">خامساً: الساعة</h2>
+      <p class="ar">الإنترنت رجع لساعة.</p>
+      <p class="ar">اللابتوب على 12%. البور بانك في الشنطة مع الأوراق والموبايل والكتاب.</p>
+      <p class="ar">شو بتعمل بساعة؟</p>
+      <p class="ar">بتستخدم الأدوات المتوفرة. بتفتح ChatGPT، اللي بيشتغل على Azure، اللي بيخزّن 13.6 بيتابايت من بيانات الجيش الإسرائيلي على سيرفراته. بتفتح Google، صاحبة عقد Nimbus. بتكتب أحسن خطاب تقديم ممكن. بترسله للشركة في برلين أو تورنتو أو لندن.</p>
+      <p class="ar">بترسل الطلب.</p>
+      <p class="ar">الإنترنت بينقطع.</p>
+      <p class="ar">اللابتوب ينزل لـ8%.</p>
+      <p class="ar">اللي بنيته اليوم: بنيته. اللي أرسلته اليوم: أرسلته. الكود اشتغل. التصميم تصدّر. الفاتورة انبعتت. الطلب في طريقه على سيرفرات شركة حكومتها وعقودها جزء من هيكل اللي عم يصير فيك.</p>
+      <p class="ar">هون بتنتهي السلسلة.</p>
+      <p class="ar">مش لأن التناقض انحل. لأنه ما انحل.</p>
+      <p class="ar">قطاع التكنولوجيا في غزة كان بيولّد ستة ملايين دولار شهرياً قبل الحرب. الاقتصاد انكمش 83%. قطاع الاتصالات خسر 89% من قيمته. البطالة تجاوزت 80%. إعادة البناء، حسب أونكتاد، ما رح تكتمل قبل 2092.</p>
+      <p class="ar">وفي ألفان شخص على قايمة انتظار لمقعد بلوح شمسي.</p>
+      <p class="ar">الإنترنت بينقطع.</p>
+      <p class="ar">اللابتوب بيطفى.</p>
+      <p class="ar">الطلب في مكان ما في البنية التحتية.</p>
+      <div class="sources">
+        <p class="ar"><em>المصادر: Al Jazeera، عمال تكنولوجيا غزة (ديسمبر 2025)؛ The New Arab، مساحة العمل على الشاطئ (سبتمبر 2024)؛ UNCTAD، انهيار اقتصاد غزة 83% (2024)؛ 7amleh، انهيار الاقتصاد الرقمي؛ الجهاز المركزي للإحصاء الفلسطيني، مسح القوى العاملة 2023؛ The Media Line، مركز طاقات (2025)؛ CounterPunch (سبتمبر 2025)؛ Associated Press، ارتفاع استخدام Azure 200 مرة؛ Al Jazeera، مشروع نيمبوس (أبريل 2024).</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;There is no neutral environment. There is no neutral tool. There is the tool and the weapon and the same company and the same infrastructure and the decision &mdash; made under bombardment, with 12% battery &mdash; to send the application anyway.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;ما في بيئة محايدة. ما في أداة محايدة. في الأداة والسلاح ونفس الشركة ونفس البنية التحتية والقرار — بيتخذ تحت القصف، على 12% بطارية — إنو يرسل الطلب على أي حال.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="06.html" class="lang-en">&larr; File 06: The Engineer&rsquo;s Dilemma</a>
+      <a href="06.html" class="lang-ar">الملف 06: معضلة المهندس &rarr;</a>
+    </div>
+    <div class="series-link"><a href="index.html" class="lang-en">Back to Human in the Loop</a><a href="index.html" class="lang-ar">العودة إلى إنسان في الدوامة</a></div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Human in the Loop is a seven-part series on artificial intelligence and the Palestinian condition.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إنسان في الدوامة سلسلة من سبعة ملفات عن الذكاء الاصطناعي والحالة الفلسطينية.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang){document.documentElement.lang=lang;localStorage.setItem('hitl-lang',lang);document.getElementById('btn-en').classList.toggle('active',lang==='en');document.getElementById('btn-ar').classList.toggle('active',lang==='ar');}
+  (function(){var saved=localStorage.getItem('hitl-lang')||'en';setLang(saved);})();
+</script>
+</body>
+</html>
