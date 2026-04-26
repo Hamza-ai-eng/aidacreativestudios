@@ -87,14 +87,6 @@ export default async function LocaleLayout({
       className={`${playfair.variable} ${inter.variable} ${cairo.variable} ${amiri.variable} ${heebo.variable} ${spaceGrotesk.variable}`}
     >
       <body className="antialiased min-h-dvh">
-        {process.env.NEXT_PUBLIC_UMAMI_URL && (
-          <script
-            async
-            defer
-            src={`${process.env.NEXT_PUBLIC_UMAMI_URL}/script.js`}
-            data-website-id="d758e979-92b8-4663-aa52-4e82743d3aa2"
-          />
-        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
