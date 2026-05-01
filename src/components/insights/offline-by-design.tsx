@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import {
   CalligraphyGhost,
@@ -150,6 +151,65 @@ function SubHead({ children, isAr }: { children: React.ReactNode; isAr: boolean 
     >
       {children}
     </h3>
+  );
+}
+
+function ImageBreak({
+  src,
+  captionAr,
+  captionEn,
+  isAr,
+  aspect = "16/9",
+}: {
+  src: string;
+  captionAr?: string;
+  captionEn?: string;
+  isAr: boolean;
+  aspect?: string;
+}) {
+  return (
+    <div style={{ margin: "56px 0 48px", position: "relative" }}>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: aspect,
+          overflow: "hidden",
+          background: "var(--void)",
+        }}
+      >
+        <Image
+          src={src}
+          alt={isAr ? (captionAr || "") : (captionEn || "")}
+          fill
+          sizes="(max-width: 780px) 100vw, 780px"
+          style={{ objectFit: "cover" }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to top, rgba(26,20,16,0.35) 0%, transparent 55%)",
+          }}
+        />
+      </div>
+      {(captionAr || captionEn) && (
+        <div
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "8px",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            color: "var(--text-muted)",
+            marginTop: "10px",
+            direction: isAr ? "rtl" : "ltr",
+          }}
+        >
+          {isAr ? captionAr : captionEn}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -319,6 +379,34 @@ export function OfflineByDesignReport() {
         </div>
       </section>
 
+      {/* ── Cover image — REPORT-A ───────────────────────────── */}
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "21/9",
+          overflow: "hidden",
+          background: "var(--void)",
+        }}
+      >
+        <Image
+          src="/editorial/images/report/report-a.jpg"
+          alt={isAr ? "يد تمسك هاتفاً أمام جدار إسمنتي" : "Hand holding a phone against concrete wall"}
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center 40%" }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(26,20,16,0.4) 0%, transparent 35%, transparent 65%, rgba(26,20,16,0.5) 100%)",
+          }}
+        />
+      </div>
+
       {/* ── Stats bar ────────────────────────────────────────── */}
       <section
         style={{
@@ -398,6 +486,14 @@ export function OfflineByDesignReport() {
             </>
           )}
 
+          <ImageBreak
+            src="/editorial/images/report/report-g.jpg"
+            captionAr="مخيم لاجئين فلسطينيين من الجو ليلاً"
+            captionEn="Palestinian refugee camp — aerial view, night"
+            isAr={isAr}
+            aspect="21/9"
+          />
+
           {/* II */}
           <SectionHeader isAr={isAr} num="II" title={isAr ? "البنية" : "The Architecture of Exclusion"} />
 
@@ -410,10 +506,22 @@ export function OfflineByDesignReport() {
               <Body isAr={isAr}>
                 شاتيلا. كيلومتر مربع واحد. 23,000 شخص. قايمة من 1948. الكهرباء البلدية بتوصلها ساعة لساعتين باليوم. هاد مش خلل تقني. القانون اللبناني بيشترط الإقامة القانونية للاشتراك في الخدمة البلدية. الإقامة القانونية محجوبة ممنهجاً عن اللاجئين الفلسطينيين. بين 2015 و2023، ستة وثمانين شخص انصعقوا بالكهرباء في برج البراجنة. مش بالقنابل — بالأسلاك. لأنه ما في غيرها. اليرموك في دمشق بيتلقى ساعة كهرباء باليوم.
               </Body>
+              <ImageBreak
+                src="/editorial/images/report/report-c.jpg"
+                captionAr="مقبس كهربائي على جدار متشقق"
+                captionEn="Bare electrical socket — cracked concrete"
+                isAr={isAr}
+              />
               <SubHead isAr={isAr}>الدفع</SubHead>
               <Body isAr={isAr}>
                 ChatGPT Plus: 20 دولار. Claude Pro: 20 دولار. Gemini Advanced: 19.99 دولار. مساعدة الأونروا الطارئة في لبنان: 16.67 دولار للشخص بالشهر. لـ70% من سكان المخيمات في لبنان، هاد هو الدخل. مش مكمّل. مش مصدر من بين مصادر. هو. بييجي نقدي. ما في بطاقة. ما في حساب.
               </Body>
+              <ImageBreak
+                src="/editorial/images/report/report-d.jpg"
+                captionAr="يد تمتد نحو فتحة صراف آلي في جدار إسمنتي"
+                captionEn="Hand reaching toward a sealed ATM slot"
+                isAr={isAr}
+              />
               <SubHead isAr={isAr}>النت</SubHead>
               <Body isAr={isAr}>
                 لبنان: من أبطأ إنترنت بالعالم. الضفة الغربية المحتلة: إسرائيل بتتحكم بتخصيص الطيف الترددي. ما في شبكة فلسطينية مستقلة — لا 3G ولا 4G. منظمة 7amleh وثّقت تقليص وحجب ممنهج للفضاء الرقمي الفلسطيني. جلسة ذكاء اصطناعي بتنقطع بنص الجواب — مش جلسة ذكاء اصطناعي. بيانات راحت على رسالة خطأ.
@@ -439,10 +547,22 @@ export function OfflineByDesignReport() {
               <Body isAr={isAr}>
                 Between 2015 and 2023, eighty-six people were electrocuted in Burj el-Barajneh camp. Not by bombs. By wires — because the informal wiring that covers every available surface in the camp is the only infrastructure that exists. Yarmouk camp in Damascus receives one hour of electricity per day.
               </Body>
+              <ImageBreak
+                src="/editorial/images/report/report-c.jpg"
+                captionAr="مقبس كهربائي على جدار متشقق"
+                captionEn="Bare electrical socket — cracked concrete"
+                isAr={isAr}
+              />
               <SubHead isAr={isAr}>Payment</SubHead>
               <Body isAr={isAr}>
                 ChatGPT Plus costs $20 per month. Claude Pro costs $20. Gemini Advanced costs $19.99. UNRWA emergency cash assistance for Palestinian refugees in Lebanon is $16.67 per person per month. For 70% of Lebanon&apos;s camp residents, this is the income — not supplementary, not one source among others. The income. It arrives in cash. There is no card. There is no account.
               </Body>
+              <ImageBreak
+                src="/editorial/images/report/report-d.jpg"
+                captionAr="يد تمتد نحو فتحة صراف آلي في جدار إسمنتي"
+                captionEn="Hand reaching toward a sealed ATM slot"
+                isAr={isAr}
+              />
               <SubHead isAr={isAr}>Connectivity</SubHead>
               <Body isAr={isAr}>
                 Lebanon&apos;s national internet speed ranks among the lowest in the world. In the occupied West Bank, Israel controls spectrum allocation: no independent Palestinian 3G or 4G network exists. 7amleh has documented systematic throttling and blocking of Palestinian digital space. An AI session interrupted mid-reply is not an AI session. It is data spent on a timeout error.
@@ -457,6 +577,13 @@ export function OfflineByDesignReport() {
               </Body>
             </>
           )}
+
+          <ImageBreak
+            src="/editorial/images/report/report-e.jpg"
+            captionAr="موجة صوتية: اللهجة المحلية فوق، اللغة المعيارية المُجرَّدة أسفل"
+            captionEn="Waveform: Palestinian dialect above, MSA flattened below"
+            isAr={isAr}
+          />
 
           {/* III */}
           <SectionHeader isAr={isAr} num="III" title={isAr ? "الجغرافيا" : "The Geography"} />
@@ -507,6 +634,13 @@ export function OfflineByDesignReport() {
             </>
           )}
 
+          <ImageBreak
+            src="/editorial/images/report/report-b.jpg"
+            captionAr="تمثيل بصري: الفجوة بين تكلفة الذكاء الاصطناعي والمساعدة الإنسانية"
+            captionEn="Visual: the gap between AI pricing and humanitarian aid"
+            isAr={isAr}
+          />
+
           {/* IV */}
           <SectionHeader isAr={isAr} num="IV" title={isAr ? "الحياة التانية" : "The Second Life"} />
 
@@ -541,6 +675,13 @@ export function OfflineByDesignReport() {
               </Body>
             </>
           )}
+
+          <ImageBreak
+            src="/editorial/images/report/report-f.jpg"
+            captionAr="رف خوادم في الظلام — البنية التحتية التقنية للذكاء الاصطناعي"
+            captionEn="Server rack in darkness — AI infrastructure"
+            isAr={isAr}
+          />
 
           {/* V */}
           <SectionHeader isAr={isAr} num="V" title={isAr ? "المساءلة" : "The Accountability Gap"} />

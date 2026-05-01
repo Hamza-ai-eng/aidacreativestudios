@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import {
   CalligraphyGhost,
@@ -78,13 +79,20 @@ export function ReportFeature() {
             minHeight: "400px",
           }}
         >
-          {/* IMAGE SLOT — replace this div with <Image> once report visual is generated */}
+          {/* Cover image */}
+          <Image
+            src="/editorial/images/report/report-a.jpg"
+            alt={isAr ? "يد تمسك هاتفاً أمام جدار إسمنتي" : "Hand holding phone against concrete wall"}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ objectFit: "cover", objectPosition: "center 40%" }}
+          />
           <div
             style={{
               position: "absolute",
               inset: 0,
               background:
-                "radial-gradient(ellipse at 40% 50%, rgba(196,26,42,0.25) 0%, rgba(196,26,42,0.05) 50%, transparent 80%)",
+                "linear-gradient(to right, rgba(26,20,16,0.0) 40%, rgba(26,20,16,0.5) 100%), radial-gradient(ellipse at 40% 50%, rgba(196,26,42,0.15) 0%, transparent 70%)",
             }}
           />
 
