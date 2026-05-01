@@ -1,13 +1,15 @@
 import { Hero } from "@/components/home/hero";
 import { DataMoment } from "@/components/home/data-moment";
-import { StudioStrip } from "@/components/home/studio-strip";
+import { SeriesStrip } from "@/components/home/series-strip";
+import { DukkanStrip } from "@/components/home/dukkan-strip";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <DataMoment />
-      <StudioStrip />
+      <SeriesStrip />
+      <DukkanStrip />
     </>
   );
 }
