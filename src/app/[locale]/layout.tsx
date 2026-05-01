@@ -2,10 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { playfair, inter, cairo, amiri, heebo, spaceGrotesk } from "@/lib/fonts";
+import { playfair, inter, cairo, amiri, heebo, spaceGrotesk, garamond, spaceMono } from "@/lib/fonts";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
+import { Grain } from "@/components/shared/grain";
 import "../globals.css";
 
 const RTL_LOCALES = new Set(["ar", "he"]);
@@ -14,16 +15,16 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#F4EDE4",
+  themeColor: "#F2EBE0",
 };
 
 export const metadata: Metadata = {
   title: {
-    default: "AIDA Creative Studios | Brand Design & Social Media Agency — East Jerusalem",
-    template: "%s | AIDA Creative Studios",
+    default: "AIDA Critical Institute · معهد أيدا — القدس",
+    template: "%s · AIDA",
   },
   description:
-    "Brand identity, social media management, and digital strategy for Palestinian businesses in East Jerusalem. The only trilingual creative agency serving Shu'fat, Jerusalem, and beyond.",
+    "معهد نقدي فلسطيني من القدس. تقارير مناصرة، تحليل سياسات، وشغل تصميم. AIDA is a Palestinian critical institute based in Jerusalem — advocacy reports, policy analysis, and design.",
   keywords: [
     "creative agency East Jerusalem",
     "brand design Jerusalem",
@@ -84,7 +85,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${playfair.variable} ${inter.variable} ${cairo.variable} ${amiri.variable} ${heebo.variable} ${spaceGrotesk.variable}`}
+      className={`${playfair.variable} ${inter.variable} ${cairo.variable} ${amiri.variable} ${heebo.variable} ${spaceGrotesk.variable} ${garamond.variable} ${spaceMono.variable}`}
     >
       <body className="antialiased min-h-dvh">
         <script
@@ -152,6 +153,7 @@ export default async function LocaleLayout({
           }}
         />
         <NextIntlClientProvider>
+          <Grain />
           <Navbar />
           <main>{children}</main>
           <Footer />

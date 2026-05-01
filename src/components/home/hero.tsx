@@ -1,194 +1,396 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { useTranslations } from "next-intl";
-import { ArrowDown } from "lucide-react";
-import { GoldButton } from "@/components/shared/gold-button";
-import { SITE } from "@/lib/constants";
-import { Watermelon } from "@/components/shared/watermelon";
+import { useLocale } from "next-intl";
+import Link from "next/link";
+import { WatermelonSeal } from "@/components/shared/watermelon-seal";
+import {
+  RegistrationMarks,
+  InkSplotch,
+  CalligraphyGhost,
+  ArchiveStamp,
+  RulerMark,
+  TatreezPattern,
+} from "@/components/shared/paper-ornaments";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const letterReveal = (delay: number) => ({
-  hidden: { opacity: 0, y: 80, rotateX: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: {
-      duration: 0.9,
-      delay,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  },
-});
-
+/**
+ * Hero — homepage landing
+ *
+ * Layered structure (bottom to top):
+ *   1. Beige paper ground
+ *   2. Section grain (multiply)
+ *   3. Red ink wash (upper right) + green wash (lower left)
+ *   4. Calligraphy ghost — massive faded "إقصاء" behind the headline
+ *   5. Multiple ink splotches (red + green)
+ *   6. Registration corner marks
+ *   7. Tatreez pattern strip — top edge
+ *   8. Vertical ruler mark — side
+ *   9. Archive stamp — file ID
+ *   10. Hero watermark seal — large translucent
+ *   11. Small accent seals — corners
+ *   12. Foreground content (kicker, headline, quote, CTA)
+ *   13. Scroll indicator
+ */
 export function Hero() {
-  const t = useTranslations("hero");
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const locale = useLocale();
+  const isAr = locale === "ar";
 
   return (
     <section
-      ref={containerRef}
-      className="relative min-h-dvh flex items-center justify-center overflow-hidden paper-texture calligraphy-watermark"
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        width: "100%",
+        background: "var(--ground)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        paddingBottom: "10vh",
+        overflow: "hidden",
+      }}
     >
-      {/* Multi-layer parallax blobs */}
-      <motion.div
-        style={{ y: y1 }}
-        className="absolute top-16 -start-40 w-[500px] h-[500px] bg-[var(--accent)]/8 blob-1 blur-3xl animate-float-slow"
-      />
-      <motion.div
-        style={{ y: y2 }}
-        className="absolute bottom-16 -end-40 w-[400px] h-[400px] bg-[var(--accent)]/8 blob-2 blur-3xl animate-float"
-      />
-      <motion.div
-        style={{ y: y3 }}
-        className="absolute top-1/3 end-1/4 w-[300px] h-[300px] bg-[var(--olive)]/6 blob-1 blur-3xl"
-      />
-      <motion.div
-        style={{ y: y1 }}
-        className="absolute bottom-1/3 start-1/4 w-[200px] h-[200px] bg-[var(--blue)]/8 blob-2 blur-2xl animate-float-slow"
+      {/* ── Layer 2: Section grain ─────────────────────────── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='400' height='400' filter='url(%23n)' opacity='0.7'/></svg>\")",
+          opacity: 0.08,
+          mixBlendMode: "multiply",
+          pointerEvents: "none",
+        }}
       />
 
-      {/* Geometric accents — floating with animation */}
-      <motion.div
-        style={{ y: y2 }}
-        className="absolute top-24 start-8 w-28 h-28 border-2 border-[var(--blue)]/15 rounded-full animate-float-slow"
+      {/* ── Layer 3: Red wash (upper right) ───────────────── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse at 75% 30%, rgba(196,26,42,0.12) 0%, transparent 55%)",
+          pointerEvents: "none",
+          mixBlendMode: "multiply",
+        }}
       />
-      <motion.div
-        style={{ y: y3 }}
-        className="absolute bottom-32 end-16 w-20 h-20 border-2 border-[var(--accent)]/15 rotate-45 animate-float"
+
+      {/* ── Layer 3b: Green wash (lower left) ─────────────── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse at 12% 85%, rgba(42,92,58,0.08) 0%, transparent 50%)",
+          pointerEvents: "none",
+          mixBlendMode: "multiply",
+        }}
       />
-      <motion.div
-        style={{ y: y1 }}
-        className="absolute top-1/2 start-16 w-12 h-12 border-2 border-[var(--olive)]/15 rounded-lg rotate-12"
+
+      {/* ── Layer 4: Calligraphy ghost — massive faded Arabic ── */}
+      <CalligraphyGhost
+        text="إقصاء"
+        size="clamp(28rem, 50vw, 60rem)"
+        color="var(--ink)"
+        opacity={0.035}
+        top="8%"
+        left={isAr ? "auto" : "-8%"}
+        right={isAr ? "-8%" : "auto"}
+        rotation={-4}
       />
-      <div className="absolute top-1/3 start-1/3 w-3 h-3 rounded-full bg-[var(--accent)]/40" />
-      <div className="absolute bottom-1/4 end-1/3 w-2 h-2 rounded-full bg-[var(--accent)]/30" />
-      <div className="absolute top-2/3 end-1/4 w-4 h-4 rounded-full bg-[var(--olive)]/20" />
-      {/* بطيخ */}
-      <div className="absolute bottom-[18%] start-[12%] opacity-20 hover:opacity-50 transition-opacity" title="🍉">
-        <Watermelon size="lg" />
+
+      {/* ── Layer 5: Ink splotches — red bleed behind headline ── */}
+      <InkSplotch
+        color="var(--wm-red)"
+        opacity={0.08}
+        size={520}
+        top="35%"
+        left={isAr ? "5%" : "auto"}
+        right={isAr ? "auto" : "5%"}
+        rotation={15}
+        seed={3}
+      />
+
+      <InkSplotch
+        color="var(--wm-green)"
+        opacity={0.07}
+        size={340}
+        bottom="15%"
+        left={isAr ? "auto" : "8%"}
+        right={isAr ? "8%" : "auto"}
+        rotation={-25}
+        seed={7}
+      />
+
+      {/* ── Layer 6: Corner registration marks ─────────────── */}
+      <RegistrationMarks color="var(--ink-faded)" inset={32} size={20} opacity={0.45} />
+
+      {/* ── Layer 7: Tatreez pattern strip — top edge ──────── */}
+      <TatreezPattern
+        color="var(--wm-red-deep)"
+        opacity={0.16}
+        size={20}
+        width={320}
+        height={20}
+        top={20}
+        left={isAr ? "auto" : "6vw"}
+        right={isAr ? "6vw" : "auto"}
+      />
+
+      {/* ── Layer 8: Vertical ruler mark — side edge ───────── */}
+      <RulerMark
+        orientation="vertical"
+        length="60vh"
+        ticks={20}
+        color="var(--ink-faded)"
+        opacity={0.2}
+        top="20vh"
+        left={isAr ? "auto" : "1vw"}
+        right={isAr ? "1vw" : "auto"}
+      />
+
+      {/* ── Layer 9: Archive stamp ─────────────────────────── */}
+      <ArchiveStamp
+        lines={["FILE — 01", "AIDA · 2026", "OFFLINE BY DESIGN"]}
+        color="var(--patina-copper)"
+        rotation={-3.5}
+        top="14%"
+        left={isAr ? "auto" : "5%"}
+        right={isAr ? "5%" : "auto"}
+      />
+
+      {/* ── Layer 10: Watermark seal (large) ───────────────── */}
+      <div
+        style={{
+          position: "absolute",
+          ...(isAr ? { left: "3vw" } : { right: "3vw" }),
+          top: "50%",
+          transform: "translateY(-50%)",
+          width: "44vw",
+          maxWidth: "640px",
+          aspectRatio: "1",
+          opacity: 0.18,
+          pointerEvents: "none",
+          zIndex: 1,
+          mixBlendMode: "multiply",
+        }}
+      >
+        <WatermelonSeal fill />
       </div>
 
-      {/* Dot grid subtle background */}
-      <div className="absolute inset-0 dot-grid opacity-30" />
+      {/* ── Layer 11: Small accent seal ────────────────────── */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          ...(isAr ? { left: "12%" } : { right: "12%" }),
+          opacity: 0.35,
+          mixBlendMode: "multiply",
+          pointerEvents: "none",
+          transform: "rotate(-12deg)",
+          zIndex: 1,
+        }}
+      >
+        <WatermelonSeal size={64} />
+      </div>
 
-      {/* Content — no scroll-based opacity, ensures visibility on all devices */}
-      <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-        {/* Badge */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12"
+      {/* ── Layer 12a: Top stripe (publisher mark) ─────────── */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "3px",
+          background:
+            "linear-gradient(90deg, var(--wm-red) 0%, var(--wm-red) 30%, var(--wm-white) 30%, var(--wm-white) 33%, var(--wm-green) 33%, var(--wm-green) 100%)",
+          opacity: 0.85,
+          zIndex: 2,
+        }}
+      />
+
+      {/* ── Layer 12b: Meta row ────────────────────────────── */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          padding: "120px 6vw 0",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          fontFamily: "var(--font-mono)",
+          fontSize: "11px",
+          letterSpacing: "3px",
+          textTransform: "uppercase",
+          color: "var(--ink-faded)",
+        }}
+      >
+        <span>{isAr ? "تقرير ٠١ · أبريل ٢٠٢٦" : "REPORT 01 · APRIL 2026"}</span>
+        <span style={{ color: "var(--patina-copper)" }}>
+          {isAr ? "إقصاء مبرمَج · OFFLINE BY DESIGN" : "إقصاء مبرمَج · OFFLINE BY DESIGN"}
+        </span>
+      </div>
+
+      {/* ── Layer 12c: Foreground content ──────────────────── */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          padding: "0 6vw",
+          marginTop: "auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: isAr ? "flex-end" : "flex-start",
+        }}
+      >
+        {/* Kicker */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "14px",
+            marginBottom: "32px",
+            fontFamily: "var(--font-mono)",
+            fontSize: "11px",
+            letterSpacing: "3px",
+            textTransform: "uppercase",
+            color: "var(--wm-red)",
+          }}
         >
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border)] bg-[var(--limestone)]/80 backdrop-blur-sm font-space text-[var(--accent)] text-sm font-medium shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
-            {t("badge")}
-          </span>
-        </motion.div>
+          <span
+            style={{
+              display: "inline-block",
+              width: "48px",
+              height: "1px",
+              background: "var(--wm-red)",
+            }}
+          />
+          {isAr ? "صدر حديثاً · OUT NOW" : "OUT NOW · صدر حديثاً"}
+        </div>
 
-        {/* Headline — MASSIVE, kinetic staggered reveal */}
-        <h1 className="font-serif leading-[0.95] mb-10">
-          {[t("headline1"), t("headline2")].map((word, i) => (
-            <motion.span
-              key={`gold-${i}`}
-              variants={letterReveal(0.4 + i * 0.15)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0 }}
-              className="inline-block me-[0.25em] text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] text-accent-gradient drop-shadow-sm"
-            >
-              {word}
-            </motion.span>
-          ))}
-          <br />
-          {[t("headline3"), t("headline4")].map((word, i) => (
-            <motion.span
-              key={`ink-${i}`}
-              variants={letterReveal(0.7 + i * 0.15)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0 }}
-              className="inline-block me-[0.25em] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] text-[var(--ink)]"
-            >
-              {word}
-            </motion.span>
-          ))}
+        {/* Arabic display headline */}
+        <h1
+          style={{
+            fontFamily: "var(--font-ar)",
+            fontWeight: 700,
+            fontSize: "clamp(5rem, 15vw, 13rem)",
+            lineHeight: 0.95,
+            color: "var(--ink)",
+            marginRight: isAr ? "-2vw" : "0",
+            marginLeft: isAr ? "0" : "-2vw",
+            letterSpacing: "-0.02em",
+            textShadow: "0 1px 0 rgba(26,20,16,0.06)",
+            direction: "rtl",
+            position: "relative",
+            zIndex: 3,
+          }}
+        >
+          إقصاءٌ مبرمَج
         </h1>
 
-        {/* Subline */}
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-          className="text-lg md:text-xl text-[var(--stone-gray)] max-w-2xl mx-auto mb-12 leading-relaxed"
+        {/* English subtitle */}
+        <div
+          style={{
+            fontFamily: "var(--font-en)",
+            fontWeight: 900,
+            fontStyle: "italic",
+            fontSize: "clamp(2rem, 4.5vw, 4rem)",
+            lineHeight: 1,
+            color: "var(--wm-red)",
+            marginTop: "24px",
+            marginBottom: "40px",
+            position: "relative",
+            zIndex: 3,
+          }}
         >
-          {t("subline")}
-        </motion.p>
+          Offline{" "}
+          <span
+            style={{
+              fontStyle: "normal",
+              color: "var(--ink-faded)",
+              margin: "0 12px",
+              fontWeight: 400,
+            }}
+          >
+            ·
+          </span>{" "}
+          by Design.
+        </div>
 
-        {/* CTAs */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0 }}
-          transition={{ duration: 0.6, delay: 1.3 }}
-          className="flex flex-col items-center gap-4"
+        {/* Quote */}
+        <p
+          style={{
+            fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+            fontStyle: isAr ? "normal" : "italic",
+            fontSize: "clamp(1rem, 1.4vw, 1.2rem)",
+            lineHeight: isAr ? 1.95 : 1.7,
+            color: "var(--ink-dim)",
+            maxWidth: "640px",
+            marginBottom: "36px",
+            textAlign: isAr ? "right" : "left",
+            direction: isAr ? "rtl" : "ltr",
+            position: "relative",
+            zIndex: 3,
+          }}
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <GoldButton href={SITE.whatsapp} external variant="terracotta" size="lg">
-              {t("cta1")}
-            </GoldButton>
-          </div>
-        </motion.div>
+          {isAr
+            ? "اللاجئون الفلسطينيون ليسوا مُستثنَين من الذكاء الاصطناعي بالصدفة، ولا بالإهمال. هم مُستثنَون بالبنية ذاتها التي تتعاقد صناعة الذكاء الاصطناعي على إدامتها. الإقصاء هو المنتَج."
+            : "Palestinian refugees are not excluded from AI by accident or oversight. They are excluded by the same architecture of dispossession the AI industry is contracted to sustain. The exclusion is the product."}
+        </p>
 
-        {/* Tagline */}
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
-          className="mt-20 font-space text-xs text-[var(--text-muted)] tracking-[0.25em] uppercase"
+        {/* CTA */}
+        <Link
+          href={`/${locale}/insights`}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "14px",
+            fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+            fontStyle: isAr ? "normal" : "italic",
+            fontWeight: 500,
+            fontSize: isAr ? "1rem" : "1.1rem",
+            color: "var(--wm-red)",
+            borderBottom: "1px solid transparent",
+            paddingBottom: "4px",
+            transition: "gap 0.2s, border-color 0.2s",
+            position: "relative",
+            zIndex: 3,
+          }}
+          className="group hover:border-b-[var(--wm-red)] hover:gap-[22px]"
         >
-          {t("tagline")}
-        </motion.p>
+          <span>{isAr ? "اقرأ التقرير" : "Read the report"}</span>
+          <span style={{ fontFamily: "var(--font-en)", fontSize: "1.4em" }}>←</span>
+        </Link>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0 }}
-        transition={{ delay: 2.2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+      {/* ── Layer 13: Scroll indicator ─────────────────────── */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "32px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          fontFamily: "var(--font-mono)",
+          fontSize: "10px",
+          letterSpacing: "3px",
+          color: "var(--ink-faded)",
+          zIndex: 2,
+          textTransform: "uppercase",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+        }}
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-        >
-          <ArrowDown size={18} className="text-[var(--mist)]" />
-        </motion.div>
-      </motion.div>
+        <span>{isAr ? "اقرأ" : "scroll"}</span>
+        <span
+          style={{
+            display: "block",
+            width: "1px",
+            height: "32px",
+            background: "var(--ink-faded)",
+            animation: "scrollPulse 2s ease-in-out infinite",
+          }}
+        />
+      </div>
     </section>
   );
 }

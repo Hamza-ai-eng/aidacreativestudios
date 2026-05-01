@@ -2,199 +2,608 @@
 
 import Link from "next/link";
 import { useLocale } from "next-intl";
-import { ArrowUpRight, BookOpen } from "lucide-react";
-import { ScrollReveal } from "@/components/shared/scroll-reveal";
-import { SERIES } from "@/data/insights/articles";
+import {
+  CalligraphyGhost,
+  ArchiveStamp,
+  RegistrationMarks,
+  InkSplotch,
+  RulerMark,
+} from "@/components/shared/paper-ornaments";
 
-const SERIES_COPY = {
-  "human-in-the-loop": {
-    en: {
-      label: "Series 01",
-      title: "Human in the Loop",
-      titleAr: "إنسان في الدوامة",
-      subtitle: "AI is not neutral. Seven files from inside the machine.",
-      description:
-        "The AI systems deployed against Palestinian life — targeting software, facial recognition, humanitarian biometrics, algorithmic suppression, predictive policing. Seven files. One condition.",
-    },
-    ar: {
-      label: "السلسلة 01",
-      title: "Human in the Loop",
-      titleAr: "إنسان في الدوامة",
-      subtitle: "الذكاء الاصطناعي ليس محايداً. سبعة ملفات من داخل الآلة.",
-      description:
-        "أنظمة الذكاء الاصطناعي الموجّهة ضد الحياة الفلسطينية — برمجيات الاستهداف، التعرف على الوجوه، البيومترية الإنسانية، القمع الخوارزمي، الشرطة التنبؤية. سبعة ملفات. حالة واحدة.",
-    },
-  },
-  "the-brand-that-stays": {
-    en: {
-      label: "Series 02",
-      title: "The Brand That Stays",
-      titleAr: "العلامة التي تبقى",
-      subtitle: "Building Palestinian businesses that outlast the occupation.",
-      description:
-        "Brand identity, visibility, and presence for Palestinian entrepreneurs who refuse to be made invisible. What it means to build something that lasts in a place designed to erase you.",
-    },
-    ar: {
-      label: "السلسلة 02",
-      title: "The Brand That Stays",
-      titleAr: "العلامة التي تبقى",
-      subtitle: "بناء أعمال فلسطينية تتجاوز الاحتلال.",
-      description:
-        "الهوية التجارية والحضور والظهور للرواد الفلسطينيين الذين يرفضون أن يُمحوا. ماذا يعني أن تبني شيئاً يدوم في مكان مصمم لمحوك.",
-    },
-  },
-  "speaking-arabic": {
-    en: {
-      label: "Series 03",
-      title: "Speaking Arabic",
-      titleAr: "نتكلم عربي",
-      subtitle: "Content, captions, and campaigns that actually land.",
-      description:
-        "Arabic-language content strategy for businesses in Jerusalem, the West Bank, and the diaspora. The dialect politics, the algorithm gaps, the way a caption has to work twice as hard.",
-    },
-    ar: {
-      label: "السلسلة 03",
-      title: "Speaking Arabic",
-      titleAr: "نتكلم عربي",
-      subtitle: "محتوى وتعليقات وحملات تصل فعلاً.",
-      description:
-        "استراتيجية المحتوى العربي للشركات في القدس والضفة الغربية والشتات. سياسات اللهجة، الفجوات الخوارزمية، الطريقة التي يجب على التعليق أن يعمل بها بضعف الجهد.",
-    },
-  },
-} as const;
-
+/**
+ * حريّة — Freedom
+ * The editorial / advocacy landing page.
+ * Shows: the advocacy report + the Human in the Loop series.
+ * Old "coming soon" ghost series removed.
+ */
 export function InsightsContent() {
   const locale = useLocale();
   const isAr = locale === "ar";
 
   return (
     <>
-      {/* Header */}
-      <section className="pt-32 pb-16">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="mb-6">
-            <span className="font-space text-xs uppercase tracking-[0.2em] text-[var(--accent-text)]">
-              {isAr ? "صوتنا" : "Our Voice"}
-            </span>
+      {/* ── Hero section ──────────────────────────────────────── */}
+      <section
+        style={{
+          position: "relative",
+          background: "var(--ground)",
+          padding: "160px 6vw 80px",
+          overflow: "hidden",
+          borderBottom: "1px solid rgba(26,20,16,0.10)",
+        }}
+      >
+        {/* Registration marks */}
+        <RegistrationMarks color="var(--ink-faded)" inset={28} size={16} opacity={0.35} />
+
+        {/* Ghost Arabic behind headline */}
+        <CalligraphyGhost
+          text="حريّة"
+          size="clamp(20rem, 35vw, 40rem)"
+          color="var(--wm-red-deep)"
+          opacity={0.04}
+          top="0%"
+          left={isAr ? "auto" : "-5%"}
+          right={isAr ? "-5%" : "auto"}
+          rotation={-3}
+        />
+
+        {/* Ruler mark */}
+        <RulerMark
+          orientation="vertical"
+          length="70%"
+          ticks={18}
+          color="var(--ink-faded)"
+          opacity={0.15}
+          top="15%"
+          left={isAr ? "auto" : "1.5vw"}
+          right={isAr ? "1.5vw" : "auto"}
+        />
+
+        {/* Archive stamp */}
+        <ArchiveStamp
+          lines={["حريّة · FREEDOM", "AIDA · القدس", "VOL. I · 2026"]}
+          color="var(--wm-red-deep)"
+          rotation={-3}
+          top="18%"
+          right={isAr ? "auto" : "5%"}
+          left={isAr ? "5%" : "auto"}
+          opacity={0.55}
+        />
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "860px",
+          }}
+        >
+          {/* Kicker */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "14px",
+              marginBottom: "40px",
+              fontFamily: "var(--font-mono)",
+              fontSize: "11px",
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              color: "var(--wm-red)",
+            }}
+          >
+            <span
+              style={{
+                display: "inline-block",
+                width: "40px",
+                height: "1px",
+                background: "var(--wm-red)",
+              }}
+            />
+            {isAr ? "أقسامنا" : "Our Work"}
           </div>
-          <h1 className="font-serif text-5xl md:text-6xl text-[var(--ink)] leading-tight mb-6 max-w-2xl">
-            {isAr ? (
-              <span style={{ fontFamily: "var(--font-amiri)" }}>
-                نكتب لأن ذلك مهم.
-              </span>
-            ) : (
-              "We write because it matters."
-            )}
+
+          {/* Headline */}
+          <h1
+            style={{
+              fontFamily: "var(--font-ar)",
+              fontWeight: 700,
+              fontSize: "clamp(4rem, 10vw, 8rem)",
+              lineHeight: 1,
+              color: "var(--ink)",
+              letterSpacing: "-0.02em",
+              marginBottom: "32px",
+              direction: "rtl",
+            }}
+          >
+            حريّة
           </h1>
-          <p className="text-[var(--stone-gray)] text-lg leading-relaxed max-w-xl">
+
+          <p
+            style={{
+              fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+              fontStyle: isAr ? "normal" : "italic",
+              fontSize: "clamp(1rem, 1.6vw, 1.3rem)",
+              lineHeight: isAr ? 1.85 : 1.65,
+              color: "var(--ink-dim)",
+              maxWidth: "600px",
+              direction: isAr ? "rtl" : "ltr",
+            }}
+          >
             {isAr
-              ? "مجموعات تحريرية عن الذكاء الاصطناعي وبناء الأعمال والهوية الفلسطينية. ليست مدونة. سلاسل."
-              : "Editorial series on AI, business-building, and Palestinian identity. Not a blog. Series."}
+              ? "تقارير المناصرة والسلاسل التحريرية من AIDA. نكتب لأن الكتابة شكل من أشكال البقاء."
+              : "Advocacy reports and editorial series from AIDA. We write because writing is a form of staying."}
           </p>
         </div>
       </section>
 
-      {/* Series list */}
-      <section className="pb-32">
-        <div className="mx-auto max-w-5xl px-6 flex flex-col gap-0">
-          {SERIES.map((series, i) => {
-            const copy = SERIES_COPY[series.slug as keyof typeof SERIES_COPY];
-            const c = isAr ? copy.ar : copy.en;
-            const isLive = series.status === "live";
+      {/* ── Advocacy Report — Offline by Design ─────────────── */}
+      <section
+        style={{
+          position: "relative",
+          background: "var(--ground-mid)",
+          padding: "80px 6vw",
+          overflow: "hidden",
+          borderBottom: "1px solid rgba(26,20,16,0.10)",
+        }}
+      >
+        {/* Red ink splotch */}
+        <InkSplotch
+          color="var(--wm-red)"
+          opacity={0.04}
+          size={600}
+          top="-10%"
+          right={isAr ? "auto" : "-5%"}
+          left={isAr ? "-5%" : "auto"}
+          rotation={10}
+          seed={5}
+        />
 
-            return (
-              <ScrollReveal key={series.slug} delay={i * 0.1}>
+        <ArchiveStamp
+          lines={["REPORT — 01", "ADVOCACY", "APRIL 2026"]}
+          color="var(--wm-red-deep)"
+          rotation={2}
+          bottom="8%"
+          left={isAr ? "auto" : "5%"}
+          right={isAr ? "5%" : "auto"}
+          opacity={0.5}
+        />
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "1340px",
+            margin: "0 auto",
+          }}
+        >
+          {/* Section label */}
+          <div
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              color: "var(--wm-red)",
+              marginBottom: "40px",
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+            }}
+          >
+            <span>REPORT</span>
+            <span
+              style={{
+                display: "inline-block",
+                width: "40px",
+                height: "1px",
+                background: "var(--wm-red)",
+              }}
+            />
+            <span style={{ color: "var(--ink-faded)" }}>01</span>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr auto",
+              gap: "80px",
+              alignItems: "start",
+            }}
+          >
+            {/* Content */}
+            <div>
+              {/* Arabic title */}
+              <h2
+                style={{
+                  fontFamily: "var(--font-ar)",
+                  fontWeight: 700,
+                  fontSize: "clamp(2.4rem, 5vw, 4.5rem)",
+                  lineHeight: 1.1,
+                  color: "var(--ink)",
+                  marginBottom: "16px",
+                  direction: "rtl",
+                }}
+              >
+                إقصاء مبرمَج
+              </h2>
+
+              {/* English subtitle */}
+              <div
+                style={{
+                  fontFamily: "var(--font-en)",
+                  fontWeight: 900,
+                  fontStyle: "italic",
+                  fontSize: "clamp(1.2rem, 2vw, 1.8rem)",
+                  color: "var(--wm-red)",
+                  marginBottom: "32px",
+                }}
+              >
+                Offline by Design
+              </div>
+
+              <p
+                style={{
+                  fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+                  fontStyle: isAr ? "normal" : "italic",
+                  fontSize: "clamp(0.95rem, 1.4vw, 1.2rem)",
+                  lineHeight: isAr ? 1.85 : 1.7,
+                  color: "var(--ink-dim)",
+                  maxWidth: "620px",
+                  marginBottom: "40px",
+                  direction: isAr ? "rtl" : "ltr",
+                }}
+              >
+                {isAr
+                  ? "اللاجئون الفلسطينيون ليسوا مُستثنَين من الذكاء الاصطناعي بالصدفة. هم مُستثنَون بنفس البنية التي تتعاقد صناعة الذكاء الاصطناعي على إدامتها. الإقصاء هو المنتَج."
+                  : "Palestinian refugees are not excluded from AI by accident or oversight. They are excluded by the same architecture of dispossession the AI industry is contracted to sustain. The exclusion is the product."}
+              </p>
+
+              {/* Meta row */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "24px",
+                  flexWrap: "wrap",
+                  marginBottom: "48px",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "10px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: "var(--text-muted)",
+                }}
+              >
+                <span>AIDA Critical Institute</span>
+                <span style={{ color: "var(--wm-red)", opacity: 0.4 }}>·</span>
+                <span>April 2026</span>
+                <span style={{ color: "var(--wm-red)", opacity: 0.4 }}>·</span>
+                <span>Lebanon · Jordan · Syria · West Bank</span>
+              </div>
+
+              {/* CTA */}
+              <Link
+                href={`/${locale}/insights/offline-by-design`}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "14px",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "11px",
+                  letterSpacing: "3px",
+                  textTransform: "uppercase",
+                  color: "var(--ground)",
+                  background: "var(--wm-red)",
+                  padding: "14px 28px",
+                  transition: "background 0.2s",
+                }}
+                className="hover:bg-[var(--wm-red-deep)]"
+              >
+                {isAr ? "اقرأ التقرير" : "Read the report"}
+                <span style={{ fontFamily: "var(--font-en)", fontSize: "1.2em" }}>
+                  {isAr ? "←" : "→"}
+                </span>
+              </Link>
+            </div>
+
+            {/* Right side — stat block */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "32px",
+                borderLeft: isAr ? "none" : "1px solid rgba(196,26,42,0.2)",
+                borderRight: isAr ? "1px solid rgba(196,26,42,0.2)" : "none",
+                paddingLeft: isAr ? "0" : "48px",
+                paddingRight: isAr ? "48px" : "0",
+                minWidth: "220px",
+              }}
+            >
+              {[
+                { num: "5.9M", label: isAr ? "لاجئ فلسطيني مسجّل" : "registered Palestinian refugees" },
+                { num: "$20", label: isAr ? "اشتراك ChatGPT شهرياً" : "ChatGPT Plus / month" },
+                { num: "$16.67", label: isAr ? "مساعدة UNRWA للشخص" : "UNRWA assistance / person" },
+                { num: "0", label: isAr ? "بطاقة. لا حساب. لا وصول." : "cards. No account. No access." },
+              ].map((stat, i) => (
+                <div key={i}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontWeight: 700,
+                      fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
+                      color: "var(--wm-red-hot)",
+                      lineHeight: 1,
+                      marginBottom: "6px",
+                    }}
+                  >
+                    {stat.num}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+                      fontStyle: isAr ? "normal" : "italic",
+                      fontSize: "0.85rem",
+                      color: "var(--ink-faded)",
+                      lineHeight: 1.4,
+                      direction: isAr ? "rtl" : "ltr",
+                    }}
+                  >
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Human in the Loop series ─────────────────────────── */}
+      <section
+        style={{
+          position: "relative",
+          background: "var(--ground)",
+          padding: "80px 6vw 120px",
+          overflow: "hidden",
+        }}
+      >
+        <CalligraphyGhost
+          text="سلسلة"
+          size="clamp(12rem, 22vw, 28rem)"
+          color="var(--ink)"
+          opacity={0.03}
+          bottom="5%"
+          right={isAr ? "auto" : "2%"}
+          left={isAr ? "2%" : "auto"}
+          rotation={4}
+        />
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "1340px",
+            margin: "0 auto",
+          }}
+        >
+          {/* Section label */}
+          <div
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "10px",
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              color: "var(--wm-green)",
+              marginBottom: "56px",
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
+            }}
+          >
+            <span>SERIES</span>
+            <span
+              style={{
+                display: "inline-block",
+                width: "40px",
+                height: "1px",
+                background: "var(--wm-green)",
+              }}
+            />
+            <span style={{ color: "var(--ink-faded)" }}>01</span>
+          </div>
+
+          {/* Series card */}
+          <div
+            style={{
+              borderTop: "2px solid var(--wm-red)",
+              paddingTop: "48px",
+            }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
+                gap: "64px",
+                alignItems: "start",
+              }}
+            >
+              <div>
+                {/* Series label */}
                 <div
-                  className={`group relative border-t border-[var(--border)] py-12 transition-all duration-300 ${
-                    isLive ? "cursor-pointer" : "opacity-60"
-                  }`}
                   style={{
-                    borderTopColor: i === 0 ? series.accentColor : undefined,
-                    borderTopWidth: i === 0 ? "2px" : undefined,
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    color: "var(--wm-red)",
+                    marginBottom: "24px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
                   }}
                 >
-                  {/* Top row */}
-                  <div className="flex items-start justify-between gap-8 mb-6">
-                    <div className="flex items-center gap-4">
-                      <span
-                        className="font-space text-xs tracking-[0.2em] uppercase"
-                        style={{ color: series.accentColor }}
-                      >
-                        {c.label}
-                      </span>
-                      <span
-                        className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-space tracking-wide ${
-                          isLive
-                            ? "bg-[var(--olive-dark)] text-[var(--sand)]"
-                            : "border border-[var(--border)] text-[var(--stone-gray)]"
-                        }`}
-                      >
-                        <span
-                          className={`w-1.5 h-1.5 rounded-full ${isLive ? "bg-green-400" : "bg-[var(--stone)]"}`}
-                        />
-                        {isLive
-                          ? isAr ? "متاح الآن" : "Live"
-                          : isAr ? "قريباً" : "Coming Soon"}
-                      </span>
-                    </div>
-
-                    {isLive && (
-                      <div className="flex items-center gap-2 text-[var(--stone-gray)] group-hover:text-[var(--ink)] transition-colors">
-                        <span className="font-space text-xs tracking-wide">
-                          {isAr ? "اقرأ السلسلة" : "Read series"}
-                        </span>
-                        <ArrowUpRight size={16} />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Titles */}
-                  <div className="mb-4">
-                    <h2
-                      className="text-3xl md:text-4xl font-serif text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors leading-tight mb-1"
-                    >
-                      {c.titleAr}
-                    </h2>
-                    {!isAr && (
-                      <p className="font-space text-sm text-[var(--stone-gray)] tracking-wide">
-                        {c.subtitle}
-                      </p>
-                    )}
-                    {isAr && (
-                      <p
-                        className="text-sm text-[var(--stone-gray)]"
-                        style={{ fontFamily: "var(--font-cairo)" }}
-                      >
-                        {c.subtitle}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Description + meta */}
-                  <div className="flex items-end justify-between gap-8">
-                    <p className="text-[var(--stone-gray)] leading-relaxed max-w-lg text-base">
-                      {c.description}
-                    </p>
-                    <div className="flex items-center gap-1.5 text-[var(--text-muted)] shrink-0">
-                      <BookOpen size={13} />
-                      <span className="font-space text-xs">
-                        {series.fileCount} {isAr ? "ملفات" : "files"}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Clickable overlay for live series */}
-                  {isLive && series.externalPath && (
-                    <Link
-                      href={series.externalPath}
-                      className="absolute inset-0"
-                      aria-label={c.titleAr}
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "4px 10px",
+                      background: "var(--wm-green)",
+                      color: "var(--ground)",
+                      fontSize: "9px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#4ADE80",
+                        display: "inline-block",
+                      }}
                     />
-                  )}
+                    {isAr ? "متاح" : "LIVE"}
+                  </span>
+                  <span style={{ color: "var(--ink-faded)" }}>
+                    {isAr ? "السلسلة ٠١" : "Series 01"}
+                  </span>
                 </div>
-              </ScrollReveal>
-            );
-          })}
+
+                {/* Title */}
+                <h2
+                  style={{
+                    fontFamily: "var(--font-ar)",
+                    fontWeight: 700,
+                    fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                    lineHeight: 1.1,
+                    color: "var(--ink)",
+                    marginBottom: "8px",
+                    direction: "rtl",
+                  }}
+                >
+                  إنسان في الدوامة
+                </h2>
+                <div
+                  style={{
+                    fontFamily: "var(--font-en)",
+                    fontStyle: "italic",
+                    fontWeight: 700,
+                    fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
+                    color: "var(--ink-dim)",
+                    marginBottom: "28px",
+                  }}
+                >
+                  Human in the Loop
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+                    fontStyle: isAr ? "normal" : "italic",
+                    fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)",
+                    lineHeight: isAr ? 1.85 : 1.7,
+                    color: "var(--ink-dim)",
+                    maxWidth: "560px",
+                    direction: isAr ? "rtl" : "ltr",
+                  }}
+                >
+                  {isAr
+                    ? "أنظمة الذكاء الاصطناعي الموجّهة ضد الحياة الفلسطينية — برمجيات الاستهداف، التعرف على الوجوه، البيومترية الإنسانية، القمع الخوارزمي. سبعة ملفات. حالة واحدة."
+                    : "AI systems deployed against Palestinian life — targeting software, facial recognition, humanitarian biometrics, algorithmic suppression, predictive policing. Seven files. One condition."}
+                </p>
+              </div>
+
+              {/* Right — file count + CTA */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: isAr ? "flex-start" : "flex-end",
+                  gap: "24px",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "clamp(3rem, 5vw, 5rem)",
+                    fontWeight: 700,
+                    color: "var(--wm-red)",
+                    lineHeight: 1,
+                    opacity: 0.25,
+                  }}
+                >
+                  07
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  {isAr ? "ملفات" : "files"}
+                </div>
+
+                <a
+                  href="/editorial/human-in-the-loop/index.html"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    color: "var(--wm-red)",
+                    borderBottom: "1px solid var(--wm-red)",
+                    paddingBottom: "4px",
+                    transition: "color 0.2s",
+                    whiteSpace: "nowrap",
+                  }}
+                  className="hover:text-[var(--wm-red-deep)]"
+                >
+                  {isAr ? "اقرأ السلسلة" : "Read series"}
+                  <span>{isAr ? "←" : "→"}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider + more coming */}
+          <div
+            style={{
+              marginTop: "80px",
+              paddingTop: "48px",
+              borderTop: "1px solid rgba(26,20,16,0.10)",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "16px",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+                fontStyle: isAr ? "normal" : "italic",
+                fontSize: "1rem",
+                color: "var(--ink-faded)",
+                direction: isAr ? "rtl" : "ltr",
+              }}
+            >
+              {isAr ? "المزيد قادم. بكرا في المشمش." : "More coming. بكرا في المشمش."}
+            </p>
+            <div
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "10px",
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "var(--text-muted)",
+              }}
+            >
+              AIDA · 2026
+            </div>
+          </div>
         </div>
       </section>
     </>

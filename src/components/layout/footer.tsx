@@ -1,92 +1,225 @@
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale } from "next-intl";
+import { WatermelonSeal } from "@/components/shared/watermelon-seal";
+import {
+  CalligraphyGhost,
+  ArchiveStamp,
+  RegistrationMarks,
+} from "@/components/shared/paper-ornaments";
 import { SITE } from "@/lib/constants";
-import { Watermelon } from "@/components/shared/watermelon";
+
+const FOOTER_LINKS = {
+  ar: [
+    { href: "/insights", label: "حريّة" },
+    { href: "/services", label: "الدّكّان" },
+    { href: "/about",    label: "مين إحنا" },
+    { href: "/contact",  label: "تواصل" },
+  ],
+  en: [
+    { href: "/insights", label: "حريّة" },
+    { href: "/services", label: "الدّكّان" },
+    { href: "/about",    label: "About" },
+    { href: "/contact",  label: "Contact" },
+  ],
+};
 
 export function Footer() {
-  const t = useTranslations("footer");
-  const tn = useTranslations("nav");
   const locale = useLocale();
-
-  const links = [
-    { href: `/${locale}`, label: tn("home") },
-    { href: `/${locale}/services`, label: tn("services") },
-    { href: `/${locale}/clients`, label: tn("clients") },
-    { href: `/${locale}/insights`, label: tn("voice") },
-    { href: `/${locale}/about`, label: tn("about") },
-    { href: `/${locale}/contact`, label: tn("contact") },
-  ];
+  const isAr = locale === "ar";
+  const links = isAr ? FOOTER_LINKS.ar : FOOTER_LINKS.en;
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--limestone)]">
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-xl bg-[var(--ink)] flex items-center justify-center text-[var(--sand)] font-serif font-bold text-lg">
-                A
-              </div>
-              <span className="font-serif text-xl text-[var(--ink)]">
-                AIDA Creative Studios
-              </span>
-            </div>
-            <p className="text-[var(--stone-gray)] text-sm leading-relaxed max-w-xs">
-              {t("description")}
-            </p>
-          </div>
+    <footer
+      style={{
+        position: "relative",
+        background: "var(--void)",
+        padding: "80px 6vw 48px",
+        textAlign: "center",
+        overflow: "hidden",
+        borderTop: "1px solid rgba(26,20,16,0.12)",
+      }}
+    >
+      {/* Layered paper texture */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='400' height='400' filter='url(%23n)' opacity='0.7'/></svg>\")",
+          opacity: 0.10,
+          mixBlendMode: "multiply",
+          pointerEvents: "none",
+        }}
+      />
 
-          {/* Links */}
-          <div>
-            <h4 className="text-[var(--accent)] font-space font-semibold text-sm uppercase tracking-wider mb-4">
-              {t("navigation")}
-            </h4>
-            <div className="flex flex-col gap-3">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-[var(--stone-gray)] text-sm hover:text-[var(--ink)] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+      {/* Background seal — large, faded */}
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          width: "320px",
+          height: "320px",
+          transform: "translate(-50%, -50%)",
+          opacity: 0.06,
+          pointerEvents: "none",
+          mixBlendMode: "multiply",
+        }}
+      >
+        <WatermelonSeal fill />
+      </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-[var(--accent)] font-space font-semibold text-sm uppercase tracking-wider mb-4">
-              {t("getInTouch")}
-            </h4>
-            <div className="flex flex-col gap-3 text-sm text-[var(--stone-gray)]">
-              <div className="flex items-center gap-3 mb-3">
-                <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] transition-colors" aria-label="Instagram">Instagram</a>
-                <span className="text-[var(--mist)]">·</span>
-                <a href={SITE.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] transition-colors" aria-label="TikTok">TikTok</a>
-                <span className="text-[var(--mist)]">·</span>
-                <a href={SITE.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent)] transition-colors" aria-label="Facebook">Facebook</a>
-              </div>
-              <Link
-                href={SITE.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--accent)] transition-colors"
-              >
-                WhatsApp
-              </Link>
-              <span>{SITE.email}</span>
-              <span>{SITE.location}</span>
-            </div>
-          </div>
+      {/* Registration marks at corners */}
+      <RegistrationMarks color="var(--ink-faded)" inset={20} size={14} opacity={0.3} />
+
+      {/* Calligraphy ghost */}
+      <CalligraphyGhost
+        text="القدس"
+        size="clamp(6rem, 14vw, 12rem)"
+        color="var(--ink)"
+        opacity={0.04}
+        top="15%"
+        left="3%"
+        rotation={-3}
+      />
+
+      {/* Archive stamp — version */}
+      <ArchiveStamp
+        lines={["v1.0 · 2026", "WATERMELON PATINA"]}
+        color="var(--patina-gold)"
+        rotation={3}
+        top="10%"
+        right="3%"
+        opacity={0.6}
+      />
+
+      {/* Top stripe — flag colors */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "2px",
+          background:
+            "linear-gradient(90deg, var(--wm-red) 0%, var(--wm-red) 33%, var(--ink) 33%, var(--ink) 50%, var(--wm-white) 50%, var(--wm-white) 67%, var(--wm-green) 67%, var(--wm-green) 100%)",
+          opacity: 0.7,
+          zIndex: 2,
+        }}
+      />
+
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "24px",
+        }}
+      >
+        {/* Seal */}
+        <WatermelonSeal size={48} hoverable />
+
+        {/* Name */}
+        <p
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "11px",
+            letterSpacing: "3px",
+            textTransform: "uppercase",
+            color: "var(--ink-dim)",
+          }}
+        >
+          AIDA Critical Institute · القدس · Jerusalem
+        </p>
+
+        {/* Nav links */}
+        <div
+          style={{
+            display: "flex",
+            gap: "24px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={`/${locale}${link.href}`}
+              style={{
+                fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+                fontStyle: isAr ? "normal" : "italic",
+                fontSize: "0.9rem",
+                color: "var(--ink-dim)",
+                transition: "color 0.2s",
+              }}
+              className="hover:text-[var(--ink)]"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        {/* Bottom */}
-        <div className="accent-divider mt-12 mb-6" />
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[var(--text-muted)]">
-          <span>{t("copyright", { year: new Date().getFullYear() })}</span>
-          <span>{t("madeWith")}</span>
+        {/* Meta row */}
+        <div
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "10px",
+            letterSpacing: "2px",
+            color: "var(--text-muted)",
+            display: "flex",
+            gap: "18px",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          <a
+            href={`mailto:${SITE.email}`}
+            style={{ color: "var(--text-secondary)", transition: "color 0.2s" }}
+            className="hover:text-[var(--wm-red)]"
+          >
+            {SITE.email}
+          </a>
+          <span style={{ color: "var(--text-muted)", opacity: 0.5 }}>·</span>
+          <a
+            href={SITE.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--text-secondary)", transition: "color 0.2s" }}
+            className="hover:text-[var(--wm-red)]"
+          >
+            Instagram
+          </a>
+          <span style={{ color: "var(--text-muted)", opacity: 0.5 }}>·</span>
+          <span style={{ color: "var(--text-muted)" }}>© {year} AIDA Creative Consulting</span>
         </div>
+
+        {/* Divider */}
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            background:
+              "linear-gradient(90deg, transparent, rgba(196,26,42,0.3), transparent)",
+            margin: "8px 0",
+          }}
+        />
+
+        {/* Version stamp */}
+        <p
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "9px",
+            letterSpacing: "3px",
+            textTransform: "uppercase",
+            color: "var(--patina-gold)",
+            opacity: 0.6,
+          }}
+        >
+          DESIGN SYSTEM v1.0 · WATERMELON PATINA · Apr 2026
+        </p>
       </div>
     </footer>
   );
