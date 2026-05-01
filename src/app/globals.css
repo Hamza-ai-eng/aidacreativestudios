@@ -1,52 +1,110 @@
 @import "tailwindcss";
 
-/* ── AIDA Creative Studios · "Jaffa Poster" Design System ── */
-/* Warm in a cold landscape. Every competitor is cyan/teal/green. We are terracotta and stone. */
+/* ── AIDA Critical Institute · Watermelon Patina · v1.0 · Apr 2026 ── */
+/* A wall, not a website. Patina is not damage — it is evidence.        */
+/* Aged poster on warm paper. Screaming fiery ink against beige.        */
+/* Old Palestinian liberation print. Tatreez on natural cloth.          */
 
 :root {
-  /* Core palette — Jaffa Poster: Mediterranean warmth meets Jerusalem stone */
-  --sand: #F4EDE4;
-  --limestone: #E8DFD0;
-  --stone: #D4C9B5;
-  --accent: #4A7C8A;
-  --accent-light: #6BA3B3;
-  --accent-dim: rgba(74, 124, 138, 0.1);
-  --olive: #5B7553;
-  --olive-dark: #2A3328;
-  --blue: #4A7C8A;
-  --blue-dim: rgba(74, 124, 138, 0.1);
-  --ink: #2B2622;
-  --stone-gray: #8A7F74;
-  --mist: #C8C0B4;
+  /* ── Ground · The Paper ── */
+  --void: #C8B89A;           /* Deepest paper tone — stamped section, evidence register. */
+  --ground: #F2EBE0;         /* Default page background. Aged linen, warm paper.         */
+  --ground-mid: #E8DFD0;     /* Slight elevation. Limestone.                             */
+  --ground-deep: #DCC9B5;    /* Cards, panels, footer. Third tier paper.                 */
 
-  /* WCAG AA text-safe variants (4.5:1+ on sand) */
-  --accent-text: #2E5A66;
-  --olive-text: #3D5038;
-  --blue-text: #2E5A66;
+  /* ── Watermelon · Flesh — primary accent (kept) ── */
+  --wm-red: #C41A2A;         /* Palestinian flag red, aged but alive.            */
+  --wm-red-deep: #8B1218;    /* Oxidized red — dried, layered, old poster.       */
+  --wm-red-hot: #E02030;     /* A headline that screams.                         */
 
-  /* Legacy compat — gold demoted to decorative only */
-  --gold: #C5A059;
-  --gold-light: #E8D5A3;
-  --gold-dim: rgba(197, 160, 89, 0.08);
+  /* ── Watermelon · Rind — internal seal element only ── */
+  --wm-white: #F0EAE0;       /* The thin line inside the seal between flesh & skin. */
+  --wm-white-dim: #C8BEB0;   /* Reserved for in-seal use.                            */
 
-  /* Surfaces */
-  --bg: var(--sand);
-  --surface: var(--limestone);
-  --surface-hover: var(--stone);
-  --border: rgba(74, 124, 138, 0.15);
+  /* ── Ink — primary readable text on paper ── */
+  --ink: #1A1410;            /* Deep ink. Headlines, body text on paper.        */
+  --ink-dim: #5A4A3E;        /* Warm brown. Secondary text, quotes.             */
+  --ink-faded: #8A7568;      /* Light brown. Metadata, captions, dates.         */
 
-  /* Text */
-  --text-primary: var(--ink);
-  --text-secondary: var(--stone-gray);
-  --text-muted: #9A9490;
+  /* ── Watermelon · Skin — Critical Institute marker ── */
+  --wm-green: #2A5C3A;       /* Deep olive — patina of the keffiyeh.             */
+  --wm-green-light: #3D7A52; /* Oxidized copper green — alive, used.             */
+  --wm-green-pale: #4A8A62;  /* Mid-tone — series labels, status on paper.       */
 
-  /* Shadows */
-  --shadow-card: 0 4px 24px rgba(43, 38, 34, 0.06), 0 1px 4px rgba(43, 38, 34, 0.04);
-  --shadow-hover: 0 8px 40px rgba(43, 38, 34, 0.1), 0 2px 8px rgba(43, 38, 34, 0.06);
-  --shadow-accent: 0 4px 24px rgba(74, 124, 138, 0.2);
+  /* ── Watermelon · Seeds ── */
+  --wm-seed: #1A1410;        /* Same as ink. Seeds pressed into flesh.           */
+
+  /* ── Patina · Studio register only ── */
+  --patina-gold: #9A7A3A;    /* Aged gold, not shiny. Studio sections.           */
+  --patina-copper: #7A5A3A;  /* Worn copper. Secondary warm accent.              */
+
+  /* ── Text scale (semantic, used by components) ── */
+  --text-primary: #1A1410;   /* Deep ink on paper.                               */
+  --text-secondary: #5A4A3E; /* Warm brown — labels, kickers, body.              */
+  --text-muted: #8A7568;     /* Faded — metadata, dates, sources.                */
+
+  /* ── Font stacks (reference Next.js --font-* variables) ── */
+  --font-ar: var(--font-amiri), Georgia, serif;
+  --font-ar-body: var(--font-cairo), Georgia, sans-serif;
+  --font-en: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-garamond), Georgia, serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  /* ── Legacy compatibility aliases ── */
+  /* Maps old Jaffa Poster tokens to the closest Watermelon Patina equivalent */
+  --sand: var(--ground);
+  --limestone: var(--ground-mid);
+  --stone: var(--ground-deep);
+  --accent: var(--wm-red);
+  --accent-light: var(--wm-red-hot);
+  --accent-dim: rgba(196, 26, 42, 0.08);
+  --olive: var(--wm-green);
+  --olive-dark: var(--wm-seed);
+  --blue: var(--wm-green-light);
+  --blue-dim: rgba(61, 122, 82, 0.08);
+  /* --ink already defined above as primary text token */
+  --stone-gray: var(--text-secondary);
+  --mist: var(--text-muted);
+  --gold: var(--patina-gold);
+  --gold-light: #C0984A;
+  --gold-dim: rgba(154, 122, 58, 0.1);
+  --bg: var(--ground);
+  --surface: var(--ground-mid);
+  --surface-hover: var(--ground-deep);
+  --border: rgba(26, 20, 16, 0.12);
+  --shadow-card: 0 4px 24px rgba(26, 20, 16, 0.06), 0 1px 4px rgba(26, 20, 16, 0.04);
+  --shadow-hover: 0 8px 40px rgba(26, 20, 16, 0.1), 0 2px 8px rgba(26, 20, 16, 0.06);
+  --shadow-accent: 0 4px 24px rgba(196, 26, 42, 0.18);
+  --accent-text: var(--wm-red);
+  --olive-text: var(--wm-green);
+  --blue-text: var(--wm-green-light);
 }
 
 @theme inline {
+  /* Watermelon Patina tokens */
+  --color-void: var(--void);
+  --color-ground: var(--ground);
+  --color-ground-mid: var(--ground-mid);
+  --color-ground-deep: var(--ground-deep);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faded: var(--ink-faded);
+  --color-wm-red: var(--wm-red);
+  --color-wm-red-deep: var(--wm-red-deep);
+  --color-wm-red-hot: var(--wm-red-hot);
+  --color-wm-white: var(--wm-white);
+  --color-wm-white-dim: var(--wm-white-dim);
+  --color-wm-green: var(--wm-green);
+  --color-wm-green-light: var(--wm-green-light);
+  --color-wm-green-pale: var(--wm-green-pale);
+  --color-wm-seed: var(--wm-seed);
+  --color-patina-gold: var(--patina-gold);
+  --color-patina-copper: var(--patina-copper);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  /* Legacy color aliases */
   --color-sand: var(--sand);
   --color-limestone: var(--limestone);
   --color-stone: var(--stone);
@@ -60,18 +118,19 @@
   --color-ink: var(--ink);
   --color-stone-gray: var(--stone-gray);
   --color-mist: var(--mist);
-  /* Legacy */
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-gold-dim: var(--gold-dim);
 
-  --font-sans: var(--font-inter);
+  /* Fonts */
+  --font-sans: var(--font-cairo);
   --font-serif: var(--font-playfair);
   --font-arabic: var(--font-cairo);
   --font-arabic-display: var(--font-amiri);
   --font-hebrew: var(--font-heebo);
-  --font-space: var(--font-space);
+  --font-space: var(--font-space-mono);
 
+  /* Animation */
   --animate-fade-in: fade-in 0.6s ease-out both;
   --animate-slide-up: slide-up 0.6s ease-out both;
   --animate-slide-right: slide-right 0.5s ease-out both;
@@ -79,6 +138,25 @@
 }
 
 /* ── Keyframes ── */
+
+@keyframes grainShift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-2%, 1%); }
+  50%  { transform: translate(1%, -2%); }
+  75%  { transform: translate(-1%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes sealPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50%       { opacity: 1;   transform: scaleY(1); }
+}
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -107,16 +185,16 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50%       { transform: translateY(-12px); }
 }
 
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-2%, -2%); }
-  30% { transform: translate(3%, -1%); }
-  50% { transform: translate(-1%, 3%); }
-  70% { transform: translate(2%, 1%); }
-  90% { transform: translate(-3%, 2%); }
+  10%  { transform: translate(-2%, -2%); }
+  30%  { transform: translate(3%, -1%); }
+  50%  { transform: translate(-1%, 3%); }
+  70%  { transform: translate(2%, 1%); }
+  90%  { transform: translate(-3%, 2%); }
 }
 
 /* ── Base ── */
@@ -126,87 +204,136 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background: var(--ground);
   color: var(--text-primary);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-ar-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* RTL font switching */
-[dir="rtl"][lang="ar"] body { font-family: var(--font-cairo), system-ui, sans-serif; }
-[dir="rtl"][lang="he"] body { font-family: var(--font-heebo), system-ui, sans-serif; }
+[dir="ltr"] body {
+  font-family: var(--font-body);
+}
 
-/* Arabic display headlines — Amiri: classical Naskh, editorial weight without calligraphic decoration */
-[dir="rtl"][lang="ar"] h1,
-[dir="rtl"][lang="ar"] h2 {
-  font-family: var(--font-amiri), var(--font-cairo), sans-serif;
+/* Arabic display headlines — Amiri at architectural scale */
+[dir="rtl"] h1,
+[dir="rtl"] h2 {
+  font-family: var(--font-ar);
   font-weight: 700;
   letter-spacing: 0;
-  line-height: 1.25;
+  line-height: 1.15;
 }
 
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
 ::selection {
-  background: rgba(206, 44, 48, 0.25);
+  background: rgba(196, 26, 42, 0.2);
   color: var(--ink);
 }
 
-/* 🍉 */
-.watermelon-seed {
-  width: 4px;
-  height: 6px;
-  background: #2A3328;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  display: inline-block;
+/* ── Grain texture — fixed overlay across every page ── */
+/* On warm paper, multiply darkens grain dots (paper fiber feel)         */
+/* instead of brightening them as overlay does on dark.                  */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
 }
 
-.bateekh-slice::before {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 12px;
-  background: linear-gradient(to bottom, #5B7553 0%, #5B7553 25%, #F4EDE4 25%, #F4EDE4 35%, #CE2C30 35%, #CE2C30 100%);
-  border-radius: 24px 24px 0 0;
-  opacity: 0.12;
-  pointer-events: none;
+.grain svg {
+  width: 100%;
+  height: 100%;
+  animation: grainShift 8s steps(8) infinite;
+}
+
+/* ── Watermelon seal animations ── */
+
+.seal {
+  display: block;
+  cursor: pointer;
+}
+
+.seal-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 1.5s ease-in-out;
+}
+
+.seal:hover .seal-svg {
+  animation: sealPulse 1.5s ease-in-out 1;
 }
 
 /* ── Typography utilities ── */
 
-.font-space { font-family: var(--font-space), system-ui, sans-serif; }
-.font-arabic { font-family: var(--font-cairo), system-ui, sans-serif; }
-.font-hebrew { font-family: var(--font-heebo), system-ui, sans-serif; }
+.font-ar       { font-family: var(--font-ar); }
+.font-ar-body  { font-family: var(--font-ar-body); }
+.font-en       { font-family: var(--font-en); }
+.font-body     { font-family: var(--font-body); }
+.font-mono     { font-family: var(--font-mono); }
 
-/* Terracotta gradient for headlines — replaces gold gradient */
-.text-accent-gradient {
-  background: linear-gradient(135deg, #4A7C8A, #6BA3B3, #4A7C8A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Legacy aliases */
+.font-space    { font-family: var(--font-mono); }
+.font-arabic   { font-family: var(--font-ar-body); }
+.font-hebrew   { font-family: var(--font-heebo), system-ui, sans-serif; }
+.font-serif    { font-family: var(--font-en); }
+
+/* ── Kicker (section number + bar + label) ── */
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
-/* Legacy: keep gold-gradient class working but map to terracotta */
-.text-accent-gradient-alt {
-  background: linear-gradient(135deg, #4A7C8A, #6BA3B3, #4A7C8A);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.kicker-num { color: var(--wm-red); }
+.kicker-bar { width: 48px; height: 1px; background: var(--wm-red); }
 
 /* ── Dividers ── */
 
 .accent-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--wm-red), transparent);
 }
 
-/* Legacy alias */
+.green-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--wm-green), transparent);
+}
+
 .gold-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  background: linear-gradient(90deg, transparent, var(--patina-gold), transparent);
 }
 
-/* ── Paper texture overlay ── */
+/* ── Section grain background (pseudo-element) ── */
+
+.grain-bg {
+  position: relative;
+}
+
+.grain-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='400' height='400' filter='url(%23n)' opacity='0.7'/></svg>");
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* ── Paper texture (legacy, remapped to grain-style) ── */
 
 .paper-texture::before {
   content: "";
@@ -220,159 +347,81 @@ body {
   z-index: 1;
 }
 
-/* ── Warm panel ── */
+/* ── Surface panels ── */
 
 .warm-panel {
-  background: var(--limestone);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-card);
+  background: var(--ground-mid);
+  border: 1px solid rgba(240, 234, 224, 0.08);
+  border-radius: 4px;
 }
 
 .warm-panel:hover {
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(74, 124, 138, 0.25);
+  border-color: rgba(196, 26, 42, 0.2);
 }
 
-/* ── Dark section (olive contrast) ── */
+/* ── Dark sections ── */
 
 .section-dark {
-  background: var(--olive-dark);
-  color: var(--sand);
+  background: var(--void);
+  color: var(--wm-white);
 }
 
-.section-dark .text-gold-gradient,
-.section-dark .text-accent-gradient {
-  background: linear-gradient(135deg, #6BA3B3, #E8DFD0, #6BA3B3);
+/* ── Text gradient utilities ── */
+
+.text-accent-gradient {
+  background: linear-gradient(135deg, var(--wm-red), var(--wm-red-hot), var(--wm-red));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ── Organic blob shapes ── */
-
-.blob-1 {
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-}
-
-.blob-2 {
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+.text-accent-gradient-alt {
+  background: linear-gradient(135deg, var(--patina-gold), var(--wm-white-dim), var(--patina-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ── Dot grid pattern ── */
 
 .dot-grid {
-  background-image: radial-gradient(circle, var(--mist) 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--text-muted) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* ── Gradient overlays for sections ── */
+/* ── Scroll-reveal hooks ── */
+
+.animate-float-slow { animation: float 4s ease-in-out infinite; }
+.animate-float      { animation: float 3s ease-in-out infinite; }
+
+/* ── Watermelon ornament (legacy, kept) ── */
+
+.watermelon-seed {
+  width: 4px;
+  height: 6px;
+  background: var(--wm-seed);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  display: inline-block;
+}
+
+/* ── Studio register ── */
+
+.studio-register {
+  border-color: var(--patina-gold);
+  color: var(--patina-gold);
+}
+
+/* ── Blob shapes (legacy, kept for hero bg) ── */
+
+.blob-1 { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+.blob-2 { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+
+/* ── Gradient overlays (legacy keys now pointing to dark palette) ── */
 
 .gradient-sand {
-  background: linear-gradient(180deg, var(--sand) 0%, var(--limestone) 100%);
+  background: linear-gradient(180deg, var(--ground) 0%, var(--ground-mid) 100%);
 }
 
 .gradient-limestone {
-  background: linear-gradient(180deg, var(--limestone) 0%, var(--sand) 100%);
-}
-
-/* ── Card tilt on hover ── */
-
-.tilt-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-.tilt-card:hover {
-  transform: translateY(-6px) rotateX(2deg) rotateY(-1deg);
-  box-shadow: var(--shadow-hover);
-}
-
-/* ── Terracotta left border accent (was gold) ── */
-
-.accent-border-start {
-  border-inline-start: 3px solid var(--accent);
-  padding-inline-start: 16px;
-}
-
-/* ── Blue left border accent (new) ── */
-
-.blue-border-start {
-  border-inline-start: 3px solid var(--blue);
-  padding-inline-start: 16px;
-}
-
-/* ── Terracotta underline accent ── */
-
-.accent-underline {
-  position: relative;
-}
-.accent-underline::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  inset-inline-start: 0;
-  width: 40px;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
-/* ── Display watermark — Amiri ── */
-
-.calligraphy-watermark::after {
-  content: "إبداع";
-  position: absolute;
-  font-family: var(--font-amiri), sans-serif;
-  font-size: 18rem;
-  font-weight: 700;
-  color: var(--accent);
-  opacity: 0.02;
-  pointer-events: none;
-  z-index: 0;
-  inset-inline-end: -5%;
-  top: 10%;
-  line-height: 1;
-}
-
-/* ── Floating animation ── */
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float 10s ease-in-out infinite;
-}
-
-/* ── Marquee ── */
-
-.marquee-track {
-  display: flex;
-  animation: marquee 30s linear infinite;
-}
-
-/* ── Wavy divider ── */
-
-.wavy-divider {
-  width: 100%;
-  height: 80px;
-  overflow: hidden;
-}
-
-.wavy-divider svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* ── Reduced motion ── */
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+  background: linear-gradient(180deg, var(--ground-mid) 0%, var(--ground) 100%);
 }

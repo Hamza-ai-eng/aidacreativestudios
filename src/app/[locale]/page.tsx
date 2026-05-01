@@ -1,15 +1,13 @@
 import { Hero } from "@/components/home/hero";
-import { ServicesPreview } from "@/components/home/services-preview";
-import { OurClients } from "@/components/home/our-clients";
-import { CTABanner } from "@/components/home/cta-banner";
+import { DataMoment } from "@/components/home/data-moment";
+import { StudioStrip } from "@/components/home/studio-strip";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <ServicesPreview />
-      <OurClients />
-      <CTABanner />
+      <DataMoment />
+      <StudioStrip />
     </>
   );
 }
