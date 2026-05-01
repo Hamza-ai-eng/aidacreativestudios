@@ -18,8 +18,8 @@ const NAV_LINKS = {
     { href: "/contact",  label: "تواصل" },
   ],
   en: [
-    { href: "/insights", label: "حريّة" },
-    { href: "/services", label: "الدّكّان" },
+    { href: "/insights", label: "Hurriyeh" },
+    { href: "/services", label: "Dukkan" },
     { href: "/about",    label: "About" },
     { href: "/contact",  label: "Contact" },
   ],

@@ -156,7 +156,7 @@ export function DataMoment() {
           <span style={{ color: "var(--wm-red)" }}>٠٢</span>
           <span style={{ width: "60px", height: "1px", background: "var(--wm-red)", display: "inline-block" }} />
           <span style={{ color: "var(--text-secondary)" }}>
-            {isAr ? "حسابُ الإقصاء · The Math of Exclusion" : "The Math of Exclusion · حسابُ الإقصاء"}
+            {isAr ? "حسابُ الإقصاء" : "The Math of Exclusion"}
           </span>
         </div>
 

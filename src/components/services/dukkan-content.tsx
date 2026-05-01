@@ -128,17 +128,18 @@ export function DukkanContent() {
 
           <h1
             style={{
-              fontFamily: "var(--font-ar)",
+              fontFamily: isAr ? "var(--font-ar)" : "var(--font-en)",
               fontWeight: 700,
+              fontStyle: isAr ? "normal" : "italic",
               fontSize: "clamp(4rem, 9vw, 8rem)",
               lineHeight: 1,
               color: "var(--ink)",
               letterSpacing: "-0.02em",
               marginBottom: "32px",
-              direction: "rtl",
+              direction: isAr ? "rtl" : "ltr",
             }}
           >
-            الدّكّان
+            {isAr ? "الدّكّان" : "Dukkan"}
           </h1>
 
           <p
@@ -217,27 +218,29 @@ export function DukkanContent() {
                 <div>
                   <div
                     style={{
-                      fontFamily: "var(--font-ar)",
+                      fontFamily: isAr ? "var(--font-ar)" : "var(--font-en)",
                       fontWeight: 700,
+                      fontStyle: isAr ? "normal" : "italic",
                       fontSize: "clamp(1.4rem, 2.5vw, 2.2rem)",
                       color: "var(--ink)",
                       marginBottom: "4px",
-                      direction: "rtl",
+                      direction: isAr ? "rtl" : "ltr",
                     }}
                   >
-                    {svc.ar}
+                    {isAr ? svc.ar : svc.en}
                   </div>
                   <div
                     style={{
-                      fontFamily: "var(--font-en)",
-                      fontStyle: "italic",
-                      fontWeight: 600,
-                      fontSize: "1rem",
+                      fontFamily: isAr ? "var(--font-en)" : "var(--font-ar)",
+                      fontStyle: isAr ? "italic" : "normal",
+                      fontWeight: isAr ? 600 : 400,
+                      fontSize: isAr ? "1rem" : "0.95rem",
                       color: "var(--patina-gold)",
                       marginBottom: "16px",
+                      direction: isAr ? "ltr" : "rtl",
                     }}
                   >
-                    {svc.en}
+                    {isAr ? svc.en : svc.ar}
                   </div>
                   <p
                     style={{

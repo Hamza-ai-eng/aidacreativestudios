@@ -128,7 +128,7 @@ export function StudioStrip() {
             paddingRight: isAr ? "16px" : "0",
           }}
         >
-          {isAr ? "الاستوديو · STUDIO" : "STUDIO · الاستوديو"}
+          {isAr ? "الاستوديو" : "STUDIO"}
         </span>
 
         {/* Statement */}

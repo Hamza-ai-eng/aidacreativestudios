@@ -110,7 +110,7 @@ export function AboutContent() {
             }}
           >
             {isAr
-              ? "AIDA معهد نقدي فلسطيني ودكّان تصميم، من القدس."
+              ? "عايدة معهد نقدي فلسطيني ودكّان تصميم، من القدس."
               : "AIDA is a Palestinian critical institute and design studio, based in Jerusalem."}
           </p>
 
@@ -157,7 +157,7 @@ export function AboutContent() {
             }}
           >
             {isAr
-              ? "AIDA إجت من واحد، وبتشتغل زي معهد — لأنّو الشغل أكبر من شخص."
+              ? "عايدة إجت من واحد، وبتشتغل زي معهد — لأنّو الشغل أكبر من شخص."
               : "AIDA started from one person and works like an institute — because the work is bigger than a person."}
           </p>
 
@@ -193,7 +193,7 @@ export function AboutContent() {
                   gap: "8px",
                 }}
               >
-                حريّة
+                {isAr ? "حريّة" : "Hurriyeh"}
                 <span style={{ display: "inline-block", width: "24px", height: "1px", background: "var(--wm-red)" }} />
               </div>
               <p
@@ -226,7 +226,7 @@ export function AboutContent() {
                   gap: "8px",
                 }}
               >
-                الدّكّان
+                {isAr ? "الدّكّان" : "Dukkan"}
                 <span style={{ display: "inline-block", width: "24px", height: "1px", background: "var(--patina-gold)" }} />
               </div>
               <p
@@ -366,7 +366,7 @@ export function AboutContent() {
             transition: "color 0.2s",
           }}
         >
-          {isAr ? "حريّة — اقرأ تقاريرنا" : "حريّة — Read our reports"}
+          {isAr ? "حريّة — اقرأ تقاريرنا" : "Hurriyeh — Read our reports"}
         </Link>
         <span style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)", fontSize: "10px" }}>·</span>
         <Link
@@ -382,7 +382,7 @@ export function AboutContent() {
             transition: "color 0.2s",
           }}
         >
-          {isAr ? "الدّكّان — شاهد أعمالنا" : "الدّكّان — See our work"}
+          {isAr ? "الدّكّان — شاهد أعمالنا" : "Dukkan — See our work"}
         </Link>
       </section>
     </>

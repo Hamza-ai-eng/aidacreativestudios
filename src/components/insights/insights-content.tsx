@@ -105,17 +105,18 @@ export function InsightsContent() {
           {/* Headline */}
           <h1
             style={{
-              fontFamily: "var(--font-ar)",
+              fontFamily: isAr ? "var(--font-ar)" : "var(--font-en)",
               fontWeight: 700,
+              fontStyle: isAr ? "normal" : "italic",
               fontSize: "clamp(4rem, 10vw, 8rem)",
               lineHeight: 1,
               color: "var(--ink)",
               letterSpacing: "-0.02em",
               marginBottom: "32px",
-              direction: "rtl",
+              direction: isAr ? "rtl" : "ltr",
             }}
           >
-            حريّة
+            {isAr ? "حريّة" : "Hurriyeh"}
           </h1>
 
           <p
@@ -130,7 +131,7 @@ export function InsightsContent() {
             }}
           >
             {isAr
-              ? "تقارير المناصرة والسلاسل التحريرية من AIDA. نكتب لأن الكتابة شكل من أشكال البقاء."
+              ? "تقارير المناصرة والسلاسل التحريرية من عايدة. نكتب لأن الكتابة شكل من أشكال البقاء."
               : "Advocacy reports and editorial series from AIDA. We write because writing is a form of staying."}
           </p>
         </div>
@@ -212,33 +213,35 @@ export function InsightsContent() {
           >
             {/* Content */}
             <div>
-              {/* Arabic title */}
+              {/* Primary title — language-first */}
               <h2
                 style={{
-                  fontFamily: "var(--font-ar)",
+                  fontFamily: isAr ? "var(--font-ar)" : "var(--font-en)",
                   fontWeight: 700,
-                  fontSize: "clamp(2.4rem, 5vw, 4.5rem)",
+                  fontStyle: isAr ? "normal" : "italic",
+                  fontSize: isAr ? "clamp(2.4rem, 5vw, 4.5rem)" : "clamp(2rem, 4vw, 3.8rem)",
                   lineHeight: 1.1,
                   color: "var(--ink)",
-                  marginBottom: "16px",
-                  direction: "rtl",
+                  marginBottom: "12px",
+                  direction: isAr ? "rtl" : "ltr",
                 }}
               >
-                إقصاء مبرمَج
+                {isAr ? "إقصاء مبرمَج" : "Offline by Design"}
               </h2>
 
-              {/* English subtitle */}
+              {/* Secondary line */}
               <div
                 style={{
-                  fontFamily: "var(--font-en)",
-                  fontWeight: 900,
-                  fontStyle: "italic",
-                  fontSize: "clamp(1.2rem, 2vw, 1.8rem)",
+                  fontFamily: isAr ? "var(--font-en)" : "var(--font-ar)",
+                  fontWeight: isAr ? 900 : 400,
+                  fontStyle: isAr ? "italic" : "normal",
+                  fontSize: isAr ? "clamp(1.2rem, 2vw, 1.8rem)" : "clamp(1rem, 1.4vw, 1.3rem)",
                   color: "var(--wm-red)",
                   marginBottom: "32px",
+                  direction: isAr ? "ltr" : "rtl",
                 }}
               >
-                Offline by Design
+                {isAr ? "Offline by Design" : "إقصاء مبرمَج"}
               </div>
 
               <p
@@ -466,31 +469,33 @@ export function InsightsContent() {
                   </span>
                 </div>
 
-                {/* Title */}
+                {/* Title — language-first */}
                 <h2
                   style={{
-                    fontFamily: "var(--font-ar)",
+                    fontFamily: isAr ? "var(--font-ar)" : "var(--font-en)",
                     fontWeight: 700,
-                    fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                    fontStyle: isAr ? "normal" : "italic",
+                    fontSize: isAr ? "clamp(2rem, 4vw, 3.5rem)" : "clamp(1.6rem, 3vw, 2.8rem)",
                     lineHeight: 1.1,
                     color: "var(--ink)",
                     marginBottom: "8px",
-                    direction: "rtl",
+                    direction: isAr ? "rtl" : "ltr",
                   }}
                 >
-                  إنسان في الدوامة
+                  {isAr ? "إنسان في الدوامة" : "Human in the Loop"}
                 </h2>
                 <div
                   style={{
-                    fontFamily: "var(--font-en)",
-                    fontStyle: "italic",
-                    fontWeight: 700,
-                    fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
+                    fontFamily: isAr ? "var(--font-en)" : "var(--font-ar)",
+                    fontStyle: isAr ? "italic" : "normal",
+                    fontWeight: isAr ? 700 : 400,
+                    fontSize: isAr ? "clamp(1rem, 1.8vw, 1.4rem)" : "clamp(0.9rem, 1.3vw, 1.1rem)",
                     color: "var(--ink-dim)",
                     marginBottom: "28px",
+                    direction: isAr ? "ltr" : "rtl",
                   }}
                 >
-                  Human in the Loop
+                  {isAr ? "Human in the Loop" : "إنسان في الدوامة"}
                 </div>
 
                 <p
@@ -590,7 +595,7 @@ export function InsightsContent() {
                 direction: isAr ? "rtl" : "ltr",
               }}
             >
-              {isAr ? "المزيد قادم. بكرا في المشمش." : "More coming. بكرا في المشمش."}
+              {isAr ? "المزيد قادم. بكرا في المشمش." : "More coming. Not soon. But coming."}
             </p>
             <div
               style={{

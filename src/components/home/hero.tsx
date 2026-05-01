@@ -225,7 +225,7 @@ export function Hero() {
       >
         <span>{isAr ? "تقرير ٠١ · أبريل ٢٠٢٦" : "REPORT 01 · APRIL 2026"}</span>
         <span style={{ color: "var(--patina-copper)" }}>
-          {isAr ? "إقصاء مبرمَج · OFFLINE BY DESIGN" : "إقصاء مبرمَج · OFFLINE BY DESIGN"}
+          {isAr ? "إقصاء مبرمَج" : "OFFLINE BY DESIGN"}
         </span>
       </div>
 
@@ -263,56 +263,73 @@ export function Hero() {
               background: "var(--wm-red)",
             }}
           />
-          {isAr ? "صدر حديثاً · OUT NOW" : "OUT NOW · صدر حديثاً"}
+          {isAr ? "صدر حديثاً" : "OUT NOW"}
         </div>
 
-        {/* Arabic display headline */}
-        <h1
-          style={{
-            fontFamily: "var(--font-ar)",
-            fontWeight: 700,
-            fontSize: "clamp(5rem, 15vw, 13rem)",
-            lineHeight: 0.95,
-            color: "var(--ink)",
-            marginRight: isAr ? "-2vw" : "0",
-            marginLeft: isAr ? "0" : "-2vw",
-            letterSpacing: "-0.02em",
-            textShadow: "0 1px 0 rgba(26,20,16,0.06)",
-            direction: "rtl",
-            position: "relative",
-            zIndex: 3,
-          }}
-        >
-          إقصاءٌ مبرمَج
-        </h1>
+        {/* Primary display headline — switches by locale */}
+        {isAr ? (
+          <h1
+            style={{
+              fontFamily: "var(--font-ar)",
+              fontWeight: 700,
+              fontSize: "clamp(5rem, 15vw, 13rem)",
+              lineHeight: 0.95,
+              color: "var(--ink)",
+              marginRight: "-2vw",
+              letterSpacing: "-0.02em",
+              textShadow: "0 1px 0 rgba(26,20,16,0.06)",
+              direction: "rtl",
+              position: "relative",
+              zIndex: 3,
+            }}
+          >
+            إقصاءٌ مبرمَج
+          </h1>
+        ) : (
+          <h1
+            style={{
+              fontFamily: "var(--font-en)",
+              fontWeight: 900,
+              fontStyle: "italic",
+              fontSize: "clamp(4rem, 12vw, 10rem)",
+              lineHeight: 0.95,
+              color: "var(--ink)",
+              marginLeft: "-2px",
+              letterSpacing: "-0.03em",
+              textShadow: "0 1px 0 rgba(26,20,16,0.06)",
+              position: "relative",
+              zIndex: 3,
+            }}
+          >
+            Offline by Design.
+          </h1>
+        )}
 
-        {/* English subtitle */}
+        {/* Secondary line — Arabic subtitle in EN, English in AR */}
         <div
           style={{
-            fontFamily: "var(--font-en)",
-            fontWeight: 900,
-            fontStyle: "italic",
-            fontSize: "clamp(2rem, 4.5vw, 4rem)",
+            fontFamily: isAr ? "var(--font-en)" : "var(--font-ar)",
+            fontWeight: isAr ? 900 : 700,
+            fontStyle: isAr ? "italic" : "normal",
+            fontSize: isAr ? "clamp(2rem, 4.5vw, 4rem)" : "clamp(1.2rem, 2.5vw, 2rem)",
             lineHeight: 1,
             color: "var(--wm-red)",
             marginTop: "24px",
             marginBottom: "40px",
+            direction: isAr ? "ltr" : "rtl",
             position: "relative",
             zIndex: 3,
           }}
         >
-          Offline{" "}
-          <span
-            style={{
-              fontStyle: "normal",
-              color: "var(--ink-faded)",
-              margin: "0 12px",
-              fontWeight: 400,
-            }}
-          >
-            ·
-          </span>{" "}
-          by Design.
+          {isAr ? (
+            <>
+              Offline{" "}
+              <span style={{ fontStyle: "normal", color: "var(--ink-faded)", margin: "0 12px", fontWeight: 400 }}>·</span>{" "}
+              by Design.
+            </>
+          ) : (
+            "إقصاءٌ مبرمَج"
+          )}
         </div>
 
         {/* Quote */}
@@ -357,7 +374,7 @@ export function Hero() {
           className="group hover:border-b-[var(--wm-red)] hover:gap-[22px]"
         >
           <span>{isAr ? "اقرأ التقرير" : "Read the report"}</span>
-          <span style={{ fontFamily: "var(--font-en)", fontSize: "1.4em" }}>←</span>
+          <span style={{ fontFamily: "var(--font-en)", fontSize: "1.4em" }}>{isAr ? "←" : "→"}</span>
         </Link>
       </div>
 

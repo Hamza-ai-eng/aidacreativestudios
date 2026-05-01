@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { WatermelonSeal } from "@/components/shared/watermelon-seal";
@@ -16,8 +18,8 @@ const FOOTER_LINKS = {
     { href: "/contact",  label: "تواصل" },
   ],
   en: [
-    { href: "/insights", label: "حريّة" },
-    { href: "/services", label: "الدّكّان" },
+    { href: "/insights", label: "Hurriyeh" },
+    { href: "/services", label: "Dukkan" },
     { href: "/about",    label: "About" },
     { href: "/contact",  label: "Contact" },
   ],
@@ -132,7 +134,7 @@ export function Footer() {
             color: "var(--ink-dim)",
           }}
         >
-          AIDA Critical Institute · القدس · Jerusalem
+          {isAr ? "AIDA Critical Institute · القدس · Jerusalem" : "AIDA Critical Institute · Jerusalem"}
         </p>
 
         {/* Nav links */}
