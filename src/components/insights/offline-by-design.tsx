@@ -516,12 +516,6 @@ export function OfflineByDesignReport() {
               <Body isAr={isAr}>
                 ChatGPT Plus: 20 دولار. Claude Pro: 20 دولار. Gemini Advanced: 19.99 دولار. مساعدة الأونروا الطارئة في لبنان: 16.67 دولار للشخص بالشهر. لـ70% من سكان المخيمات في لبنان، هاد هو الدخل. مش مكمّل. مش مصدر من بين مصادر. هو. بييجي نقدي. ما في بطاقة. ما في حساب.
               </Body>
-              <ImageBreak
-                src="/editorial/images/report/report-d.jpg"
-                captionAr="يد تمتد نحو فتحة صراف آلي في جدار إسمنتي"
-                captionEn="Hand reaching toward a sealed ATM slot"
-                isAr={isAr}
-              />
               <SubHead isAr={isAr}>النت</SubHead>
               <Body isAr={isAr}>
                 لبنان: من أبطأ إنترنت بالعالم. الضفة الغربية المحتلة: إسرائيل بتتحكم بتخصيص الطيف الترددي. ما في شبكة فلسطينية مستقلة — لا 3G ولا 4G. منظمة 7amleh وثّقت تقليص وحجب ممنهج للفضاء الرقمي الفلسطيني. جلسة ذكاء اصطناعي بتنقطع بنص الجواب — مش جلسة ذكاء اصطناعي. بيانات راحت على رسالة خطأ.
@@ -557,12 +551,6 @@ export function OfflineByDesignReport() {
               <Body isAr={isAr}>
                 ChatGPT Plus costs $20 per month. Claude Pro costs $20. Gemini Advanced costs $19.99. UNRWA emergency cash assistance for Palestinian refugees in Lebanon is $16.67 per person per month. For 70% of Lebanon&apos;s camp residents, this is the income — not supplementary, not one source among others. The income. It arrives in cash. There is no card. There is no account.
               </Body>
-              <ImageBreak
-                src="/editorial/images/report/report-d.jpg"
-                captionAr="يد تمتد نحو فتحة صراف آلي في جدار إسمنتي"
-                captionEn="Hand reaching toward a sealed ATM slot"
-                isAr={isAr}
-              />
               <SubHead isAr={isAr}>Connectivity</SubHead>
               <Body isAr={isAr}>
                 Lebanon&apos;s national internet speed ranks among the lowest in the world. In the occupied West Bank, Israel controls spectrum allocation: no independent Palestinian 3G or 4G network exists. 7amleh has documented systematic throttling and blocking of Palestinian digital space. An AI session interrupted mid-reply is not an AI session. It is data spent on a timeout error.
