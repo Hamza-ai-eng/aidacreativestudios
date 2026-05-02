@@ -95,8 +95,8 @@ export default async function LocaleLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "@id": "https://aidacreativestudios.com",
-              name: "AIDA Creative Studios",
-              alternateName: ["أيدا كرييتف", "AIDA Creative Consulting"],
+              name: "AIDA Critical Institute",
+              alternateName: ["أيدا كرييتف", "AIDA Creative Consulting", "AIDA Creative Studios"],
               description:
                 "Award-level brand identity, social media content, restaurant menu design, and campaign strategy for Palestinian businesses in East Jerusalem.",
               url: "https://aidacreativestudios.com",
