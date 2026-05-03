@@ -59,10 +59,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "AIDA Creative Studios",
-    title: "AIDA Creative Studios | Brand Design & Social Media — East Jerusalem",
+    siteName: "AIDA Critical Institute",
+    title: "AIDA Critical Institute | Advocacy, Analysis & Design — Jerusalem",
     description:
-      "Award-level creative work for Palestinian businesses. Brand identity, social media, menu design — powered by AI, rooted in Jerusalem.",
+      "A Palestinian critical institute based in East Jerusalem. Advocacy reports, policy analysis, and creative design — rooted in the city.",
   },
   robots: { index: true, follow: true },
 };
