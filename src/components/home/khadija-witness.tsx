@@ -48,22 +48,35 @@ export function KhadijaWitness() {
       }
       arBody={
         <>
-          <p style={{ margin: "0 0 1rem" }}>هون بتعيش الكتابة الطويلة.</p>
-          <p style={{ margin: 0 }}>
-            سلسلة <em style={{ color: "var(--acc-khadija)", fontFamily: "var(--font-en)", fontStyle: "italic", fontWeight: 700 }}>Human in the Loop</em>.
-            تقرير <em style={{ color: "var(--acc-khadija)", fontFamily: "var(--font-en)", fontStyle: "italic", fontWeight: 700 }}>Offline by Design</em>.
-            التقارير اللي بتحتاج وقت قبل ما تنشر. خمستعش صفحة. لغتين. ما في عجلة.
+          <p style={{ margin: "0 0 0.7rem" }}>هون بتعيش الكتابة الطويلة، بثلاث صور.</p>
+          <p style={{ margin: "0 0 0.4rem" }}>
+            سلسلة <em style={{ color: "var(--acc-khadija)", fontFamily: "var(--font-en)", fontStyle: "italic", fontWeight: 700 }}>Human in the Loop</em>{" "}
+            — سبع مقالات.
           </p>
+          <p style={{ margin: "0 0 0.4rem" }}>
+            سلسلة <em style={{ color: "var(--acc-khadija)", fontFamily: "var(--font-en)", fontStyle: "italic", fontWeight: 700 }}>Offline by Design</em>{" "}
+            — ست مقالات.
+          </p>
+          <p style={{ margin: "0 0 0.9rem" }}>
+            تقرير <em style={{ color: "var(--acc-khadija)", fontFamily: "var(--font-en)", fontStyle: "italic", fontWeight: 700 }}>Offline by Design</em>{" "}
+            — التقرير الكامل.
+          </p>
+          <p style={{ margin: 0 }}>كلهن بلغتين. ما في عجلة.</p>
         </>
       }
       enBody={
         <>
-          <p style={{ margin: "0 0 1rem" }}>This is where the long writing lives.</p>
-          <p style={{ margin: 0 }}>
-            The <em style={{ color: "var(--acc-khadija)" }}>Human in the Loop</em> series.
-            The <em style={{ color: "var(--acc-khadija)" }}>Offline by Design</em> report.
-            The reports that need time before they are published. Fifteen pages. Two languages. No rush.
+          <p style={{ margin: "0 0 0.7rem" }}>This is where the long writing lives — in three forms.</p>
+          <p style={{ margin: "0 0 0.4rem" }}>
+            The <em style={{ color: "var(--acc-khadija)" }}>Human in the Loop</em> series — seven essays.
           </p>
+          <p style={{ margin: "0 0 0.4rem" }}>
+            The <em style={{ color: "var(--acc-khadija)" }}>Offline by Design</em> series — six essays.
+          </p>
+          <p style={{ margin: "0 0 0.9rem" }}>
+            The <em style={{ color: "var(--acc-khadija)" }}>Offline by Design</em> report — the full advocacy file.
+          </p>
+          <p style={{ margin: 0 }}>All three bilingual. No rush.</p>
         </>
       }
       arCta="اقرؤوا الشاهدة"
