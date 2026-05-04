@@ -2,6 +2,7 @@
 
 import { useLocale } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
 import { WatermelonSeal } from "@/components/shared/watermelon-seal";
 import { KeyMark } from "@/components/shared/key-mark";
 import { VoiceBlock } from "@/components/shared/voice-block";
@@ -127,17 +128,16 @@ export function AidaThreshold() {
         right={isAr ? "1.5vw" : "auto"}
       />
 
-      {/* watermelon seal — secondary watermark */}
+      {/* watermelon seal — distant background watermark, reduced for portrait */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          ...(isAr ? { left: "4vw" } : { right: "4vw" }),
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "38vw", maxWidth: "560px",
+          ...(isAr ? { left: "-8vw" } : { right: "-8vw" }),
+          bottom: "-10vh",
+          width: "44vw", maxWidth: "640px",
           aspectRatio: "1",
-          opacity: 0.14,
+          opacity: 0.06,
           mixBlendMode: "multiply",
           zIndex: 1,
           pointerEvents: "none",
@@ -180,19 +180,31 @@ export function AidaThreshold() {
         </span>
       </div>
 
-      {/* foreground */}
+      {/* foreground — 2-column on desktop (text + portrait), single col on mobile */}
       <div
+        className="threshold-grid"
         style={{
           position: "relative",
           zIndex: 3,
           padding: "min(8vh, 80px) 6vw 0",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: isAr ? "flex-end" : "flex-start",
-          maxWidth: "1280px",
+          maxWidth: "1320px",
           margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "minmax(0, 1.2fr) minmax(0, 1fr)",
+          gap: "clamp(2rem, 5vw, 4rem)",
+          alignItems: "center",
         }}
       >
+        {/* TEXT COLUMN */}
+        <div
+          className="threshold-text-col"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: isAr ? "flex-end" : "flex-start",
+            order: isAr ? 2 : 1,
+          }}
+        >
         {/* tatreez strip above nameplate */}
         <div style={{ width: "180px", color: "var(--acc-aida)", marginBottom: "18px" }}>
           <TatreezBethlehem />
@@ -309,7 +321,57 @@ export function AidaThreshold() {
             <span>{isAr ? "←" : "→"}</span>
           </Link>
         </div>
+        </div>
+        {/* /TEXT COLUMN */}
+
+        {/* PORTRAIT COLUMN */}
+        <div
+          className="threshold-img-col"
+          style={{ order: isAr ? 1 : 2 }}
+        >
+          <div
+            className="portrait-frame"
+            style={{
+              position: "relative",
+              maxWidth: "520px",
+              marginInline: "auto",
+            }}
+          >
+            <Image
+              src="/portraits/aida.jpg"
+              alt="عايدة — العتبة · Aida, the threshold"
+              width={832}
+              height={1040}
+              priority
+              sizes="(max-width: 900px) 90vw, 40vw"
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                position: "relative",
+                zIndex: 1,
+                filter: "contrast(1.04) saturate(1.04)",
+              }}
+            />
+          </div>
+        </div>
+        {/* /PORTRAIT COLUMN */}
       </div>
+
+      {/* mobile: stack columns vertically */}
+      <style>{`
+        @media (max-width: 900px) {
+          .threshold-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+          .threshold-text-col,
+          .threshold-img-col {
+            order: 0 !important;
+          }
+          .threshold-img-col { order: -1 !important; }
+        }
+      `}</style>
 
       {/* scroll indicator */}
       <div
