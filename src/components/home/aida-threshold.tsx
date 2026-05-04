@@ -330,7 +330,6 @@ export function AidaThreshold() {
           style={{ order: isAr ? 1 : 2 }}
         >
           <div
-            className="portrait-frame"
             style={{
               position: "relative",
               maxWidth: "520px",
@@ -348,9 +347,8 @@ export function AidaThreshold() {
                 width: "100%",
                 height: "auto",
                 display: "block",
-                position: "relative",
-                zIndex: 1,
                 filter: "contrast(1.04) saturate(1.04)",
+                boxShadow: "0 30px 60px -25px rgba(26, 20, 16, 0.45), 0 8px 20px -10px rgba(154, 122, 58, 0.25)",
               }}
             />
           </div>
