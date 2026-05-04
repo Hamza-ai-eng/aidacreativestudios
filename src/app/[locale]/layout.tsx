@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { playfair, inter, cairo, amiri, heebo, spaceGrotesk, garamond, spaceMono } from "@/lib/fonts";
+import { playfair, inter, cairo, amiri, heebo, spaceGrotesk, garamond, spaceMono, reemKufi } from "@/lib/fonts";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
@@ -85,7 +85,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${playfair.variable} ${inter.variable} ${cairo.variable} ${amiri.variable} ${heebo.variable} ${spaceGrotesk.variable} ${garamond.variable} ${spaceMono.variable}`}
+      className={`${playfair.variable} ${inter.variable} ${cairo.variable} ${amiri.variable} ${heebo.variable} ${spaceGrotesk.variable} ${garamond.variable} ${spaceMono.variable} ${reemKufi.variable}`}
     >
       <body className="antialiased min-h-dvh">
         <script

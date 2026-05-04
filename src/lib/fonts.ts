@@ -4,6 +4,7 @@ import {
   Amiri,
   EB_Garamond,
   Space_Mono,
+  Reem_Kufi,
   /* Kept for any legacy references still in codebase */
   Inter,
   Heebo,
@@ -52,6 +53,14 @@ export const spaceMono = Space_Mono({
   weight: ["400", "700"],
   style: ["normal", "italic"],
   variable: "--font-space-mono",
+  display: "swap",
+});
+
+/** Arabic stamp — Reem Kufi for matriarch nameplate stamps and Karimeh-style marks */
+export const reemKufi = Reem_Kufi({
+  subsets: ["arabic", "latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-reem-kufi",
   display: "swap",
 });
 

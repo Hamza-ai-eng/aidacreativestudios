@@ -38,6 +38,15 @@
   --patina-gold: #9A7A3A;    /* Aged gold, not shiny. Studio sections.           */
   --patina-copper: #7A5A3A;  /* Worn copper. Secondary warm accent.              */
 
+  /* ── Bait Aida · Per-matriarch accents (added 2026-05-04) ── */
+  /* Each room of the house gets the tatreez palette of its village.            */
+  /* Additive on top of Watermelon Patina — none of the above tokens change.    */
+  --acc-aida:    var(--patina-gold);    /* Bethlehem · gold thread bridal */
+  --acc-fatima:  #1F4A2C;               /* Galilee · deep olive, alongside wm-green */
+  --acc-khadija: #6B0F14;               /* Hebron · oxblood, deeper than wm-red-deep */
+  --acc-karimeh: #8B5A2B;               /* Bethlehem · copper warmth, Karimeh studio */
+  --acc-hayat:   var(--wm-green);       /* Ramallah · oxidized olive */
+
   /* ── Text scale (semantic, used by components) ── */
   --text-primary: #1A1410;   /* Deep ink on paper.                               */
   --text-secondary: #5A4A3E; /* Warm brown — labels, kickers, body.              */
@@ -100,6 +109,13 @@
   --color-wm-seed: var(--wm-seed);
   --color-patina-gold: var(--patina-gold);
   --color-patina-copper: var(--patina-copper);
+
+  /* Bait Aida · matriarch accent tokens for Tailwind utilities */
+  --color-acc-aida: var(--acc-aida);
+  --color-acc-fatima: var(--acc-fatima);
+  --color-acc-khadija: var(--acc-khadija);
+  --color-acc-karimeh: var(--acc-karimeh);
+  --color-acc-hayat: var(--acc-hayat);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
@@ -127,6 +143,7 @@
   --font-serif: var(--font-playfair);
   --font-arabic: var(--font-cairo);
   --font-arabic-display: var(--font-amiri);
+  --font-arabic-stamp: var(--font-reem-kufi);
   --font-hebrew: var(--font-heebo);
   --font-space: var(--font-space-mono);
 
@@ -425,3 +442,154 @@ a { color: inherit; text-decoration: none; }
 .gradient-limestone {
   background: linear-gradient(180deg, var(--ground-mid) 0%, var(--ground) 100%);
 }
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* ── Bait Aida · Matriarch room utilities (added 2026-05-04) ────── */
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* Per-room accent setter — the room becomes its matriarch's village. */
+.room-aida    { --acc: var(--acc-aida); }
+.room-fatima  { --acc: var(--acc-fatima); }
+.room-khadija { --acc: var(--acc-khadija); }
+.room-karimeh { --acc: var(--acc-karimeh); }
+.room-hayat   { --acc: var(--acc-hayat); }
+
+/* Room top accent strip — full-bleed solid bar in the matriarch's color. */
+.room-strip {
+  position: relative;
+}
+.room-strip::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--acc, var(--ink));
+}
+
+/* Voice block — matriarch's opening voice, bilingual. */
+.voice-block {
+  border-inline-start: 3px solid var(--acc, var(--wm-red));
+  padding-inline-start: 1.4rem;
+}
+.voice-block .voice-ar {
+  font-family: var(--font-ar);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.55;
+  color: var(--ink);
+}
+.voice-block .voice-en {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--ink-dim);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.6;
+}
+.voice-block .em {
+  color: var(--acc, var(--wm-red));
+  font-weight: 600;
+}
+
+/* Karimeh stamp — bilingual mark, double border, used in footer + 404. */
+.karimeh-stamp {
+  display: inline-block;
+  border: 3px double currentColor;
+  padding: 1.1rem 1.4rem;
+  position: relative;
+  text-align: center;
+}
+.karimeh-stamp::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid currentColor;
+  opacity: 0.35;
+  pointer-events: none;
+}
+.karimeh-stamp .stamp-ar {
+  font-family: var(--font-arabic-stamp), var(--font-ar);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+.karimeh-stamp .stamp-en {
+  font-family: var(--font-en);
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+/* Matriarch nameplate — display-scale Amiri */
+.matriarch-name {
+  font-family: var(--font-ar);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  line-height: 0.95;
+  color: var(--ink);
+}
+.matriarch-name .ord {
+  display: inline-block;
+  margin-inline-start: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.32em;
+  font-weight: 700;
+  color: var(--acc);
+  vertical-align: super;
+  letter-spacing: 0.18em;
+}
+
+/* Room CTA — solid color block button, hard offset shadow on hover. */
+.room-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-ar-body);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--ground);
+  background: var(--acc, var(--wm-red));
+  text-decoration: none;
+  padding: 0.85rem 1.4rem;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  border: none;
+  cursor: pointer;
+}
+.room-cta:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+[dir="ltr"] .room-cta:hover {
+  transform: translate(3px, -3px);
+  box-shadow: -5px 5px 0 var(--ink);
+}
+
+/* Image with offset color block — used in matriarch room portraits. */
+.portrait-frame {
+  position: relative;
+  overflow: visible;
+  aspect-ratio: 4 / 5;
+}
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  top: 14px; bottom: -14px;
+  left: 14px; right: -14px;
+  background: var(--acc, var(--wm-red));
+  z-index: 0;
+}
+[dir="rtl"] .portrait-frame::before {
+  left: -14px; right: 14px;
+}
+.portrait-frame img,
+.portrait-frame .portrait-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.04) saturate(1.04);
+  display: block;
+}
+
