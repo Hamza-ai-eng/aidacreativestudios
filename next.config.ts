@@ -19,6 +19,16 @@ const nextConfig: NextConfig = {
         destination: "/editorial/human-in-the-loop/index.html",
         permanent: false,
       },
+      {
+        source: "/editorial/offline-by-design-series",
+        destination: "/editorial/offline-by-design-series/index.html",
+        permanent: false,
+      },
+      {
+        source: "/editorial/offline-by-design-series/",
+        destination: "/editorial/offline-by-design-series/index.html",
+        permanent: false,
+      },
     ];
   },
 };

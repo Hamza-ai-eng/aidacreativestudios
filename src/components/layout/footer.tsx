@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { WatermelonSeal } from "@/components/shared/watermelon-seal";
+import { KarimehStamp } from "@/components/shared/karimeh-stamp";
 import {
   CalligraphyGhost,
   ArchiveStamp,
@@ -12,16 +13,16 @@ import { SITE } from "@/lib/constants";
 
 const FOOTER_LINKS = {
   ar: [
-    { href: "/insights", label: "حريّة" },
-    { href: "/services", label: "الدّكّان" },
-    { href: "/about",    label: "مين إحنا" },
-    { href: "/contact",  label: "تواصل" },
+    { href: "/fatima",  label: "فاطمة" },
+    { href: "/khadija", label: "حجّة خديجة" },
+    { href: "/karimeh", label: "ستّ كريمة" },
+    { href: "/hayat",   label: "حياة" },
   ],
   en: [
-    { href: "/insights", label: "Hurriyeh" },
-    { href: "/services", label: "Dukkan" },
-    { href: "/about",    label: "About" },
-    { href: "/contact",  label: "Contact" },
+    { href: "/fatima",  label: "Fatima" },
+    { href: "/khadija", label: "Hajjeh Khadija" },
+    { href: "/karimeh", label: "Sitt Karimeh" },
+    { href: "/hayat",   label: "Hayat" },
   ],
 };
 
@@ -88,7 +89,7 @@ export function Footer() {
 
       {/* Archive stamp — version */}
       <ArchiveStamp
-        lines={["v1.0 · 2026", "WATERMELON PATINA"]}
+        lines={["v2.0 · 2026", "BAIT AIDA"]}
         color="var(--patina-gold)"
         rotation={3}
         top="10%"
@@ -124,6 +125,11 @@ export function Footer() {
         {/* Seal */}
         <WatermelonSeal size={48} hoverable />
 
+        {/* Karimeh-style bilingual stamp — the brand mark in print register */}
+        <div style={{ color: "var(--ink-dim)", marginTop: "8px" }}>
+          <KarimehStamp ar="عايدة — بيت" en="Aida — A House" />
+        </div>
+
         {/* Name */}
         <p
           style={{
@@ -132,9 +138,10 @@ export function Footer() {
             letterSpacing: "3px",
             textTransform: "uppercase",
             color: "var(--ink-dim)",
+            marginTop: "4px",
           }}
         >
-          {isAr ? "AIDA Critical Institute · القدس · Jerusalem" : "AIDA Critical Institute · Jerusalem"}
+          {isAr ? "بيت من القدس · A house from Jerusalem" : "A house from Jerusalem · بيت من القدس"}
         </p>
 
         {/* Nav links */}
@@ -220,7 +227,7 @@ export function Footer() {
             opacity: 0.6,
           }}
         >
-          DESIGN SYSTEM v1.0 · WATERMELON PATINA · Apr 2026
+          BAIT AIDA · v2.0 · after Karimeh Abbud, مصوّرة شمس · after Mourid Barghouti, on returning
         </p>
       </div>
     </footer>

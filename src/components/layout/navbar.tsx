@@ -9,19 +9,20 @@ import { WatermelonSeal } from "@/components/shared/watermelon-seal";
 import { LanguageSwitcher } from "./language-switcher";
 import { cn } from "@/lib/utils";
 
-/* Nav links — Arabic first, English fallback */
+/* Nav links — Bait Aida matriarchs (Arabic first, English fallback)
+   Aida (the door) is implicit — clicking the brand mark returns home. */
 const NAV_LINKS = {
   ar: [
-    { href: "/insights", label: "حريّة" },
-    { href: "/services", label: "الدّكّان" },
-    { href: "/about",    label: "مين إحنا" },
-    { href: "/contact",  label: "تواصل" },
+    { href: "/fatima",  label: "فاطمة" },
+    { href: "/khadija", label: "حجّة خديجة" },
+    { href: "/karimeh", label: "ستّ كريمة" },
+    { href: "/hayat",   label: "حياة" },
   ],
   en: [
-    { href: "/insights", label: "Hurriyeh" },
-    { href: "/services", label: "Dukkan" },
-    { href: "/about",    label: "About" },
-    { href: "/contact",  label: "Contact" },
+    { href: "/fatima",  label: "Fatima" },
+    { href: "/khadija", label: "Hajjeh Khadija" },
+    { href: "/karimeh", label: "Sitt Karimeh" },
+    { href: "/hayat",   label: "Hayat" },
   ],
 };
 
