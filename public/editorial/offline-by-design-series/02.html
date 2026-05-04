@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay 02 — The Card You Can't Have | Offline by Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#1A1714; --surface:#F5F0E8; --accent:#C41230; --muted:#6B6259; --art:#5C7A8C; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  html[lang="ar"] { direction: rtl; }
+  html:not([lang="ar"]) .lang-ar { display: none !important; }
+  html[lang="ar"] .lang-en { display: none !important; }
+  body { background: var(--bg); color: var(--surface); font-family: 'EB Garamond', serif; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,23,20,0.96); backdrop-filter: blur(8px); height: 52px; display: flex; align-items: center; padding: 0 2rem; border-bottom: 1px solid rgba(245,240,232,0.08); }
+  .nav-left { flex: 1; }
+  .nav-left a { color: var(--muted); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-left a:hover { color: var(--surface); }
+  .nav-center { flex: 2; text-align: center; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .nav-center .file-num { color: var(--art); font-weight: 600; }
+  .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .lang-btn { background: none; border: 1px solid rgba(245,240,232,0.2); color: var(--muted); padding: 0.25rem 0.6rem; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--art); color: var(--art); }
+  .hero { position: relative; height: 60vh; min-height: 400px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; margin-top: 52px; background: linear-gradient(135deg, #5C7A8C 0%, #2C3A44 50%, #1A1714 100%); }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,23,20,0.05) 0%, rgba(26,23,20,0.3) 40%, rgba(26,23,20,0.92) 100%); }
+  .hero-ghost { position: absolute; right: 5%; bottom: -0.1em; font-family: 'Playfair Display', serif; font-size: clamp(8rem, 22vw, 18rem); font-weight: 900; color: var(--art); opacity: 0.12; line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.04em; }
+  html[lang="ar"] .hero-ghost { right: auto; left: 5%; }
+  .hero-content { position: relative; z-index: 2; padding: 2.5rem 3rem; max-width: 900px; }
+  .hero-file-label { font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--art); margin-bottom: 0.75rem; }
+  .hero-title-en { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-title-ar { font-family: 'Amiri', serif; font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .hero-subtitle-ar { font-family: 'Amiri', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .byline { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: rgba(245,240,232,0.5); letter-spacing: 0.03em; }
+  .byline-ar { font-family: 'Amiri', serif; font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+  .article-wrap { background: var(--surface); color: #1A1714; }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-body p { font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.85; color: #1A1714; margin-bottom: 1.4em; }
+  .article-body p.ar { font-family: 'Amiri', serif; font-size: 20px; line-height: 1.9; direction: rtl; text-align: right; }
+  .article-body hr { border: none; border-top: 1px solid rgba(26,23,20,0.15); margin: 2rem 0; }
+  .article-body em { font-style: italic; }
+  .article-body strong { font-weight: 600; }
+  .arithmetic { background: rgba(92,122,140,0.08); border-left: 3px solid var(--art); padding: 1.5rem 1.75rem; margin: 1.4em 0; }
+  html[lang="ar"] .arithmetic { border-left: none; border-right: 3px solid var(--art); }
+  .arithmetic h3 { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--art); margin-bottom: 0.5rem; }
+  .arithmetic h3.ar { font-family: 'Amiri', serif; text-transform: none; letter-spacing: 0; font-size: 1.05rem; }
+  .arithmetic p { margin-bottom: 0.9em; font-size: 17px; }
+  .arithmetic p:last-child { margin-bottom: 0; }
+  .sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(26,23,20,0.15); font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .sources p { font-size: 0.85rem; font-family: 'EB Garamond', serif; }
+  .sources p.ar { font-family: 'Amiri', serif; direction: rtl; text-align: right; }
+  .pull-quote-section { background: var(--bg); padding: 5rem 2rem; }
+  .pull-quote-inner { max-width: 720px; margin: 0 auto; }
+  .pull-quote { border-left: 4px solid var(--art); padding: 1.5rem 2rem; }
+  html[lang="ar"] .pull-quote { border-left: none; border-right: 4px solid var(--art); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.65rem); line-height: 1.5; color: var(--surface); }
+  .pull-quote p.ar { font-family: 'Amiri', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); direction: rtl; text-align: right; }
+  .article-footer { background: var(--surface); padding: 3rem 2rem; }
+  .article-footer-inner { max-width: 720px; margin: 0 auto; }
+  .file-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .file-nav a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; border-bottom: 1px solid transparent; transition: all 0.2s; padding-bottom: 2px; }
+  .file-nav a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .series-link { text-align: center; margin-bottom: 2rem; }
+  .series-link a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(107,98,89,0.4); padding-bottom: 2px; transition: all 0.2s; }
+  .series-link a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .author-bio { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); border-top: 1px solid rgba(26,23,20,0.12); padding-top: 1.5rem; line-height: 1.6; }
+  .author-bio-ar { font-family: 'Amiri', serif; font-size: 0.95rem; direction: rtl; text-align: right; }
+  footer { background: var(--bg); text-align: center; padding: 2rem; font-family: 'EB Garamond', serif; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; border-top: 1px solid rgba(245,240,232,0.06); }
+  @media (max-width: 600px) { .hero-content { padding: 1.5rem; } .article-body { padding: 2.5rem 1.2rem; } nav { padding: 0 1rem; } .nav-center { font-size: 0.75rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="lang-en">Offline by Design</a>
+    <a href="index.html" class="lang-ar">إقصاء مبرمَج</a>
+  </div>
+  <div class="nav-center">
+    <span class="lang-en"><span class="file-num">Essay 02</span> &mdash; The Card You Can&rsquo;t Have</span>
+    <span class="lang-ar"><span class="file-num">المقال 02</span> &mdash; البطاقة اللي ما إلك</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">02</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Offline by Design &mdash; Essay 02 of 06</div>
+    <div class="hero-file-label lang-ar">إقصاء مبرمَج &mdash; المقال 02 من 06</div>
+    <h1 class="hero-title-en lang-en">The Card You Can&rsquo;t Have</h1>
+    <h1 class="hero-title-ar lang-ar">البطاقة اللي ما إلك</h1>
+    <p class="hero-subtitle lang-en"><em>An essay on financial exclusion in the age of AI</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>محاولة في الإقصاء المالي من الذكاء الاصطناعي</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; May 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أيار 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="lang-en">
+      <p>The screen says: Upgrade to ChatGPT Plus.</p>
+      <p>Twenty dollars a month. Unlimited data. Priority responses. A reasonable deal if you have twenty dollars.</p>
+      <p>The nursing student in Shatila&mdash;second year, studying cases&mdash;was typing a medical question. The application answered. Good answer. She typed a second question. A third. The sixth attempt, the screen stopped. White text on blue background:</p>
+      <p><em>&ldquo;You&rsquo;ve reached your free usage limit. To continue, upgrade to Plus.&rdquo;</em></p>
+      <p>This moment doesn&rsquo;t occur anywhere else. This is the drama of closed systems: you can try. You can see. You can understand that the tool helps. And then suddenly: stopped. Locked. Wait.</p>
+      <p>The only way to unlock it? A credit card.</p>
+      <hr>
+      <div class="arithmetic">
+        <h3>What you have</h3>
+        <p>UNRWA emergency cash assistance arriving each month to the student&rsquo;s family in Lebanon: <strong>sixteen dollars and sixty-seven cents</strong>. Per person. If her family is four people, the household receives roughly sixty-five dollars a month.</p>
+        <h3>What you cannot buy</h3>
+        <p>ChatGPT Plus: <strong>twenty dollars</strong>. Claude Pro: twenty dollars. Gemini Advanced: nineteen dollars and ninety-nine cents.</p>
+        <h3>The gap</h3>
+        <p>Twenty dollars is <strong>120 percent</strong> of one Palestinian person&rsquo;s entire monthly income from UNRWA. If she buys the subscription, nothing remains for anything else.</p>
+      </div>
+      <p>And this number&mdash;sixteen dollars and sixty-seven cents&mdash;is not a statistic. This is the income. There is no other income supplementing it. There is no job wage on the side. This is it. All of it. It arrives in cash. There is no card.</p>
+      <hr>
+      <p>Seventy percent of camp residents in Lebanon rely on this assistance as their primary income source. Seventy percent. Hundreds of thousands of people.</p>
+      <p>And Palestinians in Lebanon are barred from working in thirty-nine professions. Which means even if you had training in one of them, even if you found an employer offering better wages&mdash;there is no legal license to take the job. Forbidden by law.</p>
+      <hr>
+      <p>Here is the critical finding:</p>
+      <p>Artificial intelligence was not built on the assumption that everyone using it has a bank account.</p>
+      <p>The payment systems are built on credit cards. PayPal. Digital transactions. Balance. Financial identity verification. And Palestinians in the camp&mdash;and in many places globally&mdash;have no bank account. Literally. There is no banking sector where they deposit wages. No credit card. No digital balance.</p>
+      <p>Which means that the companies that built AI&mdash;OpenAI, Google, Anthropic, Microsoft&mdash;when they designed the only way to fund the service, decided there is no such thing as &ldquo;credit without a bank&rdquo; or &ldquo;cash that can become digital credit.&rdquo; They decided: if you don&rsquo;t have a card, you have no way.</p>
+      <p>And this decision&mdash;that there is no alternative to payment cards at all, not even one&mdash;this decision is being made by people in San Francisco while the nursing student in Shatila is carrying cash in her hands.</p>
+      <hr>
+      <p>The Palestinian student in Shatila cannot buy the subscription because she is poor. She cannot buy it because the system made her poor deliberately. The system decided decades ago that Palestinians cannot work in most professions. Another decision said: there are no banks that will open an account for a refugee without legal residency. Another decision said: modern payment is cards only. No cash. No alternatives.</p>
+      <p>And each of these decisions built one wall. And the walls reinforce each other, locking the student outside the tool.</p>
+      <hr>
+      <p>This is not a market failure. This is not &ldquo;we didn&rsquo;t think about this scenario.&rdquo; Giant institutions have entire teams working on &ldquo;access,&rdquo; on &ldquo;inclusion,&rdquo; on &ldquo;digital democracy.&rdquo; But these teams forget one question:</p>
+      <p>If everyone in the world needs to pay in cash, and there is no way to accept cash, then exclusion is not accidental. It is deliberate.</p>
+      <hr>
+      <p>The student stopped trying. The screen says &ldquo;upgrade&rdquo; and the equation says &ldquo;you cannot.&rdquo; So she set the phone down. She turned to the book instead of the screen.</p>
+      <p>When she takes the exam in two weeks, without ChatGPT, without Claude, without Gemini? She will see the difference. And she will know also that the tool only existed because she and her family and millions before her chose to put money down with no guarantee of return. And the institution that built the tool chose its revenue from people with cards, not from people without.</p>
+
+      <div class="sources">
+        <p><em>Sources: UNRWA 2025 Emergency Appeal Syria, Lebanon and Jordan (January 2025, page 20); UNRWA 2023 Socioeconomic Survey &mdash; Palestine Refugees in Lebanon; Amnesty International report on employment restrictions for Palestinians in Lebanon (2024).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">الصفحة بتقول: اشتركي في ChatGPT Plus.</p>
+      <p class="ar">عشرين دولار بالشهر. بيانات بدون حد. أولوية بالردود. صفقة منطقية إذا كان عندك عشرين دولار.</p>
+      <p class="ar">الطالبة في الشاتيلا &mdash; تمريض، سنة ثانية &mdash; كانت تكتب سؤال عن حالات طبية. التطبيق ردّ. ردّ معقول. ضافت سؤال تاني. تالت. السادس؟ الشاشة وقفت. رسالة أبيض على أزرق:</p>
+      <p class="ar"><em>&ldquo;وصلتي للحد المجاني. لو بدك تكملي، اشتركي بـPlus.&rdquo;</em></p>
+      <p class="ar">هاي اللحظة ما بتصير بمكان تاني. هاي درامة الأنظمة المغلقة: بتقدري تجربي. بتقدري تشوفي. بتقدري تفهمي إن هاي الأداة بتساعد. وفجأة: وقفة. قفل. استني.</p>
+      <p class="ar">والطريق الوحيد لفك القفل؟ بطاقة ائتمان.</p>
+      <hr>
+      <div class="arithmetic">
+        <h3 class="ar">شو عندك</h3>
+        <p class="ar">مساعدة الأونروا الطارئة اللي بتيجي لأهل الطالبة في لبنان كل شهر: <strong>ست عشر دولار وسبعة وستين سنت</strong>. للشخص الواحد. لو الأسرة أربعة، بياخدوا حوالي خمسة وستين دولار بالشهر.</p>
+        <h3 class="ar">شو ما بتقدري تشتري</h3>
+        <p class="ar">ChatGPT Plus: <strong>عشرين دولار</strong>. Claude Pro: عشرين دولار. Gemini Advanced: تسعة عشر دولار وتسعة وتسعين سنت.</p>
+        <h3 class="ar">الفجوة</h3>
+        <p class="ar">العشرين دولار هي <strong>مية وعشرين بالمية</strong> من دخل الفلسطيني الواحد بالشهر من الأونروا. لو بدها تشتري الاشتراك، ما بيضل عندها فلس لشي تاني.</p>
+      </div>
+      <p class="ar">والرقم هاد &mdash; ست عشر دولار وسبعة وستين سنت &mdash; مش مجرد إحصائية. هاد هو الدخل. مش إنه في دخل تاني بيكمّل. مش إنها عندها راتب شغل وهاد عالجنب. هاد هو. كله. بييجي نقد. ما في بطاقة.</p>
+      <hr>
+      <p class="ar">سبعين بالمية من سكان المخيمات في لبنان بيعتمدوا على هاي المساعدة كمصدر دخل أساسي. سبعين بالمية. مئات الآلاف من الناس.</p>
+      <p class="ar">والفلسطينيين في لبنان ممنوعين من الشغل بتسع وثلاثين مهنة. يعني حتى لو كان عندك تدريب بواحدة منهم، حتى لو لقيتي شغل بياخد أعلى &mdash; ما في رخصة قانونية تسمحلك تاخدي الشغل. ممنوع من الحكومة.</p>
+      <hr>
+      <p class="ar">هاد المفتاح:</p>
+      <p class="ar">الذكاء الاصطناعي ما اتبنى على افتراض إن كل الناس اللي بتستخدمه عندهم بنك.</p>
+      <p class="ar">أنظمة الدفع بتاعتهم معتمدة على بطاقات ائتمان. PayPal. معاملات رقمية. رصيد. إثبات هوية مالية. والفلسطينيين بالمخيم &mdash; وبأماكن كتير بالعالم &mdash; ما عندهم حساب بنكي. حرفياً. ما في قطاع بنكي بيحط فيه الناس فلوسهن. ما في بطاقة ائتمان. ما في رصيد رقمي.</p>
+      <p class="ar">يعني الشركات اللي بنت الذكاء الاصطناعي &mdash; OpenAI، Google، Anthropic، Microsoft &mdash; لما صمموا الطريق الوحيد لتمويل الخدمة، قرروا إنه ما في حاجة اسمها &ldquo;قرض بدون بنك&rdquo; أو &ldquo;نقد بيتحول لرصيد رقمي&rdquo;. قرروا: إذا ما عندك بطاقة، ما عندك وسيلة.</p>
+      <p class="ar">والقرار هاد &mdash; إنه ما في ولا بديل واحد للعملة المعدنية والورق &mdash; هاد قرار اتاخد من ناس بسان فرانسيسكو، بينما الفلسطينية بالشاتيلا حاملة النقد بإيدها.</p>
+      <hr>
+      <p class="ar">الفلسطينية في الشاتيلا مش بتعجز عن شراء الاشتراك لإنها فقيرة. بتعجز لإن النظام فقّرها بقصد. النظام قرر من عقود إن الفلسطيني ما بيقدر يشتغل بمعظم المهن. قرار تاني قال: ما في بنوك بتقبل تفتحلك حساب لاجئ بدون إقامة قانونية. قرار تالت قال: أداة الدفع الحديثة بطاقة بس. لا نقد. لا بدائل.</p>
+      <p class="ar">وكل قرار من هاي القرارات بنى سياج واحد. والسياجات بتقوي بعضها، وبتقفل الطالبة برا الأداة.</p>
+      <hr>
+      <p class="ar">هاد مش فشل سوق. هاد مش &ldquo;ما خطر ببالنا السيناريو هاد&rdquo;. مؤسسات عملاقة عندها فرق كاملة شغالة على &ldquo;الوصول&rdquo;، على &ldquo;الشمول&rdquo;، على &ldquo;الديمقراطية الرقمية&rdquo;. بس هاي الفرق بتنسى سؤال واحد:</p>
+      <p class="ar">إذا في ناس بالعالم بدهم يدفعوا نقد، وما في طريقة بتقبل النقد، فالإقصاء مش حادث. الإقصاء مقصود.</p>
+      <hr>
+      <p class="ar">الطالبة ما عادت حاولت. الصفحة بتقول &ldquo;اشتركي&rdquo; والمعادلة بتقول &ldquo;ما بتقدري&rdquo;. فحطّت التلفون. راحت ع الكتاب بدل الشاشة.</p>
+      <p class="ar">لما تاخد الامتحان بأسبوعين، بدون ChatGPT، بدون Claude، بدون Gemini؟ رح تشوف الفرق. وكمان رح تعرف إن الأداة ما كانت موجودة إلا لإن أهلها &mdash; ومليون قبلهم &mdash; اختاروا يحطوا فلوس بدون ضمان إنه شي رح يرجعلهم. والمؤسسة اللي بنت الأداة اختارت إن دخلها يجي من الناس اللي عندهم بطاقة، مش من الناس اللي ما عندهم.</p>
+
+      <div class="sources">
+        <p class="ar"><em>المصادر: UNRWA 2025 Emergency Appeal (يناير 2025، صفحة 20)؛ UNRWA 2023 Socioeconomic Survey؛ منظمة العفو الدولية (2024).</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;If everyone in the world needs to pay in cash, and there is no way to accept cash, then exclusion is not accidental. It is deliberate.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;إذا في ناس بالعالم بدهم يدفعوا نقد، وما في طريقة بتقبل النقد، فالإقصاء مش حادث. الإقصاء مقصود.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="01.html" class="lang-en">&larr; Previous: Not a Bomb</a>
+      <a href="01.html" class="lang-ar">&rarr; السابق: الصعقة اللي ما كانت قنبلة</a>
+      <a href="03.html" class="lang-en">Next Essay &rarr; Two Contracts</a>
+      <a href="03.html" class="lang-ar">المقال التالي &larr; عقدان</a>
+    </div>
+    <div class="series-link">
+      <a href="index.html" class="lang-en">Back to Offline by Design</a>
+      <a href="index.html" class="lang-ar">العودة إلى إقصاء مبرمَج</a>
+    </div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Offline by Design is a six-essay series on the architecture of digital exclusion.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إقصاء مبرمَج سلسلة من ستة مقالات في هندسة الإقصاء الرقمي.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) { document.documentElement.lang = lang; localStorage.setItem('obd-lang', lang); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); document.getElementById('btn-ar').classList.toggle('active', lang === 'ar'); }
+  (function() { var saved = localStorage.getItem('obd-lang') || 'en'; setLang(saved); })();
+</script>
+</body>
+</html>

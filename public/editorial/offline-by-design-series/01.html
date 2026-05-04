@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay 01 — Not a Bomb | Offline by Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1A1714;
+    --surface: #F5F0E8;
+    --accent: #C41230;
+    --muted: #6B6259;
+    --art: #B87333; /* live wire copper */
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  html[lang="ar"] { direction: rtl; }
+  html:not([lang="ar"]) .lang-ar { display: none !important; }
+  html[lang="ar"] .lang-en { display: none !important; }
+
+  body { background: var(--bg); color: var(--surface); font-family: 'EB Garamond', serif; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,23,20,0.96); backdrop-filter: blur(8px); height: 52px; display: flex; align-items: center; padding: 0 2rem; border-bottom: 1px solid rgba(245,240,232,0.08); }
+  .nav-left { flex: 1; }
+  .nav-left a { color: var(--muted); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-left a:hover { color: var(--surface); }
+  .nav-center { flex: 2; text-align: center; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .nav-center .file-num { color: var(--art); font-weight: 600; }
+  .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .lang-btn { background: none; border: 1px solid rgba(245,240,232,0.2); color: var(--muted); padding: 0.25rem 0.6rem; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--art); color: var(--art); }
+
+  /* HERO */
+  .hero { position: relative; height: 60vh; min-height: 400px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; margin-top: 52px; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,23,20,0.1) 0%, rgba(26,23,20,0.4) 40%, rgba(26,23,20,0.92) 100%); }
+  .hero-ghost { position: absolute; right: 5%; bottom: -0.1em; font-family: 'Playfair Display', serif; font-size: clamp(8rem, 22vw, 18rem); font-weight: 900; color: var(--art); opacity: 0.12; line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.04em; }
+  html[lang="ar"] .hero-ghost { right: auto; left: 5%; }
+  .hero-content { position: relative; z-index: 2; padding: 2.5rem 3rem; max-width: 900px; }
+  .hero-file-label { font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--art); margin-bottom: 0.75rem; }
+  .hero-title-en { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-title-ar { font-family: 'Amiri', serif; font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .hero-subtitle-ar { font-family: 'Amiri', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .byline { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: rgba(245,240,232,0.5); letter-spacing: 0.03em; }
+  .byline-ar { font-family: 'Amiri', serif; font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+
+  /* ARTICLE BODY */
+  .article-wrap { background: var(--surface); color: #1A1714; }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-body p { font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.85; color: #1A1714; margin-bottom: 1.4em; }
+  .article-body p.ar { font-family: 'Amiri', serif; font-size: 20px; line-height: 1.9; direction: rtl; text-align: right; }
+  .article-body hr { border: none; border-top: 1px solid rgba(26,23,20,0.15); margin: 2rem 0; }
+  .article-body em { font-style: italic; }
+  .article-body strong { font-weight: 600; }
+  .sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(26,23,20,0.15); font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .sources p { font-size: 0.85rem; font-family: 'EB Garamond', serif; }
+  .sources p.ar { font-family: 'Amiri', serif; direction: rtl; text-align: right; }
+
+  /* PULL QUOTE */
+  .pull-quote-section { background: var(--bg); padding: 5rem 2rem; }
+  .pull-quote-inner { max-width: 720px; margin: 0 auto; }
+  .pull-quote { border-left: 4px solid var(--art); padding: 1.5rem 2rem; }
+  html[lang="ar"] .pull-quote { border-left: none; border-right: 4px solid var(--art); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.65rem); line-height: 1.5; color: var(--surface); }
+  .pull-quote p.ar { font-family: 'Amiri', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); direction: rtl; text-align: right; }
+
+  /* ARTICLE FOOTER */
+  .article-footer { background: var(--surface); padding: 3rem 2rem; }
+  .article-footer-inner { max-width: 720px; margin: 0 auto; }
+  .file-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .file-nav a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; border-bottom: 1px solid transparent; transition: all 0.2s; padding-bottom: 2px; }
+  .file-nav a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .series-link { text-align: center; margin-bottom: 2rem; }
+  .series-link a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(107,98,89,0.4); padding-bottom: 2px; transition: all 0.2s; }
+  .series-link a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .author-bio { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); border-top: 1px solid rgba(26,23,20,0.12); padding-top: 1.5rem; line-height: 1.6; }
+  .author-bio-ar { font-family: 'Amiri', serif; font-size: 0.95rem; direction: rtl; text-align: right; }
+
+  /* SITE FOOTER */
+  footer { background: var(--bg); text-align: center; padding: 2rem; font-family: 'EB Garamond', serif; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; border-top: 1px solid rgba(245,240,232,0.06); }
+
+  @media (max-width: 600px) {
+    .hero-content { padding: 1.5rem; }
+    .article-body { padding: 2.5rem 1.2rem; }
+    nav { padding: 0 1rem; }
+    .nav-center { font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="index.html" class="lang-en">Offline by Design</a>
+    <a href="index.html" class="lang-ar">إقصاء مبرمَج</a>
+  </div>
+  <div class="nav-center">
+    <span class="lang-en"><span class="file-num">Essay 01</span> &mdash; Not a Bomb</span>
+    <span class="lang-ar"><span class="file-num">المقال 01</span> &mdash; الصعقة اللي ما كانت قنبلة</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/report/report-c.jpg" alt="Cracked outlet on broken concrete with bare wires">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">01</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Offline by Design &mdash; Essay 01 of 06</div>
+    <div class="hero-file-label lang-ar">إقصاء مبرمَج &mdash; المقال 01 من 06</div>
+    <h1 class="hero-title-en lang-en">Not a Bomb</h1>
+    <h1 class="hero-title-ar lang-ar">الصعقة اللي ما كانت قنبلة</h1>
+    <p class="hero-subtitle lang-en"><em>An essay on the legal architecture of electrical exclusion</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>محاولة في الهيكل القانوني للاستبعاد الكهربائي</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; May 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أيار 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <!-- ENGLISH -->
+    <div class="lang-en">
+      <p>In Burj el-Barajneh, in one of Beirut&rsquo;s older quarters, pain arrives early and without warning.</p>
+      <p>The wires hang on the walls the way laundry hangs on rope. Above your head. Beside you. Close enough to touch. There is no insulation. There is no system. It means one wire&mdash;among dozens of others&mdash;touches the wet concrete. It always rains in winter. The water never leaves.</p>
+      <p>When winter comes, these wires become a single body: water plus electricity plus exposed metal equals a moment that takes no time.</p>
+      <p>The man working on it&mdash;one of those who works without a fixed wage, without insurance&mdash;was trying to repair a faulty connection. These wires are never safe. If a licensed electrician existed within reach of these wages, this would not be a problem. But one does not. The camp does not exist on the formal grid. Municipal electricity reaches it for one or two hours per day. The rest? Repair the wires yourself and live, or live in darkness.</p>
+      <p>He was electrocuted.</p>
+      <hr>
+      <p>Exclusion is not an accident. Exclusion is written into law.</p>
+      <p>Beirut has administrative districts. Each district has a municipal electricity network. It is called EDL. The network distributes electricity on the basis of contracts. The contracts require legal proof of residency. A status granted by the state to those it recognizes as belonging.</p>
+      <p>Palestinians in the camps have no such status.</p>
+      <p>Five hundred thousand people are registered with UNRWA in Lebanon. Not one of them has legal Lebanese residency. The law that denies them residency&mdash;the same law that forbids them property ownership, forbids them work in more than thirty-nine professions, forbids them access to municipal services&mdash;does not change. The Lebanese government said so explicitly: any infrastructure investment in the camps would suggest Palestinians might stay permanently. We do not want them to think they might stay.</p>
+      <p>So the design is deliberate: the camp remains dependent on wiring installed by untrained hands. The wires become the resources of the poor. Resources become dangerous. Danger becomes daily life.</p>
+      <p>Eighty-six people were electrocuted in Burj el-Barajneh between 2015 and 2023. Eighty-six. Not by a bomb. Not by direct warfare. By a wire touching water touching skin.</p>
+      <p>This same legal mechanism governs everything in the camp. Thirty years ago. Forty years before that. Now. The same law. The same exclusion. The same outcome: structural exclusion written into a legal code, implemented by a government that chose not to extend the grid and decided the solution was not the state&rsquo;s responsibility.</p>
+      <hr>
+      <p>An AI session requires electricity. No electricity equals no session.</p>
+      <p>A nursing student in Shatila&mdash;one more year, then wards and emergencies&mdash;sits to review something or prepare. The power cuts. In other cities, people can continue. In the camp, the phone dies before the question can be asked.</p>
+      <p>This connection between electricity and digital access is just the first of five barriers the law has built to keep Palestinians out of every modern tool. First is electricity. Then comes banking&mdash;which does not exist. Payment systems&mdash;which mean cash only. Internet&mdash;which cuts out constantly. Language&mdash;which does not appear in training data built on other dialects.</p>
+      <hr>
+      <p>The legal mechanism that excludes Palestinians from electricity is the same mechanism that excludes them from everything. From residency. From property. From thirty-nine professions. From municipal services. And every law tells the same story: you are the refugee. You are the one without. You are the one without rights. Electricity is the sixth barrier. It is locked behind a wire.</p>
+      <hr>
+      <p>The man who was electrocuted left his house at five in the morning to go to work. So when a digital session window opens at eight in the morning and closes after two hours, he does not think about electricity. He does not think about wires. He thinks about work.</p>
+      <p>But the Palestinian nursing student in Shatila cannot reach eight o&rsquo;clock. When her phone finally has enough charge, when she opens the application, when the page loads, when the device tells her the battery will last another hour, she opens the browser.</p>
+      <p>And she hits the limit. The limit says: the rest is closed.</p>
+      <p>The full point? That the wires the man was electrocuted on&mdash;and the law that ensured they would remain unsafe&mdash;and the digital session that cannot survive a power cut&mdash;belong to the same force. A force of decisions that were made. Of people who chose not to extend service, or chose to extend it dangerously on purpose, or chose to look away.</p>
+      <hr>
+      <p>The wires on the wall are not trying to kill anyone intentionally.</p>
+      <p>But the structure that built the wires this way? It absolutely is.</p>
+
+      <div class="sources">
+        <p><em>Sources: Amnesty International, &ldquo;Cut Off From Life Itself: Lebanon&rsquo;s Failure on the Right to Electricity&rdquo; (March 2023); Jadaliyya, &ldquo;Infrastructure and the Vulnerability of Palestinian Refugees in Lebanon&rdquo; (2019); UNRWA 2023 Socioeconomic Survey; EUAA COI Syria 2025; HRW &ldquo;Lebanon: Nationwide Electricity Blackout&rdquo; (August 2024).</em></p>
+      </div>
+    </div>
+
+    <!-- ARABIC -->
+    <div class="lang-ar">
+      <p class="ar">في برج البراجنة، في حي من أحياء بيروت، الواحد بيعرف الألم بدري.</p>
+      <p class="ar">الأسلاك معلقة على الجدران بنفس الطريقة اللي الثياب معلقة بالحبل. فوق راسك، جنبك، قريبة بحيث تلمسها بإيدك. ما في عزل. ما في نظام. يعني سلك واحد فيهم &mdash; من بين أسلاك كتير تانية &mdash; بيلمس الجدار المبلل. ما بيوقف الشتا، والميّ ما بتنشف.</p>
+      <p class="ar">بالشتا، بالتحديد، الأسلاك بتصير جسم واحد: ميّ + كهربا + معدن مكشوف = لحظة ما بتاخد وقت.</p>
+      <p class="ar">الراجل اللي كان يشتغل عليها &mdash; واحد من اللي بيشتغلوا بدون راتب ثابت، بدون تأمين &mdash; كان عم يحاول يصلح وصلة هدلة. هاي الأسلاك عمرها ما بتكون آمنة. لو كان في كهربائي قانوني بسعر يقدروا يدفعوه، ما كانت هاي مشكلة. بس ما في. المخيم مش موجود ع الشبكة الرسمية. كهربا البلدية بتيجي ساعة لساعتين باليوم. الباقي؟ صلّح الأسلاك بإيدك وعيش، أو عيش بالظلام.</p>
+      <p class="ar">الراجل انصعق.</p>
+      <hr>
+      <p class="ar">الإقصاء مش حادث. الإقصاء مكتوب بالقانون.</p>
+      <p class="ar">بيروت أقسام إدارية. كل قسم عنده شبكة كهربا بلدية. اسمها EDL. الشبكة بتوزع الكهربا على أساس عقد. العقد بيتطلب رقم هوية رسمي. إقامة قانونية. شي ورقة من الدولة بتقول: إنت بتنتمي لهون.</p>
+      <p class="ar">الفلسطينيين بالمخيمات ما عندهم هاد الشي.</p>
+      <p class="ar">خمس مية ألف شخص مسجّل بالأونروا في لبنان. ولا واحد منهم عنده إقامة قانونية لبنانية. القانون اللي ضمن إن الفلسطيني ما بيقدر يملك أرض، وما بيقدر يشتغل بأكتر من تسع وثلاثين مهنة، وما بيقدر يوصل للشبكة البلدية &mdash; ما بيتغير. الحكومة اللبنانية قالتها علناً: أي بنية تحتية بتدخل المخيم بتخلي الفلسطينيين يفكروا إن بقاؤهم دائم. وإحنا ما بدنا يفكروا ببقاء دائم.</p>
+      <p class="ar">يعني التصميم: المخيم يضل معتمد على وصلات مركبة بإيد ناس مش مدربة. الأسلاك بتصير موارد الفقرا. الموارد بتصير خطر. والخطر بيصير الحياة اليومية.</p>
+      <p class="ar">ست وثمانين إنسان انصعقوا في برج البراجنة ما بين 2015 و2023. ست وثمانين. ما في قنبلة. ما في حرب مباشرة. سلك بيلمس ميّ بيلمس جسم.</p>
+      <p class="ar">هاد نفس الهيكل اللي عم يحكم كل شي بالمخيم. من ثلاثين سنة. من قبل أربعين. هلأ. نفس القانون. نفس الآلية. نفس النتيجة: إقصاء بنيوي معمول من كتاب قانون، ومنفّذ من حكومة اختارت ما توسّع الشبكة، وقررت إن الحل مش شغل الدولة.</p>
+      <hr>
+      <p class="ar">جلسة ChatGPT بدها كهربا. ما في كهربا = ما في جلسة.</p>
+      <p class="ar">طالبة تمريض في الشاتيلا &mdash; سنة كمان للسنة الثانية، وبعدين أقسام وطوارئ &mdash; قاعدة تحضّر شي، أو تراجع ملاحظات. فجأة بينقطع التيار. في دول تانية الناس بيقدروا يفتحوا الأداة. بالمخيم بينطفي التلفون قبل ما تقدر تحضّر جواب الأسئلة.</p>
+      <p class="ar">هاد الجسر من الكهربا للوصول الرقمي &mdash; واحد من خمس جسور القانون بناهن ليشيل الفلسطيني عن أي أداة حديثة. الأول الكهربا. والباقي موجود: بنك (ما في). دفع (نقد بس). نت (بينقطع كتير). جهاز (غالباً تلفون قديم). لغة (ما في بيانات للهجة اللي بيحكي فيها).</p>
+      <hr>
+      <p class="ar">الهيكل القانوني اللي بيستبعد الفلسطيني من الكهربا &mdash; هو نفسه اللي بيستبعده من كل شي. الإقامة الرسمية. ملكية الأرض. الشغل بتسع وثلاثين مهنة. الخدمة البلدية. وكل قانون من هاي القوانين بتاع دولة بتقول: إنت اللاجئ. إنت اللي بدون. إنت اللي ما عندك حق. والكهربا عنصر سادس. مقفول بسلك.</p>
+      <hr>
+      <p class="ar">الراجل اللي انصعق طلع من بيته الساعة خمسة الصبح ليروح ع الشغل. لما تيجي جلسة الكهربا الساعة تمانة الصبح، وتنقطع بعد ساعتين، ما بياخد على باله الكهربا. ما بياخد على باله الأسلاك. بياخد على باله الشغل.</p>
+      <p class="ar">بس الفلسطينية في الشاتيلا ما بتقدر توصل الساعة تمانة. لما يقدر التلفون يشحن، ولما تفتح التطبيق، ولما الصفحة تحمّل، ولما الجهاز يقول لها &ldquo;البطارية رح تكفي ساعة كمان&rdquo;، بتفتح المتصفح.</p>
+      <p class="ar">وبتوصل للحد. والحد بيقول: الباقي مقفول.</p>
+      <p class="ar">النقطة كاملة؟ إن الأسلاك اللي انصعق عليها الراجل &mdash; والقانون اللي ضمن إنها تضل غير آمنة &mdash; والجلسة الرقمية اللي ما بتقدر تتحمل قطعة كهربا &mdash; كلهن بتاع جيش واحد. جيش من قرارات اتاخدت. من ناس اختاروا ما يوصّلوا الخدمة، أو يوصّلوها بطريقة خطرة بقصد، أو خلّوا حالهم يتجاهلوا.</p>
+      <hr>
+      <p class="ar">الأسلاك على الجدار ما بدها تقتل حدا بقصد.</p>
+      <p class="ar">بس الهيكل اللي بنى الأسلاك هيك؟ بدّو.</p>
+
+      <div class="sources">
+        <p class="ar"><em>المصادر: منظمة العفو الدولية &ldquo;Cut Off From Life Itself&rdquo; (مارس 2023); جاديليا (2019); UNRWA 2023 Socioeconomic Survey; EUAA COI Syria 2025; HRW (أغسطس 2024).</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The wires on the wall are not trying to kill anyone intentionally. But the structure that built the wires this way? It absolutely is.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;الأسلاك على الجدار ما بدها تقتل حدا بقصد. بس الهيكل اللي بنى الأسلاك هيك؟ بدّو.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <span class="lang-en" style="color:var(--muted); font-family:'EB Garamond',serif; font-size:0.9rem;">&nbsp;</span>
+      <span class="lang-ar" style="color:var(--muted); font-family:'Amiri',serif; font-size:0.9rem;">&nbsp;</span>
+      <a href="02.html" class="lang-en">Next Essay &rarr; The Card You Can&rsquo;t Have</a>
+      <a href="02.html" class="lang-ar">المقال التالي &larr; البطاقة اللي ما إلك</a>
+    </div>
+    <div class="series-link">
+      <a href="index.html" class="lang-en">Back to Offline by Design</a>
+      <a href="index.html" class="lang-ar">العودة إلى إقصاء مبرمَج</a>
+    </div>
+    <div class="author-bio lang-en">
+      <strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Offline by Design is a six-essay series on the architecture of digital exclusion.
+    </div>
+    <div class="author-bio author-bio-ar lang-ar">
+      <strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إقصاء مبرمَج سلسلة من ستة مقالات في هندسة الإقصاء الرقمي.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('obd-lang', lang);
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+  }
+  (function() {
+    var saved = localStorage.getItem('obd-lang') || 'en';
+    setLang(saved);
+  })();
+</script>
+</body>
+</html>

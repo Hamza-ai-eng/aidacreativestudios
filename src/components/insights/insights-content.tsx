@@ -409,7 +409,9 @@ export function InsightsContent() {
                 background: "var(--wm-green)",
               }}
             />
-            <span style={{ color: "var(--ink-faded)" }}>01</span>
+            <span style={{ color: "var(--ink-faded)" }}>
+              {isAr ? "متاح الآن" : "now live"}
+            </span>
           </div>
 
           {/* Series card */}
@@ -550,6 +552,165 @@ export function InsightsContent() {
 
                 <a
                   href="/editorial/human-in-the-loop/index.html"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    color: "var(--wm-red)",
+                    borderBottom: "1px solid var(--wm-red)",
+                    paddingBottom: "4px",
+                    transition: "color 0.2s",
+                    whiteSpace: "nowrap",
+                  }}
+                  className="hover:text-[var(--wm-red-deep)]"
+                >
+                  {isAr ? "اقرأ السلسلة" : "Read series"}
+                  <span>{isAr ? "←" : "→"}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Series card — Offline by Design */}
+          <div
+            style={{
+              borderTop: "2px solid var(--wm-red)",
+              paddingTop: "48px",
+              marginTop: "64px",
+            }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
+                gap: "64px",
+                alignItems: "start",
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    color: "var(--wm-red)",
+                    marginBottom: "24px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <span
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "4px 10px",
+                      background: "var(--wm-green)",
+                      color: "var(--ground)",
+                      fontSize: "9px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#4ADE80",
+                        display: "inline-block",
+                      }}
+                    />
+                    {isAr ? "متاح" : "LIVE"}
+                  </span>
+                  <span style={{ color: "var(--ink-faded)" }}>
+                    {isAr ? "السلسلة ٠٢" : "Series 02"}
+                  </span>
+                </div>
+
+                <h2
+                  style={{
+                    fontFamily: isAr ? "var(--font-ar)" : "var(--font-en)",
+                    fontWeight: 700,
+                    fontStyle: isAr ? "normal" : "italic",
+                    fontSize: isAr ? "clamp(2rem, 4vw, 3.5rem)" : "clamp(1.6rem, 3vw, 2.8rem)",
+                    lineHeight: 1.1,
+                    color: "var(--ink)",
+                    marginBottom: "8px",
+                    direction: isAr ? "rtl" : "ltr",
+                  }}
+                >
+                  {isAr ? "إقصاء مبرمَج" : "Offline by Design"}
+                </h2>
+                <div
+                  style={{
+                    fontFamily: isAr ? "var(--font-en)" : "var(--font-ar)",
+                    fontStyle: isAr ? "italic" : "normal",
+                    fontWeight: isAr ? 700 : 400,
+                    fontSize: isAr ? "clamp(1rem, 1.8vw, 1.4rem)" : "clamp(0.9rem, 1.3vw, 1.1rem)",
+                    color: "var(--ink-dim)",
+                    marginBottom: "28px",
+                    direction: isAr ? "ltr" : "rtl",
+                  }}
+                >
+                  {isAr ? "Offline by Design" : "إقصاء مبرمَج"}
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: isAr ? "var(--font-ar-body)" : "var(--font-body)",
+                    fontStyle: isAr ? "normal" : "italic",
+                    fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)",
+                    lineHeight: isAr ? 1.85 : 1.7,
+                    color: "var(--ink-dim)",
+                    maxWidth: "560px",
+                    direction: isAr ? "rtl" : "ltr",
+                  }}
+                >
+                  {isAr
+                    ? "ستة مقالات في هندسة الإقصاء الرقمي — الكهربا، الدفع، العقود، اللغة، الجغرافيا، المسؤولية. الفلسطيني مقصي عن الرقمي بتصميم مقصود، عبر أربع دول وأربع منظومات قانونية. آليات مختلفة. نفس النتيجة."
+                    : "Six essays on the architecture of digital exclusion — electricity, payment, contracts, language, geography, accountability. The Palestinian is kept offline by deliberate design across four states and four legal systems. Different mechanisms. The same result."}
+                </p>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: isAr ? "flex-start" : "flex-end",
+                  gap: "24px",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "clamp(3rem, 5vw, 5rem)",
+                    fontWeight: 700,
+                    color: "var(--wm-red)",
+                    lineHeight: 1,
+                    opacity: 0.25,
+                  }}
+                >
+                  06
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "10px",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    color: "var(--text-muted)",
+                  }}
+                >
+                  {isAr ? "مقالات" : "essays"}
+                </div>
+
+                <a
+                  href="/editorial/offline-by-design-series/index.html"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",

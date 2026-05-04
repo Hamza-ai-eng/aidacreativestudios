@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay 03 — Two Contracts | Offline by Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#1A1714; --surface:#F5F0E8; --accent:#C41230; --muted:#6B6259; --art:#3A5F7D; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  html[lang="ar"] { direction: rtl; }
+  html:not([lang="ar"]) .lang-ar { display: none !important; }
+  html[lang="ar"] .lang-en { display: none !important; }
+  body { background: var(--bg); color: var(--surface); font-family: 'EB Garamond', serif; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,23,20,0.96); backdrop-filter: blur(8px); height: 52px; display: flex; align-items: center; padding: 0 2rem; border-bottom: 1px solid rgba(245,240,232,0.08); }
+  .nav-left { flex: 1; }
+  .nav-left a { color: var(--muted); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-left a:hover { color: var(--surface); }
+  .nav-center { flex: 2; text-align: center; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .nav-center .file-num { color: var(--art); font-weight: 600; }
+  .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .lang-btn { background: none; border: 1px solid rgba(245,240,232,0.2); color: var(--muted); padding: 0.25rem 0.6rem; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--art); color: var(--art); }
+  .hero { position: relative; height: 60vh; min-height: 400px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; margin-top: 52px; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,23,20,0.1) 0%, rgba(26,23,20,0.4) 40%, rgba(26,23,20,0.92) 100%); }
+  .hero-ghost { position: absolute; right: 5%; bottom: -0.1em; font-family: 'Playfair Display', serif; font-size: clamp(8rem, 22vw, 18rem); font-weight: 900; color: var(--art); opacity: 0.18; line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.04em; }
+  html[lang="ar"] .hero-ghost { right: auto; left: 5%; }
+  .hero-content { position: relative; z-index: 2; padding: 2.5rem 3rem; max-width: 900px; }
+  .hero-file-label { font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--art); margin-bottom: 0.75rem; }
+  .hero-title-en { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-title-ar { font-family: 'Amiri', serif; font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .hero-subtitle-ar { font-family: 'Amiri', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .byline { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: rgba(245,240,232,0.5); letter-spacing: 0.03em; }
+  .byline-ar { font-family: 'Amiri', serif; font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+  .article-wrap { background: var(--surface); color: #1A1714; }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-body p { font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.85; color: #1A1714; margin-bottom: 1.4em; }
+  .article-body p.ar { font-family: 'Amiri', serif; font-size: 20px; line-height: 1.9; direction: rtl; text-align: right; }
+  .article-body hr { border: none; border-top: 1px solid rgba(26,23,20,0.15); margin: 2rem 0; }
+  .article-body em { font-style: italic; }
+  .article-body strong { font-weight: 600; }
+  .sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(26,23,20,0.15); font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .sources p { font-size: 0.85rem; font-family: 'EB Garamond', serif; }
+  .sources p.ar { font-family: 'Amiri', serif; direction: rtl; text-align: right; }
+  .sources a { color: var(--muted); text-decoration: underline; text-decoration-color: rgba(58,95,125,0.4); }
+  .sources a:hover { color: var(--art); text-decoration-color: var(--art); }
+  .pull-quote-section { background: var(--bg); padding: 5rem 2rem; }
+  .pull-quote-inner { max-width: 720px; margin: 0 auto; }
+  .pull-quote { border-left: 4px solid var(--art); padding: 1.5rem 2rem; }
+  html[lang="ar"] .pull-quote { border-left: none; border-right: 4px solid var(--art); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.65rem); line-height: 1.5; color: var(--surface); }
+  .pull-quote p.ar { font-family: 'Amiri', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); direction: rtl; text-align: right; }
+  .article-footer { background: var(--surface); padding: 3rem 2rem; }
+  .article-footer-inner { max-width: 720px; margin: 0 auto; }
+  .file-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .file-nav a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; border-bottom: 1px solid transparent; transition: all 0.2s; padding-bottom: 2px; }
+  .file-nav a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .series-link { text-align: center; margin-bottom: 2rem; }
+  .series-link a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(107,98,89,0.4); padding-bottom: 2px; transition: all 0.2s; }
+  .series-link a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .author-bio { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); border-top: 1px solid rgba(26,23,20,0.12); padding-top: 1.5rem; line-height: 1.6; }
+  .author-bio-ar { font-family: 'Amiri', serif; font-size: 0.95rem; direction: rtl; text-align: right; }
+  footer { background: var(--bg); text-align: center; padding: 2rem; font-family: 'EB Garamond', serif; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; border-top: 1px solid rgba(245,240,232,0.06); }
+  @media (max-width: 600px) { .hero-content { padding: 1.5rem; } .article-body { padding: 2.5rem 1.2rem; } nav { padding: 0 1rem; } .nav-center { font-size: 0.75rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Offline by Design</a><a href="index.html" class="lang-ar">إقصاء مبرمَج</a></div>
+  <div class="nav-center">
+    <span class="lang-en"><span class="file-num">Essay 03</span> &mdash; Two Contracts</span>
+    <span class="lang-ar"><span class="file-num">المقال 03</span> &mdash; عقدان</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/report/report-f.jpg" alt="Server rack with red indicator lights, cool blue lighting">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">03</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Offline by Design &mdash; Essay 03 of 06</div>
+    <div class="hero-file-label lang-ar">إقصاء مبرمَج &mdash; المقال 03 من 06</div>
+    <h1 class="hero-title-en lang-en">Two Contracts</h1>
+    <h1 class="hero-title-ar lang-ar">عقدان</h1>
+    <p class="hero-subtitle lang-en"><em>An essay on the shared infrastructure of exclusion and targeting</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>محاولة في البنية المشتركة للإقصاء والاستهداف</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; May 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أيار 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="lang-en">
+      <p>The same week. The same company. Two moments.</p>
+      <p>A nursing student in Shatila opens the application. Types a question. The screen stops her. White text on blue: &ldquo;To continue, upgrade to Plus.&rdquo;</p>
+      <p>She closes the phone.</p>
+      <p>That same week&mdash;possibly that same hour&mdash;in a data center belonging to the same company, a list opens. Names. Coordinates. Satellite images. The algorithm says: this one. Kill him. At night. In his home. With his family.</p>
+      <p>Same company. Same infrastructure. Same contract&mdash;funding both.</p>
+      <hr>
+      <p>The first: the contract of exclusion.</p>
+      <p>Google and Amazon. 2021. One point two billion dollars. Seven years. A contract named &ldquo;Project Nimbus&rdquo;&mdash;to provide cloud infrastructure and artificial intelligence to the Israeli Ministry of Defense.</p>
+      <p>The single restriction in the contract: Google and Amazon cannot refuse any use. Even if the use violates their own terms of service. Even if the use is unlawful by their own standards. The companies signed on to never say no. No technical restrictions. No refusal of service. No one says no.</p>
+      <p>All the data the Israeli state needs to store: mass surveillance of civilians. Phone calls. Satellite imagery. Lists of names. Each person in detail.</p>
+      <p>This is the first part of the contract. The part of exclusion.</p>
+      <hr>
+      <p>The second: the contract of targeting.</p>
+      <p>Same companies. Same infrastructure. But now serving different systems. Not for storage&mdash;for killing.</p>
+      <p>A system named &ldquo;Lavender&rdquo;&mdash;developed by the Israeli military. It takes a name, it says: &ldquo;this one.&rdquo; Thirty-seven thousand names marked. Most of them junior operatives&mdash;little difference matters. The system does not distinguish. It says: kill list.</p>
+      <p>A human sees the name. Twenty seconds. Confirms the target is male. Sends the order.</p>
+      <p>Another system named &ldquo;Habsora&rdquo;&mdash;&ldquo;Gospel&rdquo; in Hebrew. Same infrastructure. Same data that Google stored. It pulls one name, it says: one hundred targets per day. It calculates how many civilians die when the bomb falls. The company knows this number. It writes it in the file: &ldquo;collateral damage&rdquo;&mdash;how many children will die. How many women. It says: proceed.</p>
+      <p>A third system named &ldquo;Where&rsquo;s Daddy?&rdquo;&mdash;it monitors the lists. It sees which target on the kill list works at night. It waits for him to go home. It counts the family around him. It says: kill him.</p>
+      <hr>
+      <p>The big companies say: we don&rsquo;t know how they use it.</p>
+      <p>But we know. Journalists know. 972 Magazine knows. The Washington Post knows. The Guardian knows. Democracy Now knows. Fifty journalists interviewed intelligence officers who know that the decision does not require a human to decide&mdash;only a human to confirm. A human saying yes to a list written by a machine.</p>
+      <hr>
+      <p>This is not accident.</p>
+      <p>The companies did not choose by chance that the Israeli government would be a client. It is not coincidence that they put no restriction in the contract on use. It is not incidental that they did not define what &ldquo;responsible standards&rdquo; meant.</p>
+      <p>The contract of exclusion and the contract of targeting belong to the same company and the same initial decision: that Palestinians have no value. No rights. Nothing.</p>
+      <hr>
+      <p>The Palestinian student in Shatila cannot open the application. She has no electricity. She has no money. She has no card.</p>
+      <p>But her data exists in the data center. Her photograph. Her communications. The people she talks to. The places she goes.</p>
+      <p>The company said: we don&rsquo;t transfer data to the military. We don&rsquo;t use data for targeting.</p>
+      <p>But we know that it is the same server. The same infrastructure. The same agreement that says: no restrictions.</p>
+      <hr>
+      <p>This is not chance. This is not market failure.</p>
+      <p>The gap is not a gap in communication. The gap is a choice.</p>
+      <p>The companies built systems that say no. Systems that say there is a way to fund the service other than a credit card.</p>
+      <p>The same companies built infrastructure that says yes. Yes to any use. Yes to any targeting. Yes to any decision.</p>
+      <p>And the gap between them&mdash;between &ldquo;no&rdquo; and &ldquo;yes&rdquo;&mdash;that gap is what kills.</p>
+
+      <div class="sources">
+        <p><em>Sources: 972 Magazine &mdash; <a href="https://www.972mag.com/project-nimbus-contract-google-amazon-israel/">Project Nimbus</a> (May 2024) and <a href="https://www.972mag.com/lavender-ai-israeli-army-gaza/">Lavender</a> (April 2024); The Intercept &mdash; <a href="https://theintercept.com/2024/12/02/google-project-nimbus-ai-israel/">Project Nimbus</a> (Dec 2024); Washington Post &mdash; <a href="https://www.washingtonpost.com/world/2024/04/05/israel-idf-lavender-ai-militarytarget/">Lavender</a> (April 2024); Al Jazeera &mdash; <a href="https://www.aljazeera.com/news/2024/4/23/what-is-project-nimbus-and-why-are-google-workers-protesting-israel-deal">Project Nimbus Explainer</a> (April 2024); Democracy Now &mdash; <a href="https://www.democracynow.org/2024/4/5/israel_ai">Lavender &amp; Where&rsquo;s Daddy</a> (April 2024); <a href="https://www.alhaq.org/advocacy/27054.html">Al-Haq AI Submission to UN</a> (December 2025).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">في نفس الأسبوع، في نفس الشركة، لحظتين.</p>
+      <p class="ar">الطالبة في الشاتيلا &mdash; تمريض، سنة ثانية &mdash; بتفتح التطبيق. بتدخّل السؤال. الشاشة بتوقفها. صفحة بيضاء على أزرق: &ldquo;لو بدك تكملي، اشتركي بـPlus.&rdquo;</p>
+      <p class="ar">بتسكّر التلفون.</p>
+      <p class="ar">في نفس الأسبوع &mdash; يمكن نفس الساعة &mdash; في مركز بيانات تابع لنفس الشركة، قائمة بتفتح. أسماء. إحداثيات. صور من الأقمار الصناعية. البرنامج بيقول: هاد هوي. اقتلوه. بالليل. بالبيت. مع أهله.</p>
+      <p class="ar">نفس الشركة. نفس البنية الأساسية. نفس العقد &mdash; بيمول الاتنين.</p>
+      <hr>
+      <p class="ar">الأول: عقد الإقصاء.</p>
+      <p class="ar">غوغل وأمازون. 2021. مليار ومئتين مليون دولار. سبع سنين. عقد اسمه &ldquo;بروجيكت نيمبوس&rdquo; &mdash; لتوفير البنية السحابية والذكاء الاصطناعي لوزارة الدفاع الإسرائيلية.</p>
+      <p class="ar">القيد الوحيد بالعقد: غوغل وأمازون ما بيقدروا يرفضوا أي استخدام. حتى لو الاستخدام كسر شروطهم الخاصة. حتى لو الاستخدام مش قانوني بمعاييرهم الخاصة. الشركتين وقعوا على إنهم ما بدهم يقفلوا شي. ما في قيود تقنية. ما في رفض خدمة. ما في حدا بيقول لا.</p>
+      <p class="ar">كل البيانات اللي بدها الدولة الإسرائيلية تخزّنها: مراقبة جماعية ع السكان المدنيين. اتصالات هاتفية. صور أقمار صناعية. قوائم أسماء. كل واحد بتفاصيله.</p>
+      <p class="ar">هاد الجزء الأول من العقد. جزء الإقصاء.</p>
+      <hr>
+      <p class="ar">التاني: عقد الاستهداف.</p>
+      <p class="ar">نفس الشركات. نفس البنية الأساسية. بس هلأ بتخدم برامج تانية. مش للحفظ &mdash; للقتل.</p>
+      <p class="ar">برنامج اسمه &ldquo;لافندر&rdquo; &mdash; طورّه الجيش الإسرائيلي. بياخد اسم، بيقول: &ldquo;هاد هوي&rdquo;. سبع وثلاثين ألف اسم محدد. معظمهم عناصر &ldquo;مبتدئة&rdquo; &mdash; ما في فرق كتير. البرنامج ما بيفرّق. بيقول: قائمة موت.</p>
+      <p class="ar">الإنسان بيشوف الاسم. عشرين ثانية. بيأكد إنه ذكر. بيرسل الأمر.</p>
+      <p class="ar">برنامج تاني اسمه &ldquo;هبصورة&rdquo; &mdash; &ldquo;الإنجيل&rdquo; بالعبرية. نفس البنية الأساسية. نفس البيانات اللي غوغل خزنتها. بيسحب اسم، بيقول: مية هدف باليوم. بيحسب كم مدني بينقتل لما بتنزل القنبلة. الشركة بتعرف الرقم. بيكتبوا بالملف: &ldquo;اصطدام جانبي&rdquo; &mdash; كم طفل رح يموت. كم ست. بيقولوا: تفضل.</p>
+      <p class="ar">برنامج تالت اسمه &ldquo;وين الأب؟&rdquo; &mdash; بيراقب القوائم. بيشوف أي واحد من اللي على قائمة الاستهداف بيشتغل بالليل. بيستنى لما يرجع ع البيت. بيحسب الأهل اللي حواليه. بيقول: اقتلوه.</p>
+      <hr>
+      <p class="ar">الشركات الكبار بيقولوا: إحنا ما منعرف كيف بيستخدموها.</p>
+      <p class="ar">بس إحنا منعرف. الصحفيين عرفوا. مجلة 972 عرفت. الواشنطن بوست عرفت. الغارديان عرفت. الديمقراسي ناو عرفت. خمسين صحفي استجوبوا ضباط مخابرات بيعرفوا إن الأمر ما بيتطلب إنسان يقرر &mdash; بس إنسان يأكّد. إنسان بيقول نعم لقائمة كتبتها ماكينة.</p>
+      <hr>
+      <p class="ar">هاد مش حادث.</p>
+      <p class="ar">الشركات ما اختاروا بالصدفة إن الحكومة الإسرائيلية تكون عميلة فيهم. مش صدفة إنهم ما حطوا بالعقد أي قيد على الاستخدام. مش عرضي إنهم ما فسروا شو معنى &ldquo;المعايير المسؤولة&rdquo; بتاعتهم.</p>
+      <p class="ar">عقد الإقصاء وعقد الاستهداف بتاع نفس الشركة، بتاع نفس القرار الأول: إن الفلسطيني بدون قيمة. بدون حق. بدون. كل شي.</p>
+      <hr>
+      <p class="ar">الفلسطينية في الشاتيلا ما بتقدر تفتح التطبيق. ما عندها كهربا. ما عندها فلوس. ما عندها بطاقة.</p>
+      <p class="ar">بس بياناتها موجودة في مركز البيانات. صورتها. اتصالاتها. الناس اللي بتحكي معهن. الأماكن اللي بتروح فيها.</p>
+      <p class="ar">الشركة قالت: إحنا ما منحوّل البيانات للجيش. إحنا ما منستخدم البيانات للاستهداف.</p>
+      <p class="ar">بس إحنا منعرف إنه نفس الخادم. نفس البنية الأساسية. نفس الاتفاق اللي بيقول: ما في قيود.</p>
+      <hr>
+      <p class="ar">هاد مش صدفة. هاد مش فشل سوق.</p>
+      <p class="ar">الفجوة مش فجوة بالاتصالات. الفجوة قرار.</p>
+      <p class="ar">الشركات بنوا برامج بتقول لا. برامج بتقول في طريقة لتمويل الخدمة غير بطاقة الائتمان.</p>
+      <p class="ar">نفس الشركات حطوا بنية تحتية بتقول نعم. نعم لأي استخدام. أي استهداف. أي قرار.</p>
+      <p class="ar">والفجوة بيناتهم &mdash; بين &ldquo;لا&rdquo; و &ldquo;نعم&rdquo; &mdash; هاي الفجوة اللي بتقتل.</p>
+
+      <div class="sources">
+        <p class="ar"><em>المصادر: مجلة 972 (مايو وأبريل 2024)؛ ذي إنترسبت (ديسمبر 2024)؛ واشنطن بوست (أبريل 2024)؛ الجزيرة (أبريل 2024)؛ ديمقراسي ناو (أبريل 2024)؛ مؤسسة الحق &mdash; تقرير الذكاء الاصطناعي للأمم المتحدة (ديسمبر 2025).</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The companies built systems that say no. The same companies built infrastructure that says yes. And the gap between them&mdash;between &lsquo;no&rsquo; and &lsquo;yes&rsquo;&mdash;that gap is what kills.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;الشركات بنوا برامج بتقول لا. نفس الشركات حطوا بنية تحتية بتقول نعم. والفجوة بيناتهم &mdash; بين &lsquo;لا&rsquo; و &lsquo;نعم&rsquo; &mdash; هاي الفجوة اللي بتقتل.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="02.html" class="lang-en">&larr; Previous: The Card You Can&rsquo;t Have</a>
+      <a href="02.html" class="lang-ar">&rarr; السابق: البطاقة اللي ما إلك</a>
+      <a href="04.html" class="lang-en">Next Essay &rarr; The Arabic Nobody Wrote Down</a>
+      <a href="04.html" class="lang-ar">المقال التالي &larr; العربي اللي ما حدا كتبه</a>
+    </div>
+    <div class="series-link">
+      <a href="index.html" class="lang-en">Back to Offline by Design</a>
+      <a href="index.html" class="lang-ar">العودة إلى إقصاء مبرمَج</a>
+    </div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Offline by Design is a six-essay series on the architecture of digital exclusion.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إقصاء مبرمَج سلسلة من ستة مقالات في هندسة الإقصاء الرقمي.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) { document.documentElement.lang = lang; localStorage.setItem('obd-lang', lang); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); document.getElementById('btn-ar').classList.toggle('active', lang === 'ar'); }
+  (function() { var saved = localStorage.getItem('obd-lang') || 'en'; setLang(saved); })();
+</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay 06 — The Gap Has a Name | Offline by Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#1A1714; --surface:#F5F0E8; --accent:#C41230; --muted:#6B6259; --art:#5F5651; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  html[lang="ar"] { direction: rtl; }
+  html:not([lang="ar"]) .lang-ar { display: none !important; }
+  html[lang="ar"] .lang-en { display: none !important; }
+  body { background: var(--bg); color: var(--surface); font-family: 'EB Garamond', serif; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,23,20,0.96); backdrop-filter: blur(8px); height: 52px; display: flex; align-items: center; padding: 0 2rem; border-bottom: 1px solid rgba(245,240,232,0.08); }
+  .nav-left { flex: 1; }
+  .nav-left a { color: var(--muted); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-left a:hover { color: var(--surface); }
+  .nav-center { flex: 2; text-align: center; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .nav-center .file-num { color: var(--accent); font-weight: 600; }
+  .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .lang-btn { background: none; border: 1px solid rgba(245,240,232,0.2); color: var(--muted); padding: 0.25rem 0.6rem; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--accent); color: var(--accent); }
+  .hero { position: relative; height: 60vh; min-height: 400px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; margin-top: 52px; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,23,20,0.1) 0%, rgba(26,23,20,0.4) 40%, rgba(26,23,20,0.92) 100%); }
+  .hero-ghost { position: absolute; right: 5%; bottom: -0.1em; font-family: 'Playfair Display', serif; font-size: clamp(8rem, 22vw, 18rem); font-weight: 900; color: var(--accent); opacity: 0.18; line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.04em; }
+  html[lang="ar"] .hero-ghost { right: auto; left: 5%; }
+  .hero-content { position: relative; z-index: 2; padding: 2.5rem 3rem; max-width: 900px; }
+  .hero-file-label { font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .hero-title-en { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-title-ar { font-family: 'Amiri', serif; font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .hero-subtitle-ar { font-family: 'Amiri', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .byline { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: rgba(245,240,232,0.5); letter-spacing: 0.03em; }
+  .byline-ar { font-family: 'Amiri', serif; font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+  .article-wrap { background: var(--surface); color: #1A1714; }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-body p { font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.85; color: #1A1714; margin-bottom: 1.4em; }
+  .article-body p.ar { font-family: 'Amiri', serif; font-size: 20px; line-height: 1.9; direction: rtl; text-align: right; }
+  .article-body hr { border: none; border-top: 1px solid rgba(26,23,20,0.15); margin: 2rem 0; }
+  .article-body em { font-style: italic; }
+  .article-body strong { font-weight: 600; }
+  .sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(26,23,20,0.15); font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .sources p { font-size: 0.85rem; font-family: 'EB Garamond', serif; }
+  .sources p.ar { font-family: 'Amiri', serif; direction: rtl; text-align: right; }
+  .pull-quote-section { background: var(--bg); padding: 5rem 2rem; }
+  .pull-quote-inner { max-width: 720px; margin: 0 auto; }
+  .pull-quote { border-left: 4px solid var(--accent); padding: 1.5rem 2rem; }
+  html[lang="ar"] .pull-quote { border-left: none; border-right: 4px solid var(--accent); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.65rem); line-height: 1.5; color: var(--surface); }
+  .pull-quote p.ar { font-family: 'Amiri', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); direction: rtl; text-align: right; }
+  .article-footer { background: var(--surface); padding: 3rem 2rem; }
+  .article-footer-inner { max-width: 720px; margin: 0 auto; }
+  .file-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .file-nav a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; border-bottom: 1px solid transparent; transition: all 0.2s; padding-bottom: 2px; }
+  .file-nav a:hover { color: #1A1714; border-bottom-color: var(--accent); }
+  .series-link { text-align: center; margin-bottom: 2rem; }
+  .series-link a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(107,98,89,0.4); padding-bottom: 2px; transition: all 0.2s; }
+  .series-link a:hover { color: #1A1714; border-bottom-color: var(--accent); }
+  .author-bio { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); border-top: 1px solid rgba(26,23,20,0.12); padding-top: 1.5rem; line-height: 1.6; }
+  .author-bio-ar { font-family: 'Amiri', serif; font-size: 0.95rem; direction: rtl; text-align: right; }
+  footer { background: var(--bg); text-align: center; padding: 2rem; font-family: 'EB Garamond', serif; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; border-top: 1px solid rgba(245,240,232,0.06); }
+  @media (max-width: 600px) { .hero-content { padding: 1.5rem; } .article-body { padding: 2.5rem 1.2rem; } nav { padding: 0 1rem; } .nav-center { font-size: 0.75rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Offline by Design</a><a href="index.html" class="lang-ar">إقصاء مبرمَج</a></div>
+  <div class="nav-center">
+    <span class="lang-en"><span class="file-num">Essay 06</span> &mdash; The Gap Has a Name</span>
+    <span class="lang-ar"><span class="file-num">المقال 06</span> &mdash; الفجوة إلها اسم</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/report/report-g.jpg" alt="Aerial night view of dense camp with amber-lit streets">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">06</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Offline by Design &mdash; Essay 06 of 06</div>
+    <div class="hero-file-label lang-ar">إقصاء مبرمَج &mdash; المقال 06 من 06</div>
+    <h1 class="hero-title-en lang-en">The Gap Has a Name</h1>
+    <h1 class="hero-title-ar lang-ar">الفجوة إلها اسم</h1>
+    <p class="hero-subtitle lang-en"><em>An essay on accountability and decision</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>محاولة في فجوة المسؤولية والقرار</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; May 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أيار 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="lang-en">
+      <p>September 2024. New York. The UN hall. Representatives from every nation sign the &ldquo;Global Digital Compact.&rdquo; The document says: everyone deserves digital access. A fundamental right. An international commitment.</p>
+      <p>Two months earlier&mdash;July 19, 2024&mdash;the International Court of Justice had issued an advisory opinion: Israeli occupation is unlawful. It must end.</p>
+      <p>An international court rules in July. The world&rsquo;s nations sign a digital commitment in September. And in the West Bank, between one date and the other, the army continues cutting electricity and internet every day.</p>
+      <hr>
+      <p>UNRWA&mdash;the same year&mdash;releases its &ldquo;Emergency Appeal.&rdquo; One hundred twenty-three pages. Lists of need. Estimates of what is required. Line by line: safe water. Food. Health. Shelter. Education. Cash assistance.</p>
+      <p>The difference: in the UN hall, they write &ldquo;digital.&rdquo; In UNRWA&rsquo;s emergency document&mdash;the one listing one million people in acute need&mdash;there is not one word about digital infrastructure. Not one. Zero.</p>
+      <hr>
+      <p>If the gap were a gap in knowledge&mdash;if the world did not know Palestinians in camps have no electricity&mdash;the solution would be simple: close the gap. Tell the truth. The world would wake up.</p>
+      <p>But that is not the story.</p>
+      <hr>
+      <p>The advisory opinion issued by the International Court in July 2024 is clear: occupation is unlawful. Clear words. International ruling. No ambiguity.</p>
+      <p>From that day until now&mdash;from July to today&mdash;the occupation has not ended. The Israeli military did not stop cutting electricity and internet based on the Court&rsquo;s opinion. Nothing stopped. The cuts continued. The siege continued. The war continued.</p>
+      <hr>
+      <p>The story here is not &ldquo;we have no data.&rdquo; The story is that the data exists. The courts have ruled. The commitments are written on paper. But no one stopped at the document and said: &ldquo;If we sign this document, if we say digital access is a right, if the International Court of Justice says occupation is unlawful, if we mean what we say, the cuts must stop.&rdquo;</p>
+      <p>No one said that.</p>
+      <hr>
+      <p>There is something called an &ldquo;implementation gap&rdquo;&mdash;meaning: the words exist, but no one enforces them. But &ldquo;implementation gap&rdquo; is soft political language. Language that says: yes, a small thing, it will be resolved soon. Language that says: the gap is blind. Language that says: no one intended this.</p>
+      <p>But the gap here is not blind.</p>
+      <hr>
+      <p>OpenAI. 2024. Says: &ldquo;We are committed to safe and responsible AI use.&rdquo; No one specifies how. Google. 2024. Same words. Microsoft. Anthropic. All wrote: &ldquo;We commit.&rdquo; They commit to something. But how many of their contracts are with states that kill? How many of them investigate the new data they use, or refuse it, or say: &ldquo;This use will not be fulfilled by us&rdquo;?</p>
+      <p>Not one.</p>
+      <hr>
+      <p>In 2024, UNRWA asked for funds. America, the primary funder, cut $450 million. Four hundred fifty. The program collapsed. Without UNRWA, 1.5 million people in the West Bank, one million in Gaza, a quarter million in Syria&mdash;without food. Without shelter. Without basic needs. And digital infrastructure? No one even said: &ldquo;This must be budgeted.&rdquo;</p>
+      <hr>
+      <p>The gap is not an information gap. No one lacks the data. The international court spoke truth. The large companies wrote commitments. But the gap between &ldquo;we commit&rdquo; and &ldquo;yes, but there is no funding&rdquo; and &ldquo;there is no actual plan&rdquo; and &ldquo;there is no enforcement mechanism&rdquo;&mdash;that gap has a name: it is a decision.</p>
+      <p>A decision that the Palestinian remains without. A decision that digital infrastructure is not a priority. A decision that the commitment to the digital compact&mdash;the one the United Nations signed&mdash;contains nothing strong enough to say the Palestinian has a right.</p>
+      <p>And that decision, that clear decision, that decision with no ambiguity&mdash;that is called: <strong>impunity</strong>.</p>
+      <hr>
+      <p>The nursing student in Shatila&mdash;the one this series began with&mdash;does not know these words: &ldquo;digital compact,&rdquo; &ldquo;advisory opinion,&rdquo; &ldquo;international commitment.&rdquo; But she knows one essential fact: the phone is dead. The application has no electricity to open. The exam is in a month. And no one says: &ldquo;If we mean justice, we must build infrastructure here.&rdquo;</p>
+      <p>But something said so. An international court said so. An international agreement said so.</p>
+      <p>But no one listened.</p>
+
+      <div class="sources">
+        <p><em>Sources: United Nations &mdash; Global Digital Compact, adopted at the Summit of the Future, 22 September 2024; International Court of Justice &mdash; Advisory Opinion on the Legal Consequences of the Policies and Practices of Israel in the Occupied Palestinian Territory (19 July 2024); UNRWA Emergency Appeal &mdash; Syria, Lebanon, Jordan (2024); UNRWA 2025 Emergency Appeal (January 2025); Al-Haq submission to UN Special Rapporteur on extreme poverty (December 2025); OpenAI Responsible Disclosure Policy (2024); Google AI Principles (2024); Microsoft Responsible AI Standard (2024); Anthropic Constitutional AI Commitment (2024).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">سبتمبر 2024. نيويورك. القاعة الأممية. ممثلين من كل دول العالم بيوقعوا &ldquo;العقد الرقمي العالمي&rdquo; &mdash; Global Digital Compact. الوثيقة بتقول: كل الناس بدهم يكون عندهم وصول رقمي. حق أساسي. التزام دولي.</p>
+      <p class="ar">قبل شهرين &mdash; يوم 19 يوليو 2024 &mdash; محكمة العدل الدولية كانت طلعت رأي استشاري: الاحتلال الإسرائيلي مش قانوني. لازم ينتهي.</p>
+      <p class="ar">محكمة دولية بتحكم بيوليو. دول العالم بتوقّع التزام رقمي بسبتمبر. وفي الضفة الغربية، بين هاد التاريخ وهاداك، الجيش بيستمر بقطع الكهربا والإنترنت كل يوم.</p>
+      <hr>
+      <p class="ar">منظمة الأونروا &mdash; بنفس السنة &mdash; بتطلع &ldquo;النداء الطارئ&rdquo;. 123 صفحة. قوائم محتاجين. تقديرات احتياجات. سطر سطر: ميّ مأمونة. غذا. صحة. ملاجئ. تعليم. مساعدة نقدية.</p>
+      <p class="ar">الفرق: في القاعة الأممية، بيكتبوا &ldquo;رقمي&rdquo;. في وثيقة الأونروا الطارئة &mdash; اللي فيها مليون إنسان بحاجة حقيقية &mdash; ما في كلمة وحدة عن البنية الأساسية الرقمية. ما في. صفر.</p>
+      <hr>
+      <p class="ar">لو كانت الفجوة فجوة معلومات &mdash; لو كان العالم ما بيعرف إن الفلسطينيين بالمخيم ما عندهم كهربا &mdash; كان الحل بسيط: بيّن اللبس. قول الحقيقة. العالم بيصحى.</p>
+      <p class="ar">بس هاي مش القصة.</p>
+      <hr>
+      <p class="ar">الرأي الاستشاري اللي طلعته محكمة العدل &mdash; بيوليو 2024 &mdash; واضح: الاحتلال مش قانوني. كلمات واضحة. حكم دولي. ما في غموض.</p>
+      <p class="ar">من يومها لهلأ &mdash; من يوليو لليوم &mdash; الاحتلال ما انتهى. الجيش الإسرائيلي ما وقّف قطع الإنترنت والكهربا بناءً على رأي المحكمة. ما في شي توقف. القطع الأساسي استمر. الحصار استمر. الحرب استمرت.</p>
+      <hr>
+      <p class="ar">القصة هون مش &ldquo;ما في بيانات&rdquo;. القصة إن البيانات موجودة. المحاكم حكمت. الالتزامات كُتبت بأوراق. بس ما في حدا وقف عند الوثيقة وقال: &ldquo;إذا إحنا وقّعنا هاي الوثيقة، إذا إحنا قلنا إن الرقمي حق، إذا محكمة العدل الدولية قالت الاحتلال مش قانوني، إذا إحنا بدنا نعني اللي منقوله، لازم القطع يوقف&rdquo;.</p>
+      <p class="ar">ما حدا قال هيك.</p>
+      <hr>
+      <p class="ar">في شي اسمه &ldquo;فجوة تنفيذ&rdquo; &mdash; يعني: الكلام موجود، بس ما حدا بينفّذه. بس &ldquo;فجوة تنفيذ&rdquo; كلمة سياسية ناعمة. كلمة بتقول: آه، شي بسيط، بيتحل على طول. بتقول: الفجوة عمياء. بتقول: ما حدا بقصد.</p>
+      <p class="ar">بس الفجوة هون مش عمياء.</p>
+      <hr>
+      <p class="ar">OpenAI. 2024. بتقول: &ldquo;إحنا ملتزمين بالاستخدام الآمن والمسؤول للذكاء الاصطناعي&rdquo;. ما حدا بيحدد كيف. Google. 2024. نفس الشي. Microsoft. Anthropic. كلهم كتبوا: &ldquo;منلتزم&rdquo;. منلتزم بشي. بس كم صفقة تبعهم مع دول بتقتل؟ كم واحد منهم بيفتش على البيانات الجديدة اللي بيستخدمها، أو بيرفضها، أو بيقول: &ldquo;هاد الاستخدام ما بننفّذه&rdquo;؟</p>
+      <p class="ar">ولا حدا.</p>
+      <hr>
+      <p class="ar">في 2024، الأونروا طلبت أموال. أمريكا، اللي كانت الممول الأساسي، قطعت 450 مليون دولار. 450. البرنامج انهار. بدون الأونروا، مليون ونص إنسان بالضفة، مليون بغزة، ربع مليون بسوريا &mdash; بدون غذا. بدون ملاجئ. بدون حاجات أساسية. والبنية الأساسية الرقمية؟ ما حدا حتى قال: &ldquo;لازم توضع بالميزانية&rdquo;.</p>
+      <hr>
+      <p class="ar">الفجوة مش فجوة معلومات. ما حدا ما عندو البيانات. المحكمة الدولية قالت الحقيقة. الشركات الكبار كاتبة التزامات. بس الفجوة بين &ldquo;إحنا منلتزم&rdquo; و &ldquo;آه، بس ما في أموال&rdquo; و &ldquo;ما في خطة فعلية&rdquo; و &ldquo;ما في آلية تنفيذ&rdquo; &mdash; هاي الفجوة إلها اسم: إنها قرار.</p>
+      <p class="ar">قرار إن الفلسطيني يضل بدون. قرار إن البنية الأساسية الرقمية مش أولوية. قرار إن الالتزام بالعقد الرقمي &mdash; هاد اللي الأمم المتحدة وقعت عليه &mdash; ما فيه شي كافي بيقول إن الفلسطيني إله حق.</p>
+      <p class="ar">والقرار هاد، القرار الواضح، القرار اللي ما فيه غموض &mdash; هاد اسمه: <strong>إفلات من العقاب</strong>.</p>
+      <hr>
+      <p class="ar">الطالبة في الشاتيلا &mdash; اللي حكينا عنها أول شي &mdash; ما بتعرف هاي الكلمات: &ldquo;العقد الرقمي&rdquo;، &ldquo;رأي استشاري&rdquo;، &ldquo;التزام دولي&rdquo;. بس بتعرف شي أساسي: إن التلفون ميّت. والتطبيق ما في كهربا حتى تفتحه. والامتحان صار شهر. وما في حدا بيقول: &ldquo;إذا إحنا بدنا ننصف، لازم نحط البنية التحتية هون&rdquo;.</p>
+      <p class="ar">بس في شي قال هيك. محكمة دولية قالت هيك. عقد دولي قال هيك.</p>
+      <p class="ar">بس ما في حدا سمع.</p>
+
+      <div class="sources">
+        <p class="ar"><em>المصادر: الأمم المتحدة &mdash; العقد الرقمي العالمي، اعتُمد بقمة المستقبل، 22 سبتمبر 2024؛ محكمة العدل الدولية &mdash; الرأي الاستشاري بشأن الآثار القانونية لسياسات وممارسات إسرائيل في الأراضي الفلسطينية المحتلة (19 يوليو 2024); UNRWA Emergency Appeal (2024); UNRWA 2025 Emergency Appeal (يناير 2025); مؤسسة الحق &mdash; تقرير المسؤول الأممي الخاص (ديسمبر 2025); OpenAI / Google / Microsoft / Anthropic &mdash; Responsible AI commitments (2024).</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;That gap has a name: it is a decision. That clear decision, that decision with no ambiguity&mdash;that is called: impunity.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;هاي الفجوة إلها اسم: إنها قرار. القرار الواضح، القرار اللي ما فيه غموض &mdash; هاد اسمه: إفلات من العقاب.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="05.html" class="lang-en">&larr; Previous: Everywhere, By Design</a>
+      <a href="05.html" class="lang-ar">&rarr; السابق: بكل مكان، بنفس التصميم</a>
+      <a href="index.html" class="lang-en">End of Series &rarr; Back to Cover</a>
+      <a href="index.html" class="lang-ar">نهاية السلسلة &larr; العودة للغلاف</a>
+    </div>
+    <div class="series-link">
+      <a href="index.html" class="lang-en">Back to Offline by Design</a>
+      <a href="index.html" class="lang-ar">العودة إلى إقصاء مبرمَج</a>
+    </div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Offline by Design is a six-essay series on the architecture of digital exclusion.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إقصاء مبرمَج سلسلة من ستة مقالات في هندسة الإقصاء الرقمي.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) { document.documentElement.lang = lang; localStorage.setItem('obd-lang', lang); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); document.getElementById('btn-ar').classList.toggle('active', lang === 'ar'); }
+  (function() { var saved = localStorage.getItem('obd-lang') || 'en'; setLang(saved); })();
+</script>
+</body>
+</html>

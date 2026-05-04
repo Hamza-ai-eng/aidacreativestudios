@@ -15,6 +15,13 @@ export const SERIES: Series[] = [
     externalPath: "/editorial/human-in-the-loop/index.html",
   },
   {
+    slug: "offline-by-design-series",
+    status: "live",
+    fileCount: 6,
+    accentColor: "#A87838",
+    externalPath: "/editorial/offline-by-design-series/index.html",
+  },
+  {
     slug: "the-brand-that-stays",
     status: "coming-soon",
     fileCount: 5,

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay 05 — Everywhere, By Design | Offline by Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#1A1714; --surface:#F5F0E8; --accent:#C41230; --muted:#6B6259; --art:#A8423E; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  html[lang="ar"] { direction: rtl; }
+  html:not([lang="ar"]) .lang-ar { display: none !important; }
+  html[lang="ar"] .lang-en { display: none !important; }
+  body { background: var(--bg); color: var(--surface); font-family: 'EB Garamond', serif; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,23,20,0.96); backdrop-filter: blur(8px); height: 52px; display: flex; align-items: center; padding: 0 2rem; border-bottom: 1px solid rgba(245,240,232,0.08); }
+  .nav-left { flex: 1; }
+  .nav-left a { color: var(--muted); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-left a:hover { color: var(--surface); }
+  .nav-center { flex: 2; text-align: center; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .nav-center .file-num { color: var(--art); font-weight: 600; }
+  .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .lang-btn { background: none; border: 1px solid rgba(245,240,232,0.2); color: var(--muted); padding: 0.25rem 0.6rem; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--art); color: var(--art); }
+  .hero { position: relative; height: 60vh; min-height: 400px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; margin-top: 52px; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,23,20,0.1) 0%, rgba(26,23,20,0.4) 40%, rgba(26,23,20,0.92) 100%); }
+  .hero-ghost { position: absolute; right: 5%; bottom: -0.1em; font-family: 'Playfair Display', serif; font-size: clamp(8rem, 22vw, 18rem); font-weight: 900; color: var(--art); opacity: 0.16; line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.04em; }
+  html[lang="ar"] .hero-ghost { right: auto; left: 5%; }
+  .hero-content { position: relative; z-index: 2; padding: 2.5rem 3rem; max-width: 900px; }
+  .hero-file-label { font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--art); margin-bottom: 0.75rem; }
+  .hero-title-en { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-title-ar { font-family: 'Amiri', serif; font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .hero-subtitle-ar { font-family: 'Amiri', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .byline { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: rgba(245,240,232,0.5); letter-spacing: 0.03em; }
+  .byline-ar { font-family: 'Amiri', serif; font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+  .article-wrap { background: var(--surface); color: #1A1714; }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-body p { font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.85; color: #1A1714; margin-bottom: 1.4em; }
+  .article-body p.ar { font-family: 'Amiri', serif; font-size: 20px; line-height: 1.9; direction: rtl; text-align: right; }
+  .article-body hr { border: none; border-top: 1px solid rgba(26,23,20,0.15); margin: 2rem 0; }
+  .article-body em { font-style: italic; }
+  .article-body strong { font-weight: 600; }
+  .place-label { display: inline-block; font-family: 'EB Garamond', serif; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--art); margin-bottom: 0.4em; }
+  .place-label.ar { font-family: 'Amiri', serif; text-transform: none; letter-spacing: 0.04em; font-size: 1rem; }
+  .sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(26,23,20,0.15); font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .sources p { font-size: 0.85rem; font-family: 'EB Garamond', serif; }
+  .sources p.ar { font-family: 'Amiri', serif; direction: rtl; text-align: right; }
+  .sources a { color: var(--muted); text-decoration: underline; text-decoration-color: rgba(168,66,62,0.4); }
+  .sources a:hover { color: var(--art); text-decoration-color: var(--art); }
+  .pull-quote-section { background: var(--bg); padding: 5rem 2rem; }
+  .pull-quote-inner { max-width: 720px; margin: 0 auto; }
+  .pull-quote { border-left: 4px solid var(--art); padding: 1.5rem 2rem; }
+  html[lang="ar"] .pull-quote { border-left: none; border-right: 4px solid var(--art); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.65rem); line-height: 1.5; color: var(--surface); }
+  .pull-quote p.ar { font-family: 'Amiri', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); direction: rtl; text-align: right; }
+  .article-footer { background: var(--surface); padding: 3rem 2rem; }
+  .article-footer-inner { max-width: 720px; margin: 0 auto; }
+  .file-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .file-nav a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; border-bottom: 1px solid transparent; transition: all 0.2s; padding-bottom: 2px; }
+  .file-nav a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .series-link { text-align: center; margin-bottom: 2rem; }
+  .series-link a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(107,98,89,0.4); padding-bottom: 2px; transition: all 0.2s; }
+  .series-link a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .author-bio { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); border-top: 1px solid rgba(26,23,20,0.12); padding-top: 1.5rem; line-height: 1.6; }
+  .author-bio-ar { font-family: 'Amiri', serif; font-size: 0.95rem; direction: rtl; text-align: right; }
+  footer { background: var(--bg); text-align: center; padding: 2rem; font-family: 'EB Garamond', serif; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; border-top: 1px solid rgba(245,240,232,0.06); }
+  @media (max-width: 600px) { .hero-content { padding: 1.5rem; } .article-body { padding: 2.5rem 1.2rem; } nav { padding: 0 1rem; } .nav-center { font-size: 0.75rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Offline by Design</a><a href="index.html" class="lang-ar">إقصاء مبرمَج</a></div>
+  <div class="nav-center">
+    <span class="lang-en"><span class="file-num">Essay 05</span> &mdash; Everywhere, By Design</span>
+    <span class="lang-ar"><span class="file-num">المقال 05</span> &mdash; بكل مكان، بنفس التصميم</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/report/report-b.jpg" alt="Four monolithic columns standing on a beach against grey sky">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">05</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Offline by Design &mdash; Essay 05 of 06</div>
+    <div class="hero-file-label lang-ar">إقصاء مبرمَج &mdash; المقال 05 من 06</div>
+    <h1 class="hero-title-en lang-en">Everywhere, By Design</h1>
+    <h1 class="hero-title-ar lang-ar">بكل مكان، بنفس التصميم</h1>
+    <p class="hero-subtitle lang-en"><em>An essay on the geography of unified exclusion</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>محاولة في الجغرافيا الموحدة للإقصاء</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; May 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أيار 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="lang-en">
+      <p>Shatila in Beirut. One hour of electricity per day. A law says: you do not exist.</p>
+      <p>Yarmouk in Damascus. One hour of electricity. Homes destroyed. Infrastructure bombed. Old law. New government. Same result: you do not exist.</p>
+      <p>Jerash in Amman. 52% below poverty line. No computer in the home. The street has internet. The house has hope. But the house has no tool. You are without.</p>
+      <p>Jenin in the West Bank. Israeli army cuts electricity by force. Cuts internet. Cuts life. This is not law. This is war.</p>
+      <hr>
+      <p>Four places. Four different mechanisms. One outcome.</p>
+      <hr>
+      <span class="place-label">Beirut: Law</span>
+      <p>The Lebanese government said: Palestinians do not deserve infrastructure. It said: we fear permanent stay. It said: if we give them electricity, they might remain. We refused.</p>
+      <p>Law No. 296 states: the Palestinian cannot own land. Cannot work. Cannot open a business. Cannot enter the state network. Thirty-nine professions forbidden. Cannot. Cannot. Cannot.</p>
+      <p>Shatila receives electricity one hour per day. No accident. No development. No &ldquo;we will improve things.&rdquo; One hour&mdash;deliberate design.</p>
+      <hr>
+      <span class="place-label">Damascus: War</span>
+      <p>Yarmouk had 150,000 people. Now&mdash;approximately 15,000 living in rubble. Seventy-two percent of homes destroyed. Twenty-three UNRWA schools bombed. No hospital. No water. One hour of electricity is enough for the camp. Not enough to run a computer. Enough to eat. Enough to protect yourself from darkness.</p>
+      <p>The mechanism differs from Lebanon. But the result is the same: you are without.</p>
+      <hr>
+      <span class="place-label">Amman: Poverty</span>
+      <p>The Jordanian government did not refuse Palestinians directly. The government said: you are welcome&mdash;provided you do not succeed. Economic opportunity reserved for Jordanians. For refugees: poverty.</p>
+      <p>Fifty-two percent of Jerash residents below poverty line. Jerash has good internet. But no computer in the home. Two homes in ten have computers. So the internet is useless for students. Not at home. Not at school.</p>
+      <p>The mechanism differs. But the result: you have no tool.</p>
+      <hr>
+      <span class="place-label">Jenin: Occupation</span>
+      <p>The Israeli army cuts electricity quietly. Without announcement. Without stated reason. Just&mdash;cut. Internet too. Phone too. Everything cut.</p>
+      <p>Not a network failure. Not an electrical fault. Not lack of resources. Direct military operation. The army cuts the cables. Cuts the services. Not because it is failing. Because it is the plan.</p>
+      <hr>
+      <p>The difference among the four: different mechanism.</p>
+      <p>The single difference: identical result.</p>
+      <p>If mechanism alone determined outcome&mdash;if Lebanese law were the only cause&mdash;this result would not emerge from Syrian war. Would not emerge from Jordanian poverty. Would not emerge from Israeli occupation.</p>
+      <p>But it does. From all three. From all four.</p>
+      <hr>
+      <p>Tel Aviv&mdash;sixty kilometers away.</p>
+      <p>Tel Aviv has 167 megabits per second. Tel Aviv has banks. Has credit cards. Has ChatGPT. ChatGPT Plus subscription costs three hours of work at minimum wage.</p>
+      <p>Jenin&mdash;sixty kilometers from Tel Aviv&mdash;has no internet. Has no electricity. Has no life.</p>
+      <p>Not 100 kilometers away. Not 500. Sixty. The distance between the West Bank and the sea.</p>
+      <hr>
+      <p>Four places. Four countries. Four different legal systems. But one question: who decided you cannot?</p>
+      <p>One answer: everyone. At the same time. Without coordination. Without contract.</p>
+      <hr>
+      <p>The engineering does not exist in the mechanism. The engineering exists in the target. The target: the Palestinian without. Without electricity. Without internet. Without card. Without computer. Without digital life.</p>
+      <p>And each state found its own method. But the result is one.</p>
+
+      <div class="sources">
+        <p><em>Sources: <a href="https://www.unrwa.org/sites/default/files/content/resources/2024_ea_syria_lebanon_and_jordan_final_1.pdf">UNRWA 2024 Emergency Appeal</a> (January 2024); <a href="https://www.hrw.org/report/2023/03/09/cut-life-itself/lebanons-failure-right-electricity">HRW &mdash; Cut Off From Life Itself</a> (March 2023); <a href="https://www.euaa.europa.eu/coi/syria/2025">EUAA COI Syria</a> (2025); <a href="https://www.unicef.org/jordan/media/11341/file/Jerash%20Report%20.pdf">UNICEF Jerash Report</a> (2021); <a href="https://www.ochaopt.org/content/humanitarian-situation-update-287-west-bank">OCHA West Bank Updates</a> (2024&ndash;2026); <a href="https://www.icj-cij.org/node/204160">ICJ Advisory Opinion</a> (July 2024); <a href="https://www.merip.org/2025/01/power-struggles-energy-as-a-weapon-of-war-domination-and-resistance-in-palestine/">MERIP &mdash; Power Struggles</a> (January 2025).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">الشاتيلا في بيروت. ساعة وحدة كهربا باليوم. قانون بيقول: إنتي مش موجودة.</p>
+      <p class="ar">اليرموك في دمشق. ساعة وحدة كهربا. البيوت تهدّمت. البنية الأساسية انقصفت. القانون قديم. الدولة تغيّرت. النتيجة نفسها: إنتي مش موجودة.</p>
+      <p class="ar">الجرش في عمّان. نسبة الفقر 52%. ما في كمبيوتر بالبيت. الشارع فيه غوغل فايبر. البيت فيه أمل. بس البيت ما فيه أداة. إنتي بدون.</p>
+      <p class="ar">جنين في الضفة الغربية. الجيش الإسرائيلي بيقطع الكهربا بالقوة. بيقطع الإنترنت. بيقطع الحياة. هاد مش قانون. هاد حرب.</p>
+      <hr>
+      <p class="ar">أربع أماكن. أربع آليات مختلفة. نتيجة وحدة.</p>
+      <hr>
+      <span class="place-label ar">بيروت: قانون</span>
+      <p class="ar">الحكومة اللبنانية قالت: الفلسطينيين ما بيستحقوا بنية تحتية. قالت: منخاف من البقاء الدائم. قالت: لو عطيناهم كهربا، يمكن يبقوا. فرفضنا.</p>
+      <p class="ar">القانون رقم 296 بيقول: الفلسطيني ما بيقدر يملك أرض. ما بيقدر يشتغل. ما بيقدر يفتح محل. ما بيقدر يدخل الشبكة الحكومية. تسع وثلاثين مهنة ممنوعة. ما بيقدر. ما بيقدر. ما بيقدر.</p>
+      <p class="ar">الشاتيلا بتاخد كهربا ساعة وحدة باليوم. ما في شي تاني. ما في تطور. ما في &ldquo;رح نحسّن الأمور&rdquo;. ساعة وحدة &mdash; تصميم بقصد.</p>
+      <hr>
+      <span class="place-label ar">دمشق: حرب</span>
+      <p class="ar">اليرموك كان فيه 150 ألف إنسان. هلأ &mdash; حوالي 15 ألف عايشين بالخراب. 72% من البيوت تهدّمت. 23 مدرسة أونروا انقصفت. ما في مستشفى. ما في ميّ. ساعة وحدة كهربا بتكفي المخيم. ما بتكفي لتشغيل كمبيوتر. بتكفي للأكل. بتكفي تحمي حالك من العتمة.</p>
+      <p class="ar">الآلية مختلفة عن لبنان. بس النتيجة نفسها: إنتي بدون.</p>
+      <hr>
+      <span class="place-label ar">عمّان: فقر</span>
+      <p class="ar">الحكومة الأردنية ما رفضت الفلسطينيين مباشرة. الحكومة قالت: أهلاً فيكم &mdash; بشرط ما تنجحوا. الفرص الاقتصادية محجوزة للأردنيين. للاجئين: الفقر.</p>
+      <p class="ar">52% من سكان الجرش تحت خط الفقر. الجرش فيه إنترنت كويس. بس البيت ما فيه كمبيوتر. اتنين من كل عشر بيوت فيهم كمبيوتر. فالإنترنت ما فيه فايدة للطالب. لا بالبيت. لا بالمدرسة.</p>
+      <p class="ar">الآلية مختلفة. بس النتيجة: ما عندك أداة.</p>
+      <hr>
+      <span class="place-label ar">جنين: احتلال</span>
+      <p class="ar">الجيش الإسرائيلي بيقطع الكهربا بالهدوء. بدون إعلان. بدون سبب معلن. فقط &mdash; قطع. الإنترنت كذلك. التلفون كذلك. كل شي بينقطع.</p>
+      <p class="ar">مش فشل بالشبكة. مش عطل كهربائي. مش ما في موارد. عملية عسكرية مباشرة. الجيش بيقطع الأسلاك. بيقطع الخدمات. مش لإنه بيفشل. لإنها خطة.</p>
+      <hr>
+      <p class="ar">الفرق بين الأربعة: آلية مختلفة.</p>
+      <p class="ar">الفرق الواحد: النتيجة نفسها.</p>
+      <p class="ar">لو كانت الآلية وحدها هي اللي بتحدّد النتيجة &mdash; لو كان القانون اللبناني هو السبب &mdash; كانت ما طلعت هاي النتيجة من حرب سورية. ولا من فقر أردني. ولا من احتلال إسرائيلي.</p>
+      <p class="ar">بس بتطلع. من الثلاثة. من الأربعة.</p>
+      <hr>
+      <p class="ar">تل أبيب &mdash; ستين كيلومتر.</p>
+      <p class="ar">تل أبيب فيها 167 ميغابت بالثانية. تل أبيب فيها بنوك. فيها بطاقات ائتمان. فيها ChatGPT. اشتراك ChatGPT Plus بياخد ثلاث ساعات شغل بالحد الأدنى للأجور.</p>
+      <p class="ar">جنين &mdash; ستين كيلومتر من تل أبيب &mdash; ما فيها إنترنت. ما فيها كهربا. ما فيها حياة.</p>
+      <p class="ar">مش 100 كيلومتر. مش 500. ستين. المسافة بين الضفة والبحر.</p>
+      <hr>
+      <p class="ar">أربع أماكن. أربع دول. أربع منظومات قانونية مختلفة. بس سؤال واحد: مين اللي قرر إنك لا؟</p>
+      <p class="ar">والجواب واحد: الكل. بنفس الوقت. بدون تنسيق. بدون عقد.</p>
+      <hr>
+      <p class="ar">الهندسة مش بالآلية. الهندسة بالهدف. الهدف: الفلسطيني بدون. بدون كهربا. بدون إنترنت. بدون بطاقة. بدون كمبيوتر. بدون حياة رقمية.</p>
+      <p class="ar">وكل دولة لقت طريقتها الخاصة. بس النتيجة وحدة.</p>
+
+      <div class="sources">
+        <p class="ar"><em>المصادر: UNRWA 2024 Emergency Appeal (يناير 2024)؛ HRW (مارس 2023)؛ EUAA COI Syria (2025)؛ UNICEF Jerash Report (2021)؛ OCHA West Bank Updates (2024&ndash;2026)؛ ICJ Advisory Opinion (يوليو 2024)؛ MERIP (يناير 2025).</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The engineering does not exist in the mechanism. The engineering exists in the target.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;الهندسة مش بالآلية. الهندسة بالهدف.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="04.html" class="lang-en">&larr; Previous: The Arabic Nobody Wrote Down</a>
+      <a href="04.html" class="lang-ar">&rarr; السابق: العربي اللي ما حدا كتبه</a>
+      <a href="06.html" class="lang-en">Next Essay &rarr; The Gap Has a Name</a>
+      <a href="06.html" class="lang-ar">المقال التالي &larr; الفجوة إلها اسم</a>
+    </div>
+    <div class="series-link">
+      <a href="index.html" class="lang-en">Back to Offline by Design</a>
+      <a href="index.html" class="lang-ar">العودة إلى إقصاء مبرمَج</a>
+    </div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Offline by Design is a six-essay series on the architecture of digital exclusion.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إقصاء مبرمَج سلسلة من ستة مقالات في هندسة الإقصاء الرقمي.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) { document.documentElement.lang = lang; localStorage.setItem('obd-lang', lang); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); document.getElementById('btn-ar').classList.toggle('active', lang === 'ar'); }
+  (function() { var saved = localStorage.getItem('obd-lang') || 'en'; setLang(saved); })();
+</script>
+</body>
+</html>

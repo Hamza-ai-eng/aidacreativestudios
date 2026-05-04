@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essay 04 — The Arabic Nobody Wrote Down | Offline by Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#1A1714; --surface:#F5F0E8; --accent:#C41230; --muted:#6B6259; --art:#A87838; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  html[lang="ar"] { direction: rtl; }
+  html:not([lang="ar"]) .lang-ar { display: none !important; }
+  html[lang="ar"] .lang-en { display: none !important; }
+  body { background: var(--bg); color: var(--surface); font-family: 'EB Garamond', serif; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(26,23,20,0.96); backdrop-filter: blur(8px); height: 52px; display: flex; align-items: center; padding: 0 2rem; border-bottom: 1px solid rgba(245,240,232,0.08); }
+  .nav-left { flex: 1; }
+  .nav-left a { color: var(--muted); text-decoration: none; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-left a:hover { color: var(--surface); }
+  .nav-center { flex: 2; text-align: center; font-family: 'EB Garamond', serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--muted); }
+  .nav-center .file-num { color: var(--art); font-weight: 600; }
+  .nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 0.5rem; }
+  .lang-btn { background: none; border: 1px solid rgba(245,240,232,0.2); color: var(--muted); padding: 0.25rem 0.6rem; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; letter-spacing: 0.03em; }
+  .lang-btn:hover, .lang-btn.active { border-color: var(--art); color: var(--art); }
+  .hero { position: relative; height: 60vh; min-height: 400px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; margin-top: 52px; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,23,20,0.1) 0%, rgba(26,23,20,0.4) 40%, rgba(26,23,20,0.92) 100%); }
+  .hero-ghost { position: absolute; right: 5%; bottom: -0.1em; font-family: 'Playfair Display', serif; font-size: clamp(8rem, 22vw, 18rem); font-weight: 900; color: var(--art); opacity: 0.15; line-height: 1; pointer-events: none; user-select: none; letter-spacing: -0.04em; }
+  html[lang="ar"] .hero-ghost { right: auto; left: 5%; }
+  .hero-content { position: relative; z-index: 2; padding: 2.5rem 3rem; max-width: 900px; }
+  .hero-file-label { font-family: 'EB Garamond', serif; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--art); margin-bottom: 0.75rem; }
+  .hero-title-en { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.05; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-title-ar { font-family: 'Amiri', serif; font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2; color: var(--surface); margin-bottom: 0.5rem; }
+  .hero-subtitle { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.05rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .hero-subtitle-ar { font-family: 'Amiri', serif; font-style: italic; font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1rem; }
+  .byline { font-family: 'EB Garamond', serif; font-size: 0.85rem; color: rgba(245,240,232,0.5); letter-spacing: 0.03em; }
+  .byline-ar { font-family: 'Amiri', serif; font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+  .article-wrap { background: var(--surface); color: #1A1714; }
+  .article-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+  .article-body p { font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.85; color: #1A1714; margin-bottom: 1.4em; }
+  .article-body p.ar { font-family: 'Amiri', serif; font-size: 20px; line-height: 1.9; direction: rtl; text-align: right; }
+  .article-body hr { border: none; border-top: 1px solid rgba(26,23,20,0.15); margin: 2rem 0; }
+  .article-body em { font-style: italic; }
+  .article-body strong { font-weight: 600; }
+  .sources { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(26,23,20,0.15); font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .sources p { font-size: 0.85rem; font-family: 'EB Garamond', serif; }
+  .sources p.ar { font-family: 'Amiri', serif; direction: rtl; text-align: right; }
+  .sources a { color: var(--muted); text-decoration: underline; text-decoration-color: rgba(168,120,56,0.4); }
+  .sources a:hover { color: var(--art); text-decoration-color: var(--art); }
+  .pull-quote-section { background: var(--bg); padding: 5rem 2rem; }
+  .pull-quote-inner { max-width: 720px; margin: 0 auto; }
+  .pull-quote { border-left: 4px solid var(--art); padding: 1.5rem 2rem; }
+  html[lang="ar"] .pull-quote { border-left: none; border-right: 4px solid var(--art); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.65rem); line-height: 1.5; color: var(--surface); }
+  .pull-quote p.ar { font-family: 'Amiri', serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); direction: rtl; text-align: right; }
+  .article-footer { background: var(--surface); padding: 3rem 2rem; }
+  .article-footer-inner { max-width: 720px; margin: 0 auto; }
+  .file-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .file-nav a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; border-bottom: 1px solid transparent; transition: all 0.2s; padding-bottom: 2px; }
+  .file-nav a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .series-link { text-align: center; margin-bottom: 2rem; }
+  .series-link a { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(107,98,89,0.4); padding-bottom: 2px; transition: all 0.2s; }
+  .series-link a:hover { color: #1A1714; border-bottom-color: var(--art); }
+  .author-bio { font-family: 'EB Garamond', serif; font-size: 0.9rem; color: var(--muted); border-top: 1px solid rgba(26,23,20,0.12); padding-top: 1.5rem; line-height: 1.6; }
+  .author-bio-ar { font-family: 'Amiri', serif; font-size: 0.95rem; direction: rtl; text-align: right; }
+  footer { background: var(--bg); text-align: center; padding: 2rem; font-family: 'EB Garamond', serif; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; border-top: 1px solid rgba(245,240,232,0.06); }
+  @media (max-width: 600px) { .hero-content { padding: 1.5rem; } .article-body { padding: 2.5rem 1.2rem; } nav { padding: 0 1rem; } .nav-center { font-size: 0.75rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left"><a href="index.html" class="lang-en">Offline by Design</a><a href="index.html" class="lang-ar">إقصاء مبرمَج</a></div>
+  <div class="nav-center">
+    <span class="lang-en"><span class="file-num">Essay 04</span> &mdash; The Arabic Nobody Wrote Down</span>
+    <span class="lang-ar"><span class="file-num">المقال 04</span> &mdash; العربي اللي ما حدا كتبه</span>
+  </div>
+  <div class="nav-right">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" src="../images/report/report-e.jpg" alt="Waveform visualization, top half grey, bottom half blood-red void">
+  <div class="hero-overlay"></div>
+  <div class="hero-ghost">04</div>
+  <div class="hero-content">
+    <div class="hero-file-label lang-en">Offline by Design &mdash; Essay 04 of 06</div>
+    <div class="hero-file-label lang-ar">إقصاء مبرمَج &mdash; المقال 04 من 06</div>
+    <h1 class="hero-title-en lang-en">The Arabic Nobody Wrote Down</h1>
+    <h1 class="hero-title-ar lang-ar">العربي اللي ما حدا كتبه</h1>
+    <p class="hero-subtitle lang-en"><em>An essay on linguistic erasure and algorithmic exclusion</em></p>
+    <p class="hero-subtitle-ar lang-ar"><em>محاولة في الإقصاء اللغوي والمحو الخوارزمي</em></p>
+    <p class="byline lang-en">Hamzah Barhameyeh &middot; AIDA Creative Consulting &middot; Jerusalem &middot; May 2026</p>
+    <p class="byline-ar lang-ar">حمزة برهمية &middot; AIDA Creative Consulting &middot; القدس &middot; أيار 2026</p>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <div class="article-body">
+
+    <div class="lang-en">
+      <p>The student in Shatila&mdash;first-year Islamic Studies&mdash;types her question in her dialect. The dialect she speaks at home. The dialect of the camp.</p>
+      <p><em>&ldquo;What is the difference between Sunni and Shia?&rdquo;</em></p>
+      <p>The application responds. But not in her dialect.</p>
+      <p><em>&ldquo;The difference between Sunni and Shia is&hellip;&rdquo;</em></p>
+      <p>Modern Standard Arabic. Not the Arabic the student speaks. Not the Arabic her mother speaks. Arabic that exists in a book. Arabic that no one speaks in actual life in the camp.</p>
+      <p>The response is not wrong. It is precise. It is correct. But the student reads the response and feels she is not in it.</p>
+      <hr>
+      <p>This is not bad translation.</p>
+      <p>Bad translation = the system says the wrong word. It says &ldquo;house&rdquo; when it should say &ldquo;home.&rdquo; It says &ldquo;car&rdquo; when it should say &ldquo;vehicle.&rdquo;</p>
+      <p>This is something else. This is that the system does not know you exist at all.</p>
+      <hr>
+      <p>The dialect the student speaks&mdash;it has a name: &ldquo;Palestinian Levantine Arabic,&rdquo; or more precisely: &ldquo;camp dialect.&rdquo; It is not Modern Standard Arabic. It is not Egyptian Arabic, which dominates internet data. It is not Gulf Arabic. It is not even Lebanese dialect&mdash;that is something else.</p>
+      <p>The data that the large applications trained on&mdash;it does not come from Shatila. It does not come from Jerash. It does not come from Yarmouk. It comes from somewhere else. From the world where books are. From the world where people write.</p>
+      <p>In Shatila&mdash;for seventy-six years now&mdash;no one has written. No one has recorded. No one has preserved the words that people speak when they go out into the street.</p>
+      <p>When the student asks the system something&mdash;in the dialect of the camp&mdash;the system responds in a dialect no one speaks. The system responds in a voice the student herself does not know.</p>
+      <hr>
+      <p>This is not a technical failure.</p>
+      <p>Technical failure = the system has insufficient computing power. The system has insufficient data.</p>
+      <p>This is political. This is historical. This is structural.</p>
+      <p>The Palestinians in the camp&mdash;three generations&mdash;lived without anyone writing about them. No one recorded their voice. The institutions that preserve words&mdash;libraries, universities, publishers&mdash;have no documents from the camp.</p>
+      <p>The camp does not exist in the written record. The camp does not exist in the data. The camp does not exist.</p>
+      <p>When the large companies came to build artificial intelligence systems&mdash;they came with data from places where books existed. From places where numbers existed. From places where the internet existed.</p>
+      <p>Cairo exists. Damascus exists. Countries with universities and publishing houses. Places where people write in Arabic.</p>
+      <p>Shatila? No.</p>
+      <hr>
+      <p>So when the student opens the application&mdash;the system does not say no. The system says yes. But it says &ldquo;yes&rdquo; in a language the student does not know.</p>
+      <p>This is the same exclusion. But in a different form.</p>
+      <p>The first time&mdash;electricity. The second time&mdash;electricity and money. This time&mdash;even when the student can open the application&mdash;the system says to her: you do not exist.</p>
+      <p>Not &ldquo;you cannot use me.&rdquo; It says: &ldquo;the way you speak&mdash;it does not exist.&rdquo;</p>
+      <hr>
+      <p>The first exclusion = policy. Law. Government. System.</p>
+      <p>The second exclusion = companies. Algorithms. Data. But the same result.</p>
+      <p>The Palestinian woman who lived seventy-six years in a camp that does not exist on the map&mdash;does not exist in the machine. The dialect she spoke every day&mdash;does not exist. The names people call her by&mdash;do not exist. The world she lives in&mdash;does not exist.</p>
+      <p>And the machine does not say no. The machine says yes&mdash;but in the voice of someone else. In the voice of people from places that did exist. In the voice of people whose language was written down.</p>
+
+      <div class="sources">
+        <p><em>Sources: <a href="https://7amleh.org/post/hashtag-palestine-2024-en">7amleh &mdash; Hashtag Palestine 2024 Annual Report</a> (January 2025); <a href="https://www.pcbs.gov.ps/PCBS-Metadata-en-v5.2/index.php/catalog/733">PCBS ICT Household Survey</a> (2023); <a href="https://www.sciencedirect.com/science/article/pii/S2666389921000155">Abeba Birhane &mdash; Algorithmic Injustice</a> (2021); <a href="https://www.penguinrandomhouse.com/books/670356/unmasking-ai-by-dr-joy-buolamwini/">Joy Buolamwini &mdash; Unmasking AI</a> (2023); <a href="https://katecrawford.net/atlas">Kate Crawford &mdash; Atlas of AI</a> (2021); <a href="https://www.unesco.org/en/articles/ai-and-education-guidance-government-policymakers">UNESCO AI and Education Report</a> (2024).</em></p>
+      </div>
+    </div>
+
+    <div class="lang-ar">
+      <p class="ar">الطالبة في الشاتيلا &mdash; سنة أولى دراسات إسلامية &mdash; بتكتب السؤال بلهجتها. اللهجة اللي بتحكي فيها مع أهلها. اللهجة اللي هي لهجة المخيم.</p>
+      <p class="ar"><em>&ldquo;شو الفرق بين السنة والشيعة؟&rdquo;</em></p>
+      <p class="ar">التطبيق بيرد. بس مش بلهجتها.</p>
+      <p class="ar"><em>&ldquo;الفرق بين السنة والشيعة هو&hellip;&rdquo;</em></p>
+      <p class="ar">اللغة الفصحى. مش العربي اللي الطالبة بتحكي فيه. مش العربي اللي إمها بتحكي فيه. عربي موجود بكتاب. عربي ما حدا بيحكي فيه بالحياة الفعلية بالمخيم.</p>
+      <p class="ar">الجواب مش غلط. هو دقيق. هو صحيح. بس الطالبة بتقرا الجواب وبتحس إنها مش موجودة فيه.</p>
+      <hr>
+      <p class="ar">هاد مش ترجمة سيئة.</p>
+      <p class="ar">ترجمة سيئة = الآلة بتقول الكلمة الغلط. بتقول &ldquo;بيت&rdquo; بدل &ldquo;دار&rdquo;. بتقول &ldquo;سيارة&rdquo; بدل &ldquo;عربية&rdquo;.</p>
+      <p class="ar">هاد شي تاني. هاد إن الآلة ما بتعرف إنك موجودة أصلاً.</p>
+      <hr>
+      <p class="ar">اللهجة اللي بتحكي فيها الطالبة &mdash; إلها اسم: &ldquo;الفلسطينية الشامية&rdquo;، أو بدقة أكتر: &ldquo;لهجة المخيم&rdquo;. مش الفصحى. مش اللهجة المصرية اللي الإنترنت مليان فيها. مش اللهجة الخليجية. ولا حتى اللهجة اللبنانية &mdash; هاي كمان شي تاني.</p>
+      <p class="ar">البيانات اللي التطبيقات الكبار تدرّبت عليها &mdash; مش من الشاتيلا. مش من الجرش. مش من اليرموك. من أماكن تانية. من العالم اللي في كتاب فيه. من العالم اللي الناس بتكتب فيه.</p>
+      <p class="ar">في الشاتيلا &mdash; من ست وسبعين سنة &mdash; ما حدا كتب. ما حدا سجّل. ما حدا حفظ الكلمات اللي بتطلع من الناس لما يطلعوا للشارع.</p>
+      <p class="ar">لما بتسأل الآلة شي &mdash; بلهجة المخيم &mdash; الآلة بتجاوب بلهجة ما حدا بيحكي فيها. الآلة بتجاوب بصوت الطالبة نفسها ما بتعرفه.</p>
+      <hr>
+      <p class="ar">هاد مش فشل تقني.</p>
+      <p class="ar">تقني = الآلة ما عندها قوة حاسوب كافية. الآلة ما عندها بيانات كافية.</p>
+      <p class="ar">هاد سياسي. هاد تاريخي. هاد بنيوي.</p>
+      <p class="ar">الفلسطينيين بالمخيم &mdash; ثلاث أجيال &mdash; عاشوا بدون ما حدا يكتب عنهم. ما حدا سجل صوتهم. المؤسسات اللي بتحفظ الكلمات &mdash; المكتبات، الجامعات، دور النشر &mdash; ما عندها وثائق من المخيم.</p>
+      <p class="ar">المخيم مش موجود بالكتاب. المخيم مش موجود بالبيانات. المخيم مش موجود.</p>
+      <p class="ar">لما اجت الشركات الكبار تبني برامج الذكاء الاصطناعي &mdash; اجت ببيانات من أماكن كان فيها كتب. من أماكن كان فيها أرقام. من أماكن كان فيها إنترنت.</p>
+      <p class="ar">القاهرة موجودة. دمشق موجودة. الدول اللي عندها جامعات ودور نشر. الأماكن اللي الناس بتكتب فيها بالعربي.</p>
+      <p class="ar">الشاتيلا؟ لا.</p>
+      <hr>
+      <p class="ar">فلما بتفتح الطالبة التطبيق &mdash; الآلة ما بتقول لا. الآلة بتقول نعم. بس &ldquo;نعم&rdquo; بلغة الطالبة ما بتعرفها.</p>
+      <p class="ar">هاد نفس الإقصاء. بس بشكل تاني.</p>
+      <p class="ar">بالمرة الأولى &mdash; الكهربا. بالمرة الثانية &mdash; الكهربا والمصاري. بهاي المرة &mdash; حتى لما تقدر الطالبة تفتح التطبيق &mdash; الآلة بتقول لها: إنتي مش موجودة.</p>
+      <p class="ar">مش &ldquo;إنتي مش قادرة تستعمليني&rdquo;. بتقول: &ldquo;الطريقة اللي بتحكي فيها &mdash; مش موجودة&rdquo;.</p>
+      <hr>
+      <p class="ar">الإقصاء الأول = سياسة. قانون. حكومة. نظام.</p>
+      <p class="ar">الإقصاء التاني = شركات. خوارزميات. بيانات. بس نفس النتيجة.</p>
+      <p class="ar">الفلسطينية اللي عاشت ست وسبعين سنة بمخيم مش موجود ع الخريطة &mdash; مش موجودة بالآلة. اللهجة اللي حكت فيها كل يوم &mdash; مش موجودة. الأسامي اللي الناس بتناديها فيها &mdash; مش موجودة. العالم اللي عايشة فيه &mdash; مش موجود.</p>
+      <p class="ar">والآلة ما بتقول لا. الآلة بتقول نعم &mdash; بس بصوت ناس تانيين. بصوت ناس من أماكن كانت موجودة. بصوت ناس كان كتابهم مكتوب.</p>
+
+      <div class="sources">
+        <p class="ar"><em>المصادر: 7amleh &mdash; Hashtag Palestine 2024 (يناير 2025); PCBS ICT Household Survey (2023); Abeba Birhane (2021/2020); Joy Buolamwini &mdash; Unmasking AI (2023); Kate Crawford &mdash; Atlas of AI (2021); UNESCO AI and Education Report (2024).</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="pull-quote-section">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">
+      <p class="lang-en">&ldquo;The machine does not say no. The machine says yes&mdash;but in the voice of someone else. In the voice of people whose language was written down.&rdquo;</p>
+      <p class="lang-ar ar">&ldquo;الآلة ما بتقول لا. الآلة بتقول نعم &mdash; بس بصوت ناس تانيين. بصوت ناس كان كتابهم مكتوب.&rdquo;</p>
+    </div>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="file-nav">
+      <a href="03.html" class="lang-en">&larr; Previous: Two Contracts</a>
+      <a href="03.html" class="lang-ar">&rarr; السابق: عقدان</a>
+      <a href="05.html" class="lang-en">Next Essay &rarr; Everywhere, By Design</a>
+      <a href="05.html" class="lang-ar">المقال التالي &larr; بكل مكان، بنفس التصميم</a>
+    </div>
+    <div class="series-link">
+      <a href="index.html" class="lang-en">Back to Offline by Design</a>
+      <a href="index.html" class="lang-ar">العودة إلى إقصاء مبرمَج</a>
+    </div>
+    <div class="author-bio lang-en"><strong>Hamzah Barhameyeh</strong> is a writer and creative strategist based in Jerusalem, and the founder of AIDA Creative Consulting. Offline by Design is a six-essay series on the architecture of digital exclusion.</div>
+    <div class="author-bio author-bio-ar lang-ar"><strong>حمزة برهمية</strong> كاتب واستراتيجي إبداعي من القدس، ومؤسس AIDA Creative Consulting. إقصاء مبرمَج سلسلة من ستة مقالات في هندسة الإقصاء الرقمي.</div>
+  </div>
+</div>
+
+<footer>
+  <span class="lang-en">AIDA Creative Consulting &middot; Jerusalem &middot; 2026</span>
+  <span class="lang-ar">AIDA Creative Consulting &middot; القدس &middot; 2026</span>
+</footer>
+
+<script>
+  function setLang(lang) { document.documentElement.lang = lang; localStorage.setItem('obd-lang', lang); document.getElementById('btn-en').classList.toggle('active', lang === 'en'); document.getElementById('btn-ar').classList.toggle('active', lang === 'ar'); }
+  (function() { var saved = localStorage.getItem('obd-lang') || 'en'; setLang(saved); })();
+</script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offline by Design — Six Essays on the Architecture of Digital Exclusion | AIDA</title>
+<meta name="description" content="A six-part essay series examining the structural exclusion of Palestinians from digital infrastructure. By Hamzah Barhameyeh, AIDA Creative Consulting, Jerusalem.">
+<meta property="og:title" content="Offline by Design — Six Essays on the Architecture of Digital Exclusion">
+<meta property="og:description" content="Electricity, payment, language, contracts, geography, accountability — six essays on how Palestinians are kept offline by deliberate design.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#1A1714;--surface:#F5F0E8;--accent:#C41230;--gold:#B8956A;
+  --muted:#6B6259;
+  --font-head:'Playfair Display',Georgia,serif;
+  --font-body:'EB Garamond',Georgia,serif;
+  --font-ar:'Amiri',Georgia,serif;
+}
+
+/* PER-ARTICLE ACCENT COLORS — each spread carries its own register of exclusion */
+.spread[data-article="01"] { --article-accent: #B87333; } /* live wire copper — the conductor that kills */
+.spread[data-article="02"] { --article-accent: #5C7A8C; } /* paywall blue — sterile, screen-cold */
+.spread[data-article="03"] { --article-accent: #3A5F7D; } /* corporate ink — the contract paper */
+.spread[data-article="04"] { --article-accent: #A87838; } /* unwritten amber — the word never recorded */
+.spread[data-article="05"] { --article-accent: #A8423E; } /* map red — the border, the geography */
+.spread[data-article="06"] { --article-accent: #5F5651; } /* void grey — the missing line in the budget */
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--surface);font-family:var(--font-body);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+
+/* LANGUAGE SYSTEM */
+html:not([lang="ar"]) .lang-ar{display:none!important}
+html[lang="ar"] .lang-en{display:none!important}
+html[lang="ar"]{direction:rtl}
+html[lang="ar"] body{font-family:var(--font-ar)}
+html[lang="ar"] .spread-text{font-family:var(--font-ar)}
+
+/* LANG BAR */
+.lang-bar{position:fixed;top:0;right:0;z-index:1000;padding:18px 28px;font-family:var(--font-body);font-size:13px;letter-spacing:.5px;mix-blend-mode:difference}
+html[lang="ar"] .lang-bar{right:auto;left:0}
+.lang-bar a{text-decoration:none;opacity:.5;transition:opacity .2s;cursor:pointer}
+.lang-bar a:hover,.lang-bar a.active{opacity:1}
+.lang-bar span{opacity:.3;margin:0 6px}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;width:100%;background:url('../images/report/report-a.jpg') center center/cover no-repeat;display:flex;flex-direction:column;justify-content:flex-end;padding:0 8vw 8vh;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,23,20,.1) 0%,rgba(26,23,20,.35) 35%,rgba(26,23,20,.82) 75%,rgba(26,23,20,.97) 100%);z-index:1}
+.hero-content{position:relative;z-index:3;max-width:880px}
+.hero-label{font-family:var(--font-body);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.hero-title{font-family:var(--font-head);font-weight:900;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.05;margin-bottom:12px;color:#fff}
+.hero-title-ar{font-family:var(--font-ar);font-weight:700;font-size:clamp(2rem,5vw,3.8rem);line-height:1.3;margin-bottom:16px;color:var(--gold)}
+.hero-subtitle{font-family:var(--font-body);font-size:clamp(1rem,2vw,1.25rem);font-style:italic;color:rgba(245,240,232,.72);max-width:620px;margin-bottom:10px}
+.hero-byline{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.45);margin-bottom:32px}
+.hero-rule{width:60px;height:3px;background:var(--accent);margin-bottom:24px}
+.hero-cta{display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;color:var(--surface);opacity:.7;transition:opacity .2s}
+.hero-cta:hover{opacity:1}
+
+/* GRID OVERLAY — the power infrastructure that does not arrive: a circuit pattern with a deliberate void at its center */
+.grid-overlay{position:absolute;top:50%;left:55%;transform:translate(-50%,-50%);width:clamp(280px,52vw,720px);height:clamp(280px,52vw,720px);z-index:2;pointer-events:none;opacity:.85}
+.grid-svg{width:100%;height:100%}
+
+/* SERIES STATEMENT */
+.series-statement{background:var(--surface);color:var(--bg);padding:10vh 8vw;text-align:center}
+.stmt-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
+.stmt-text{font-family:var(--font-body);font-size:clamp(1.1rem,2.2vw,1.45rem);line-height:1.85;max-width:720px;margin:0 auto 32px;color:var(--bg)}
+html[lang="ar"] .stmt-text{font-family:var(--font-ar)}
+.stmt-credit{font-size:13px;color:var(--muted)}
+
+/* ARTICLE SPREAD */
+.spread{display:grid;grid-template-columns:1fr 1fr;min-height:75vh;position:relative;overflow:hidden}
+.spread-dark{background:var(--bg);color:var(--surface)}
+.spread-light{background:var(--surface);color:var(--bg)}
+
+/* Ghost numbers */
+.spread::before{content:attr(data-ghost);position:absolute;font-family:var(--font-head);font-weight:900;font-size:clamp(12rem,28vw,22rem);line-height:1;pointer-events:none;z-index:0;top:50%;transform:translateY(-55%)}
+.spread-dark::before{color:rgba(184,149,106,.04)}
+.spread-light::before{color:rgba(26,23,20,.035)}
+.spread:not(.spread-reverse)::before{right:-3vw}
+.spread.spread-reverse::before{left:-3vw}
+
+/* Image panel — uses gradient placeholders keyed to article accent until Leonardo images are commissioned */
+.spread-image{background-size:cover;background-position:center;min-height:400px;position:relative}
+.spread-image.placeholder{background:linear-gradient(135deg, var(--article-accent) 0%, #1A1714 100%)}
+.spread-image::after{content:'';position:absolute;inset:0}
+.spread-dark .spread-image::after{background:linear-gradient(to right,rgba(26,23,20,.3) 0%,transparent 50%)}
+.spread-reverse.spread-dark .spread-image::after{background:linear-gradient(to left,rgba(26,23,20,.3) 0%,transparent 50%)}
+.spread-light .spread-image::after{background:linear-gradient(to left,rgba(245,240,232,.25) 0%,transparent 50%)}
+.spread-reverse.spread-light .spread-image::after{background:linear-gradient(to right,rgba(245,240,232,.25) 0%,transparent 50%)}
+
+/* Text panel */
+.spread-text{padding:8vh 5vw;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.spread-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--article-accent,var(--accent));margin-bottom:16px}
+.article-title{font-family:var(--font-head);font-weight:900;font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.1;margin-bottom:8px}
+html[lang="ar"] .article-title{font-family:var(--font-ar);font-weight:700}
+.article-title-sub{font-family:var(--font-ar);font-weight:700;font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.4;margin-bottom:24px;color:var(--article-accent,var(--gold))}
+.article-excerpt{font-family:var(--font-body);font-size:clamp(.95rem,1.5vw,1.1rem);line-height:1.8;margin-bottom:28px;max-width:520px}
+html[lang="ar"] .article-excerpt{font-family:var(--font-ar)}
+.article-excerpt p{margin-bottom:12px}
+.article-excerpt p:last-child{margin-bottom:0}
+.article-excerpt em{font-style:italic}
+.read-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;color:var(--article-accent,var(--accent));transition:gap .2s}
+.read-link:hover{gap:14px}
+
+/* Reversed spread */
+.spread-reverse .spread-image{order:-1}
+
+/* DATA STRIP */
+.data-strip{background:var(--bg);border-top:1px solid rgba(184,149,106,.12);border-bottom:1px solid rgba(184,149,106,.12);padding:10vh 6vw}
+.data-strip-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:48px;text-align:center}
+.data-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;max-width:1100px;margin:0 auto;text-align:center}
+.data-number{font-family:var(--font-head);font-weight:900;font-size:clamp(1.8rem,3.6vw,3rem);color:var(--accent);line-height:1.1;margin-bottom:8px}
+.data-desc{font-size:13px;line-height:1.5;color:rgba(245,240,232,.6);max-width:180px;margin:0 auto 8px}
+.data-source{font-size:10px;color:rgba(245,240,232,.25);font-style:italic}
+
+/* ABOUT */
+.about-section{background:var(--surface);color:var(--bg);padding:10vh 8vw;display:grid;grid-template-columns:3fr 2fr;gap:8vw;align-items:start}
+.about-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.about-text{font-family:var(--font-body);font-size:1.05rem;line-height:1.85}
+.about-text p{margin-bottom:1.15em}
+.about-text p:last-child{margin-bottom:0}
+html[lang="ar"] .about-text{font-family:var(--font-ar)}
+.about-brand{font-family:var(--font-body);font-style:italic;font-size:1.12rem;color:var(--muted);margin-bottom:24px;line-height:1.65}
+.about-rule{width:40px;height:3px;background:var(--accent);margin-bottom:24px}
+.about-services{font-size:.92rem;line-height:1.75;color:rgba(26,23,20,.65)}
+html[lang="ar"] .about-services{font-family:var(--font-ar)}
+
+/* FOOTER */
+.site-footer{background:var(--bg);padding:32px 8vw;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(245,240,232,.35);border-top:1px solid rgba(245,240,232,.06)}
+.site-footer a{text-decoration:underline;opacity:.7}
+.site-footer a:hover{opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .spread{grid-template-columns:1fr;min-height:auto}
+  .spread-image{min-height:45vh;order:-1!important}
+  .spread-text{padding:6vh 6vw}
+  .spread::before{font-size:30vw;top:5%;transform:none}
+  .data-grid{grid-template-columns:repeat(3,1fr);gap:32px}
+  .about-section{grid-template-columns:1fr;gap:48px}
+  .hero{padding:0 6vw 6vh}
+  .grid-overlay{top:38%;left:50%}
+}
+@media(max-width:600px){
+  .data-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-title{font-size:2.4rem}
+  .spread::before{font-size:40vw}
+}
+@media print{
+  .lang-bar,.hero-cta{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  .hero{min-height:auto;padding:48pt 36pt;background:#1A1714!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .spread{min-height:auto;page-break-inside:avoid}
+  .spread-image{min-height:200pt}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <a id="btn-en" class="active" onclick="setLang('en')">EN</a>
+  <span>|</span>
+  <a id="btn-ar" onclick="setLang('ar')">عربي</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+
+  <!-- Grid SVG overlay — power & signal infrastructure rendered as a circuit, with a deliberate void where the camp would receive service -->
+  <div class="grid-overlay" aria-hidden="true">
+    <svg class="grid-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer transmission grid — six pylons in a hexagonal pattern, all interconnected EXCEPT the center -->
+      <!-- Faint horizontal substrate lines -->
+      <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(184,149,106,0.04)" stroke-width="1"/>
+      <line x1="0" y1="500" x2="600" y2="500" stroke="rgba(184,149,106,0.04)" stroke-width="1"/>
+      <line x1="0" y1="300" x2="180" y2="300" stroke="rgba(184,149,106,0.06)" stroke-width="1"/>
+      <line x1="420" y1="300" x2="600" y2="300" stroke="rgba(184,149,106,0.06)" stroke-width="1"/>
+
+      <!-- Six grid nodes (transmission points) arranged hexagonally -->
+      <!-- Node positions: top-left, top-right, mid-left, mid-right, bottom-left, bottom-right -->
+      <circle cx="120" cy="180" r="8" fill="rgba(184,149,106,0.22)"/>
+      <circle cx="480" cy="180" r="8" fill="rgba(184,149,106,0.22)"/>
+      <circle cx="80" cy="350" r="8" fill="rgba(184,149,106,0.22)"/>
+      <circle cx="520" cy="350" r="8" fill="rgba(184,149,106,0.22)"/>
+      <circle cx="180" cy="500" r="8" fill="rgba(184,149,106,0.22)"/>
+      <circle cx="420" cy="500" r="8" fill="rgba(184,149,106,0.22)"/>
+
+      <!-- Outer ring connecting the six functioning nodes -->
+      <line x1="120" y1="180" x2="480" y2="180" stroke="rgba(184,149,106,0.18)" stroke-width="1.2"/>
+      <line x1="120" y1="180" x2="80" y2="350" stroke="rgba(184,149,106,0.18)" stroke-width="1.2"/>
+      <line x1="480" y1="180" x2="520" y2="350" stroke="rgba(184,149,106,0.18)" stroke-width="1.2"/>
+      <line x1="80" y1="350" x2="180" y2="500" stroke="rgba(184,149,106,0.18)" stroke-width="1.2"/>
+      <line x1="520" y1="350" x2="420" y2="500" stroke="rgba(184,149,106,0.18)" stroke-width="1.2"/>
+      <line x1="180" y1="500" x2="420" y2="500" stroke="rgba(184,149,106,0.18)" stroke-width="1.2"/>
+
+      <!-- Each outer node attempts to feed the center — but the line stops short -->
+      <!-- top-left toward center: stops at 220,250 -->
+      <line x1="120" y1="180" x2="220" y2="250" stroke="rgba(184,149,106,0.13)" stroke-width="0.9" stroke-dasharray="4 6"/>
+      <line x1="480" y1="180" x2="380" y2="250" stroke="rgba(184,149,106,0.13)" stroke-width="0.9" stroke-dasharray="4 6"/>
+      <line x1="80" y1="350" x2="220" y2="320" stroke="rgba(184,149,106,0.13)" stroke-width="0.9" stroke-dasharray="4 6"/>
+      <line x1="520" y1="350" x2="380" y2="320" stroke="rgba(184,149,106,0.13)" stroke-width="0.9" stroke-dasharray="4 6"/>
+      <line x1="180" y1="500" x2="240" y2="395" stroke="rgba(184,149,106,0.13)" stroke-width="0.9" stroke-dasharray="4 6"/>
+      <line x1="420" y1="500" x2="360" y2="395" stroke="rgba(184,149,106,0.13)" stroke-width="0.9" stroke-dasharray="4 6"/>
+
+      <!-- The void at center — a square dotted boundary where service would have been delivered, but is absent -->
+      <rect x="220" y="220" width="160" height="180" fill="none" stroke="rgba(196,18,48,0.30)" stroke-width="1.2" stroke-dasharray="3 5"/>
+
+      <!-- Tiny "no signal" glyph at center — a circle with a slash -->
+      <circle cx="300" cy="310" r="22" fill="none" stroke="rgba(196,18,48,0.45)" stroke-width="1.2"/>
+      <line x1="284" y1="294" x2="316" y2="326" stroke="rgba(196,18,48,0.45)" stroke-width="1.2"/>
+
+      <!-- Cardinal corner ticks on the outer canvas, evoking blueprint registration marks -->
+      <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+      <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+      <line x1="600" y1="0" x2="580" y2="0" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+      <line x1="600" y1="0" x2="600" y2="20" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+      <line x1="0" y1="600" x2="20" y2="600" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+      <line x1="0" y1="600" x2="0" y2="580" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+      <line x1="600" y1="600" x2="580" y2="600" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+      <line x1="600" y1="600" x2="600" y2="580" stroke="rgba(245,240,232,0.18)" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-label lang-en">Offline by Design &nbsp;·&nbsp; Six Essays</div>
+    <div class="hero-label lang-ar">إقصاء مبرمَج &nbsp;·&nbsp; ستة مقالات</div>
+    <h1 class="hero-title lang-en">Offline by Design</h1>
+    <h1 class="hero-title lang-ar" style="font-family:var(--font-ar)">إقصاء مبرمَج</h1>
+    <div class="hero-title-ar lang-en">إقصاء مبرمَج</div>
+    <div class="hero-title lang-ar" style="font-size:clamp(1.6rem,3.5vw,2.6rem);color:var(--surface);font-family:var(--font-head);font-weight:700;margin-bottom:16px">الفلسطيني بدون. مش بالصدفة. بالتصميم.</div>
+    <p class="hero-subtitle lang-en">The Palestinian without. Not by accident. By design.</p>
+    <p class="hero-subtitle lang-ar">الفلسطيني بدون. مش بالصدفة. بالتصميم.</p>
+    <p class="hero-byline lang-en">By Hamzah Barhameyeh &nbsp;·&nbsp; AIDA Creative Consulting</p>
+    <p class="hero-byline lang-ar">حمزة برهمية &nbsp;·&nbsp; AIDA Creative Consulting</p>
+    <div class="hero-rule"></div>
+    <a href="#essays" class="hero-cta lang-en">Read the series ↓</a>
+    <a href="#essays" class="hero-cta lang-ar">اقرأ السلسلة ↓</a>
+  </div>
+</section>
+
+<!-- SERIES STATEMENT -->
+<section class="series-statement" id="essays">
+  <div class="stmt-label lang-en">About the Series</div>
+  <div class="stmt-label lang-ar">عن السلسلة</div>
+  <p class="stmt-text lang-en">Six essays on the architecture of digital exclusion — electricity, payment, contracts, language, geography, accountability. The Palestinian is kept offline by deliberate design across four states and four legal systems. Different mechanisms. The same target. The same result.</p>
+  <p class="stmt-text lang-ar">ستة مقالات في هندسة الإقصاء الرقمي — الكهربا، الدفع، العقود، اللغة، الجغرافيا، المسؤولية. الفلسطيني مقصي عن الرقمي بتصميم مقصود، عبر أربع دول وأربع منظومات قانونية. آليات مختلفة. نفس الهدف. نفس النتيجة.</p>
+  <p class="stmt-credit lang-en">Published by AIDA Creative Consulting, Jerusalem. May 2026.</p>
+  <p class="stmt-credit lang-ar">صادرة عن AIDA Creative Consulting، القدس. أيار 2026.</p>
+</section>
+
+<!-- ESSAY 01 -->
+<section class="spread spread-dark" data-ghost="01" data-article="01">
+  <div class="spread-text">
+    <div class="spread-label lang-en">Essay 01</div>
+    <div class="spread-label lang-ar">المقال ٠١</div>
+    <h2 class="article-title lang-en">Not a Bomb</h2>
+    <h2 class="article-title lang-ar">الصعقة اللي ما كانت قنبلة</h2>
+    <div class="article-title-sub lang-en">الصعقة اللي ما كانت قنبلة</div>
+    <div class="article-excerpt lang-en">
+      <p>In Burj el-Barajneh, a man works on a faulty wire. The water never leaves the walls in winter. Eighty-six people have been electrocuted in this camp between 2015 and 2023. Not by a bomb. By a wire touching water touching skin.</p>
+      <p>The wires are unsafe by law. Lebanese municipal electricity requires legal residency. Five hundred thousand Palestinians have none.</p>
+    </div>
+    <div class="article-excerpt lang-ar">
+      <p>في برج البراجنة، راجل بيشتغل على وصلة هدلة. الميّ ما بتنشف من الجدران بالشتا. ست وثمانين إنسان انصعقوا بهاد المخيم ما بين 2015 و2023. مش بقنبلة. بسلك بيلمس ميّ بيلمس جسم.</p>
+      <p>الأسلاك مش آمنة بالقانون. كهربا البلدية اللبنانية بتتطلب إقامة قانونية. خمس مية ألف فلسطيني ما عندهم.</p>
+    </div>
+    <a href="01.html" class="read-link lang-en">Read essay <span>→</span></a>
+    <a href="01.html" class="read-link lang-ar">اقرأ المقال <span>←</span></a>
+  </div>
+  <div class="spread-image" style="background-image:url('../images/report/report-c.jpg')"></div>
+</section>
+
+<!-- ESSAY 02 (reversed) -->
+<section class="spread spread-light spread-reverse" data-ghost="02" data-article="02">
+  <div class="spread-text">
+    <div class="spread-label lang-en">Essay 02</div>
+    <div class="spread-label lang-ar">المقال ٠٢</div>
+    <h2 class="article-title lang-en">The Card You Can't Have</h2>
+    <h2 class="article-title lang-ar">البطاقة اللي ما إلك</h2>
+    <div class="article-title-sub lang-en">البطاقة اللي ما إلك</div>
+    <div class="article-excerpt lang-en">
+      <p>The screen says: Upgrade to Plus. Twenty dollars. The student in Shatila looks at the number. UNRWA cash assistance: $16.67 per person per month. The subscription costs 120% of one month's income.</p>
+      <p>There is no card. There is no bank. The decision was made in San Francisco that cash is not a payment method.</p>
+    </div>
+    <div class="article-excerpt lang-ar">
+      <p>الصفحة بتقول: اشتركي بـPlus. عشرين دولار. الطالبة بالشاتيلا بتبصّ على الرقم. مساعدة الأونروا النقدية: ست عشر دولار وسبعة وستين سنت للشخص بالشهر. الاشتراك بياخد مية وعشرين بالمية من دخل شهر كامل.</p>
+      <p>ما في بطاقة. ما في بنك. القرار اتاخد بسان فرانسيسكو إن النقد مش وسيلة دفع.</p>
+    </div>
+    <a href="02.html" class="read-link lang-en">Read essay <span>→</span></a>
+    <a href="02.html" class="read-link lang-ar">اقرأ المقال <span>←</span></a>
+  </div>
+  <div class="spread-image placeholder"></div>
+</section>
+
+<!-- ESSAY 03 -->
+<section class="spread spread-dark" data-ghost="03" data-article="03">
+  <div class="spread-text">
+    <div class="spread-label lang-en">Essay 03</div>
+    <div class="spread-label lang-ar">المقال ٠٣</div>
+    <h2 class="article-title lang-en">Two Contracts</h2>
+    <h2 class="article-title lang-ar">عقدان</h2>
+    <div class="article-title-sub lang-en">عقدان</div>
+    <div class="article-excerpt lang-en">
+      <p>The same week. The same company. Two moments. A nursing student in Shatila hits the paywall. A list opens in a data center in the same company. Names. Coordinates. Kill him.</p>
+      <p>Project Nimbus. $1.2 billion. Google and Amazon. Seven years. The single restriction: the companies cannot say no to any use.</p>
+    </div>
+    <div class="article-excerpt lang-ar">
+      <p>نفس الأسبوع. نفس الشركة. لحظتين. طالبة تمريض بالشاتيلا بتوصل لجدار الدفع. قائمة بتفتح بمركز بيانات تابع لنفس الشركة. أسامي. إحداثيات. اقتلوه.</p>
+      <p>بروجيكت نيمبوس. مليار ومئتين مليون دولار. غوغل وأمازون. سبع سنين. القيد الوحيد: الشركات ما بيقدروا يقولوا لا لأي استخدام.</p>
+    </div>
+    <a href="03.html" class="read-link lang-en">Read essay <span>→</span></a>
+    <a href="03.html" class="read-link lang-ar">اقرأ المقال <span>←</span></a>
+  </div>
+  <div class="spread-image" style="background-image:url('../images/report/report-f.jpg')"></div>
+</section>
+
+<!-- DATA STRIP -->
+<section class="data-strip">
+  <div class="data-strip-label lang-en">Six Numbers from the Series</div>
+  <div class="data-strip-label lang-ar">ستة أرقام من السلسلة</div>
+  <div class="data-grid">
+    <div class="data-item">
+      <div class="data-number">$16.67</div>
+      <div class="data-desc lang-en">UNRWA monthly cash assistance per person, Lebanon</div>
+      <div class="data-desc lang-ar">مساعدة الأونروا الشهرية للشخص الواحد، لبنان</div>
+      <div class="data-source">UNRWA 2025 Emergency Appeal</div>
+    </div>
+    <div class="data-item">
+      <div class="data-number">1 hour</div>
+      <div class="data-desc lang-en">Daily electricity in Shatila and Yarmouk camps</div>
+      <div class="data-desc lang-ar">كهربا يومية في مخيمي الشاتيلا واليرموك</div>
+      <div class="data-source">Amnesty International / UNRWA</div>
+    </div>
+    <div class="data-item">
+      <div class="data-number">39</div>
+      <div class="data-desc lang-en">Professions Palestinians are barred from in Lebanon</div>
+      <div class="data-desc lang-ar">مهنة ممنوعة على الفلسطينيين في لبنان</div>
+      <div class="data-source">Amnesty International, 2024</div>
+    </div>
+    <div class="data-item">
+      <div class="data-number">$1.2B</div>
+      <div class="data-desc lang-en">Project Nimbus — Google &amp; Amazon contract with Israel</div>
+      <div class="data-desc lang-ar">عقد بروجيكت نيمبوس — غوغل وأمازون مع إسرائيل</div>
+      <div class="data-source">+972 Magazine, 2024</div>
+    </div>
+    <div class="data-item">
+      <div class="data-number">60 km</div>
+      <div class="data-desc lang-en">Between Jenin (no internet) and Tel Aviv (167 Mbps)</div>
+      <div class="data-desc lang-ar">بين جنين (بلا إنترنت) وتل أبيب (167 ميغابت)</div>
+      <div class="data-source">OCHA / ITU 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- ESSAY 04 (reversed) -->
+<section class="spread spread-light spread-reverse" data-ghost="04" data-article="04">
+  <div class="spread-text">
+    <div class="spread-label lang-en">Essay 04</div>
+    <div class="spread-label lang-ar">المقال ٠٤</div>
+    <h2 class="article-title lang-en">The Arabic Nobody Wrote Down</h2>
+    <h2 class="article-title lang-ar">العربي اللي ما حدا كتبه</h2>
+    <div class="article-title-sub lang-en">العربي اللي ما حدا كتبه</div>
+    <div class="article-excerpt lang-en">
+      <p>The student types her question in the dialect she speaks. The dialect of the camp. The system answers in Modern Standard Arabic — a register no one in Shatila uses.</p>
+      <p>This is not bad translation. It is that the system does not know she exists at all. For seventy-six years, no one wrote the camp down.</p>
+    </div>
+    <div class="article-excerpt lang-ar">
+      <p>الطالبة بتكتب السؤال باللهجة اللي بتحكي فيها. لهجة المخيم. النظام بيرد بالفصحى — سجل ما حدا في الشاتيلا بيستعمله.</p>
+      <p>هاد مش ترجمة سيئة. هاد إن النظام ما بيعرف إنها موجودة أصلاً. من ست وسبعين سنة، ما حدا كتب المخيم.</p>
+    </div>
+    <a href="04.html" class="read-link lang-en">Read essay <span>→</span></a>
+    <a href="04.html" class="read-link lang-ar">اقرأ المقال <span>←</span></a>
+  </div>
+  <div class="spread-image" style="background-image:url('../images/report/report-e.jpg')"></div>
+</section>
+
+<!-- ESSAY 05 -->
+<section class="spread spread-dark" data-ghost="05" data-article="05">
+  <div class="spread-text">
+    <div class="spread-label lang-en">Essay 05</div>
+    <div class="spread-label lang-ar">المقال ٠٥</div>
+    <h2 class="article-title lang-en">Everywhere, By Design</h2>
+    <h2 class="article-title lang-ar">بكل مكان، بنفس التصميم</h2>
+    <div class="article-title-sub lang-en">بكل مكان، بنفس التصميم</div>
+    <div class="article-excerpt lang-en">
+      <p>Shatila: law. Yarmouk: war. Jerash: poverty. Jenin: occupation. Four places. Four mechanisms. One outcome.</p>
+      <p>Tel Aviv has 167 megabits per second. Sixty kilometers away, Jenin has nothing. The engineering is not in the mechanism. The engineering is in the target.</p>
+    </div>
+    <div class="article-excerpt lang-ar">
+      <p>الشاتيلا: قانون. اليرموك: حرب. الجرش: فقر. جنين: احتلال. أربع أماكن. أربع آليات. نتيجة وحدة.</p>
+      <p>تل أبيب فيها 167 ميغابت بالثانية. ستين كيلومتر بعيد، جنين ما فيها شي. الهندسة مش بالآلية. الهندسة بالهدف.</p>
+    </div>
+    <a href="05.html" class="read-link lang-en">Read essay <span>→</span></a>
+    <a href="05.html" class="read-link lang-ar">اقرأ المقال <span>←</span></a>
+  </div>
+  <div class="spread-image" style="background-image:url('../images/report/report-b.jpg')"></div>
+</section>
+
+<!-- ESSAY 06 (reversed) -->
+<section class="spread spread-light spread-reverse" data-ghost="06" data-article="06">
+  <div class="spread-text">
+    <div class="spread-label lang-en">Essay 06</div>
+    <div class="spread-label lang-ar">المقال ٠٦</div>
+    <h2 class="article-title lang-en">The Gap Has a Name</h2>
+    <h2 class="article-title lang-ar">الفجوة إلها اسم</h2>
+    <div class="article-title-sub lang-en">الفجوة إلها اسم</div>
+    <div class="article-excerpt lang-en">
+      <p>September 2024. The world signs the Global Digital Compact. Two months earlier, the International Court of Justice ruled the occupation unlawful. The same year, UNRWA's Emergency Appeal has no line for digital infrastructure.</p>
+      <p>The gap between "we commit" and "no funding" has a name. It is a decision. It is called impunity.</p>
+    </div>
+    <div class="article-excerpt lang-ar">
+      <p>سبتمبر 2024. العالم بيوقع العقد الرقمي العالمي. قبل شهرين، محكمة العدل الدولية حكمت إن الاحتلال مش قانوني. بنفس السنة، نداء الأونروا الطارئ ما فيه سطر للبنية الأساسية الرقمية.</p>
+      <p>الفجوة بين "إحنا منلتزم" و "ما في تمويل" إلها اسم. إنها قرار. اسمها إفلات من العقاب.</p>
+    </div>
+    <a href="06.html" class="read-link lang-en">Read essay <span>→</span></a>
+    <a href="06.html" class="read-link lang-ar">اقرأ المقال <span>←</span></a>
+  </div>
+  <div class="spread-image" style="background-image:url('../images/report/report-g.jpg')"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div>
+    <div class="about-label lang-en">About the Author</div>
+    <div class="about-label lang-ar">عن الكاتب</div>
+
+    <div class="about-text lang-en">
+      <p><strong>Hamzah Barhameyeh</strong> is a writer and strategist from Jerusalem. He has spent a decade moving between crisis zones and boardrooms — filming in camps, building communications for institutions, directing teams across wars he didn't start and couldn't end. In 2024 he founded AIDA Creative Consulting.</p>
+      <p>Offline by Design follows the seven-essay series Human in the Loop. Where that series investigated the AI systems deployed against Palestinian life, this one names the infrastructure that keeps Palestinian life offline in the first place.</p>
+    </div>
+
+    <div class="about-text lang-ar">
+      <p><strong>حمزة برهمية</strong> كاتب واستراتيجي من القدس. عقد كامل بين مناطق الأزمات وغرف الاجتماعات — صوّر بالمخيمات، بنى اتصالات للمؤسسات، قاد فرق بحروب ما بدأها وما قدر يوقفها. في 2024 أسس AIDA Creative Consulting.</p>
+      <p>إقصاء مبرمَج جاية بعد سلسلة "إنسان في الدوامة" المؤلفة من سبعة ملفات. السلسلة الأولى حققت بأنظمة الذكاء الاصطناعي المستخدمة ضد الحياة الفلسطينية. هاي السلسلة بتسمّي البنية اللي بتخلي الفلسطيني خارج الرقمي من الأساس.</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="about-label">AIDA Creative Consulting</div>
+    <div class="about-rule"></div>
+    <p class="about-brand lang-en">Studio-grade editorial. World-class work. Jerusalem.</p>
+    <p class="about-brand lang-ar">عمل تحريري على مستوى عالمي. القدس.</p>
+    <p class="about-services lang-en">Strategic communications · Brand architecture · AI-powered operations · Arabic-language content · Editorial production for Palestinian and Arab institutions and businesses.</p>
+    <p class="about-services lang-ar">اتصالات استراتيجية · بنية العلامة التجارية · عمليات مدعومة بالذكاء الاصطناعي · محتوى عربي · إنتاج تحريري للمؤسسات والشركات الفلسطينية والعربية.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div>
+    <span class="lang-en">Offline by Design © 2026 AIDA Creative Consulting</span>
+    <span class="lang-ar">إقصاء مبرمَج © 2026 AIDA Creative Consulting</span><br>
+    <span class="lang-en">All rights reserved. Published at <a href="https://www.aidacreativestudios.com">aidacreativestudios.com</a></span>
+    <span class="lang-ar">كل الحقوق محفوظة. منشورة على <a href="https://www.aidacreativestudios.com">aidacreativestudios.com</a></span>
+  </div>
+  <div>
+    <a style="cursor:pointer;opacity:.5" onclick="setLang('en')">EN</a>
+    <span style="opacity:.3;margin:0 6px">|</span>
+    <a style="cursor:pointer;opacity:.5" onclick="setLang('ar')">عربي</a>
+  </div>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.lang=l;
+  document.documentElement.dir=l==='ar'?'rtl':'ltr';
+  document.querySelectorAll('#btn-en').forEach(function(e){e.classList.toggle('active',l==='en')});
+  document.querySelectorAll('#btn-ar').forEach(function(e){e.classList.toggle('active',l==='ar')});
+  try{localStorage.setItem('obd-lang',l)}catch(e){}
+}
+(function(){try{var s=localStorage.getItem('obd-lang');if(s==='ar')setLang('ar')}catch(e){}})();
+</script>
+</body>
+</html>
