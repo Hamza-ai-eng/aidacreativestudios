@@ -202,7 +202,7 @@ export function Footer() {
             Instagram
           </a>
           <span style={{ color: "var(--text-muted)", opacity: 0.5 }}>·</span>
-          <span style={{ color: "var(--text-muted)" }}>© {year} AIDA Critical Institute</span>
+          <span style={{ color: "var(--text-muted)" }}>© {year} AIDA Creative Studios</span>
         </div>
 
         {/* Divider */}

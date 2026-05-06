@@ -13,7 +13,7 @@ import {
 
 /**
  * Offline by Design — إقصاء مبرمَج
- * Full advocacy report page. AIDA Critical Institute · April 2026.
+ * Full advocacy report page. AIDA Creative Studios · April 2026.
  * Fully bilingual: Arabic (ar) and English (en) locales.
  */
 
@@ -372,7 +372,7 @@ export function OfflineByDesignReport() {
           >
             <span>{isAr ? "تقرير سياسات ومناصرة" : "A Policy and Advocacy Report"}</span>
             <span style={{ color: "var(--wm-red)", opacity: 0.4 }}>·</span>
-            <span>{isAr ? "معهد عايدة النقدي" : "AIDA Critical Institute"}</span>
+            <span>{isAr ? "عايدة كرييتف ستوديوز" : "AIDA Creative Studios"}</span>
             <span style={{ color: "var(--wm-red)", opacity: 0.4 }}>·</span>
             <span>{isAr ? "أبريل ٢٠٢٦" : "April 2026"}</span>
           </div>
@@ -855,7 +855,7 @@ export function OfflineByDesignReport() {
                 direction: isAr ? "rtl" : "ltr",
               }}
             >
-              {isAr ? "معهد عايدة النقدي · القدس · أبريل ٢٠٢٦" : "AIDA Critical Institute · القدس · April 2026"}
+              {isAr ? "عايدة كرييتف ستوديوز · القدس · أبريل ٢٠٢٦" : "AIDA Creative Studios · القدس · April 2026"}
             </div>
           </div>
 
@@ -963,7 +963,7 @@ export function OfflineByDesignReport() {
             color: "var(--text-muted)",
           }}
         >
-          {isAr ? "معهد عايدة النقدي · القدس · ٢٠٢٦" : "AIDA Critical Institute · Jerusalem · 2026"}
+          {isAr ? "عايدة كرييتف ستوديوز · القدس · ٢٠٢٦" : "AIDA Creative Studios · Jerusalem · 2026"}
         </div>
       </section>
     </>

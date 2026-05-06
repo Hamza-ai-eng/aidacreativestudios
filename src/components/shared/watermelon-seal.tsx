@@ -1,5 +1,5 @@
 /**
- * WatermelonSeal — the AIDA Critical Institute mark
+ * WatermelonSeal — the AIDA Creative Studios mark
  *
  * A semicircle — the cross-section of a watermelon, abstracted:
  *   Red flesh fills the upper arc (#C41A2A)
@@ -34,7 +34,7 @@ export function WatermelonSeal({
   className = "",
   hoverable = false,
   fill = false,
-  "aria-label": ariaLabel = "AIDA Critical Institute seal",
+  "aria-label": ariaLabel = "AIDA Creative Studios seal",
 }: WatermelonSealProps) {
   const Wrapper = hoverable ? "a" : "span";
   const wrapperStyle = fill

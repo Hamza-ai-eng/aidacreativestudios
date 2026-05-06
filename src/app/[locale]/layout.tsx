@@ -20,11 +20,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "AIDA Critical Institute · معهد أيدا — القدس",
+    default: "AIDA Creative Studios · عايدة كرييتف ستوديوز — القدس",
     template: "%s · AIDA",
   },
   description:
-    "معهد نقدي فلسطيني من القدس. تقارير مناصرة، تحليل سياسات، وشغل تصميم. AIDA is a Palestinian critical institute based in Jerusalem — advocacy reports, policy analysis, and design.",
+    "عايدة كرييتف ستوديوز — استوديو إبداعي فلسطيني من القدس. هويّة بصريّة، محتوى، تقارير مناصرة، وشغل تصميم. AIDA Creative Studios — a Palestinian creative studio in Jerusalem. Brand identity, content, advocacy reports, and design.",
   keywords: [
     "creative agency East Jerusalem",
     "brand design Jerusalem",
@@ -59,10 +59,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "AIDA Critical Institute",
-    title: "AIDA Critical Institute | Advocacy, Analysis & Design — Jerusalem",
+    siteName: "AIDA Creative Studios",
+    title: "AIDA Creative Studios | Brand, Content & Advocacy — Jerusalem",
     description:
-      "A Palestinian critical institute based in East Jerusalem. Advocacy reports, policy analysis, and creative design — rooted in the city.",
+      "A Palestinian creative studio based in Jerusalem. Brand identity, content, advocacy reports, and design — rooted in the city.",
   },
   robots: { index: true, follow: true },
 };
@@ -95,8 +95,8 @@ export default async function LocaleLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "@id": "https://aidacreativestudios.com",
-              name: "AIDA Critical Institute",
-              alternateName: ["أيدا كرييتف", "AIDA Creative Consulting", "AIDA Creative Studios"],
+              name: "AIDA Creative Studios",
+              alternateName: ["عايدة كرييتف ستوديوز", "عايدة", "AIDA Creative Consulting"],
               description:
                 "Award-level brand identity, social media content, restaurant menu design, and campaign strategy for Palestinian businesses in East Jerusalem.",
               url: "https://aidacreativestudios.com",

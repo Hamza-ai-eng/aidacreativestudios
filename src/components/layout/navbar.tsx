@@ -67,7 +67,7 @@ export function Navbar() {
         <Link
           href={`/${locale}`}
           className="flex items-center gap-4 group"
-          aria-label="AIDA Critical Institute — الصفحة الرئيسية"
+          aria-label="AIDA Creative Studios — الصفحة الرئيسية"
         >
           <WatermelonSeal size={30} hoverable />
           <span

@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/shared/scroll-reveal";
 const clients = [
   { name: "Golden Line Mobile", nameAr: "جولدن لاين موبايل" },
   { name: "Al-Day'a Shu'afat", nameAr: "الضيعة شعفاط" },
-  { name: "AIDA Creative", nameAr: "أيدا كرييتف" },
+  { name: "AIDA Creative Studios", nameAr: "عايدة كرييتف ستوديوز" },
 ];
 
 export function ClientLogos() {
