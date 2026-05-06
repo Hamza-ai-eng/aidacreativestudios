@@ -4,7 +4,7 @@ import { DukkanContent } from "@/components/services/dukkan-content";
 export const metadata: Metadata = {
   title: "الدّكّان · Studio",
   description:
-    "Visual identities, design work, and institutional communications for Palestinian and Arab organisations — from Jerusalem. AIDA Critical Institute.",
+    "Visual identities, design work, and institutional communications for Palestinian and Arab organisations — from Jerusalem. AIDA Creative Studios.",
 };
 
 export default function ServicesPage() {

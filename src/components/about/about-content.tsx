@@ -110,8 +110,8 @@ export function AboutContent() {
             }}
           >
             {isAr
-              ? "عايدة معهد نقدي فلسطيني ودكّان تصميم، من القدس."
-              : "AIDA is a Palestinian critical institute and design studio, based in Jerusalem."}
+              ? "عايدة كرييتف ستوديوز — استوديو إبداعي فلسطيني، من القدس."
+              : "AIDA Creative Studios — a Palestinian creative studio, based in Jerusalem."}
           </p>
 
           <p

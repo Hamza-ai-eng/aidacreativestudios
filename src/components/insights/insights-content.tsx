@@ -275,7 +275,7 @@ export function InsightsContent() {
                   color: "var(--text-muted)",
                 }}
               >
-                <span>AIDA Critical Institute</span>
+                <span>AIDA Creative Studios</span>
                 <span style={{ color: "var(--wm-red)", opacity: 0.4 }}>·</span>
                 <span>April 2026</span>
                 <span style={{ color: "var(--wm-red)", opacity: 0.4 }}>·</span>

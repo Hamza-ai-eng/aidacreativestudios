@@ -5,7 +5,7 @@ import { InsightsContent } from "@/components/insights/insights-content";
 export const metadata: Metadata = {
   title: "حريّة · Freedom",
   description:
-    "تقارير المناصرة والسلاسل التحريرية من AIDA Critical Institute — القدس. Advocacy reports and editorial series from AIDA, Jerusalem.",
+    "تقارير المناصرة والسلاسل التحريرية من عايدة كرييتف ستوديوز — القدس. Advocacy reports and editorial series from AIDA Creative Studios, Jerusalem.",
 };
 
 export default async function InsightsPage() {
