@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { FatimaKeeper } from "@/components/home/fatima-keeper";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "فاطمة · Fatima — the keeper",
   description:

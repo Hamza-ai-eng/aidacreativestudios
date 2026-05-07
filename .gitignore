@@ -31,3 +31,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Velite generated content
+.velite/
+public/static/
+
+# Pagefind static index
+public/_pagefind/

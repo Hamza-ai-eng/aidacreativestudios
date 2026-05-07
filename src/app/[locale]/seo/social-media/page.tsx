@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { GoldButton } from "@/components/shared/gold-button";
 import { CTABanner } from "@/components/home/cta-banner";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "إدارة سوشيال ميديا القدس الشرقية | Social Media Management East Jerusalem",
   description: "إدارة حسابات سوشيال ميديا للمشاريع الفلسطينية في القدس الشرقية. إنستغرام، فيسبوك، تيك توك، وواتساب بزنس. محتوى بالعامية الفلسطينية المقدسية. AIDA Creative Studios.",

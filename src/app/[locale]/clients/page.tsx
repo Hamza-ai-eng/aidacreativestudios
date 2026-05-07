@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { ClientsContent } from "@/components/clients/clients-content";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "Our Clients — Palestinian Businesses We've Transformed",
   description:

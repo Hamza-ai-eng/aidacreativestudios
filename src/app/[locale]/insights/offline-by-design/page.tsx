@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { OfflineByDesignReport } from "@/components/insights/offline-by-design";
 
+export const revalidate = 3600; // ISR — 3600s
+
+
 export const metadata: Metadata = {
   title: "إقصاء مبرمَج · Offline by Design",
   description:

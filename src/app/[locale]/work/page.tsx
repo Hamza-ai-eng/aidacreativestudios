@@ -4,6 +4,9 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { FeaturedWork } from "@/components/home/featured-work";
 import { CTABanner } from "@/components/home/cta-banner";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "Portfolio — Brand Identity & Restaurant Menu Design Case Studies",
   description:

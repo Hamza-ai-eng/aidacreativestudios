@@ -17,7 +17,7 @@ import {
 export const amiri = Amiri({
   subsets: ["arabic", "latin"],
   weight: ["400", "700"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   variable: "--font-amiri",
   display: "swap",
 });
@@ -32,7 +32,7 @@ export const cairo = Cairo({
 /** English display — the judge's voice */
 export const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
   display: "swap",
@@ -70,16 +70,19 @@ export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
 });
 
 export const heebo = Heebo({
   subsets: ["hebrew", "latin"],
   variable: "--font-heebo",
   display: "swap",
+  preload: false,
 });
 
 export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space",
   display: "swap",
+  preload: false,
 });

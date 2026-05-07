@@ -4,6 +4,9 @@ import { goldenLineMobile } from "@/data/case-studies/golden-line-mobile";
 import { alDaya } from "@/data/case-studies/al-daya";
 import { CaseStudyContent } from "@/components/work/case-study-content";
 
+export const revalidate = 86400; // ISR — 86400s
+
+
 const caseStudies = {
   "golden-line-mobile": goldenLineMobile,
   "al-daya": alDaya,

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { ContactContent } from "@/components/contact/contact-content";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "Contact AIDA — WhatsApp, Email, or Visit Shu'fat East Jerusalem",
   description:

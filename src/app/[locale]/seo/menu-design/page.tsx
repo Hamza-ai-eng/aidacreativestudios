@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { GoldButton } from "@/components/shared/gold-button";
 import { CTABanner } from "@/components/home/cta-banner";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "تصميم منيو مطعم عربي القدس | Arabic Restaurant Menu Design Jerusalem",
   description: "تصميم منيو مطعم عربي احترافي في القدس. دعم RTL كامل، طباعة A3 جاهزة، تصوير أكل، وتوزيع استراتيجي للأصناف يرفع متوسط الفاتورة. AIDA Creative Studios.",

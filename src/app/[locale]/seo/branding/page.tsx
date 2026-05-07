@@ -5,6 +5,9 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { GoldButton } from "@/components/shared/gold-button";
 import { CTABanner } from "@/components/home/cta-banner";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "تصميم هوية بصرية القدس الشرقية | Brand Identity Design East Jerusalem",
   description: "أفضل وكالة تصميم هوية بصرية في القدس الشرقية. شعارات، ألوان، خطوط، ودليل براند كامل للمشاريع الفلسطينية. AIDA Creative Studios — الوكالة الإبداعية الوحيدة بثلاث لغات.",
