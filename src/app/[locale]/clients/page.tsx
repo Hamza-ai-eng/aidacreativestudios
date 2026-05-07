@@ -8,7 +8,7 @@ export const revalidate = 300; // ISR — 300s
 export const metadata: Metadata = {
   title: "Our Clients — Palestinian Businesses We've Transformed",
   description:
-    "Meet the Palestinian businesses in East Jerusalem that trust AIDA Creative Studios for brand identity, social media, and digital strategy. Golden Line Mobile, Al-Day'a Shu'afat, and more.",
+    "Meet the Palestinian businesses in Jerusalem that trust AIDA Creative Studios for brand identity, social media, and digital strategy. Golden Line Mobile, Al-Day'a, and more.",
 };
 
 export default function ClientsPage() {

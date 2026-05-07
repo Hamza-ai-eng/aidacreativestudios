@@ -9,8 +9,8 @@ export const revalidate = 300; // ISR — 300s
 
 
 export const metadata: Metadata = {
-  title: "إدارة سوشيال ميديا القدس الشرقية | Social Media Management East Jerusalem",
-  description: "إدارة حسابات سوشيال ميديا للمشاريع الفلسطينية في القدس الشرقية. إنستغرام، فيسبوك، تيك توك، وواتساب بزنس. محتوى بالعامية الفلسطينية المقدسية. AIDA Creative Studios.",
+  title: "إدارة سوشيال ميديا القدس | Social Media Management Jerusalem",
+  description: "إدارة حسابات سوشيال ميديا للمشاريع الفلسطينية في القدس. إنستغرام، فيسبوك، تيك توك، وواتساب بزنس. محتوى بالعامية الفلسطينية المقدسية. AIDA Creative Studios.",
 };
 
 export default async function SocialMediaSeoPage() {
@@ -20,19 +20,19 @@ export default async function SocialMediaSeoPage() {
         <div className="mx-auto max-w-4xl px-6">
           <Breadcrumbs items={[{ label: "Home", href: "" }, { label: "Services", href: "/services" }, { label: "Social Media Management" }]} />
           <h1 className="font-serif text-4xl md:text-5xl text-[var(--ink)] mb-6 leading-tight">
-            Social Media Management for Palestinian Businesses in East Jerusalem
+            Social Media Management for Palestinian Businesses in Jerusalem
           </h1>
           <p className="font-arabic text-2xl text-[var(--accent)] mb-8" dir="rtl">
-            إدارة سوشيال ميديا للمشاريع الفلسطينية في القدس الشرقية
+            إدارة سوشيال ميديا للمشاريع الفلسطينية في القدس
           </p>
           <div className="prose max-w-none text-[var(--stone-gray)] leading-relaxed space-y-4">
-            <p>Most Palestinian businesses in East Jerusalem post once a week, use stock photos, and wonder why their social media isn't working. The problem isn't the algorithm — it's the content. Your customers scroll past generic Arabic content because it doesn't sound like them. They engage with content that speaks their dialect, shows their neighborhood, and feels real.</p>
-            <p>AIDA Creative Studios manages Instagram, Facebook, and TikTok accounts for Palestinian businesses across East Jerusalem — from restaurants in the Old City to retail shops in Shu'fat to service businesses in Beit Hanina. We don't just schedule posts. We create original content in authentic Palestinian Jerusalemite dialect that stops the scroll and drives real foot traffic.</p>
+            <p>Most Palestinian businesses in Jerusalem post once a week, use stock photos, and wonder why their social media isn't working. The problem isn't the algorithm — it's the content. Your customers scroll past generic Arabic content because it doesn't sound like them. They engage with content that speaks their dialect, shows their neighborhood, and feels real.</p>
+            <p>AIDA Creative Studios manages Instagram, Facebook, and TikTok accounts for Palestinian businesses across Jerusalem — restaurants in the Old City, neighborhood retail shops, service businesses across the surrounding neighborhoods. We don't just schedule posts. We create original content in authentic Palestinian Jerusalemite dialect that stops the scroll and drives real foot traffic.</p>
             <p dir="rtl" className="font-arabic text-lg">إحنا مش بس بنرفع بوستات — بنصنع محتوى أصلي بالعامية الفلسطينية المقدسية. بنعرف كيف الناس بالقدس بتحكي، شو بتحب تشوف، وكيف بتتفاعل. المحتوى تبعنا بيوصل لأنه حقيقي، مش مترجم ولا منسوخ من حد ثاني.</p>
 
             <h2 className="font-serif text-2xl text-[var(--ink)] mt-8">Platforms We Manage</h2>
             <p><strong>Instagram:</strong> We handle feed posts, Reels, Stories, and carousels. Every piece is designed with your brand colors, shot or sourced specifically for your business, and captioned in dialect that resonates. We optimize hashtags for Jerusalem-specific discovery and engage with your local community daily.</p>
-            <p><strong>Facebook:</strong> Still the primary platform for Palestinian audiences over 30. We create shareable content, manage your business page, respond to messages and comments, and run targeted campaigns that reach East Jerusalem neighborhoods specifically.</p>
+            <p><strong>Facebook:</strong> Still the primary platform for Palestinian audiences over 30. We create shareable content, manage your business page, respond to messages and comments, and run targeted campaigns that reach Jerusalem neighborhoods specifically.</p>
             <p><strong>TikTok:</strong> The fastest-growing platform among young Palestinians in Jerusalem. We produce short-form video content — behind-the-scenes, product showcases, day-in-the-life clips — that builds brand awareness with the next generation of customers.</p>
             <p><strong>WhatsApp Business:</strong> We set up and optimize your WhatsApp Business profile with catalog integration, automated greeting messages, quick replies in Arabic, and broadcast list strategy. For many Palestinian businesses, WhatsApp is the primary sales channel — we make sure yours converts.</p>
 

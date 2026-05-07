@@ -10,7 +10,7 @@ export const revalidate = 300; // ISR — 300s
 export const metadata: Metadata = {
   title: "Portfolio — Brand Identity & Restaurant Menu Design Case Studies",
   description:
-    "See how AIDA transforms Palestinian businesses with world-class brand design, social media strategy, and restaurant menu design. Real case studies from East Jerusalem.",
+    "See how AIDA transforms Palestinian businesses with world-class brand design, social media strategy, and restaurant menu design. Real case studies from Jerusalem.",
 };
 
 export default async function WorkPage() {

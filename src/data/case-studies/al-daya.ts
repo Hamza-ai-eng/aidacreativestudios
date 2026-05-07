@@ -3,10 +3,10 @@ export const alDaya = {
   title: "Al-Day'a Shu'afat",
   titleAr: "الضيعة شعفاط",
   tagline: "Village Soul, City Style",
-  taglineAr: "طعم الضيعة الأصيل في قلب شعفاط",
+  taglineAr: "طعم الضيعة الأصيل في قلب المدينة",
   category: "Menu Design & Branding",
   description:
-    "5 distinct menu design themes for an East Jerusalem restaurant — from warm heritage to bold ember. Each is print-ready, RTL-verified, and packed with upsell optimization.",
+    "5 distinct menu design themes for a Jerusalem restaurant — from warm heritage to bold ember. Each is print-ready, RTL-verified, and packed with upsell optimization.",
   challenge:
     "Al-Day'a needed a professional menu that reflected their authentic Palestinian cuisine while looking modern enough to compete. The menu had to handle complex Arabic RTL layout, triple pricing columns (chicken/beef/mix), and work as a tri-fold print piece.",
   solution:
@@ -20,7 +20,7 @@ export const alDaya = {
   process: [
     {
       step: "Content Extraction",
-      description: "Extracted every item, price, and description from the existing menu. Verified all prices against 2026 East Jerusalem market rates.",
+      description: "Extracted every item, price, and description from the existing menu. Verified all prices against 2026 Jerusalem market rates.",
     },
     {
       step: "Structure Design",

@@ -6,9 +6,9 @@ export const revalidate = 300; // ISR — 300s
 
 
 export const metadata: Metadata = {
-  title: "Contact AIDA — WhatsApp, Email, or Visit Shu'fat East Jerusalem",
+  title: "Contact AIDA — WhatsApp, Email, or Visit Us in Jerusalem",
   description:
-    "Start your brand design project with AIDA Creative Studios. Message us on WhatsApp for the fastest response, or send a brief. Based in Shu'fat, East Jerusalem.",
+    "Start your brand design project with AIDA Creative Studios. Message us on WhatsApp for the fastest response, or send a brief. Based in Jerusalem.",
 };
 
 export default function ContactPage() {
