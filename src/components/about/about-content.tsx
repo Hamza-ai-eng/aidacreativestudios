@@ -285,7 +285,7 @@ export function AboutContent() {
             {
               label: isAr ? "المكان" : "Where",
               value: isAr ? "القدس" : "Jerusalem",
-              sub: isAr ? "القدس الشرقية، فلسطين" : "East Jerusalem, Palestine",
+              sub: isAr ? "القدس، فلسطين" : "Jerusalem, Palestine",
             },
             {
               label: isAr ? "من" : "Since",

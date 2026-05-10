@@ -5,9 +5,12 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { GoldButton } from "@/components/shared/gold-button";
 import { CTABanner } from "@/components/home/cta-banner";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
-  title: "تصميم هوية بصرية القدس الشرقية | Brand Identity Design East Jerusalem",
-  description: "أفضل وكالة تصميم هوية بصرية في القدس الشرقية. شعارات، ألوان، خطوط، ودليل براند كامل للمشاريع الفلسطينية. AIDA Creative Studios — الوكالة الإبداعية الوحيدة بثلاث لغات.",
+  title: "تصميم هوية بصرية القدس | Brand Identity Design Jerusalem",
+  description: "أفضل وكالة تصميم هوية بصرية في القدس. شعارات، ألوان، خطوط، ودليل براند كامل للمشاريع الفلسطينية. AIDA Creative Studios — الوكالة الإبداعية الوحيدة بثلاث لغات.",
 };
 
 export default async function BrandingSeoPage() {
@@ -17,15 +20,15 @@ export default async function BrandingSeoPage() {
         <div className="mx-auto max-w-4xl px-6">
           <Breadcrumbs items={[{ label: "Home", href: "" }, { label: "Services", href: "/services" }, { label: "Brand Identity Design" }]} />
           <h1 className="font-serif text-4xl md:text-5xl text-[var(--ink)] mb-6 leading-tight">
-            Brand Identity Design for Palestinian Businesses in East Jerusalem
+            Brand Identity Design for Palestinian Businesses in Jerusalem
           </h1>
           <p className="font-arabic text-2xl text-[var(--accent)] mb-8" dir="rtl">
-            تصميم هوية بصرية للمشاريع الفلسطينية في القدس الشرقية
+            تصميم هوية بصرية للمشاريع الفلسطينية في القدس
           </p>
           <div className="prose max-w-none text-[var(--stone-gray)] leading-relaxed space-y-4">
-            <p>Your brand is the first thing customers see — before they walk through your door, before they read your menu, before they pick up the phone. In East Jerusalem, where 39% of Palestinian businesses have no online presence, a strong visual identity isn't just nice to have. It's the difference between being found and being forgotten.</p>
-            <p>AIDA Creative Studios builds complete brand identity systems for Palestinian businesses in Shu'fat, the Old City, and across East Jerusalem. We don't just design logos — we create visual systems that work across every touchpoint: your storefront sign, your Instagram posts, your WhatsApp catalog, your restaurant menu, and your business cards.</p>
-            <p dir="rtl" className="font-arabic text-lg">إحنا بنبني أنظمة هوية بصرية كاملة — شعارات بعدة إصدارات، ألوان بأكواد دقيقة، خطوط عربية وإنجليزية، ودليل براند بيخلي كل إشي متناسق. من شعفاط للبلدة القديمة، بنخدم المشاريع الفلسطينية إلي بدها تبين باحترافية.</p>
+            <p>Your brand is the first thing customers see — before they walk through your door, before they read your menu, before they pick up the phone. In Jerusalem, where 39% of Palestinian businesses have no online presence, a strong visual identity isn't just nice to have. It's the difference between being found and being forgotten.</p>
+            <p>AIDA Creative Studios builds complete brand identity systems for Palestinian businesses across Jerusalem — from the Old City out to the surrounding neighborhoods. We don't just design logos — we create visual systems that work across every touchpoint: your storefront sign, your Instagram posts, your WhatsApp catalog, your restaurant menu, and your business cards.</p>
+            <p dir="rtl" className="font-arabic text-lg">إحنا بنبني أنظمة هوية بصرية كاملة — شعارات بعدة إصدارات، ألوان بأكواد دقيقة، خطوط عربية وإنجليزية، ودليل براند بيخلي كل إشي متناسق. من البلدة القديمة لكل أحياء القدس، بنخدم المشاريع الفلسطينية إلي بدها تبين باحترافية.</p>
             <h2 className="font-serif text-2xl text-[var(--ink)] mt-8">What's Included in Our Brand Identity Package</h2>
             <ul className="list-disc list-inside space-y-2">
               <li>Logo design with 3+ variants (full, icon, horizontal)</li>
@@ -37,7 +40,7 @@ export default async function BrandingSeoPage() {
               <li>Signage mockup</li>
             </ul>
             <h2 className="font-serif text-2xl text-[var(--ink)] mt-8">Why Choose AIDA</h2>
-            <p>We are the only trilingual creative agency in East Jerusalem. We work in Arabic, English, and Hebrew — meaning your brand works across every market. Our Palestinian dialect expertise means your brand voice sounds authentic, not corporate.</p>
+            <p>We are the only trilingual creative agency in Jerusalem. We work in Arabic, English, and Hebrew — meaning your brand works across every market. Our Palestinian dialect expertise means your brand voice sounds authentic, not corporate.</p>
           </div>
           <div className="mt-12">
             <GoldButton href="/contact" variant="terracotta" size="lg">

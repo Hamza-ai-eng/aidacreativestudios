@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { clients } from "@/data/clients";
 import { ClientDetailContent } from "@/components/clients/client-detail-content";
 
+export const revalidate = 86400; // ISR — 86400s
+
+
 export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {

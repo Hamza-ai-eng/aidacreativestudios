@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { AboutContent } from "@/components/about/about-content";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "مين إحنا · About",
   description:

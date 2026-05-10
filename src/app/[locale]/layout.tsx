@@ -7,6 +7,8 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppFAB } from "@/components/shared/whatsapp-fab";
 import { Grain } from "@/components/shared/grain";
+import { SiteSearch } from "@/components/shared/site-search";
+import { homeAlternates } from "@/lib/seo";
 import "../globals.css";
 
 const RTL_LOCALES = new Set(["ar", "he"]);
@@ -18,54 +20,65 @@ export const viewport: Viewport = {
   themeColor: "#F2EBE0",
 };
 
-export const metadata: Metadata = {
-  title: {
-    default: "AIDA Creative Studios · عايدة كرييتف ستوديوز — القدس",
-    template: "%s · AIDA",
-  },
-  description:
-    "عايدة كرييتف ستوديوز — استوديو إبداعي فلسطيني من القدس. هويّة بصريّة، محتوى، تقارير مناصرة، وشغل تصميم. AIDA Creative Studios — a Palestinian creative studio in Jerusalem. Brand identity, content, advocacy reports, and design.",
-  keywords: [
-    "creative agency East Jerusalem",
-    "brand design Jerusalem",
-    "social media agency Palestine",
-    "restaurant menu design Arabic",
-    "branding agency Shu'fat",
-    "graphic design East Jerusalem",
-    "Palestinian business branding",
-    "trilingual website design Jerusalem",
-    "Google Business Profile Palestine",
-    "WhatsApp Business setup",
-    "food photography Jerusalem",
-    "paid ads management Palestine",
-    "وكالة إبداعية القدس",
-    "تصميم هوية بصرية فلسطين",
-    "إدارة سوشيال ميديا القدس",
-    "تصوير أكل القدس",
-    "סוכנות קריאייטיב ירושלים",
-    "עיצוב גרפי מזרח ירושלים",
-    "שיווק דיגיטלי ירושלים",
-  ],
-  alternates: {
-    canonical: "https://aidacreativestudios.com/en",
-    languages: {
-      en: "https://aidacreativestudios.com/en",
-      ar: "https://aidacreativestudios.com/ar",
-      he: "https://aidacreativestudios.com/he",
-      "x-default": "https://aidacreativestudios.com/en",
+// Per-locale alternates set in generateMetadata so every page can override.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: {
+      default: "AIDA Creative Studios · عايدة كرييتف ستوديوز — القدس",
+      template: "%s · AIDA Creative Studios",
     },
-  },
-  metadataBase: new URL("https://aidacreativestudios.com"),
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "AIDA Creative Studios",
-    title: "AIDA Creative Studios | Brand, Content & Advocacy — Jerusalem",
     description:
-      "A Palestinian creative studio based in Jerusalem. Brand identity, content, advocacy reports, and design — rooted in the city.",
-  },
-  robots: { index: true, follow: true },
-};
+      "عايدة كرييتف ستوديوز — استوديو إبداعي فلسطيني من القدس. هويّة بصريّة، محتوى، تقارير مناصرة، وشغل تصميم. AIDA Creative Studios — a Palestinian creative studio in Jerusalem. Brand identity, content, advocacy reports, and design.",
+    keywords: [
+      "creative agency Jerusalem",
+      "brand design Jerusalem",
+      "social media agency Palestine",
+      "restaurant menu design Arabic",
+      "branding agency Jerusalem",
+      "graphic design Jerusalem",
+      "Palestinian business branding",
+      "trilingual website design Jerusalem",
+      "Google Business Profile Palestine",
+      "WhatsApp Business setup",
+      "food photography Jerusalem",
+      "paid ads management Palestine",
+      "وكالة إبداعية القدس",
+      "تصميم هوية بصرية فلسطين",
+      "إدارة سوشيال ميديا القدس",
+      "تصوير أكل القدس",
+    ],
+    metadataBase: new URL("https://aidacreativestudios.com"),
+    alternates: homeAlternates(locale),
+    openGraph: {
+      type: "website",
+      siteName: "AIDA Creative Studios",
+      title: "AIDA Creative Studios | Brand, Content & Advocacy — Jerusalem",
+      description:
+        "A Palestinian creative studio based in Jerusalem. Brand identity, content, advocacy reports, and design — rooted in the city.",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "AIDA Creative Studios — a house from Jerusalem",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "AIDA Creative Studios | Brand, Content & Advocacy — Jerusalem",
+      description:
+        "A Palestinian creative studio based in Jerusalem. Brand identity, content, advocacy reports, and design — rooted in the city.",
+      images: ["/og-image.png"],
+    },
+    robots: { index: true, follow: true },
+  };
+}
 
 export default async function LocaleLayout({
   children,
@@ -93,62 +106,61 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": ["Organization", "ResearchOrganization"],
               "@id": "https://aidacreativestudios.com",
               name: "AIDA Creative Studios",
               alternateName: ["عايدة كرييتف ستوديوز", "عايدة", "AIDA Creative Consulting"],
               description:
-                "Award-level brand identity, social media content, restaurant menu design, and campaign strategy for Palestinian businesses in East Jerusalem.",
+                "A Palestinian critical practice — a research institute where design is the method and the studio is the proof. Advocacy research, editorial content, and design services for Palestinian communities.",
               url: "https://aidacreativestudios.com",
               telephone: "+972524635937",
               email: "info@aidacreativestudios.com",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Shu'fat",
-                addressRegion: "East Jerusalem",
+                addressLocality: "Jerusalem",
+                addressRegion: "Jerusalem",
                 addressCountry: "PS",
               },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 31.8065,
-                longitude: 35.2293,
-              },
-              priceRange: "₪₪",
               image: "https://aidacreativestudios.com/og-image.png",
               sameAs: [
                 "https://www.instagram.com/aida.creative.consultancy/",
                 "https://www.facebook.com/profile.php?id=61587116201810",
                 "https://www.tiktok.com/@aida.creative",
               ],
-              openingHoursSpecification: {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                  "Sunday",
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                ],
-                opens: "09:00",
-                closes: "18:00",
-              },
-              areaServed: {
-                "@type": "City",
-                name: "Jerusalem",
-              },
               knowsLanguage: ["en", "ar", "he"],
-              serviceType: [
-                "Brand Identity Design",
-                "Social Media Management",
-                "Food & Product Photography",
-                "Google Business Profile Setup",
-                "WhatsApp Business Setup",
-                "Menu & Print Design",
-                "Short-Form Video Production",
-                "Paid Ads Management",
-                "Website & Landing Page Design",
-                "Seasonal Campaign Packages",
-              ],
+              subOrganization: {
+                "@type": "LocalBusiness",
+                name: "AIDA Studio · الدّكّان",
+                priceRange: "₪₪",
+                openingHoursSpecification: {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                  ],
+                  opens: "09:00",
+                  closes: "18:00",
+                },
+                areaServed: {
+                  "@type": "City",
+                  name: "Jerusalem",
+                },
+                serviceType: [
+                  "Brand Identity Design",
+                  "Social Media Management",
+                  "Food and Product Photography",
+                  "Google Business Profile Setup",
+                  "WhatsApp Business Setup",
+                  "Menu and Print Design",
+                  "Short-Form Video Production",
+                  "Paid Ads Management",
+                  "Website and Landing Page Design",
+                  "Seasonal Campaign Packages",
+                ],
+              },
             }),
           }}
         />
@@ -158,6 +170,7 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer />
           <WhatsAppFAB />
+          <SiteSearch />
         </NextIntlClientProvider>
       </body>
     </html>

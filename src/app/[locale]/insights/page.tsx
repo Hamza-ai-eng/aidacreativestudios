@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { InsightsContent } from "@/components/insights/insights-content";
 
+export const revalidate = 3600; // ISR — 3600s
+
+
 export const metadata: Metadata = {
   title: "حريّة · Freedom",
   description:

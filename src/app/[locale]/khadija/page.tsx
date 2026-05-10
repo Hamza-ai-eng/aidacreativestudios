@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { KhadijaWitness } from "@/components/home/khadija-witness";
 import { EditorialIndex } from "@/components/editorial/editorial-index";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "حجّة خديجة · Hajjeh Khadija — the witness",
   description:

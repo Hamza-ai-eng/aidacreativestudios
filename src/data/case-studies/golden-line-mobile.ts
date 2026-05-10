@@ -2,13 +2,13 @@ export const goldenLineMobile = {
   slug: "golden-line-mobile",
   title: "Golden Line Mobile",
   titleAr: "جولدن لاين موبايل",
-  tagline: "The Gold Standard in Shu'fat",
-  taglineAr: "المعيار الذهبي في شعفاط",
+  tagline: "The Gold Standard in Jerusalem",
+  taglineAr: "المعيار الذهبي في القدس",
   category: "Brand Identity & Social Media",
   description:
-    "A complete brand overhaul for Shu'fat's leading phone and accessories shop. From a generic storefront to a premium visual identity that commands attention.",
+    "A complete brand overhaul for one of Jerusalem's leading phone and accessories shops. From a generic storefront to a premium visual identity that commands attention.",
   challenge:
-    "Golden Line had no visual identity beyond a basic logo. In a competitive market with dozens of phone shops, they needed to stand out and convey premium quality — even though their prices are fair for the East Jerusalem market.",
+    "Golden Line had no visual identity beyond a basic logo. In a competitive market with dozens of phone shops, they needed to stand out and convey premium quality — even though their prices are fair for the Jerusalem market.",
   solution:
     "We built a complete brand DNA from scratch: a cinematic dark-and-gold identity with 5 logo variants (Obsidian, Leather, Glass, Shield, Vector), a social content system, and product photography guidelines. Every post carries the signature gold thread.",
   results: [
@@ -20,7 +20,7 @@ export const goldenLineMobile = {
   process: [
     {
       step: "Discovery",
-      description: "Visited the shop, understood the product range, analyzed competitors in Shu'fat market.",
+      description: "Visited the shop, understood the product range, analyzed competitors in the Jerusalem market.",
     },
     {
       step: "Brand DNA",

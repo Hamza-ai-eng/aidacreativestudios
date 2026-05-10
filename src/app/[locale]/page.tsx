@@ -4,6 +4,9 @@ import { KhadijaWitness } from "@/components/home/khadija-witness";
 import { KarimehMaker } from "@/components/home/karimeh-maker";
 import { HayatDoor } from "@/components/home/hayat-door";
 
+export const revalidate = 300; // ISR — 300s
+
+
 /**
  * Homepage — Bait Aida
  *

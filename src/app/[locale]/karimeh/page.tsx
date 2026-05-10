@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { KarimehMaker } from "@/components/home/karimeh-maker";
 
+export const revalidate = 300; // ISR — 300s
+
+
 export const metadata: Metadata = {
   title: "ستّ كريمة · Sitt Karimeh — the maker",
   description:
