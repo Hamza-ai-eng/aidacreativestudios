@@ -31,8 +31,8 @@ interface MatriarchStripProps {
   enRole: string;                        /* "the keeper" */
   arVoice: ReactNode;
   enVoice: ReactNode;
-  arBody: ReactNode;
-  enBody: ReactNode;
+  arBody?: ReactNode;
+  enBody?: ReactNode;
   arCta: string;                         /* "ادخلوا غرفة فاطمة" */
   enCta: string;                         /* "Enter Fatima's room" */
   hrefSuffix: string;                    /* "/fatima" */
@@ -152,21 +152,23 @@ export function MatriarchStrip(props: MatriarchStripProps) {
           {/* voice */}
           <VoiceBlock ar={arVoice} en={enVoice} />
 
-          {/* body */}
-          <div
-            style={{
-              marginTop: "2rem",
-              maxWidth: "60ch",
-              fontFamily: "var(--font-ar-body)",
-              fontSize: "1.05rem",
-              lineHeight: 1.8,
-              color: "var(--ink)",
-              direction: isAr ? "rtl" : "ltr",
-              textAlign: isAr ? "right" : "left",
-            }}
-          >
-            {isAr ? arBody : enBody}
-          </div>
+          {/* body (optional — some rooms render none) */}
+          {(isAr ? arBody : enBody) ? (
+            <div
+              style={{
+                marginTop: "2rem",
+                maxWidth: "60ch",
+                fontFamily: "var(--font-ar-body)",
+                fontSize: "1.05rem",
+                lineHeight: 1.8,
+                color: "var(--ink)",
+                direction: isAr ? "rtl" : "ltr",
+                textAlign: isAr ? "right" : "left",
+              }}
+            >
+              {isAr ? arBody : enBody}
+            </div>
+          ) : null}
 
           {/* cta */}
           <div style={{ marginTop: "2.2rem" }}>
