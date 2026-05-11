@@ -30,6 +30,16 @@ const nextConfig: NextConfig = {
         destination: "/editorial/offline-by-design-series/index.html",
         permanent: false,
       },
+      {
+        source: "/editorial/when-the-knife-entered",
+        destination: "/editorial/when-the-knife-entered/index.html",
+        permanent: false,
+      },
+      {
+        source: "/editorial/when-the-knife-entered/",
+        destination: "/editorial/when-the-knife-entered/index.html",
+        permanent: false,
+      },
 
       // ── V1 → V2 (Bait Aida matriarch lanes) — 301 permanent ──
       // Per Hamzah's approved decision 2026-05-06 (REBUILD_HANDOFF / Plan §3.2)
