@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>File 07 — Our Return Became Their File | When the Knife Entered</title>
-<meta name="description" content="File 07 of Series 03 — When the Knife Entered. Our Return Became Their File. By Hamzah Barhameyeh, AIDA Creative Studios, Jerusalem.">
+<title>File 07 — Our Return Became Their File | The Key Became a Fingerprint</title>
+<meta name="description" content="File 07 of Series 03 — The Key Became a Fingerprint / المفتاح صار بَصمة. Our Return Became Their File. By Hamzah Barhameyeh, AIDA Creative Studios, Jerusalem.">
 <meta property="og:title" content="Our Return Became Their File — The Key Became a Fingerprint">
 <meta property="og:description" content="File 07 · Feet · The right of return — guaranteed in writing, in 1948 — was filed. The file is the cabinet. The cabinet is the wall.">
 <meta property="og:type" content="article">
@@ -391,77 +391,113 @@ html[lang="ar"] .index-hero .umb-blurb { font-family: 'Amiri', serif; font-style
 .index-hero .byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
 html[lang="ar"] .index-hero .byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
 
-/* file cards */
-.files { background: var(--surface); padding: 9vh 6vw; }
-.files .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; text-align: center; }
+/* file cards — full-bleed image with text overlay */
+.files { background: var(--surface); padding: 9vh 0; }
+.files .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; text-align: center; padding: 0 6vw; }
 html[lang="ar"] .files .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
 .file-card {
-  display: grid; grid-template-columns: 1.1fr 1fr;
-  min-height: 56vh; margin-bottom: 8px;
-  background: var(--bg); color: var(--surface);
-  position: relative; overflow: hidden;
-}
-.file-card.light { background: var(--surface-deep); color: var(--ink); }
-.file-card.reverse { grid-template-columns: 1fr 1.1fr; }
-.file-card.reverse .fc-img { order: 2; }
-.fc-img {
-  position: relative; min-height: 360px;
+  position: relative;
+  height: 72vh; min-height: 520px;
+  margin-bottom: 8px;
   background-size: cover; background-position: center;
+  background-color: var(--bg-deep);
+  color: var(--surface);
+  overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 7vw 6vh;
+  text-decoration: none;
+  transition: transform .35s ease, box-shadow .35s ease;
 }
-.fc-img::after {
+.file-card::after {
   content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(17,16,14,0.30) 0%,
+    rgba(17,16,14,0.20) 38%,
+    rgba(17,16,14,0.78) 78%,
+    rgba(17,16,14,0.96) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
-.file-card:not(.light) .fc-img::after {
-  background: linear-gradient(90deg, rgba(17,16,14,0.32) 0%, transparent 50%);
-}
-.file-card.light .fc-img::after {
-  background: linear-gradient(90deg, rgba(245,240,232,0.22) 0%, transparent 50%);
-}
-.file-card.reverse:not(.light) .fc-img::after { background: linear-gradient(270deg, rgba(17,16,14,0.32) 0%, transparent 50%); }
-.file-card.reverse.light .fc-img::after { background: linear-gradient(270deg, rgba(245,240,232,0.22) 0%, transparent 50%); }
-.fc-text { padding: 7vh 5vw; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.file-card > * { position: relative; z-index: 2; }
+.file-card:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
+
 .fc-num {
-  position: absolute; opacity: 0.06;
+  position: absolute;
   font-family: 'Reem Kufi', 'Amiri', serif; font-weight: 700;
-  font-size: clamp(8rem, 18vw, 16rem); line-height: 1;
-  bottom: -2vh; pointer-events: none; user-select: none;
-  color: var(--art);
+  font-size: clamp(12rem, 30vw, 24rem); line-height: 0.85;
+  pointer-events: none; user-select: none;
+  opacity: 0.13; color: var(--art);
+  top: -4vh;
+  z-index: 1;
 }
-html:not([lang="ar"]) .file-card:not(.reverse) .fc-num { right: -2vw; }
-html:not([lang="ar"]) .file-card.reverse .fc-num { left: -2vw; }
-html[lang="ar"] .file-card:not(.reverse) .fc-num { left: -2vw; }
-html[lang="ar"] .file-card.reverse .fc-num { right: -2vw; }
-.fc-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--art); margin-bottom: 14px; }
-html[lang="ar"] .fc-meta { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
-.fc-organ { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--art); margin-bottom: 10px; }
+html:not([lang="ar"]) .fc-num { right: -2vw; }
+html[lang="ar"]      .fc-num { left:  -2vw; }
+
+.fc-meta {
+  font-family: 'Space Mono', monospace; font-size: 11px;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--art); margin-bottom: 14px;
+}
+html[lang="ar"] .fc-meta { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1.05rem; }
+
+.fc-organ {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  color: var(--gold); margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
 html[lang="ar"] .fc-organ { font-family: 'Amiri', serif; }
+
 .fc-title-ar {
   font-family: 'Amiri', serif; font-weight: 700;
-  font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.2;
-  margin-bottom: 12px;
+  font-size: clamp(2.2rem, 5.6vw, 4.4rem); line-height: 1.18;
+  color: var(--surface);
+  margin-bottom: 10px;
+  max-width: 880px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.5);
 }
 .fc-title-en {
   font-family: 'Playfair Display', serif; font-weight: 900;
-  font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1;
+  font-size: clamp(1.6rem, 3.6vw, 2.8rem); line-height: 1.05;
+  color: var(--surface); opacity: 0.85;
   margin-bottom: 18px;
+  max-width: 880px; letter-spacing: -0.005em;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.45);
 }
-html[lang="ar"] .fc-title-en { display:none; }
-html:not([lang="ar"]) .fc-title-ar { display:none; }
-html:not([lang="ar"]) .fc-title-en { font-size: clamp(1.8rem, 3.8vw, 3rem); }
-.fc-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.02rem; line-height: 1.7; margin-bottom: 24px; opacity: 0.88; max-width: 500px; }
-html[lang="ar"] .fc-kicker { font-family: 'Amiri', serif; font-style: normal; font-size: 1.1rem; }
+html[lang="ar"] .fc-title-en { display: none; }
+html:not([lang="ar"]) .fc-title-ar { display: none; }
+html:not([lang="ar"]) .fc-title-en {
+  font-size: clamp(2.4rem, 5.6vw, 4.4rem); opacity: 1; line-height: 1.05;
+}
+
+.fc-kicker {
+  font-family: 'EB Garamond', serif; font-style: italic;
+  font-size: clamp(0.98rem, 1.5vw, 1.18rem); line-height: 1.7;
+  color: rgba(245,240,232,0.84);
+  margin-bottom: 24px; max-width: 620px;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+}
+html[lang="ar"] .fc-kicker { font-family: 'Amiri', serif; font-style: normal; font-size: 1.18rem; }
+
+.fc-rule {
+  width: 48px; height: 3px; background: var(--art); margin-bottom: 16px;
+}
+
 .fc-link {
-  font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.28em;
-  text-transform: uppercase; text-decoration: none;
-  color: var(--art); display: inline-flex; gap: 10px; align-items: center;
-  transition: gap .2s;
+  font-family: 'Space Mono', monospace; font-size: 11px;
+  letter-spacing: 0.28em; text-transform: uppercase; text-decoration: none;
+  color: var(--surface); display: inline-flex; gap: 10px; align-items: center;
+  border-bottom: 1px solid var(--art);
+  padding-bottom: 4px;
+  transition: gap .2s, color .2s;
+  align-self: flex-start;
 }
 html[lang="ar"] .fc-link { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
-.fc-link:hover { gap: 16px; }
+.fc-link:hover { gap: 16px; color: var(--art); }
+
 @media (max-width: 800px) {
-  .file-card, .file-card.reverse { grid-template-columns: 1fr; min-height: auto; }
-  .fc-img { min-height: 260px; order: 1 !important; }
-  .fc-text { padding: 6vh 6vw; }
+  .file-card { height: auto; min-height: 60vh; padding: 0 6vw 5vh; }
+  .fc-num { font-size: clamp(8rem, 36vw, 14rem); top: -2vh; }
 }
 
 /* Method strip */
@@ -483,7 +519,7 @@ html[lang="ar"] .method p { font-family: 'Amiri', serif; font-size: 1.14rem; }
 
 
 <nav class="topnav">
-  <a href="index.html"><span class="lang-en">When the Knife Entered</span><span class="lang-ar">لما الموسى دخل</span></a>
+  <a href="index.html"><span class="lang-en">The Key Became a Fingerprint</span><span class="lang-ar">المفتاح صار بَصمة</span></a>
   <div class="crumb"><span class="lang-en">File 07 · Feet</span><span class="lang-ar">ملف ٠٧ · القدمين</span></div>
   <a href="/en/khadija" class="lang-en">← AIDA</a>
   <a href="/ar/khadija" class="lang-ar">AIDA →</a>
@@ -706,10 +742,10 @@ html[lang="ar"] .method p { font-family: 'Amiri', serif; font-size: 1.14rem; }
       <a href="index.html"><span class="lang-en">Back to series →</span><span class="lang-ar">العودة للسلسلة ←</span></a>
     </div>
     <div class="author-bio lang-en">
-      <strong>Hamzah Barhameyeh</strong> is a writer and strategist from Jerusalem, founder of <strong>AIDA Creative Studios</strong>. <em>When the Knife Entered / المفتاح صار بَصمة</em> is a seven-file body-organ map of what was replaced when the knife entered Palestinian life.
+      <strong>Hamzah Barhameyeh</strong> is a writer and strategist from Jerusalem, founder of <strong>AIDA Creative Studios</strong>. <em>The Key Became a Fingerprint / المفتاح صار بَصمة</em> is a seven-file body-organ map of what was replaced when the knife entered Palestinian life.
     </div>
     <div class="author-bio lang-ar">
-      <strong>حمزة برهمية</strong> كاتب واستراتيجي من القدس، ومؤسِّس <strong>عايدة كرييتف ستوديوز</strong>. <em>المفتاح صار بَصمة / When the Knife Entered</em> سلسلة من سَبع ملفات على الجَسَد — خريطة الأَعضاء — لما اللي صار لما الموسى دَخَل الحياة الفلسطينية.
+      <strong>حمزة برهمية</strong> كاتب واستراتيجي من القدس، ومؤسِّس <strong>عايدة كرييتف ستوديوز</strong>. <em>المفتاح صار بَصمة / The Key Became a Fingerprint</em> سلسلة من سَبع ملفات على الجَسَد — خريطة الأَعضاء — لما اللي صار لما الموسى دَخَل الحياة الفلسطينية.
     </div>
   </div>
 </section>

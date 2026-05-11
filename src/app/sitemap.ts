@@ -19,6 +19,7 @@ const pages = [
   { path: "/khadija/series", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/khadija/series/human-in-the-loop", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/khadija/series/offline-by-design-series", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/khadija/series/the-key-became-a-fingerprint", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/khadija/notes", priority: 0.9, changeFrequency: "weekly" as const },
 
   // Studio lane (Karimeh — the maker)

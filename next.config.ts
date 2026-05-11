@@ -30,15 +30,32 @@ const nextConfig: NextConfig = {
         destination: "/editorial/offline-by-design-series/index.html",
         permanent: false,
       },
+      // Series 03 — canonical URL is /editorial/the-key-became-a-fingerprint/
       {
-        source: "/editorial/when-the-knife-entered",
-        destination: "/editorial/when-the-knife-entered/index.html",
+        source: "/editorial/the-key-became-a-fingerprint",
+        destination: "/editorial/the-key-became-a-fingerprint/index.html",
         permanent: false,
       },
       {
-        source: "/editorial/when-the-knife-entered/",
-        destination: "/editorial/when-the-knife-entered/index.html",
+        source: "/editorial/the-key-became-a-fingerprint/",
+        destination: "/editorial/the-key-became-a-fingerprint/index.html",
         permanent: false,
+      },
+      // Legacy slug — preserves links shared from the v2.2.0-knife pre-rename window
+      {
+        source: "/editorial/when-the-knife-entered",
+        destination: "/editorial/the-key-became-a-fingerprint/",
+        permanent: true,
+      },
+      {
+        source: "/editorial/when-the-knife-entered/",
+        destination: "/editorial/the-key-became-a-fingerprint/",
+        permanent: true,
+      },
+      {
+        source: "/editorial/when-the-knife-entered/:path*",
+        destination: "/editorial/the-key-became-a-fingerprint/:path*",
+        permanent: true,
       },
 
       // ── V1 → V2 (Bait Aida matriarch lanes) — 301 permanent ──
