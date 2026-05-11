@@ -38,7 +38,7 @@ const SERIES_TITLES: Record<string, { en: string; ar: string; description: { en:
       ar: "ستّ مقالات عن طريقة إقصاء الفلسطيني من العالم الرقمي — كهربا، دفع، عقود، لغة، جغرافيا، محاسبة.",
     },
   },
-  "when-the-knife-entered": {
+  "the-key-became-a-fingerprint": {
     en: "The Key Became a Fingerprint",
     ar: "المفتاح صار بَصمة",
     description: {

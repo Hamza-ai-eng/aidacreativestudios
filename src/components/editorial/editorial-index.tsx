@@ -272,9 +272,9 @@ export function EditorialIndex() {
             </p>
           </Link>
 
-          {/* ── Card 4: SERIES 03 — When the Knife Entered ─────────────── */}
+          {/* ── Card 4: SERIES 03 — The Key Became a Fingerprint ────── */}
           <Link
-            href="/editorial/when-the-knife-entered"
+            href="/editorial/the-key-became-a-fingerprint"
             style={{
               display: "block",
               padding: "1.8rem",
