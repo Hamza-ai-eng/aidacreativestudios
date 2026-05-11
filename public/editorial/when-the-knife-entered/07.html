@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 07 — Our Return Became Their File | When the Knife Entered</title>
+<meta name="description" content="File 07 of Series 03 — When the Knife Entered. Our Return Became Their File. By Hamzah Barhameyeh, AIDA Creative Studios, Jerusalem.">
+<meta property="og:title" content="Our Return Became Their File — The Key Became a Fingerprint">
+<meta property="og:description" content="File 07 · Feet · The right of return — guaranteed in writing, in 1948 — was filed. The file is the cabinet. The cabinet is the wall.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1A1714;
+  --bg-deep: #11100E;
+  --surface: #F5F0E8;
+  --surface-deep: #ECE5D8;
+  --accent: #5D4128;
+  --gold: #B8956A;
+  --ink: #1A1410;
+  --muted: #6B6259;
+  --rule: rgba(184,149,106,0.18);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html[lang="ar"] { direction: rtl; }
+html:not([lang="ar"]) .lang-ar { display: none !important; }
+html[lang="ar"] .lang-en { display: none !important; }
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="ar"] body { font-family: 'Amiri', Georgia, serif; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ---------- Top nav ---------- */
+nav.topnav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  background: rgba(17,16,14,0.94);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 14px 28px;
+  border-bottom: 1px solid rgba(245,240,232,0.06);
+  font-family: 'EB Garamond', serif; font-size: 0.82rem;
+  color: rgba(245,240,232,0.7); letter-spacing: 0.04em;
+}
+html[lang="ar"] nav.topnav { font-family: 'Amiri', serif; }
+nav.topnav a { text-decoration: none; color: rgba(245,240,232,0.55); transition: color .2s; }
+nav.topnav a:hover, nav.topnav a.active { color: var(--accent); }
+nav.topnav .crumb { flex: 1 1 auto; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; }
+nav.topnav .lang-toggle { display: flex; gap: 0.4rem; }
+nav.topnav .lang-toggle button {
+  background: transparent; border: 1px solid rgba(245,240,232,0.15);
+  color: rgba(245,240,232,0.5); padding: 3px 9px; font: inherit; cursor: pointer;
+  letter-spacing: 0.08em; transition: all .2s;
+}
+nav.topnav .lang-toggle button.active, nav.topnav .lang-toggle button:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+
+/* ---------- Body map (sticky aside) ---------- */
+aside.bodymap {
+  position: fixed; top: 76px; z-index: 50;
+  width: 76px; height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+html:not([lang="ar"]) aside.bodymap { right: 16px; }
+html[lang="ar"] aside.bodymap { left: 16px; }
+aside.bodymap svg { width: 100%; height: 100%; pointer-events: none; }
+aside.bodymap a { pointer-events: auto; }
+@media (max-width: 980px) { aside.bodymap { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 7vh;
+  margin-top: 0;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+  color: var(--surface);
+}
+.hero-bg, .hero-fade {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.hero-bg { background-size: cover; background-position: center; opacity: 0.85; }
+.hero-fade {
+  background:
+    linear-gradient(180deg,
+      rgba(17,16,14,0.55) 0%,
+      rgba(17,16,14,0.35) 35%,
+      rgba(17,16,14,0.82) 75%,
+      rgba(17,16,14,0.97) 100%);
+}
+.hero > * { position: relative; z-index: 2; }
+
+.ghost-num {
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-weight: 700;
+  font-size: clamp(15rem, 38vw, 32rem);
+  color: var(--accent);
+  opacity: 0.10;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+html:not([lang="ar"]) .ghost-num { right: -3vw; bottom: -4vh; }
+html[lang="ar"]      .ghost-num { left:  -3vw; bottom: -4vh; }
+
+.hero-flag { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.hero-organ {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 700; font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--gold); margin-bottom: 16px; letter-spacing: 0.02em;
+}
+html[lang="ar"] .hero-organ { font-family: 'Amiri', serif; }
+.hero-aphorism-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: 1.18;
+  color: var(--surface); margin-bottom: 8px; max-width: 880px;
+}
+.hero-aphorism-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.8rem, 4.5vw, 3.6rem); line-height: 1.05;
+  color: var(--surface); opacity: 0.86;
+  margin-bottom: 24px; max-width: 880px; letter-spacing: -0.01em;
+}
+html[lang="ar"] .hero-aphorism-en { display:none; }
+html:not([lang="ar"]) .hero-aphorism-ar { display:none; }
+html:not([lang="ar"]) .hero-aphorism-en { font-size: clamp(2.5rem, 6vw, 5.2rem); line-height: 1.05; opacity: 1; }
+
+.hero-kicker {
+  font-style: italic; font-family: 'EB Garamond', serif;
+  font-size: clamp(1.0rem, 1.6vw, 1.2rem);
+  color: rgba(245,240,232,0.72);
+  max-width: 640px; margin-bottom: 28px;
+}
+html[lang="ar"] .hero-kicker { font-family: 'Amiri', serif; }
+.hero-rule { width: 64px; height: 3px; background: var(--accent); margin-bottom: 18px; }
+.hero-byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .hero-byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* ---------- Series ribbon (umbrella title across pages) ---------- */
+.umbrella-ribbon {
+  background: var(--bg-deep);
+  color: var(--gold);
+  padding: 18px 6vw;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  border-top: 1px solid rgba(184,149,106,0.18);
+  border-bottom: 1px solid rgba(184,149,106,0.18);
+}
+.umbrella-ribbon .umb-title { color: var(--surface); }
+.umbrella-ribbon .umb-title-ar { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 14px; text-transform: none; }
+html:not([lang="ar"]) .umb-title-ar { display:none; }
+html[lang="ar"] .umb-title-en { display:none; }
+
+/* ---------- Article body ---------- */
+.article-wrap { background: var(--surface); padding: 8vh 0; }
+.article-body {
+  max-width: 740px; margin: 0 auto; padding: 0 24px;
+  font-size: 19px; line-height: 1.85;
+}
+.article-body p { margin-bottom: 1.35em; }
+html[lang="ar"] .article-body p {
+  font-family: 'Amiri', serif; font-size: 20px; line-height: 1.95;
+}
+.article-body p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  float: left; font-size: 4.4rem; line-height: 0.9;
+  padding-right: 12px; padding-top: 6px;
+  color: var(--accent);
+}
+html[lang="ar"] .article-body p:first-of-type::first-letter {
+  font-family: 'Amiri', serif; float: right;
+  padding-right: 0; padding-left: 12px; font-size: 3.8rem;
+}
+.article-body h2 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 1.85rem; line-height: 1.2;
+  margin: 3.5rem 0 1.1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  position: relative;
+  color: var(--ink);
+}
+html[lang="ar"] .article-body h2 {
+  font-family: 'Amiri', serif; font-weight: 700; font-size: 2rem;
+}
+/* Marginal Arabic numeral on each h2 */
+.article-body h2::before {
+  content: attr(data-mn);
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-size: 0.95rem; font-weight: 400;
+  color: var(--accent); opacity: 0.55;
+  top: 8px;
+}
+html:not([lang="ar"]) .article-body h2::before { left: -64px; }
+html[lang="ar"] .article-body h2::before { right: -64px; }
+@media (max-width: 900px) {
+  .article-body h2::before { position: static; display:inline-block; margin-right: 10px; opacity: 0.85; }
+  html[lang="ar"] .article-body h2::before { margin-left:10px; margin-right:0; }
+}
+.article-body hr {
+  border: 0; border-top: 1px solid rgba(26,20,16,0.15);
+  margin: 2.2rem 0;
+}
+.article-body em { font-style: italic; }
+.article-body strong { font-weight: 600; }
+
+/* Image panel (Image A, inline) */
+.image-panel {
+  margin: 4rem -16vw;
+  position: relative;
+}
+@media (max-width: 1100px) { .image-panel { margin-left: 0; margin-right: 0; } }
+.image-panel .img {
+  background-size: cover; background-position: center;
+  height: 56vh; min-height: 360px; max-height: 600px;
+  position: relative;
+}
+.image-panel .img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(17,16,14,0.55) 100%);
+  pointer-events: none;
+}
+.image-panel .caption {
+  position: absolute; bottom: 18px; left: 6%; right: 6%;
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(245,240,232,0.75);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+html[lang="ar"] .image-panel .caption { font-family: 'Amiri', serif; text-transform: none; letter-spacing: 0.04em; font-size: 0.9rem; }
+
+/* Image B — closing aphorism burned on top */
+.aphorism-burn {
+  margin: 4rem -16vw 2rem;
+  position: relative; overflow: hidden;
+  background-color: var(--bg-deep);
+}
+@media (max-width: 1100px) { .aphorism-burn { margin-left: 0; margin-right: 0; } }
+.aphorism-burn .img {
+  background-size: cover; background-position: center;
+  height: 80vh; min-height: 460px; max-height: 760px;
+  opacity: 0.78;
+}
+.aphorism-burn::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(17,16,14,0.4) 0%, rgba(17,16,14,0.15) 35%, rgba(17,16,14,0.75) 100%);
+  pointer-events: none;
+}
+.aphorism-burn .overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 0 6vw;
+}
+.aphorism-burn .overlay > * { color: var(--surface); }
+.aphorism-burn .ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.4rem); line-height: 1.18;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+  margin-bottom: 18px;
+}
+.aphorism-burn .en {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900;
+  font-size: clamp(1.2rem, 2.4vw, 2rem); line-height: 1.15;
+  letter-spacing: 0.01em; opacity: 0.92;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+}
+html:not([lang="ar"]) .aphorism-burn .ar { font-size: clamp(1.2rem, 2.4vw, 2rem); opacity: 0.9; }
+html:not([lang="ar"]) .aphorism-burn .en {
+  font-size: clamp(2.6rem, 6vw, 5.2rem); font-style: normal; opacity: 1;
+  text-transform: none; font-weight: 900;
+}
+
+/* ---------- Per-file infographic strip ---------- */
+.data-strip {
+  background: var(--bg);
+  color: var(--surface);
+  padding: 9vh 6vw;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.data-strip .lbl { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 36px; text-align: center; }
+.data-grid { display: grid; gap: 32px; max-width: 1120px; margin: 0 auto; }
+.data-grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.data-grid.cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+@media (max-width: 800px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px;} }
+@media (max-width: 480px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: 1fr;} }
+
+.data-cell { text-align: center; }
+.data-cell .num {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1;
+  color: var(--accent); margin-bottom: 8px;
+}
+.data-cell .lbl-body {
+  font-family: 'EB Garamond', serif; font-size: 0.96rem; line-height: 1.5;
+  color: rgba(245,240,232,0.78); max-width: 220px; margin: 0 auto 6px;
+}
+html[lang="ar"] .data-cell .lbl-body { font-family: 'Amiri', serif; font-size: 1.05rem; line-height: 1.7; }
+.data-cell .src {
+  font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.16em;
+  color: rgba(245,240,232,0.35); text-transform: uppercase;
+}
+
+/* ---------- Pull quote ---------- */
+.pull-quote {
+  background: var(--surface-deep); padding: 8vh 6vw;
+}
+.pq-inner { max-width: 820px; margin: 0 auto; position: relative;
+  padding: 0 36px;
+  border-inline-start: 4px solid var(--accent);
+}
+.pq-inner p {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.35;
+  color: var(--ink);
+}
+html[lang="ar"] .pq-inner p { font-family: 'Amiri', serif; font-style: normal; }
+.pq-attr { display: block; margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- Footer (article + site) ---------- */
+.article-foot { background: var(--surface); padding: 6vh 6vw; }
+.article-foot-inner { max-width: 820px; margin: 0 auto; display: grid; gap: 32px; }
+.file-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'EB Garamond', serif; font-size: 0.95rem;
+  border-top: 1px solid rgba(26,20,16,0.12);
+  border-bottom: 1px solid rgba(26,20,16,0.12);
+  padding: 18px 0;
+}
+html[lang="ar"] .file-nav { font-family: 'Amiri', serif; font-size: 1.05rem; }
+.file-nav a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.file-nav a:hover { color: var(--accent); }
+.author-bio { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+html[lang="ar"] .author-bio { font-family: 'Amiri', serif; font-size: 1rem; }
+.author-bio strong { color: var(--ink); }
+
+.site-foot {
+  background: var(--bg-deep); color: rgba(245,240,232,0.55);
+  padding: 28px 6vw; font-size: 0.78rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  font-family: 'Space Mono', monospace; letter-spacing: 0.06em;
+}
+html[lang="ar"] .site-foot { font-family: 'Amiri', serif; letter-spacing: 0; font-size: 0.95rem; }
+.site-foot a { color: var(--accent); text-decoration: none; }
+
+/* ---------- Index page ---------- */
+.index-hero {
+  position: relative; min-height: 92vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 9vh;
+  background-color: var(--bg-deep); color: var(--surface);
+  overflow: hidden;
+}
+.index-hero .hero-bg { background-image: linear-gradient(rgba(17,16,14,0.45),rgba(17,16,14,0.85)); }
+.index-hero .umb-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(3.2rem, 9vw, 8rem); line-height: 1.1;
+  margin-bottom: 12px;
+}
+.index-hero .umb-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 5.2rem); line-height: 1; letter-spacing: -0.01em;
+  margin-bottom: 28px; max-width: 980px;
+}
+html:not([lang="ar"]) .index-hero .umb-en { font-size: clamp(3.2rem, 9vw, 7.6rem); }
+.index-hero .umb-en .ar-inline { font-family: 'Amiri', serif; font-weight: 700; color: var(--accent); display: block; font-size: 0.6em; margin-bottom: 8px; opacity: 0.9; }
+.index-hero .umb-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-kicker { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.index-hero .umb-blurb { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(1rem, 1.6vw, 1.22rem); color: rgba(245,240,232,0.75); max-width: 720px; line-height: 1.75; margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-blurb { font-family: 'Amiri', serif; font-style: normal; }
+.index-hero .byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .index-hero .byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* file cards */
+.files { background: var(--surface); padding: 9vh 6vw; }
+.files .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; text-align: center; }
+html[lang="ar"] .files .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.file-card {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  min-height: 56vh; margin-bottom: 8px;
+  background: var(--bg); color: var(--surface);
+  position: relative; overflow: hidden;
+}
+.file-card.light { background: var(--surface-deep); color: var(--ink); }
+.file-card.reverse { grid-template-columns: 1fr 1.1fr; }
+.file-card.reverse .fc-img { order: 2; }
+.fc-img {
+  position: relative; min-height: 360px;
+  background-size: cover; background-position: center;
+}
+.fc-img::after {
+  content: ""; position: absolute; inset: 0;
+}
+.file-card:not(.light) .fc-img::after {
+  background: linear-gradient(90deg, rgba(17,16,14,0.32) 0%, transparent 50%);
+}
+.file-card.light .fc-img::after {
+  background: linear-gradient(90deg, rgba(245,240,232,0.22) 0%, transparent 50%);
+}
+.file-card.reverse:not(.light) .fc-img::after { background: linear-gradient(270deg, rgba(17,16,14,0.32) 0%, transparent 50%); }
+.file-card.reverse.light .fc-img::after { background: linear-gradient(270deg, rgba(245,240,232,0.22) 0%, transparent 50%); }
+.fc-text { padding: 7vh 5vw; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.fc-num {
+  position: absolute; opacity: 0.06;
+  font-family: 'Reem Kufi', 'Amiri', serif; font-weight: 700;
+  font-size: clamp(8rem, 18vw, 16rem); line-height: 1;
+  bottom: -2vh; pointer-events: none; user-select: none;
+  color: var(--art);
+}
+html:not([lang="ar"]) .file-card:not(.reverse) .fc-num { right: -2vw; }
+html:not([lang="ar"]) .file-card.reverse .fc-num { left: -2vw; }
+html[lang="ar"] .file-card:not(.reverse) .fc-num { left: -2vw; }
+html[lang="ar"] .file-card.reverse .fc-num { right: -2vw; }
+.fc-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--art); margin-bottom: 14px; }
+html[lang="ar"] .fc-meta { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-organ { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--art); margin-bottom: 10px; }
+html[lang="ar"] .fc-organ { font-family: 'Amiri', serif; }
+.fc-title-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.2;
+  margin-bottom: 12px;
+}
+.fc-title-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1;
+  margin-bottom: 18px;
+}
+html[lang="ar"] .fc-title-en { display:none; }
+html:not([lang="ar"]) .fc-title-ar { display:none; }
+html:not([lang="ar"]) .fc-title-en { font-size: clamp(1.8rem, 3.8vw, 3rem); }
+.fc-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.02rem; line-height: 1.7; margin-bottom: 24px; opacity: 0.88; max-width: 500px; }
+html[lang="ar"] .fc-kicker { font-family: 'Amiri', serif; font-style: normal; font-size: 1.1rem; }
+.fc-link {
+  font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.28em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--art); display: inline-flex; gap: 10px; align-items: center;
+  transition: gap .2s;
+}
+html[lang="ar"] .fc-link { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-link:hover { gap: 16px; }
+@media (max-width: 800px) {
+  .file-card, .file-card.reverse { grid-template-columns: 1fr; min-height: auto; }
+  .fc-img { min-height: 260px; order: 1 !important; }
+  .fc-text { padding: 6vh 6vw; }
+}
+
+/* Method strip */
+.method {
+  background: var(--surface-deep); padding: 9vh 6vw;
+  text-align: center;
+}
+.method .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+html[lang="ar"] .method .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.method p {
+  font-family: 'EB Garamond', serif; font-size: 1.05rem; line-height: 1.85;
+  max-width: 720px; margin: 0 auto 1em;
+  color: var(--ink);
+}
+html[lang="ar"] .method p { font-family: 'Amiri', serif; font-size: 1.14rem; }
+</style>
+</head>
+<body>
+
+
+<nav class="topnav">
+  <a href="index.html"><span class="lang-en">When the Knife Entered</span><span class="lang-ar">لما الموسى دخل</span></a>
+  <div class="crumb"><span class="lang-en">File 07 · Feet</span><span class="lang-ar">ملف ٠٧ · القدمين</span></div>
+  <a href="/en/khadija" class="lang-en">← AIDA</a>
+  <a href="/ar/khadija" class="lang-ar">AIDA →</a>
+  <div class="lang-toggle">
+    <button data-lang-btn="en" onclick="setLang('en')">EN</button>
+    <button data-lang-btn="ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<aside class="bodymap" aria-label="series body map">
+  <svg viewBox="0 0 80 320" xmlns="http://www.w3.org/2000/svg" aria-label="body-map navigator"><path d="M40 8 C 30 8, 22 16, 22 28 C 22 38, 30 46, 40 46 C 50 46, 58 38, 58 28 C 58 16, 50 8, 40 8 Z M 28 50 L 52 50 L 60 62 L 64 110 L 60 180 L 56 200 L 52 250 L 50 312 L 42 312 L 40 230 L 38 312 L 30 312 L 28 250 L 24 200 L 20 180 L 16 110 L 20 62 Z" fill="rgba(184,149,106,0.05)" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="20" y1="100" x2="14" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="60" y1="100" x2="66" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="40" y1="60" x2="40" y2="220" stroke="rgba(184,149,106,0.10)" stroke-width="0.5" stroke-dasharray="2 3"/><a href="01.html" aria-label="Heart — File 01"><circle cx="40" cy="90" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="02.html" aria-label="Lungs — File 02"><circle cx="40" cy="70" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="03.html" aria-label="Eyes — File 03"><circle cx="40" cy="30" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="04.html" aria-label="Hands — File 04"><circle cx="18" cy="140" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="05.html" aria-label="Spine — File 05"><circle cx="62" cy="130" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="06.html" aria-label="Belly — File 06"><circle cx="40" cy="165" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="#" aria-label="Feet — File 07"><circle cx="40" cy="290" r="4.5" fill="#5D4128" /></a><circle cx="40" cy="290" r="7.5" fill="none" stroke="#5D4128" stroke-width="0.8" opacity="0.6"/></svg>
+</aside>
+
+<header class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('../images/leonardo/series-03/07_feet_A.jpg')"></div>
+  <div class="hero-fade"></div>
+  <div class="ghost-num">٠٧</div>
+  <div class="hero-flag"><span class="lang-en">File 07 · Seven wounds</span><span class="lang-ar">ملف ٠٧ · سَبع جِراح</span></div>
+  <div class="hero-organ"><span class="lang-en">Feet · القدمين</span><span class="lang-ar">القدمين · Feet</span></div>
+  <h1 class="hero-aphorism-ar">عَودَتنا صارت مَلَفَّهم</h1>
+  <h1 class="hero-aphorism-en">Our Return Became Their File</h1>
+  <p class="hero-kicker"><span class="lang-en">The right of return — guaranteed in writing, in 1948 — was filed. The file is the cabinet. The cabinet is the wall.</span><span class="lang-ar">حَقّ العَودة — مَكتوب، سنة 1948 — اِنحَطّ بمَلَف. المَلَف هو الخِزانة. الخِزانة هي الحيط.</span></p>
+  <div class="hero-rule"></div>
+  <p class="hero-byline">
+    <span class="lang-en">By Hamzah Barhameyeh · AIDA Creative Studios · Jerusalem · 2026</span>
+    <span class="lang-ar">حمزة برهمية · عايدة كرييتف ستوديوز · القدس · ٢٠٢٦</span>
+  </p>
+</header>
+
+
+<section class="umbrella-ribbon">
+  <span class="umb-title umb-title-en">Series 03 · The Key Became a Fingerprint</span>
+  <span class="umb-title umb-title-ar">سلسلة 03 · المفتاح صار بَصمة</span>
+  <span>عايدة · AIDA Creative Studios</span>
+</section>
+
+<div class="article-wrap">
+  <article class="article-body">
+    <div class="lang-en">
+<p>At the King Hussein Bridge, the crossing between Jordan and the West Bank, the bus stops at a closed point. The Palestinian gets off. He passes three tables. The last table has a small camera on a short post, set at face height. The clerk says, without looking up: <em>Lean toward the camera. Open your eyes. Do not blink.</em></p>
+<p>An iris scanner. The device is called IrisGuard. It is made by a British company by the same name, contracted with the United Nations High Commissioner for Refugees, with the Cairo Amman Bank, and with the World Food Programme. The device takes two iris scans and a face photograph. It registers the data into the UN refugee registration system, <em>proGres</em>. The Palestinian is asked before, or asked after? Asked after. This is standard procedure.</p>
+<p>If the Palestinian is a refugee registered with UNRWA, with family in Nuseirat camp, or in Shatila, or in Bourj al-Barajneh, or in Zaatari, and he is travelling to Cairo for his cousin&#x27;s wedding, his eyes are scanned and stored in a database. The refugee has become a database that is unified across borders. This is the first instance, anywhere in the world, of biometric-precision-iris-scale institutional refugee registration.</p>
+<p>The one who wishes to return to his land must, before he returns, already have been settled into a file.</p>
+<hr>
+<p>Our return became their file. This is the last file.</p>
+<p>The feet that remember the road to the village — the same road the grandfather and grandmother walked in 1948 when they left — are forbidden to move on their own. The foot must be linked to a file. The file decides whether the body can return. The file is not in our hand.</p>
+<hr>
+<figure class="image-panel" aria-label="Image A · File 07 · Feet"><div class="img" style="background-image:url('../images/leonardo/series-03/07_feet_A.jpg')"></div><figcaption class="caption"><span>Image A · File 07 · Feet</span><span>Our Return Became Their File</span></figcaption></figure>
+<h2 data-mn="١">1. Resolution 194 promised. Resolution 302 registered.</h2>
+<p>We saw in File 01 how the orphan became a number. We return to the numbers now, one final time.</p>
+<p>UN General Assembly Resolution 194 (December 11, 1948) promised return. It promised <em>the return of those refugees wishing to return to their homes and live at peace with their neighbours</em> at <em>the earliest practicable date</em>.</p>
+<p>UN General Assembly Resolution 302 (December 8, 1949) registered the refugee. It established UNRWA. It issued a card. The card carries a number. The number inherits.</p>
+<p><em>The earliest practicable date</em> has now been seventy-seven years.</p>
+<p>Annually, since 1949, the General Assembly has reaffirmed Resolution 194. Annually. By an approximately three-quarters majority. Seventy-seven years of annual reaffirmation that the Palestinian has the right to return. Seventy-seven years of Israeli refusal, and the world repeating itself.</p>
+<p>The resolution, per Israel&#x27;s first foreign minister Moshe Sharett in a 1949 press statement: <em>Israel is prepared to pay compensation for land abandoned by Arabs. They will not return. This is a political determination.</em> Ben-Gurion said, in the same year, in a documented cabinet session: <em>They lost and they fled. Their return must now be prevented. And I will oppose their return after the war as well.</em></p>
+<p>Israel was admitted to the United Nations in 1949 on the condition that it would honour Resolution 194. It did not. Its membership has never been suspended.</p>
+<hr>
+<h2 data-mn="٢">2. The Silent Transfer</h2>
+<p>The right to return is constrained. But more, the right to remain is constrained. The Palestinian in East Jerusalem, after the 1967 occupation, was not given citizenship. He was given the status <em>permanent resident</em>. The term is deceptive. Permanent residency in Israel, per Israeli law, lapses if you leave for too long, or if you acquire another citizenship, or if you marry a non-resident, or if your <em>centre of life</em> is judged to have been outside Israel for seven years.</p>
+<p>Since 1967, per data from the Israeli human-rights organisations B&#x27;Tselem and HaMoked, more than fourteen thousand Jerusalemite residencies have been revoked. Fourteen thousand East Jerusalem residents, born there, whose buildings are of Jerusalem stone, whose families have lived there for two centuries, woke up one day to find their residency cancelled. The procedure is administrative. There is no court. The notification arrives by post.</p>
+<p>In Hebrew, the procedure is named <em>הטרנספר השקט</em> — <em>ha-transfer ha-shaket</em>. The Silent Transfer. The name is not the opposition&#x27;s. The name is used by Israeli Interior Ministry officials in their internal memoranda. It is documented in the research of B&#x27;Tselem and HaMoked.</p>
+<p>The transfer arrives without convoys. Without military vehicles. Without witnesses. A paper, a postman, a decision. The East Jerusalem Palestinian buys a plane ticket to a Gulf wedding, returns a month later, and finds his residency cancelled. He cannot enter his country. This is not an exceptional case. This is the procedure.</p>
+<hr>
+<h2 data-mn="٣">3. The atlas — the counter-archive</h2>
+<p>Against the Israeli database, which knows every Palestinian by his numbers, the displaced Salman Abu Sitta built a counter-archive. The refugee from the Beersheba district, whose family&#x27;s village Ma&#x27;in Abu Sitta was built over by the kibbutzim of Nirim, Ein HaShlosha, Nir Oz, and Magen, spent forty years collecting.</p>
+<p>He founded the Palestine Land Society in London. He has issued four atlases: Palestine in the nineteenth century; Palestine under the Mandate 1917-1948; Palestine under Israeli occupation 1949-1966; and the <em>Return Atlas</em>.</p>
+<p><em>Atlas of Palestine 1917-1966</em>, published 2010, contains sixteen hundred villages and towns. Sixteen thousand landmarks. Thirty thousand place names. The atlas overlays World War I German aerial photographs with British Mandate maps, with enhanced satellite imagery, with British and Ottoman land documents. Each village, in his atlas, has coordinates. Each house has an angle. Each well has a depth. Each olive tree, nearly, has a position.</p>
+<p>Abu Sitta gave a summary of his life&#x27;s work to the legal news service <em>Jurist</em> in 2025, in three words: <em>Return is sacred, legal, possible.</em> The third word — <em>possible</em> — is the most important. His argument, on statistical and geographical grounds, is that residential areas in Israel comprise approximately 2.5 per cent of its land area. The remaining seventy-eight per cent, by his figures, is open enough to accommodate the return of most refugees without displacing Israeli settlers.</p>
+<p>The atlas is not a dream. The atlas is a structure. Open any page. You find a Palestinian village. Its name is written in two scripts, Arabic and English. Its 1948 population. Its house count. The name of the kibbutz or settlement built over it. The date of destruction. An aerial photograph before. An aerial photograph after. A family tree. A map of the angles. This for every village, repeated four hundred and eighteen times.</p>
+<p>Salman Abu Sitta is, at the time of writing, in his late eighties. He is still working. His most recent paper, from 2025, is on <em>The Genealogy of Palestinian Refugees as a Legal Instrument for the Restitution of Property</em>. The archive grows. The Israeli cannot demolish an archive in London. The Israeli can demolish a house. This is why the refugee built an archive.</p>
+<hr>
+<h2 data-mn="٤">4. Tree, stone, wall</h2>
+<p>Olive harvest season, October. The Palestinian goes to his land in the West Bank to pick. His land is often behind a wall, behind a military gate, behind a <em>closed military zone</em>. The visit requires a permit. The permit is for two days in the year, if granted. If not granted, the land remains. The olives are stolen or broken.</p>
+<p>Per the United Nations Office for the Coordination of Humanitarian Affairs (OCHA) statistics for 2024: more than thirteen hundred olive trees were uprooted by settlers, seventy-six per cent of those during the picking season. The Israeli army accompanied the settlers in more than a third of the documented incidents. No arrests. No investigation. No accountability.</p>
+<p>B&#x27;Tselem, in its 2024 campaign titled <em>Settler Violence is State Violence</em>, documented that from October 2023 through October 2024, fourteen hundred separate settler attacks occurred against Palestinian villages and farms. More than four thousand people were displaced from their villages as a result. Fifteen villages were completely abandoned. Approximately seven thousand olive trees were uprooted. Approximately two hundred head of livestock were stolen or killed.</p>
+<p>The separation wall, whose construction began in 2003 under a security pretext, separates from Palestinian land approximately nine per cent of the West Bank&#x27;s territory and what lies beyond it. According to the International Court of Justice in its 2004 advisory opinion, the wall is illegal. According to the ICJ in its July 19, 2024 advisory opinion, the occupation itself, fifty-seven years after its beginning, is illegal and must end <em>at the earliest possible date</em>.</p>
+<p>The advisory opinions are stacked on a shelf. The wall is extended. Each year, more Palestinians find their homes behind a wall. The return of that Palestinian, whose house is behind the wall at Bethlehem, or near Salwad, or north of Qalqilya, is a short return. Ten minutes&#x27; walk. It requires a daily permit, valid for the two hours before work and the two hours after, renewable every six months, if granted.</p>
+<hr>
+<h2 data-mn="٥">5. Sankara, Marcos, Cabral — ready-made verdicts</h2>
+<p>Thomas Sankara, the Burkinabé president assassinated on October 15, 1987 in a French-backed coup, addressed the Organisation of African Unity summit in Addis Ababa on July 29, 1987, less than three months before he was killed: <em>Debt&#x27;s origins come from colonialism&#x27;s origins. Those who lend us money are those who colonised us. They are the same ones who used to manage our states and economies. We had no connections with this debt. Therefore we cannot pay for it.</em> And, the same day: <em>Debt is neo-colonialism, in which colonisers have transformed themselves into &#x27;technical assistants.&#x27; We should rather say &#x27;technical assassins.&#x27;</em></p>
+<p>Sankara, in that speech, called for an Addis-Ababa united front against debt, and refused to pay his country&#x27;s. Within three months, he was killed.</p>
+<p>His verdict on debt is our verdict on permission. The institutions that govern us now — the International Monetary Fund, the World Bank, our donors, our international institutions — are the ones who refused to implement Resolution 194 for seventy-seven years. They are the ones who pressured the Palestinian Authority to accept the Paris Protocol. They are the ones who classified our human-rights organisations as terror. Sankara delivered this verdict, before his assassination, on a continent. The verdict includes us.</p>
+<p>Subcomandante Marcos, the spokesperson for the Zapatista Army of National Liberation in Chiapas, Mexico, opened the First Declaration of the Lacandon Jungle on January 1, 1994 — the day NAFTA took effect — with the line: <em>We are a product of 500 years of struggle.</em> The Declaration named what its people had been denied: a roof, land, work, health care, food, education, the right to elect their own representatives. It closed by naming the demands the EZLN had taken up arms for: <em>work, land, housing, food, health care, education, independence, freedom, democracy, justice and peace.</em></p>
+<p>Amílcar Cabral, the Guinean-Bissauan leader assassinated on January 20, 1973 in a Portuguese-arranged murder, wrote: <em>Tell no lies. Claim no easy victories. Hide nothing from the masses of our people. Tell no lies. Expose lies whenever they are told. Mask no difficulties, mistakes, failures.</em> And he wrote, in his clearest formulation: <em>National liberation is, of necessity, an act of culture.</em></p>
+<p>Abu Sitta&#x27;s atlas is the cultural act in Cabral&#x27;s sense. Khalidi&#x27;s <em>All That Remains</em> is the same act. Mahmoud Darwish&#x27;s poetry, Ghassan Kanafani&#x27;s novels, Naji al-Ali&#x27;s Handala, Mohammed El-Kurd&#x27;s <em>Rifqa</em> — all the same act.</p>
+<p>Mohammed El-Kurd, whose grandmother Rifqa was expelled from Haifa in 1948, wrote in his first poetry collection <em>Rifqa</em> (Haymarket Books, 2021): <em>Rifqa left Haifa to go to Haifa, to go to Haifa.</em> The sentence repeats <em>Haifa</em> three times because return, without land, returns to itself. The repetition is the answer.</p>
+<p>El-Kurd has written, of his grandmother and of ours: <em>Every grandmother is a Jerusalem.</em> The American poet Aja Monet, in her foreword to <em>Rifqa</em>, named what the book is doing: <em>Mohammed El-Kurd&#x27;s poetry is a home returned to us.</em></p>
+<p>That line answers the question we asked in File 01: what does it mean for us, the bearers of the number? We are the grandchildren. Each of us has a grandmother who has a number. Every grandmother is a Jerusalem. The home is returned in the act of return-as-writing.</p>
+<p>Sankara and Cabral were assassinated. Marcos went underground in 2014, took the name Galeano, kept writing. Assassination — or its threat, which forces the underground — is what those in front of you do when they cannot answer your argument with an argument, your action with an action, your life with a life.</p>
+<p>The Palestinian who writes today, who publishes, who recites her story on camera, who posts a photograph of her child on Instagram, who signs her name to a petition, knows this. The probability is assassination. The calculation is the saying anyway.</p>
+<hr>
+<h2 data-mn="٦">6. The card, once more</h2>
+<p>Return to the card from File 01.</p>
+<p>Sitt Khadija, my grandmother, gave me the card a week before she died. The number on the card is still active. It is the same number that was on her father&#x27;s card, who died at Aida Camp in 1971. It is the same number that was on her grandfather&#x27;s card, born in his village in 1898 — a village that no longer exists on the Israeli map, but that exists on Abu Sitta&#x27;s map. The number inherits. The number does not die.</p>
+<p>If I return one day, the number returns with me. If I register a child with UNRWA, the number is born into the child. If the child travels to Zaatari, the eyes are scanned by IrisGuard and linked to the same number. If I keep the card in my hands for a hundred and fifty years, the number stays. If the card is lost, the number remains on a sheet in a warehouse.</p>
+<p>This was a promise. It became a file. This was a return. It became a card. This was a right. It became a database.</p>
+<p>Our return became their file.</p>
+<hr>
+<h2 data-mn="٧">7. What stays outside the file</h2>
+<p>Memory stays outside the file. The olive tree stays outside the file. The word said at coffee before sleep, the one the grandfather says about his village, stays outside the file. The story passed from grandmother to granddaughter stays outside the file. The key of the house that Sitt Khadija carried to Aida Camp in 1950, which hung on the wall of her room for sixty-four years, which still hangs on our wall now, stays outside the file.</p>
+<p>The file does not contain the body in full. The file contains the number, the coordinates, the fingerprint. The body remains, in its full version, outside every file.</p>
+<p>This is not a piece of good news. This is not a basis for optimism. This is a basis for resilience. The number works. The file works. The wall works. The camera works. Each of them works on our body. And each of them stops, at some point, at a particular threshold. The threshold is the place where the body says: <em>no.</em></p>
+<p>Sitt Khadija&#x27;s house key is iron, old. The door was lost in 1948. The key remained in her hand. She passed it to my uncle. My uncle passed it to me. I do not have a house in my grandmother&#x27;s village. I have a key.</p>
+<p>This key needs a partner. The partner is the reader.</p>
+<hr>
+<h2 data-mn="٨">Coda, and a note on method</h2>
+<p>What we have written — the seven files — is built on the open public record. UN documents, the briefs of international courts, the reports of the major human-rights organisations, published investigative journalism, documented testimonies, official statistics.</p>
+<p>There is much we could not reach: classified Israeli government documents, internal corporate records, the full intelligence dossier for the Six Designations, the full Nimbus contracts, the detailed cloud-computing data for Unit 8200, the full BCG spreadsheet on Gaza relocation. All of these are withheld. The withholding is part of the indictment. We did not chase it.</p>
+<p>A final note: Sitt Khadija, the card, the key, the village without a name. These are a summary of tens of thousands of Palestinian refugee families. The name Sitt Khadija is placed. The village is unnamed because every depopulated Palestinian village shares the same history. The reader-refugee, if her village is different, if her grandmother’s name is different, will find the structure unchanged. The structure is one. The number is one. The refugee, by her own name or without it, is one.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/07_feet_B.jpg')"></div><figcaption class="overlay"><div class="ar">عَودَتنا صارت مَلَفَّهم</div><div class="en">Our Return Became Their File</div></figcaption></figure>
+<p>Our orphan became their number.</p>
+<p>Our air became their permit.</p>
+<p>Our witness became their report.</p>
+<p>Our giving became their permission.</p>
+<p>Our refusal became their terror.</p>
+<p>Our hunger became their market.</p>
+<p>Our return became their file.</p>
+<p>What they could not be to us, we will be for ourselves.</p>
+</div>
+    <div class="lang-ar">
+<p>بمَطار الملك حُسين، الجِسر، الباصّ بَيوقَّف بنُقطة مُغلَقة. الفلسطيني بَيِنزل. بَيمُرّ بثَلاث طاوِلات. الأَخيرة فيها كاميرا صَغيرة على عَمود قَصير، عَلى مُستَوى الوَجه. الموظَّفة بتقول، بدون أن تَرفَع نَظَرها: «اقتَرِب من الكاميرا. افتَح عَينيك. لا تَرمُش.»</p>
+<p>كاميرا قِزَحيّة. iris scanner. الجِهاز اسمو IrisGuard، من شَركة بريطانية بنفس الاسم، مُتعاقَدة مع المُفَوَّضية السَّامية للأَمم المُتَّحدة لشُؤون اللاجئين UNHCR، ومع مَصرف القاهرة عمَّان، ومع بَرنامج الأَغذية العالَمي. الجِهاز بَياخد مَسحَتين قِزَحيتين وصورة وَجه. بَيرَكِّب البيانات بنِظام تَسجيل اللاجئين الأُمَمي proGres. الفلسطيني بَيُسأَل قبل ولا بَيُسأَل بعد. بَيُسأَل بعد. هاد إجراء قياسي.</p>
+<p>لو الفلسطيني لاجئ مسجَّل بالأونروا، عيلتو بمُخيَّم النُّصَيرات، أو الشاتيلا، أو بُرج البَراجنة، أو الزَّعتري، ومُسافِر للقاهرة لزَواج ابن خالو، عَيناه تُمسَح وتُحفَظ بقاعدة بيانات. اللاجئ صار قاعدة بيانات بَيوحَّد، عَبر الحُدود. هاي السَّابقة العالمية الأولى لتَسجيل لاجئين مُمَأَسسة بَيومتر-بدِقّة-قِزَحيّة.</p>
+<p>اللي بَدّو يَرجَع لأَرضو لازم، قَبل ما يَرجَع، يَكون قَد سُكِّن بمَلَفّ.</p>
+<hr>
+<p>عَودَتنا صارت مَلَفَّهم. هاد الملف الأَخير.</p>
+<p>الأَقدام اللي تَتذَكَّر طَريق القَرية، الطَّريق نَفسو اللي مَشوه الجَدّ والجَدّة سنة 1948 لمّا طَلَعوا، الأَقدام مَنعها مُنفَرِد. لازم القَدَم تَكون مَوصولة بمَلَفّ. الملَفّ بَيتَقَرَّر فيه إذا الجَسَد بَيقدِر يَرجَع أو لأ. الملَفّ مش بيدنا.</p>
+<hr>
+<figure class="image-panel" aria-label="صورة أ · الملف ٠٧ · القدمين"><div class="img" style="background-image:url('../images/leonardo/series-03/07_feet_A.jpg')"></div><figcaption class="caption"><span>صورة أ · الملف ٠٧ · القدمين</span><span>عَودَتنا صارت مَلَفَّهم</span></figcaption></figure>
+<h2 data-mn="١">1. قَرار 194 وَعَد، قَرار 302 سَجَّل</h2>
+<p>شُفنا بالمَلَف الأَول كيف صار اليَتيم رَقَم. بنرجَع للأَرقام الآن، آخر مَرّة.</p>
+<p>قَرار الجَمعية العامة 194 (11 كانون أول 1948) وَعَد بالعَودة. وَعَد بـ«عَودة اللاجئين الراغبين بالعَودة لبيوتهم والعَيش بسلام مع جيرانهم» بـ«أَسرَع وَقت مُمكن».</p>
+<p>قَرار الجَمعية العامة 302 (8 كانون أول 1949) سَجَّل اللاجئ. أَسَّس الأونروا. صَرَّف بَطاقة. فيها رَقَم. الرَّقَم بَيرِث.</p>
+<p>«أَسرع وَقت مُمكن» صار سَبع وسَبعين سنة.</p>
+<p>سَنوياً، منذ 1949، الجَمعية العامة بتأكِّد القَرار. سَنوياً، تَأكيد. القَرار 169 (1980)، القَرار 3236 (1974)، القَرار 3237 (1974)، القَرار 3379 (1975). كل سنة. بيها أَغلبية ثَلاثة-أَرباع تَقريباً. سَبع وسَبعين سنة من تَأكيد سَنوي إنّو الفلسطيني إلو حقّ يَرجَع. وسَبع وسَبعين سنة من إسرائيل بتَرفُض، والعالم بَيكرِّر.</p>
+<p>القَرار، حسب وَزير الخارجية الإسرائيلي الأَوَّل موشيه شاريت بتَصريح صَحفي 1949: «إسرائيل مُستعدّة تَدفَع تَعويض عن أَرض هَجَرها العَرَب. ما رَح تَرجَع. هاد إجراء سياسي.» بن غوريون قَال بنَفس السَّنة، بجلسة حكومية مَوثَّقة: «هم خَسِروا وهَرَبوا. عَودَتهم لازم تُمنَع. ولِعَه رَح أَعارِض عَودَتهم بعد الحَرب.»</p>
+<p>إسرائيل قُبِلَت بالأَمم المُتَّحدة سنة 1949 بشَرط احتِرام القَرار 194. ما احتَرَمَتو. مَكانتها العُضوية ما اتسَحَبت أَبداً.</p>
+<hr>
+<h2 data-mn="٢">2. التَّرحيل الصَّامِت</h2>
+<p>العَودة كحقّ مُقَيَّدة. لكن أَكتَر، الإقامة كحقّ مُقَيَّدة. الفلسطيني اللي بالقُدس الشَّرقية، بعد احتلال 1967، ما إعطي جِنسية. إعطي وَضع «مُقيم دائم». المُصطلَح خادِع. الإقامة الدَّائمة بإسرائيل، حَسَب القانون الإسرائيلي، بَتنسحَب لو تَركتها لفَترة طَويلة، أو لو حَصَلت على جِنسية ثانية، أو لو تَزَوَّجت من غَير-مُقيم، أو لو عاش «مَركز حياتك» خارج إسرائيل لـ7 سنين.</p>
+<p>منذ 1967، حسب أَرقام بتسِلِم ومنظَّمة هَموكِد الإسرائيليتين، تجاوَزَت 14,000 إقامة فلسطينية مَقدسية مَسحوبة. 14,000 ساكِن بالقُدس الشَّرقية مَولود فيها، اللي عمارَتو من حَجَر قُدسي، اللي عيلتو بُنيت فيها لقَرنين، تَفاجَأ بَيَوم بإلغاء إقامتو. الإجراء إداري. ما في مَحكمة. التَّبليغ بيوصَل بالبَريد.</p>
+<p>بالعِبري، الإجراء اسمو «הטרנספر השקט» — هَا-طرَنسفير هَ-شاكِت. التَّرحيل الصَّامت. التَّسمية مش من المُعارَضة. هَيك بَيسمّوه مَوظَّفي وزارة الداخلية الإسرائيلية بمذكِّراتهم الدَّاخلية. مَوثَّق بأَبحاث «بتسِلِم» و«هَموكِد».</p>
+<p>التَّرحيل بدون قَوافل. بدون آليّات عَسكرية. بدون شُهود. وَرَقة، بَريد، وقَرار. الفلسطيني المَقدسي بَيشتري تَذكِرة طائرة لزَواج بالخَليج، بَيرجَع بعد شَهر، يَلقى إنّو إقامتو ملغية، ما بَيقدر يَدخُل بَلَدو. هاي مش حالة استِثنائية. هاي إجراء.</p>
+<hr>
+<h2 data-mn="٣">3. الأَطلَس — الأَرشيف المُضادّ</h2>
+<p>بمُقابِل قاعدة البيانات الإسرائيلية، اللي بَتعرِف كل فلسطيني بأَرقامو، ابتَنى المُهَجَّر سَلمان أبو سِتّة أَرشيف مُضادّ. اللاجئ من قَضاء بئر السَّبع، اللي قَريتو «مَعِين أبو سِتّة» بُنيت عليها كيبوتسات نيريم وعين هاشلوشاه ونير عوز ومَجِن، قَضى أَربعين سنة بَيجمَع.</p>
+<p>بَنى «جَمعية أَرض فلسطين» Palestine Land Society بلَندن. أَصدَر أَربع أَطالس: فلسطين بالقَرن التاسع عَشَر، فلسطين تحت الانتداب 1917-1948، فلسطين تحت احتلال الأَيلول 1949-1966، و«أَطلس العَودة».</p>
+<p>«أَطلَس فلسطين 1917-1966»، نُشِر 2010، فيه 1,600 قَرية ومَدينة. 16 أَلف مَعلَم. 30 أَلف اسم مَكان. الأَطلس بَيطابِق صَوَر جوّيّة أَلمانية من الحَرب العالَمية الأولى، مع خَرائط الانتداب البريطاني، مع صَوَر أَقمار صناعية مُحَسَّنة، مع وَثائق بريطانية وعُثمانية. كل قَرية، بأَطلسو، إلها إحداثيّات. كل بَيت، بأَطلسو، إلو زاوية. كل بير، إلو عُمق. كل شَجرة زيتون، تَقريباً، إلها مَوضع.</p>
+<p>أبو سِتّة قَدَّمَ، بمُقابلة 2025 مع موقع «جوريست»، تَلخيصو لمَشروع حياتو بثَلاث كَلِمات: «العَودة مُقَدَّسة، شَرعية، مُمكنة.»</p>
+<p>المُمكنة هي الكَلِمة الأَهَمّ. مَوقعو، بحُجج إحصائية وجُغرافية، إنّو المَناطق السَّكَنية بإسرائيل بَتشَكِّل 2.5 بالمية من أَرضها. 78 بالمية من المَناطق، حسب أَرقامو، فاضية بَتسَع عَودة مُعظَم اللاجئين بدون تَشريد المُستَوطنين الإسرائيليين.</p>
+<p>الأَطلس مش حِلم. الأَطلس بنية. لو تَفتَح أيّ صَفحة، بَتلاقي قَرية فلسطينية. اسمها مَكتوب بحَرفين، عَرَبي وإنجليزي. عَدَد سُكّانها 1948. عَدَد بيوتها. اسم الكيبوتس أو المُستَوطنة اللي بُنيت عليها. تاريخ الهَدم. صورة جوّيّة قَبل، صورة جوّيّة بَعد. شَجرة عيلة. خَريطة الزَّوايا. هاد كل قَرية، تكرار 418 مَرّة.</p>
+<p>سَلمان أبو سِتّة، وَقت كِتابة هاد الملف، بأَواخر الثَّمانينات. لِسا يَشتغل. آخر بَحث نَشَرو، 2025، عن «جينيالوجيا اللاجئين الفلسطينيين كأَداة قانونية لاسترداد المُلكية». الأَرشيف بَيكبَر. الإسرائيلي ما بَيقدِر يَهدِم أَرشيف بَلندن. الإسرائيلي بَيقدِر يَهدِم بَيت. هاي اللي خَلَّت اللاجئ يَعمَل أَرشيف.</p>
+<hr>
+<h2 data-mn="٤">4. شَجرة، حَجَر، جِدار</h2>
+<p>مَوسم الزيتون، تشرين أول. الفلسطيني بَيطلَع لأَرضو بالضِفّة الغَربية ليَقطُف. أَرضو كثيراً بَتصير وَراء جدار، وَراء بَوّابة عَسكرية، وَراء «منطقة عَسكرية مُغلَقة». الزيارة بَدّها تَصريح. التَّصريح يَومين بالسَّنة، إذا انعَطى. لو ما انعَطى، الأَرض بَتنبَقى. الزيتون بَيُسرَق أو بَيُكَسَّر.</p>
+<p>حَسَب إحصاءات OCHA، الأَمم المُتَّحدة، خِلال 2024: أَكثَر من 1,300 شَجرة زيتون قُلِعت من قِبَل مُستَوطنين، 76% منهن خِلال مَوسم القَطف. الجَيش الإسرائيلي رافَق المُستَوطنين بأَكثَر من ثُلث الحَوادث الموثَّقة. لا اعتقال، لا تَحقيق، لا مُساءَلة.</p>
+<p>بتسِلِم، بحَملة 2024 بعنوان «عُنف المُستَوطنين هو عُنف الدَّولة»، وَثَّقَت إنّو من تشرين أول 2023 لتشرين أول 2024، 1,400 هَجوم مُستَوطن مَنفصِل ضدّ القُرى والمَزارع الفلسطينية، أَكثَر من 4,000 شَخص نازِح من قُراهم نَتيجة هاد الهَجَمات. القَرى المَهجورة كلياً: 15. سَبع آلاف زيتونة قُلِعت. حَوالي 200 رَأس ماشية مَسروقة أو مَقتولة.</p>
+<p>جِدار الفَصل، اللي بَدأ بناؤو سنة 2003 بحُجَّة الأَمن، يَفصل عَن الأَرض الفلسطينية حَوالي 9% من مَساحة الضِفّة الغَربية ووَراءها. حَسَب مَحكمة العَدل الدَّولية بفَتواها 2004، الجدار غير قانوني. حَسَب مَحكمة العَدل بفَتواها 2024، الاحتلال نَفسو، 57 سنة بعد بدايتو، غير قانوني وَيَجب أَن يَنتَهي «بأَسرَع وَقت مُمكن».</p>
+<p>الفَتاوى تُكَدَّس على رَفّ. الجدار بَيُمَدَّد. كل سنة، أَكثَر فلسطيني بَيلاقي بَيتو وَراء جدار. عَودَة هاد الفلسطيني، اللي بَيتها وَراء جدار بَيت لَحم، أو جِنبَ سَلواد، أو شَمالَ قلقيلية، عَودَة قَصيرة. مَسافة عَشَر دَقائق سَير. بَدّها تَصريح يَومي، ساعَتين قَبل العَمَل وساعَتين بَعدو، صالِح ستّة شُهور، مُجَدَّد بَعدها، إذا.</p>
+<hr>
+<h2 data-mn="٥">5. سَنكارا، ماركوس، كَبرال — أَحكام جاهِزة</h2>
+<p>ثوماس سَنكارا، الرَّئيس البوركيني الفاسي اللي قَتَلوه بـ15 تشرين أول 1987 بانقلاب فَرنسي-مَدعوم، خَطَب بقمّة منظَّمة الوَحدة الأَفريقية بأَديس أَبابا بـ29 تموز 1987، قَبل ما يَقتلوه بأَقَلّ من ثَلاث شُهور: «الدَّين أَصلو من أَصل الاستِعمار. اللي بَيدِينونا هما اللي اسْتَعمَرونا. هما نَفسهم اللي كانوا يديروا دَوَلنا واقتصاداتنا. ما إلنا عَلاقة بهاد الدَّين. لِهَيك ما بنقدِر نَدفعو.» وقال بنَفس اليوم: «الدَّين هو استِعمار جَديد، فيه المُسْتَعمِرون حَوَّلوا حالهم لـ«مُساعدين تِقَنيّين». والأَدَقّ نقول: «قاتلين تِقَنيّين».»</p>
+<p>سَنكارا، بهاد الخطاب، دَعا لجَبهة موَحَّدة بأَديس أَبابا ضدّ الدَّين، ورَفَض يدفَع دَين بَلَدو. خِلال ثَلاثة شُهور، انقَتل.</p>
+<p>حُكمو على الدَّين هو حُكمنا على الإذن. اللي بَيُديرنا الآن — صُندوق النَّقد الدَّولي، البَنك الدَّولي، مانحينا، مُؤسَّساتنا الدَّولية — هما اللي رَفضوا تَطبيق قَرار 194 لسَبع وسَبعين سنة. هما اللي ضَغَطوا عَلى السُّلطة الفلسطينية لتَقبَل ببروتوكول باريس. هما اللي صَنَّفوا منظَّمات حُقوقنا كإرهاب. سَنكارا قال هاد الحُكم قَبل اغتيالو، عن قارَّة كاملة. الحُكم بَيشمَلنا.</p>
+<p>سَبكوماندانتي ماركوس، النَّاطق باسم جَيش زاباتيستا للتَّحرير الوَطَني بشِياباس بالمَكسيك، فَتَح أَوَّل بَيان من غابة لاكاندون يَوم أَوَّل كانون الثاني 1994 — اليَوم اللي دَخَلَت فيه اتفاقية نافتا حَيِّز التَّنفيذ — بالجُملة: «إحنا نِتاج 500 سَنة من النِّضال.» البَيان عَدَّد اللي حُرِم منو شَعبهم: سَقف فَوق الراس، أَرض، شُغل، رعاية صِحّية، طَعام، تَعليم، حَقّ انتخاب المُمَثِّلين. واختَتَم البَيان بقائمة اللي قام جَيش زاباتيستا لأَجلها: «شُغل، أَرض، سَكَن، طَعام، رعاية صِحّية، تَعليم، استِقلال، حُرية، ديمقراطية، عَدالة، سَلام.»</p>
+<p>كَبرال، أَميلكار كَبرال، الزَّعيم الجِنيهي-البِسّاوي اللي قَتَلوه بـ20 كانون ثاني 1973 بقَتل أُجِّر بالبرتُغال، كَتَب: «إخفاء الحَقيقة عن الناس، أَو حَتى تَقديم أَنصاف الحَقائق، نَوع من الخِيانة لِلكِفاح.» وكَتَب جُملة، بأَوضَح صياغة: «التَّحرُّر الوَطَني هو، بالضَّرورة، فِعل ثَقافة.»</p>
+<p>أَطلَس أبو سِتّة هو الفِعل الثَّقافي بمَفهوم كَبرال. كي لا نَنسى للخَالدي هو نَفس الفِعل. شِعر دَرويش، رواية كَنفاني، مَقامات الحَلقة، حَنظَلة العَلي، رِفقة لمحمد الكُرد، كُلهن نَفس الفِعل.</p>
+<p>محمد الكُرد، اللي تيتاو رِفقة طُرِدت من حيفا سنة 1948، كَتَب بمَجموعتو الشِّعرية الأولى «رِفقة» (دار هايماركت، 2021): «رِفقة تَركَت حيفا لِتَذهَب لحيفا، لِتَذهَب لحيفا.» الجملة بتكرَّر فيها كَلِمة حيفا ثلاث مَرّات لأَنّو العَودة، بدون أَرض، بَترجِع لِنَفسها. التَّكرار هو الجَواب.</p>
+<p>الكُرد كَتَب، عن جَدَّتو وعن جَدَّاتنا: «كل جَدّة هي قُدس.» والشَّاعرة الأَمريكية آجا مونيه، بتَقديمها لـ«رِفقة»، سَمَّت اللي بيعمَلو الكتاب: «شِعر مُحَمَّد الكُرد هو بَيت أُعيد إلَينا.»</p>
+<p>هاي الجُملة هي اللي بترُدّ على السُّؤال اللي طَرَحناه بالملف الأول: شو يعني، إحنا، حامِلي الرَّقَم؟ إحنا الأَحفاد. كل واحد فينا تيتاو إلها رَقَم. كل تيتا هي قُدس. والبَيت بيرجَع بفِعل الكِتابة-كَعَودة.</p>
+<p>سَنكارا وكَبرال اتغَتالوا. ماركوس راح يَختَفي بسَنة 2014، خَد اسم «غاليانو»، وكَمَّل يَكتُب. الاغتيال — أو تَهديدو، اللي بَيدفَع للاختِفاء — هو ما يَفعَلوه الذين أمَامك لمّا ما يَقدِروا يَردّوا على حُجَّتك بحُجَّة، ولا على فِعلك بفِعل، ولا عَلى حياتك بحياة.</p>
+<p>الفَلسطيني الذي يَكتب اليَوم، الذي يَنشُر، الذي يَتلو قِصَّتو على كاميرا، الذي يَنشُر صورة لطِفلو على إنستغرام، الذي يُمضي اسمو على عَريضة، يَعرِف ذَلك. الاحتمال هو الاغتيال. الحَسبة هي القُول.</p>
+<hr>
+<h2 data-mn="٦">6. الكَرت، مَرّة أُخرى</h2>
+<p>نَرجَع للكَرت من المَلَف الأول.</p>
+<p>سِتّ خديجة، تيتاي، أَعطَتني الكَرت قَبل أن تَموت بأُسبوع. الرَّقَم على الكَرت ما زال فَعّال. هو نَفس الرَّقَم اللي على كَرت أَبوها، اللي مات بمُخَيَّم عايدة سنة 1971. هو نَفس الرَّقَم اللي على كَرت جدّها، اللي اتولد بقَريتو سنة 1898 — قَرية ما عاد إلها وُجود على الخَريطة الإسرائيلية، لكن إلها وُجود على خَريطة أبو سِتّة. هو رَقَم بَيرِث، وما بَيموت.</p>
+<p>لو رَجَعت يَوماً، الرَّقَم بَيرجَع معي. لو سَجَّلت طِفلي بالأونروا، الرَّقَم بَيتولَّد فيه. لو سافَر طِفلي للزَّعتري، عَيناه بَتمسَح ب IrisGuard، وَتَنرَبط بنَفس الرَّقَم. لو بَقي بأَيدي 150 سنة، الرَّقَم بَيبقى. لو فُقِد، الرَّقَم بَيظَلّ على ورقة بَنبَل بمُستَودَع.</p>
+<p>هاد كان وَعد. صار مَلَفّ. هاد كان عَودة. صارت بِطاقة. هاد كان حَقّ. صار قاعدة بَيانات.</p>
+<p>عَودَتنا صارت مَلَفَّهم.</p>
+<hr>
+<h2 data-mn="٧">7. اللي بَيظَلّ خارج المَلَفّ</h2>
+<p>الذَّاكِرة بَتظَلّ خارج المَلَفّ. الزيتونة بَتظَلّ خارج المَلَفّ. الكَلِمة بالقَهوة قَبل النَّوم، اللي بَيقولها الجَدّ عن قَريتو، بَتظَلّ خارج المَلَفّ. القِصَّة اللي بَتنزِل من جَدّة لحَفيدة، بَتظَلّ خارج المَلَفّ. مَفتاح البَيت اللي حَمَلَتو سِتّ خديجة لمَخيَّم عايدة سنة 1950، اللي كان مُعَلَّق على جِدار غُرفتها لـ64 سنة، اللي ما زال مُعَلَّق ببَيتنا الآن، بَيظَلّ خارج المَلَفّ.</p>
+<p>المَلَفّ ما بَيحتَوي الجَسَد كلو. المَلَفّ بَيحتَوي الرَّقَم، الإحداثيّات، البَصمة. الجَسَد بَيظَلّ، بنُسخَتو الكاملة، خارج كل مَلَفّ.</p>
+<p>هاد ما هو خَبَر سارّ. هاد ما هو سَببَ تَفاؤل. هاد سَببَ صُمود. الرَّقَم بَيشتغل. المَلَفّ بَيشتغل. الجِدار بَيشتغل. الكاميرا بَتشتغل. كل واحد فيهم بَيشتغل عَلى جَسَدنا. وكل واحد فيهم بَيتوَقَّف، يَوم ما، عند نُقطة. النُّقطة هي اللي بَيها الجَسَد بَيقول: لا.</p>
+<p>مَفتاح بَيت سِتّ خديجة من حَديد قَديم. الباب ضاع سنة 1948. المَفتاح بَقي بإيدها. سَلَّمَتو لخالي. خالي سَلَّمو لي. أنا ما عندي بَيت بقَرية تيتاي. عندي مَفتاح.</p>
+<p>هاد المَفتاح بَدّو شِريك. الشَّريك هو القارئ.</p>
+<hr>
+<h2 data-mn="٨">تَتِمَّة، ومُلاحَظة على المَنهَج</h2>
+<p>هاد ما كَتَبنا، السَّبع ملَفّات، مَبني على السِّجِلّ العَلَني. وَثائق أُمَمية، مَحاضِر مَحاكم دَولية، تَقارير منظَّمات حُقوق إنسان كَبيرة، تَحقيقات صَحفية مَنشورة، شَهادات مَوثَّقة، إحصاءات رَسمية.</p>
+<p>في كَتير مَوادّ ما قَدِرنا نوصَلها — وَثائق سِرّية للحكومة الإسرائيلية، سِجِلّات داخلية لشَركات تكنولوجيا، مَلَفّ التَّصنيفات السِّتّة الإسرائيلي الكامِل، عُقود نيمبوس الكامِلة، البيانات التَّفصيلية للحَوسبة السَّحابية لـ8200، الجَدوَل الكامِل لـBCG عن نَقل سُكّان غزة. هاي كلها مَحجوبة. الإخفاء جُزء من الاتِّهام. ما لاحَقناه.</p>
+<p>مُلاحَظة أَخيرة: سِتّ خديجة، الكَرت، المَفتاح، القَرية بدون اسم. هاي خُلاصة عَشَرات الآلاف من العائلات الفلسطينية اللاجئة. الاسم سِتّ خديجة مَوضوع. القَرية بدون اسم لإنّو كل قَرية فلسطينية مُهَجَّرة بتشارِك نَفس التاريخ. القارئة-اللاجئة، لو قَريتها مُختلفة، لو اسم تيتاها مختلف، رح تلاقي البِنية بدون تَغيير. البِنية واحدة. الرَّقَم واحد. اللاجئة، باسمها أو بدونو، واحدة.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/07_feet_B.jpg')"></div><figcaption class="overlay"><div class="ar">عَودَتنا صارت مَلَفَّهم</div><div class="en">Our Return Became Their File</div></figcaption></figure>
+<p>يَتيمنا صار رَقَمَهم.</p>
+<p>هَوانا صار تَصريحَهم.</p>
+<p>شَهادتنا صارت تَقريرَهم.</p>
+<p>عَطانا صار إذنَهم.</p>
+<p>رَفضنا صار إرهابَهم.</p>
+<p>جوعنا صار سوقَهم.</p>
+<p>عَودَتنا صارت مَلَفَّهم.</p>
+<p>اللي ما كانوه إلْنا، إحنا رح نكونو إلْنا.</p>
+</div>
+  </article>
+</div>
+
+<section class="data-strip"><div class="lbl"><span class="lang-en">Key Facts</span><span class="lang-ar">أرقام مفتاح</span></div><div class="data-grid cols-3"><div class="data-cell"><div class="num">1948</div><div class="lbl-body lang-en">UN General Assembly Resolution 194 — Article 11, right of return</div><div class="lbl-body lang-ar">قرار الجمعية العامة للأمم المتحدة 194 — المادة 11، حَقّ العَودة</div><div class="src">UN, 11 Dec 1948</div></div><div class="data-cell"><div class="num">2.5%</div><div class="lbl-body lang-en">of Israel&#x27;s land is residential; the rest could absorb most refugees without displacement</div><div class="lbl-body lang-ar">من أرض إسرائيل سَكَني؛ الباقي يكفي لاستيعاب مُعظم اللاجئين دون تَهجير</div><div class="src">Salman Abu Sitta, Al Jazeera 2016</div></div><div class="data-cell"><div class="num">3</div><div class="lbl-body lang-en">words from Abu Sitta&#x27;s life work: Sacred · Legal · Possible</div><div class="lbl-body lang-ar">كَلمات من خُلاصة عَمَل أبو سِتّة: مُقَدَّس · قانوني · مُمكِن</div><div class="src">Palestine Land Society</div></div></div></section>
+
+<section class="pull-quote">
+  <div class="pq-inner">
+    <p class="lang-en">"The right of return — guaranteed in writing, in 1948 — was filed. The file is the cabinet. The cabinet is the wall."</p>
+    <p class="lang-ar">«حَقّ العَودة — مَكتوب، سنة 1948 — اِنحَطّ بمَلَف. المَلَف هو الخِزانة. الخِزانة هي الحيط.»</p>
+    <span class="pq-attr"><span class="lang-en">From File 07 · Feet</span><span class="lang-ar">من الملف ٠٧ · القدمين</span></span>
+  </div>
+</section>
+
+<section class="article-foot">
+  <div class="article-foot-inner">
+    <div class="file-nav">
+      <a href="06.html"><span class="lang-en">← File 06 · Our Hunger Became Their Market</span><span class="lang-ar">← ملف ٠٦ · جوعنا صار سوقَهم</span></a>
+      <a href="index.html" style="color: var(--accent)"><span class="lang-en">Series Index</span><span class="lang-ar">السلسلة</span></a>
+      <a href="index.html"><span class="lang-en">Back to series →</span><span class="lang-ar">العودة للسلسلة ←</span></a>
+    </div>
+    <div class="author-bio lang-en">
+      <strong>Hamzah Barhameyeh</strong> is a writer and strategist from Jerusalem, founder of <strong>AIDA Creative Studios</strong>. <em>When the Knife Entered / المفتاح صار بَصمة</em> is a seven-file body-organ map of what was replaced when the knife entered Palestinian life.
+    </div>
+    <div class="author-bio lang-ar">
+      <strong>حمزة برهمية</strong> كاتب واستراتيجي من القدس، ومؤسِّس <strong>عايدة كرييتف ستوديوز</strong>. <em>المفتاح صار بَصمة / When the Knife Entered</em> سلسلة من سَبع ملفات على الجَسَد — خريطة الأَعضاء — لما اللي صار لما الموسى دَخَل الحياة الفلسطينية.
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-foot">
+  <div>
+    <span class="lang-en">© 2026 AIDA Creative Studios · Jerusalem · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+    <span class="lang-ar">© 2026 عايدة كرييتف ستوديوز · القدس · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+  </div>
+  <div>The Key Became a Fingerprint · المفتاح صار بَصمة</div>
+</footer>
+
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-btn]').forEach(b => b.classList.toggle('active', b.dataset.langBtn === l));
+  try { localStorage.setItem('wtke-lang', l); } catch (_) {}
+}
+(function(){
+  try {
+    var saved = localStorage.getItem('wtke-lang');
+    if (saved === 'ar' || saved === 'en') setLang(saved);
+    else setLang(document.documentElement.lang || 'en');
+  } catch (_) { setLang('en'); }
+})();
+</script>
+
+</body>
+</html>
