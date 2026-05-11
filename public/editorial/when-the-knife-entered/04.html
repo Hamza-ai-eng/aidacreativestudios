@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 04 — Our Giving Became Their Permission | When the Knife Entered</title>
+<meta name="description" content="File 04 of Series 03 — When the Knife Entered. Our Giving Became Their Permission. By Hamzah Barhameyeh, AIDA Creative Studios, Jerusalem.">
+<meta property="og:title" content="Our Giving Became Their Permission — The Key Became a Fingerprint">
+<meta property="og:description" content="File 04 · Hands · A people who give to each other — the basis of the village, the basis of resistance — recoded as a thing requiring a license.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1A1714;
+  --bg-deep: #11100E;
+  --surface: #F5F0E8;
+  --surface-deep: #ECE5D8;
+  --accent: #8B5A2B;
+  --gold: #B8956A;
+  --ink: #1A1410;
+  --muted: #6B6259;
+  --rule: rgba(184,149,106,0.18);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html[lang="ar"] { direction: rtl; }
+html:not([lang="ar"]) .lang-ar { display: none !important; }
+html[lang="ar"] .lang-en { display: none !important; }
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="ar"] body { font-family: 'Amiri', Georgia, serif; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ---------- Top nav ---------- */
+nav.topnav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  background: rgba(17,16,14,0.94);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 14px 28px;
+  border-bottom: 1px solid rgba(245,240,232,0.06);
+  font-family: 'EB Garamond', serif; font-size: 0.82rem;
+  color: rgba(245,240,232,0.7); letter-spacing: 0.04em;
+}
+html[lang="ar"] nav.topnav { font-family: 'Amiri', serif; }
+nav.topnav a { text-decoration: none; color: rgba(245,240,232,0.55); transition: color .2s; }
+nav.topnav a:hover, nav.topnav a.active { color: var(--accent); }
+nav.topnav .crumb { flex: 1 1 auto; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; }
+nav.topnav .lang-toggle { display: flex; gap: 0.4rem; }
+nav.topnav .lang-toggle button {
+  background: transparent; border: 1px solid rgba(245,240,232,0.15);
+  color: rgba(245,240,232,0.5); padding: 3px 9px; font: inherit; cursor: pointer;
+  letter-spacing: 0.08em; transition: all .2s;
+}
+nav.topnav .lang-toggle button.active, nav.topnav .lang-toggle button:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+
+/* ---------- Body map (sticky aside) ---------- */
+aside.bodymap {
+  position: fixed; top: 76px; z-index: 50;
+  width: 76px; height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+html:not([lang="ar"]) aside.bodymap { right: 16px; }
+html[lang="ar"] aside.bodymap { left: 16px; }
+aside.bodymap svg { width: 100%; height: 100%; pointer-events: none; }
+aside.bodymap a { pointer-events: auto; }
+@media (max-width: 980px) { aside.bodymap { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 7vh;
+  margin-top: 0;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+  color: var(--surface);
+}
+.hero-bg, .hero-fade {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.hero-bg { background-size: cover; background-position: center; opacity: 0.85; }
+.hero-fade {
+  background:
+    linear-gradient(180deg,
+      rgba(17,16,14,0.55) 0%,
+      rgba(17,16,14,0.35) 35%,
+      rgba(17,16,14,0.82) 75%,
+      rgba(17,16,14,0.97) 100%);
+}
+.hero > * { position: relative; z-index: 2; }
+
+.ghost-num {
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-weight: 700;
+  font-size: clamp(15rem, 38vw, 32rem);
+  color: var(--accent);
+  opacity: 0.10;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+html:not([lang="ar"]) .ghost-num { right: -3vw; bottom: -4vh; }
+html[lang="ar"]      .ghost-num { left:  -3vw; bottom: -4vh; }
+
+.hero-flag { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.hero-organ {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 700; font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--gold); margin-bottom: 16px; letter-spacing: 0.02em;
+}
+html[lang="ar"] .hero-organ { font-family: 'Amiri', serif; }
+.hero-aphorism-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: 1.18;
+  color: var(--surface); margin-bottom: 8px; max-width: 880px;
+}
+.hero-aphorism-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.8rem, 4.5vw, 3.6rem); line-height: 1.05;
+  color: var(--surface); opacity: 0.86;
+  margin-bottom: 24px; max-width: 880px; letter-spacing: -0.01em;
+}
+html[lang="ar"] .hero-aphorism-en { display:none; }
+html:not([lang="ar"]) .hero-aphorism-ar { display:none; }
+html:not([lang="ar"]) .hero-aphorism-en { font-size: clamp(2.5rem, 6vw, 5.2rem); line-height: 1.05; opacity: 1; }
+
+.hero-kicker {
+  font-style: italic; font-family: 'EB Garamond', serif;
+  font-size: clamp(1.0rem, 1.6vw, 1.2rem);
+  color: rgba(245,240,232,0.72);
+  max-width: 640px; margin-bottom: 28px;
+}
+html[lang="ar"] .hero-kicker { font-family: 'Amiri', serif; }
+.hero-rule { width: 64px; height: 3px; background: var(--accent); margin-bottom: 18px; }
+.hero-byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .hero-byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* ---------- Series ribbon (umbrella title across pages) ---------- */
+.umbrella-ribbon {
+  background: var(--bg-deep);
+  color: var(--gold);
+  padding: 18px 6vw;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  border-top: 1px solid rgba(184,149,106,0.18);
+  border-bottom: 1px solid rgba(184,149,106,0.18);
+}
+.umbrella-ribbon .umb-title { color: var(--surface); }
+.umbrella-ribbon .umb-title-ar { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 14px; text-transform: none; }
+html:not([lang="ar"]) .umb-title-ar { display:none; }
+html[lang="ar"] .umb-title-en { display:none; }
+
+/* ---------- Article body ---------- */
+.article-wrap { background: var(--surface); padding: 8vh 0; }
+.article-body {
+  max-width: 740px; margin: 0 auto; padding: 0 24px;
+  font-size: 19px; line-height: 1.85;
+}
+.article-body p { margin-bottom: 1.35em; }
+html[lang="ar"] .article-body p {
+  font-family: 'Amiri', serif; font-size: 20px; line-height: 1.95;
+}
+.article-body p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  float: left; font-size: 4.4rem; line-height: 0.9;
+  padding-right: 12px; padding-top: 6px;
+  color: var(--accent);
+}
+html[lang="ar"] .article-body p:first-of-type::first-letter {
+  font-family: 'Amiri', serif; float: right;
+  padding-right: 0; padding-left: 12px; font-size: 3.8rem;
+}
+.article-body h2 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 1.85rem; line-height: 1.2;
+  margin: 3.5rem 0 1.1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  position: relative;
+  color: var(--ink);
+}
+html[lang="ar"] .article-body h2 {
+  font-family: 'Amiri', serif; font-weight: 700; font-size: 2rem;
+}
+/* Marginal Arabic numeral on each h2 */
+.article-body h2::before {
+  content: attr(data-mn);
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-size: 0.95rem; font-weight: 400;
+  color: var(--accent); opacity: 0.55;
+  top: 8px;
+}
+html:not([lang="ar"]) .article-body h2::before { left: -64px; }
+html[lang="ar"] .article-body h2::before { right: -64px; }
+@media (max-width: 900px) {
+  .article-body h2::before { position: static; display:inline-block; margin-right: 10px; opacity: 0.85; }
+  html[lang="ar"] .article-body h2::before { margin-left:10px; margin-right:0; }
+}
+.article-body hr {
+  border: 0; border-top: 1px solid rgba(26,20,16,0.15);
+  margin: 2.2rem 0;
+}
+.article-body em { font-style: italic; }
+.article-body strong { font-weight: 600; }
+
+/* Image panel (Image A, inline) */
+.image-panel {
+  margin: 4rem -16vw;
+  position: relative;
+}
+@media (max-width: 1100px) { .image-panel { margin-left: 0; margin-right: 0; } }
+.image-panel .img {
+  background-size: cover; background-position: center;
+  height: 56vh; min-height: 360px; max-height: 600px;
+  position: relative;
+}
+.image-panel .img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(17,16,14,0.55) 100%);
+  pointer-events: none;
+}
+.image-panel .caption {
+  position: absolute; bottom: 18px; left: 6%; right: 6%;
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(245,240,232,0.75);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+html[lang="ar"] .image-panel .caption { font-family: 'Amiri', serif; text-transform: none; letter-spacing: 0.04em; font-size: 0.9rem; }
+
+/* Image B — closing aphorism burned on top */
+.aphorism-burn {
+  margin: 4rem -16vw 2rem;
+  position: relative; overflow: hidden;
+  background-color: var(--bg-deep);
+}
+@media (max-width: 1100px) { .aphorism-burn { margin-left: 0; margin-right: 0; } }
+.aphorism-burn .img {
+  background-size: cover; background-position: center;
+  height: 80vh; min-height: 460px; max-height: 760px;
+  opacity: 0.78;
+}
+.aphorism-burn::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(17,16,14,0.4) 0%, rgba(17,16,14,0.15) 35%, rgba(17,16,14,0.75) 100%);
+  pointer-events: none;
+}
+.aphorism-burn .overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 0 6vw;
+}
+.aphorism-burn .overlay > * { color: var(--surface); }
+.aphorism-burn .ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.4rem); line-height: 1.18;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+  margin-bottom: 18px;
+}
+.aphorism-burn .en {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900;
+  font-size: clamp(1.2rem, 2.4vw, 2rem); line-height: 1.15;
+  letter-spacing: 0.01em; opacity: 0.92;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+}
+html:not([lang="ar"]) .aphorism-burn .ar { font-size: clamp(1.2rem, 2.4vw, 2rem); opacity: 0.9; }
+html:not([lang="ar"]) .aphorism-burn .en {
+  font-size: clamp(2.6rem, 6vw, 5.2rem); font-style: normal; opacity: 1;
+  text-transform: none; font-weight: 900;
+}
+
+/* ---------- Per-file infographic strip ---------- */
+.data-strip {
+  background: var(--bg);
+  color: var(--surface);
+  padding: 9vh 6vw;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.data-strip .lbl { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 36px; text-align: center; }
+.data-grid { display: grid; gap: 32px; max-width: 1120px; margin: 0 auto; }
+.data-grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.data-grid.cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+@media (max-width: 800px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px;} }
+@media (max-width: 480px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: 1fr;} }
+
+.data-cell { text-align: center; }
+.data-cell .num {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1;
+  color: var(--accent); margin-bottom: 8px;
+}
+.data-cell .lbl-body {
+  font-family: 'EB Garamond', serif; font-size: 0.96rem; line-height: 1.5;
+  color: rgba(245,240,232,0.78); max-width: 220px; margin: 0 auto 6px;
+}
+html[lang="ar"] .data-cell .lbl-body { font-family: 'Amiri', serif; font-size: 1.05rem; line-height: 1.7; }
+.data-cell .src {
+  font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.16em;
+  color: rgba(245,240,232,0.35); text-transform: uppercase;
+}
+
+/* ---------- Pull quote ---------- */
+.pull-quote {
+  background: var(--surface-deep); padding: 8vh 6vw;
+}
+.pq-inner { max-width: 820px; margin: 0 auto; position: relative;
+  padding: 0 36px;
+  border-inline-start: 4px solid var(--accent);
+}
+.pq-inner p {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.35;
+  color: var(--ink);
+}
+html[lang="ar"] .pq-inner p { font-family: 'Amiri', serif; font-style: normal; }
+.pq-attr { display: block; margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- Footer (article + site) ---------- */
+.article-foot { background: var(--surface); padding: 6vh 6vw; }
+.article-foot-inner { max-width: 820px; margin: 0 auto; display: grid; gap: 32px; }
+.file-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'EB Garamond', serif; font-size: 0.95rem;
+  border-top: 1px solid rgba(26,20,16,0.12);
+  border-bottom: 1px solid rgba(26,20,16,0.12);
+  padding: 18px 0;
+}
+html[lang="ar"] .file-nav { font-family: 'Amiri', serif; font-size: 1.05rem; }
+.file-nav a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.file-nav a:hover { color: var(--accent); }
+.author-bio { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+html[lang="ar"] .author-bio { font-family: 'Amiri', serif; font-size: 1rem; }
+.author-bio strong { color: var(--ink); }
+
+.site-foot {
+  background: var(--bg-deep); color: rgba(245,240,232,0.55);
+  padding: 28px 6vw; font-size: 0.78rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  font-family: 'Space Mono', monospace; letter-spacing: 0.06em;
+}
+html[lang="ar"] .site-foot { font-family: 'Amiri', serif; letter-spacing: 0; font-size: 0.95rem; }
+.site-foot a { color: var(--accent); text-decoration: none; }
+
+/* ---------- Index page ---------- */
+.index-hero {
+  position: relative; min-height: 92vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 9vh;
+  background-color: var(--bg-deep); color: var(--surface);
+  overflow: hidden;
+}
+.index-hero .hero-bg { background-image: linear-gradient(rgba(17,16,14,0.45),rgba(17,16,14,0.85)); }
+.index-hero .umb-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(3.2rem, 9vw, 8rem); line-height: 1.1;
+  margin-bottom: 12px;
+}
+.index-hero .umb-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 5.2rem); line-height: 1; letter-spacing: -0.01em;
+  margin-bottom: 28px; max-width: 980px;
+}
+html:not([lang="ar"]) .index-hero .umb-en { font-size: clamp(3.2rem, 9vw, 7.6rem); }
+.index-hero .umb-en .ar-inline { font-family: 'Amiri', serif; font-weight: 700; color: var(--accent); display: block; font-size: 0.6em; margin-bottom: 8px; opacity: 0.9; }
+.index-hero .umb-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-kicker { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.index-hero .umb-blurb { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(1rem, 1.6vw, 1.22rem); color: rgba(245,240,232,0.75); max-width: 720px; line-height: 1.75; margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-blurb { font-family: 'Amiri', serif; font-style: normal; }
+.index-hero .byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .index-hero .byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* file cards */
+.files { background: var(--surface); padding: 9vh 6vw; }
+.files .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; text-align: center; }
+html[lang="ar"] .files .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.file-card {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  min-height: 56vh; margin-bottom: 8px;
+  background: var(--bg); color: var(--surface);
+  position: relative; overflow: hidden;
+}
+.file-card.light { background: var(--surface-deep); color: var(--ink); }
+.file-card.reverse { grid-template-columns: 1fr 1.1fr; }
+.file-card.reverse .fc-img { order: 2; }
+.fc-img {
+  position: relative; min-height: 360px;
+  background-size: cover; background-position: center;
+}
+.fc-img::after {
+  content: ""; position: absolute; inset: 0;
+}
+.file-card:not(.light) .fc-img::after {
+  background: linear-gradient(90deg, rgba(17,16,14,0.32) 0%, transparent 50%);
+}
+.file-card.light .fc-img::after {
+  background: linear-gradient(90deg, rgba(245,240,232,0.22) 0%, transparent 50%);
+}
+.file-card.reverse:not(.light) .fc-img::after { background: linear-gradient(270deg, rgba(17,16,14,0.32) 0%, transparent 50%); }
+.file-card.reverse.light .fc-img::after { background: linear-gradient(270deg, rgba(245,240,232,0.22) 0%, transparent 50%); }
+.fc-text { padding: 7vh 5vw; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.fc-num {
+  position: absolute; opacity: 0.06;
+  font-family: 'Reem Kufi', 'Amiri', serif; font-weight: 700;
+  font-size: clamp(8rem, 18vw, 16rem); line-height: 1;
+  bottom: -2vh; pointer-events: none; user-select: none;
+  color: var(--art);
+}
+html:not([lang="ar"]) .file-card:not(.reverse) .fc-num { right: -2vw; }
+html:not([lang="ar"]) .file-card.reverse .fc-num { left: -2vw; }
+html[lang="ar"] .file-card:not(.reverse) .fc-num { left: -2vw; }
+html[lang="ar"] .file-card.reverse .fc-num { right: -2vw; }
+.fc-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--art); margin-bottom: 14px; }
+html[lang="ar"] .fc-meta { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-organ { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--art); margin-bottom: 10px; }
+html[lang="ar"] .fc-organ { font-family: 'Amiri', serif; }
+.fc-title-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.2;
+  margin-bottom: 12px;
+}
+.fc-title-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1;
+  margin-bottom: 18px;
+}
+html[lang="ar"] .fc-title-en { display:none; }
+html:not([lang="ar"]) .fc-title-ar { display:none; }
+html:not([lang="ar"]) .fc-title-en { font-size: clamp(1.8rem, 3.8vw, 3rem); }
+.fc-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.02rem; line-height: 1.7; margin-bottom: 24px; opacity: 0.88; max-width: 500px; }
+html[lang="ar"] .fc-kicker { font-family: 'Amiri', serif; font-style: normal; font-size: 1.1rem; }
+.fc-link {
+  font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.28em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--art); display: inline-flex; gap: 10px; align-items: center;
+  transition: gap .2s;
+}
+html[lang="ar"] .fc-link { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-link:hover { gap: 16px; }
+@media (max-width: 800px) {
+  .file-card, .file-card.reverse { grid-template-columns: 1fr; min-height: auto; }
+  .fc-img { min-height: 260px; order: 1 !important; }
+  .fc-text { padding: 6vh 6vw; }
+}
+
+/* Method strip */
+.method {
+  background: var(--surface-deep); padding: 9vh 6vw;
+  text-align: center;
+}
+.method .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+html[lang="ar"] .method .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.method p {
+  font-family: 'EB Garamond', serif; font-size: 1.05rem; line-height: 1.85;
+  max-width: 720px; margin: 0 auto 1em;
+  color: var(--ink);
+}
+html[lang="ar"] .method p { font-family: 'Amiri', serif; font-size: 1.14rem; }
+</style>
+</head>
+<body>
+
+
+<nav class="topnav">
+  <a href="index.html"><span class="lang-en">When the Knife Entered</span><span class="lang-ar">لما الموسى دخل</span></a>
+  <div class="crumb"><span class="lang-en">File 04 · Hands</span><span class="lang-ar">ملف ٠٤ · اليدين</span></div>
+  <a href="/en/khadija" class="lang-en">← AIDA</a>
+  <a href="/ar/khadija" class="lang-ar">AIDA →</a>
+  <div class="lang-toggle">
+    <button data-lang-btn="en" onclick="setLang('en')">EN</button>
+    <button data-lang-btn="ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<aside class="bodymap" aria-label="series body map">
+  <svg viewBox="0 0 80 320" xmlns="http://www.w3.org/2000/svg" aria-label="body-map navigator"><path d="M40 8 C 30 8, 22 16, 22 28 C 22 38, 30 46, 40 46 C 50 46, 58 38, 58 28 C 58 16, 50 8, 40 8 Z M 28 50 L 52 50 L 60 62 L 64 110 L 60 180 L 56 200 L 52 250 L 50 312 L 42 312 L 40 230 L 38 312 L 30 312 L 28 250 L 24 200 L 20 180 L 16 110 L 20 62 Z" fill="rgba(184,149,106,0.05)" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="20" y1="100" x2="14" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="60" y1="100" x2="66" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="40" y1="60" x2="40" y2="220" stroke="rgba(184,149,106,0.10)" stroke-width="0.5" stroke-dasharray="2 3"/><a href="01.html" aria-label="Heart — File 01"><circle cx="40" cy="90" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="02.html" aria-label="Lungs — File 02"><circle cx="40" cy="70" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="03.html" aria-label="Eyes — File 03"><circle cx="40" cy="30" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="#" aria-label="Hands — File 04"><circle cx="18" cy="140" r="4.5" fill="#8B5A2B" /></a><circle cx="18" cy="140" r="7.5" fill="none" stroke="#8B5A2B" stroke-width="0.8" opacity="0.6"/><a href="05.html" aria-label="Spine — File 05"><circle cx="62" cy="130" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="06.html" aria-label="Belly — File 06"><circle cx="40" cy="165" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="07.html" aria-label="Feet — File 07"><circle cx="40" cy="290" r="3" fill="rgba(184,149,106,0.55)" /></a></svg>
+</aside>
+
+<header class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('../images/leonardo/series-03/04_hands_A.jpg')"></div>
+  <div class="hero-fade"></div>
+  <div class="ghost-num">٠٤</div>
+  <div class="hero-flag"><span class="lang-en">File 04 · Seven wounds</span><span class="lang-ar">ملف ٠٤ · سَبع جِراح</span></div>
+  <div class="hero-organ"><span class="lang-en">Hands · اليدين</span><span class="lang-ar">اليدين · Hands</span></div>
+  <h1 class="hero-aphorism-ar">عَطانا صار إذنَهم</h1>
+  <h1 class="hero-aphorism-en">Our Giving Became Their Permission</h1>
+  <p class="hero-kicker"><span class="lang-en">A people who give to each other — the basis of the village, the basis of resistance — recoded as a thing requiring a license.</span><span class="lang-ar">شَعب بيعطي بَعضو — هاي البِنية للقَرية، وهاي البِنية للمُقاومة — اتسَجَّلوا كإشي بدّو رخصة.</span></p>
+  <div class="hero-rule"></div>
+  <p class="hero-byline">
+    <span class="lang-en">By Hamzah Barhameyeh · AIDA Creative Studios · Jerusalem · 2026</span>
+    <span class="lang-ar">حمزة برهمية · عايدة كرييتف ستوديوز · القدس · ٢٠٢٦</span>
+  </p>
+</header>
+
+
+<section class="umbrella-ribbon">
+  <span class="umb-title umb-title-en">Series 03 · The Key Became a Fingerprint</span>
+  <span class="umb-title umb-title-ar">سلسلة 03 · المفتاح صار بَصمة</span>
+  <span>عايدة · AIDA Creative Studios</span>
+</section>
+
+<div class="article-wrap">
+  <article class="article-body">
+    <div class="lang-en">
+<p>At dawn on August 18, 2022, Shawan Jabarin — the director of Al-Haq, the largest Palestinian human-rights organisation, founded in 1979 in Ramallah — arrived at his office and found the door welded shut.</p>
+<p>Not locked. Welded.</p>
+<p>The Israeli army, in an overnight operation, had entered the office, seized the contents, and welded the iron door from the outside. On the door, a paper notice in a military order stated, in essence: <em>the office is closed because the organisation is a terrorist organisation.</em></p>
+<p>Al-Haq had defended thousands of Palestinians in Israeli courts, had submitted documentation to the International Criminal Court, had recorded the occupation for fifty-six years. What does a human-rights lawyer do when he finds his office door welded?</p>
+<p>Jabarin, sixty that day, walked home. He opened a personal laptop. He continued.</p>
+<hr>
+<p>This file is not about a welded office. This file is about the giving that became their permission.</p>
+<p>About the hand that extends from one Palestinian to another — a grandmother teaching her neighbour&#x27;s daughter, a mosque feeding a poor family during Ramadan, an organisation helping a political prisoner, a doctor treating without payment — and that became, by structure, a hand required to seek a third party&#x27;s permission. The hand that operated without that permission became terror.</p>
+<p>Our giving became their permission. This is the file.</p>
+<hr>
+<figure class="image-panel" aria-label="Image A · File 04 · Hands"><div class="img" style="background-image:url('../images/leonardo/series-03/04_hands_A.jpg')"></div><figcaption class="caption"><span>Image A · File 04 · Hands</span><span>Our Giving Became Their Permission</span></figcaption></figure>
+<h2 data-mn="١">1. The Six Designations</h2>
+<p>On October 19, 2021, the Israeli Defence Minister Benny Gantz signed military orders designating six Palestinian human-rights organisations as terrorist groups.</p>
+<p>The six were:</p>
+<p><strong>Al-Haq</strong> (founded 1979) — the leading Palestinian human-rights legal organisation.</p>
+<p><strong>Addameer</strong> (1991) — prisoner-rights organisation.</p>
+<p><strong>Defense for Children International–Palestine</strong> (1991) — the leading documenter of Israeli abuses against Palestinian children.</p>
+<p><strong>Bisan Center for Research and Development</strong> (1989) — applied-research organisation in Ramallah.</p>
+<p><strong>Union of Agricultural Work Committees</strong> (1986) — the largest Palestinian agricultural-development NGO.</p>
+<p><strong>Union of Palestinian Women&#x27;s Committees</strong> (1980) — feminist mass organisation with chapters across the West Bank.</p>
+<p>The six combined had between three and four decades of institutional history. They were engaged in courts. They had been funded, for decades, by European, American, and faith-based donors. On the morning of October 20, 2021, they were <em>terror</em>.</p>
+<p>The designations were issued without prior public evidence, without prior judicial process, and without consultation with the European, Norwegian, Belgian, Dutch, Irish, French, Spanish, and German government donors who had funded the six organisations&#x27; work for decades. The donors asked, through diplomatic channels, for the underlying intelligence. The Israeli government provided a dossier. The dossier was independently reviewed by the Belgian, Norwegian, and Dutch foreign ministries, by the EU External Action Service, and by an independent legal investigation commissioned by the UN Special Rapporteur on Human Rights Defenders.</p>
+<p>Five independent reviews, each separate from the others, returned the same finding. The dossier did not contain evidence of terrorism. The dossier contained evidence that the organisations engaged in the documentation of Israeli human-rights abuses.</p>
+<p>The designations were not withdrawn. The donors continued, with reservations, to fund. The army welded Al-Haq&#x27;s door in August 2022. Jabarin worked from his apartment. He carries the designation of his own life&#x27;s work as terror, attached to his passport, his family, and the entry-and-exit logs of every airport that uses Israeli border data.</p>
+<p>He continued. Each of the six continued.</p>
+<hr>
+<h2 data-mn="٢">2. The idea before the designation</h2>
+<p>When a paper appears out of nowhere classifying a forty-year-old organisation as terror, the idea is not born in the paper. The idea was there for years. The paper records it.</p>
+<p>The idea is: Palestinian giving to Palestinian — solidarity, documentation, legal defence, collective farming, schools, clinics — when conducted without external permission, is terror.</p>
+<p>The pre-1948 structure of Palestinian giving was already complete. The Waqf endowments. The charitable societies. The professional guilds. The women&#x27;s associations. The Arab Islamic Women&#x27;s Society was founded in Jerusalem in 1929; its operations expanded to every Palestinian city. The Maqasid Islamic Charity Society of Jerusalem was founded in 1947. The Palestine Red Crescent Society was founded in the early 1950s. Every village had a <em>takaful</em> — a mutual-aid fund. This structure was budget and authority. It was a state, before there was a state.</p>
+<p>After 1948, the structure was lost, displaced, or looted. After 1967, Israel — now in administrative control of the West Bank and Gaza — dissolved or restricted every remaining institution. The Palestinian, who had been the giver, became the recipient. The recipient who gave outside permission was tracked.</p>
+<p>In 1996, the United States Antiterrorism and Effective Death Penalty Act — AEDPA. In 2001, the PATRIOT Act. Together, they made it a federal crime in the United States to provide any support — including a medical clinic, including a school — to a designated foreign terrorist organisation.</p>
+<p>In 2011, the European Union extended its terrorism list. In 2014, the United Kingdom&#x27;s Counter-Terrorism Act. In 2018, the UK Counter-Terrorism and Border Security Act.</p>
+<p>The framework became global. The Palestinian who gave to another Palestinian, in a single moment, was simultaneously violating American, British, German, French, and Canadian law. The 2021 Israeli designation was not an inauguration. It was an activation.</p>
+<hr>
+<h2 data-mn="٣">3. UNRWA, a budget, zero</h2>
+<p>The United Nations Relief and Works Agency for Palestine Refugees — UNRWA, established by Resolution 302 in 1949 (we saw it in File 01) — today serves approximately six million registered Palestinian refugees: in Jordan, Lebanon, Syria, the West Bank, and Gaza. Its schools teach half a million children. Its clinics provide millions of visits per year. Its food rations, after the 2007 closure of Gaza, became the survival lifeline for more than a third of the territory&#x27;s population.</p>
+<p>UNRWA&#x27;s annual budget was approximately 1.5 billion dollars, drawn from seventy donor states. The United States was the largest single donor: approximately 365 million dollars per year.</p>
+<p>In 2018, the Trump administration cut the U.S. contribution. Zero dollars. In 2019, Germany and the European Union increased their contributions to compensate. In 2021, the Biden administration restored part of the U.S. payment. In 2024, after an Israeli allegation that twelve UNRWA staff (out of thirty thousand) had participated in the October 7 attack, sixteen donor states suspended their funding immediately.</p>
+<p>The UN investigation into the allegation, led by Catherine Colonna, the former French Foreign Minister, was delivered in April 2024. It found no evidence to support the Israeli claim at the scale claimed. It identified nine individuals who might have been linked in some manner, and the Agency took internal action against them. That is all the investigation produced.</p>
+<p>But the damage was already done. By August 2024, UNRWA&#x27;s budget was half of what it had been in December 2023. Schools turned away students. Clinics closed. Food rations in Gaza, during the famine, were cut six times. The refugee was readied for the drop.</p>
+<p>In the Israeli Knesset, in October 2024, a law was passed forbidding UNRWA from operating on Israeli territory — including East Jerusalem. The law entered force in January 2025. The threat of <em>dissolving UNRWA entirely</em> became declared state policy.</p>
+<p>The permission became opinion.</p>
+<hr>
+<h2 data-mn="٤">4. Palestinian money under an Israeli lock</h2>
+<p>Per the Paris Protocol — the financial annex to the Oslo Accords, signed in 1994 — Israel collects the customs duties on goods imported into the Palestinian territories (whose only port of entry is through Israel) and transfers the proceeds to the Palestinian Authority each month. Over thirty years, this transfer has remained the Authority&#x27;s first source of revenue. At the time of writing, it stands at approximately 188 million dollars per month.</p>
+<p>Israel, by unilateral action, can stop the transfer. And has. In 2019 it withheld an amount equivalent to what the Authority pays the families of prisoners and martyrs. In 2020 it withheld over a settlements dispute. In 2021, by order of Netanyahu. In 2024, the Israeli Finance Minister Bezalel Smotrich froze the transfers for two months.</p>
+<p>The result: Authority employees — approximately one hundred and forty-five thousand people — do not receive full salaries. Doctors. Teachers. Police officers. Nurses. Municipal workers. Each one of them, every month, pays the price of an Israeli political decision.</p>
+<p>And there is more. The Israeli bank Bank Leumi, which conducts correspondent banking with the Palestinian banks, signs an annual correspondent-banking waiver permitting Palestinian banks to transact in U.S. dollars. If Leumi declines to sign, the Palestinian banks are disconnected from the global financial system within weeks. The threat of withdrawing the signature has been issued, publicly, by Smotrich, four times between 2023 and 2025.</p>
+<p>The Palestinian economy in its entirety — fourteen billion dollars — can be removed from the global financial record by a single signature. Israeli permission is not symbolic. It is a party that controls every dollar circulating in our country.</p>
+<hr>
+<h2 data-mn="٥">5. Calories as a budget for siege</h2>
+<p>On October 17, 2012, the Israeli human-rights organisation Gisha received, after a five-year freedom-of-information lawsuit against the Israeli Defence Ministry, a single-page internal Israeli army document. The document&#x27;s Hebrew title was <em>Food Consumption in the Gaza Strip — Red Lines</em>.</p>
+<p>The document is dated early 2008. The document is the operating mathematics of the Gaza siege in its first form. The document calculates, on the basis of demographic estimates by age and sex, the precise number of food trucks that must be permitted to enter Gaza per day in order to keep the population <em>above the humanitarian minimum</em> — that is to say, to prevent the population from dying of hunger in numbers visible to the international press.</p>
+<p>The calculation is in calories. The adult Palestinian male requires 2,279 calories per day. The adult Palestinian female requires 1,831. Children, infants, the elderly, each with their figures. The sum is divided by the per-truck cargo weight of standard flour, sugar, rice, and oil. The result: 170 trucks per day. Less the figure the army assesses to enter via the tunnels from Egypt. Final operating quota: 106 trucks per day.</p>
+<p>Dov Weisglass, then senior adviser to the Israeli Prime Minister Ariel Sharon, had described the policy three years earlier, in a 2006 <em>Haaretz</em> interview, in a different metaphor: <em>the idea is to put the Palestinians on a diet, but not to make them die of hunger.</em></p>
+<p>The Red Lines document is the diet. The diet operated, in modified forms, for sixteen years before October 2023. The bombardment did not begin the engineering of Gaza&#x27;s hunger. The bombardment converted the diet into the acute weapon. (We will see this in File 06, the belly.)</p>
+<hr>
+<h2 data-mn="٦">6. Permission, in four layers</h2>
+<p>Palestinian giving to Palestinian is not absolutely forbidden. It is permitted, on condition. The condition is permission. Permission, operationally, has four layers.</p>
+<p><strong>Layer one</strong> — the Israeli government certifies that the recipient organisation is not <em>terror</em>. The certification is revisable as the political moment requires. In 2018, approximately forty-seven Palestinian organisations were under formal Israeli surveillance. By 2024, more than eighty.</p>
+<p><strong>Layer two</strong> — the donor state signs a certification (the USAID Anti-Terrorism Certification, the EU&#x27;s seven-step counter-terrorism financing rule, the UK Counter-Terrorism Internal Review) guaranteeing that no portion of the funds reaches a person or entity classified as terror. The certification is not on the donor alone — it is on every employee, every contractor, every supplier in the chain, all the way down. A single false signature exposes the funder and the recipient to federal criminal prosecution.</p>
+<p><strong>Layer three</strong> — international banks refuse the transactions. <em>De-risking.</em> Any transfer to a Palestinian organisation risks the bank&#x27;s correspondent relationship with New York. European and Asian banks shorten the engagement. More than two hundred Palestinian civil-society organisations lost their banking relationships between 2010 and 2024, according to figures from the Charity and Security Network.</p>
+<p><strong>Layer four</strong> — self-classification within the Palestinian organisation. Even if the organisation clears the first three layers, it polices itself: avoiding the word <em>nakba</em>, the word <em>return</em>, the word <em>occupation</em>, the word <em>prisoner</em>. Some staff member somewhere reviews the press release before any of those words can be released into public. The internal censorship is the final, deepest, least visible permission layer.</p>
+<p>The four layers together produce a Palestinian solidarity sector that operates under multiple foreign permissions, serves populations stripped of effective political rights, and spends every day defending its existence.</p>
+<hr>
+<h2 data-mn="٧">7. The welded door</h2>
+<p>In 2025, Shawan Jabarin returned to the Al-Haq office. The door was still welded. An Israeli welding firm, on a state invoice, cut it open. The opening was the width of a person. Jabarin entered. The chairs were overturned. Every computer had been seized. Forty years of paper archives, on fifty thousand cases, half lost, half scattered.</p>
+<p>But there was still a family that needed someone to write its report. There was still a prisoner who needed a lawyer. There was still a child killed whose family did not know where to file the documentation. Palestinian solidarity did not stop functioning because its door was welded.</p>
+<p>Palestinian giving continues. Israeli permission persists. The accumulation of restriction produces patience. Patience produces action. Action produces a new classification, a new paper, a new permission.</p>
+<p>Our giving became their permission. This is the file.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/04_hands_B.jpg')"></div><figcaption class="overlay"><div class="ar">عَطانا صار إذنَهم</div><div class="en">Our Giving Became Their Permission</div></figcaption></figure>
+<p>The next file moves to the spine. To the refusal. To what happened when the Palestinian <em>no</em>, without violence and without weapons, was redefined as terror.</p>
+</div>
+    <div class="lang-ar">
+<p>فَجر ثَمَنيَّاش آب 2022، شَوّان جَبارين — مُدير «الحَقّ»، أَكبر مُنظَّمة فلسطينية لحُقوق الإنسان، اللي تأسَّست سنة 1979 برام الله — وِصِل لمَكتبو اليَومي ولَقي الباب ملحوم.</p>
+<p>مش مُقفَل. ملحوم.</p>
+<p>الجيش الإسرائيلي، بعَملية لَيلية، اقتَحَم المَكتب، صادَر مُحتَوَياتو، ولَحَم بابو الحَديدي من الخارج. على الباب، تَعليق ورَقي بقَرار عَسكَري بيقول: المَكتب مُغلَق لإنّو المنظَّمة «إرهابية».</p>
+<p>كان «الحَقّ» قد دافَع عن آلاف الفلسطينيين بالمَحاكم الإسرائيلية، قَدَّم وَثائق لمَحكمة الجِنايات الدَّولية، وَثَّق احتلال ستّ وخَمسين سنة. شو يبقى لمُحامٍ تَوَصَّل بابو ملحوم؟</p>
+<p>جَبارين، اللي عُمرو يَومها ستّين، رِجِع لشَقّتو ببُكرة. فَتَح كِبيوتر شخصي. كَمَّل الشُّغل.</p>
+<hr>
+<p>هاد الملف ما هو عن مكتب ملحوم. هاد الملف عن العَطا اللي صار إذن.</p>
+<p>عَن الإيد اللي بتمتدّ بين فلسطيني وفلسطيني — تيتا تعَلِّم بنت الجار، جامع يطعم العائلة الفَقيرة بشَهر رمضان، مُنظَّمة تساعد أَسير، طبيب يعالج بلاش — وَصارت محتاجة إذن من حد ثالت. اللي ما يَنوَجِد إذنو، الإيد صارت إرهاب.</p>
+<p>عَطانا صار إذنَهم. هاد الملف.</p>
+<hr>
+<figure class="image-panel" aria-label="صورة أ · الملف ٠٤ · اليدين"><div class="img" style="background-image:url('../images/leonardo/series-03/04_hands_A.jpg')"></div><figcaption class="caption"><span>صورة أ · الملف ٠٤ · اليدين</span><span>عَطانا صار إذنَهم</span></figcaption></figure>
+<h2 data-mn="١">1. التَّصنيفات السِّتّة</h2>
+<p>بتِسعتَعش تشرين أول 2021، بَيني غانتس، وزير الدِّفاع الإسرائيلي يَومها، وَقَّع أَوامر عسكرية صَنَّفَت سِتّ منظَّمات فلسطينية لحُقوق الإنسان كمَنظَّمات إرهابية.</p>
+<p>السِّتّ هي:</p>
+<p>«الحَقّ» — تأسَّست 1979 — أكبر منظَّمة قانونية فلسطينية لحُقوق الإنسان.</p>
+<p>«الضَّمير» — تأسَّست 1991 — منظَّمة حُقوق الأَسرى.</p>
+<p>«الدِّفاع عن الأَطفال الدَّولية - فلسطين» — تأسَّست 1991 — المُوثِّق الرَّئيسي للانتهاكات الإسرائيلية ضدّ الأَطفال الفلسطينيين.</p>
+<p>«مَركز بيسان للبُحوث والإنماء» — تأسَّس 1989 — منظَّمة بحوث تَطبيقية برام الله.</p>
+<p>«اتِّحاد لِجان العَمَل الزِّراعي» — تأسَّس 1986 — أكبر منظَّمة فلسطينية غير حكومية للتَّنمية الزِّراعية.</p>
+<p>«اتِّحاد لِجان المَرأة الفلسطينية» — تأسَّس 1980 — منظَّمة جَماهيرية نَسَوية إلها فُروع بالضِفّة الغربية كلها.</p>
+<p>السِّت كلهن عُمر مؤسَّسي بين ثلاث وأربع عُقود. السِّت كلهن مُنخرِطات بمَحاكم. السِّت كلهن مُموَّلات، لعُقود، من حُكومات أوروبية وأمريكية وكنائس. السِّت كلهن، صَبيحة عشرين تشرين أول 2021، صاروا «إرهاب».</p>
+<p>التَّصنيفات صَدَرَت بدون أَدِلَّة عَلَنية مُسبقة. بدون عَملية قَضائية مُسبقة. بدون استِشارة المانحين الأوروبيين والنرويجيين والبلجيكيين والهولنديين والإيرلنديين والفرنسيين والإسبان والألمان اللي بشَكل جماعي مَوَّلوا عَمل السِّتّ منظَّمات لعُقود.</p>
+<p>المانحين سَأَلوا، عَبر القَنَوات الدِّبلوماسية، عن المَعلومات الاستخباراتية الكامِنة. الحكومة الإسرائيلية قَدَّمَت ملفّ. الملفّ انفَحَص بشَكل مُستقِلّ من قِبَل وَزارات الخارجية البلجيكية والنرويجية والهولندية، ومن خِدمة العَمَل الخارجي للاتِّحاد الأوروبي، ومن تَحقيق قانوني مُستقِلّ بتَكليف المُقرِّر الخاص للأمم المتحدة لمُدافعي حُقوق الإنسان.</p>
+<p>خَمس مُراجَعات مُستقلّة، كل واحدة بشكل مُنفصِل، رَجَعت بنفس النَّتيجة. الملفّ ما فيه أَدِلَّة على إرهاب. الملفّ فيه أَدِلَّة على إنّو المنظَّمات بتشتغل بتَوثيق انتهاكات حُقوق الإنسان الإسرائيلية.</p>
+<p>التَّصنيفات ما انسَحَبت. المانحين كَمَّلوا، بتَحَفُّظات، يموِّلوا. الجيش لَحَم باب الحَقّ بآب 2022. شَوّان جَبارين كَمَّل الشُّغل من شَقّتو. هو يَحمِل تَصنيف عَمل حياتو كعَمل إرهابي، مَرفقاً بجَواز سَفَرو، بعيلتو، بسِجِلّات الدُّخول والخُروج لكل مَطار يَستخدم بيانات الحُدود الإسرائيلية.</p>
+<p>كَمَّل، كل واحدة من السِّت كَمَّلَت.</p>
+<hr>
+<h2 data-mn="٢">2. الفِكرة قَبل التَّصنيف</h2>
+<p>لمّا تَنزِل وَرَقة من العَدَم بتصنِّف منظَّمة عُمرها أربعين سنة كَإرهاب، الفِكرة مش ولّيدة الوَرَقة. الفِكرة كانت موجودة قبل بسنين. الوَرَقة سَجَّلتها.</p>
+<p>الفِكرة هي: العَطا الفلسطيني-للفلسطيني — التَّكافُل، التَّوثيق، الدِّفاع القانوني، الزِّراعة الجَماعية، المَدارس، العيادات — لو مش بإذن، هو إرهاب.</p>
+<p>بنية العَطا الفلسطيني قَبل 1948 كانت كاملة. الأَوقاف، الجَمعيّات الخَيرية، نقابات المِهَن، الجَمعيّات النِّسائية. الجَمعيّة العَرَبية الإسلامية النِّسائية اتأسَّست بالقُدس سنة 1929، ومُنشَئاتها كانت تَتَوسَّع بكل المُدن الفلسطينية. جَمعيّة المَقاصد الخَيرية الإسلامية بالقُدس تأسَّست 1947. جَمعيّة الهلال الأَحمر الفلسطيني تأسَّست بأَوَّل خَمسينات القَرن. كل قَرية كان عندها صُندوق تَكافُل. هاد البِنية كانت ميزانية وسُلطة. كانت دَولة، قَبل ما تَنوُجد دَولة.</p>
+<p>بعد 1948، البِنية ضاعت أو هُجِّرت أو نُهِبت. بعد 1967، إسرائيل اللي صارت تتحكَّم بالضِفّة وغزة، حَلَّت أو قَيَّدَت كل المؤسَّسات. الفلسطيني صار يَعطي بإذن. اللي بَعطي بدون إذن، بَيتعَقَّب.</p>
+<p>سنة 1996، تَعديل قانون مُكافحة الإرهاب الأمريكي AEDPA. سنة 2001، PATRIOT Act. صار يَشيل أيّ دَعم لـ«منظَّمة إرهابية أَجنبية» — حتى لو الدَّعم عيادة طِبّية أو مدرسة — جَريمة فِدراليّة بأمريكا.</p>
+<p>سنة 2011، التَّعديلات الأوروبية على لائحة الإرهاب. سنة 2014، قانون مُكافحة تَمويل الإرهاب البريطاني. سنة 2018، تَعديل قانون UK Counter-Terrorism and Border Security Act.</p>
+<p>الإطار صار كَوني. الفلسطيني اللي بَعطي للفلسطيني، بلَحظة واحدة، صار يخالِف قانون أمريكي وبريطاني وألماني وفرنسي وكَندي. التَّصنيف الإسرائيلي بأكتوبر 2021 ما كان ابتداء. كان تَفعيل.</p>
+<hr>
+<h2 data-mn="٣">3. أونروا، ميزانية، صَفر</h2>
+<p>وكالة الأمم المتحدة لإغاثة وتَشغيل اللاجئين الفلسطينيين — الأونروا — اللي تأسَّست بقَرار 302 سنة 1949 (شُفنا الملف الأول)، تخدِم اليَوم حوالي سِتّ ملايين لاجئ فلسطيني مسجَّل: بالأردُن، لُبنان، سوريا، الضِفّة، وغزة. مَدارسها بتدرِّس نِصف مليون طِفل. عياداتها بتخدِم ملايين زيارة بالسنة. حصصها الغذائية، بغزة بعد إغلاق 2007، صارت طَريق نَجاة لأكثر من ثُلث السُّكّان.</p>
+<p>كانت ميزانية الأونروا حوالي 1.5 مليار دولار بالسنة، تيجي من 70 دولة مانحة. الولايات المتحدة كانت أَكبر مانح: حوالي 365 مليون دولار بالسنة.</p>
+<p>سنة 2018، ترامب قَطَع الميزانية الأمريكية. صَفَر دولار. سنة 2019، أَلمانيا والاتحاد الأوروبي رَفَعوا لتعويض. سنة 2021، بايدِن رَجَّع جُزء من الدَّفع الأمريكي. سنة 2024، بعد ادِّعاء إسرائيلي إنّو 12 موظَّف بالأونروا (من 30,000) شارَكوا بهجوم سَبعة تشرين أول، 16 دَولة مانحة عَلَّقَت تَمويلها فَوريّاً.</p>
+<p>التَّحقيق الأممي بهاد الادِّعاء، اللي قَدَّمتو كاترين كولونا الرَّئيسة السَّابقة لوزارة الخارجية الفرنسية، صَدَر بنيسان 2024. ما لَقي دَليل على ادِّعاء إسرائيل بحَجمو. لقَى تِسعة أَسماء يَحتمل تَكون مُرتبِطة بشَكل ما، وعَمل بإجراءات داخلية ضِدّهم. هاد كل اللي طَلَع بالمَوضوع.</p>
+<p>بسّ الضَّرر كان قد صار. ميزانية أونروا بآب 2024 كانت نِصف ميزانيتها بكانون أول 2023. مَدارس بترفض طُلّاب. عيادات بتُغلَق. حصص الطعام بغزة، أثناء المَجاعة، اتقَلَّصت سِتّ مرّات. اللاجئ صار جاهز للسَّقطة.</p>
+<p>بكنيست إسرائيل، بتشرين أول 2024، اتمَرَّر قانون يَحرِم الأونروا من العَمل بالأراضي الإسرائيلية — بما فيها القُدس الشَّرقية. القانون دخَل حَيِّز التَّنفيذ بكانون ثاني 2025. تَهديد بـ «حَلّ الأونروا كاملاً» صار سياسة دَولة مُعلَنة.</p>
+<p>الإذن صار رَأيهم.</p>
+<hr>
+<h2 data-mn="٤">4. المال الفلسطيني تَحت قُفل إسرائيلي</h2>
+<p>حسب بروتوكول باريس، المُلحَق المالي لاتفاقيات أوسلو، المُوَقَّع سنة 1994: إسرائيل بتجمَع الضَّرائب على البَضائع المُستوردة للأراضي الفلسطينية — اللي مَنَفَذها الوَحيد عَبر إسرائيل — وَتحوِّل المَبلَغ للسُّلطة الفلسطينية كل شَهر. هاد المَبلغ، عَلى مَدى ثَلاثين سنة، بَقي مَصدَر الدَّخل الأَول للسُّلطة. حالياً، حوالي 188 مليون دولار شَهرياً.</p>
+<p>إسرائيل، بإجراء أُحادي، بتقدر تَوقِف التَّحويل. وتَوقَف. سنة 2019 سَحَبَت مَبلَغ مُوازي لما تَدفعو السُّلطة لعيلات الأَسرى والشُّهَداء. سنة 2020 احتَجَزت بسَبَب نِزاع مُستوطنات. سنة 2021 احتَجَزَت بأَوامِر من نَتنياهو. سنة 2024، الوزير سموتريتش جَمَّد كامل التَّحويلات شَهرين.</p>
+<p>النَّتيجة: مُوظَّفي السُّلطة، حوالي 145,000 شَخص، ما بياخدوا راواتبهم كاملة. الأَطبّاء، المُعلّمين، الشُّرطة، المُمَرِّضين، عُمّال البَلديّة. كل واحد منهم، شَهرياً، بيدفع ثَمن قَرار سياسي إسرائيلي.</p>
+<p>أَكتر من هَيك: البَنك الإسرائيلي بَنك ليؤمي، اللي بَتعامَل مع البُنوك الفلسطينية، بَيوقِّع كل سنة على إعفاء قانوني (correspondent banking waiver) بَيسمَح للبُنوك الفلسطينية تَتعامَل مع الدولار الأمريكي. لو رفض البَنك التَّوقيع، البُنوك الفلسطينية بتنقَطِع عن النِّظام المالي العالمي خِلال أَسابيع. تَهديد بسَحب التَّوقيع طَلَع، علناً، من سموتريتش، أَربع مرات بين 2023 و2025.</p>
+<p>الاقتصاد الفلسطيني بأكملو، 14 مليار دولار، بَيقدر يُمحى من السِّجِلّ المالي العالَمي بتَوقيعة واحدة. الإذن الإسرائيلي مش رمزي. هو طَرف يَتحَكَّم بكل دولار يَدور بِبَلَدنا.</p>
+<hr>
+<h2 data-mn="٥">5. السَّعرات الحَرارية كميزانية</h2>
+<p>بسبعتعش تشرين أول 2012، المنظَّمة الإسرائيلية لحُقوق الإنسان «جِيشا» (gisha.org) استَلَمت، بعد دَعوى حُريّة معلومات استمَرَّت خَمس سنين ضدّ وَزارة الدِّفاع الإسرائيلية، وَثيقة داخلية للجيش الإسرائيلي صَفحة وحدة عنوانها بالعِبري الأَصلي: «استهلاك الغِذاء بقطاع غزة - الخُطوط الحَمراء».</p>
+<p>الوَثيقة مؤرَّخة بأَوَّل 2008. الوَثيقة هي الرِّياضيّات التَّشغيلية لحِصار غزة بشَكلو الأَول. الوَثيقة بتحسب، على أساس تَقديرات سُكّانية حَسَب العُمر والجِنس، العَدَد الدَّقيق من شاحنات الغِذاء المَسموح فيها تَدخُل غزة باليَوم لإبقاء السُّكّان «فَوق الحَدّ الأَدنى الإنساني» — يعني، لمَنع السُّكّان من الموت من الجوع بأعداد ظاهرة للصِّحافة الدَّولية.</p>
+<p>الحساب بَيُجرى بالسَّعرات الحَرارية. الرَّجُل الفلسطيني البالغ بَيحتاج 2,279 سَعرة باليَوم. المَرأة 1,831. الأَطفال، الرُّضّع، المُسنّين، كل واحد بأَرقامو. الجَمع بَيُقسَم على الحَمولة لكل شاحنة من الطَّحين والسُّكَّر والرُّز والزِّيت. النَّتيجة: 170 شاحنة باليَوم. ناقِص اللي يَقدِر يَنفُذ بالأَنفاق من مَصر. النَّتيجة النِّهائية: 106 شاحنات. هاي الحِصّة المسموحة.</p>
+<p>دوف فايسغلاس، اللي كان مُستَشار رئيسي لرئيس الوزراء أَريَل شارون، وَصَف السياسة قَبل ثَلاث سنين من هاد، بمُقابلة مع «هآرتس» سنة 2006، باستِعارة مُختلفة: «الفِكرة هي تَحُطّ الفلسطينيين على حِمية، بسّ مش تخَلِّهم يموتوا من الجوع.»</p>
+<p>وَثيقة الخُطوط الحَمراء هي الحِمية. الحِمية اشتَغَلت بأَشكال مُعدَّلة لسِتّعَش سنة قَبل قَصف تشرين أول 2023. القَصف ما بَلَّش هَندَسة جوع غزة. القَصف حَوَّل الحِمية لسِلاح حادّ. (هاي بنشوفها بالملف السادس، البَطن.)</p>
+<hr>
+<h2 data-mn="٦">6. الإذن المُسبَّق</h2>
+<p>العَطا الفلسطيني-للفلسطيني ما هو ممنوع تَماماً. هو مَسموح، بشَرط. الشَّرط هو الإذن.</p>
+<p>الإذن، عَملياً، أَربع طَبقات:</p>
+<p>طَبقة أولى — الحُكومة الإسرائيلية تَوافِق إنّو هاي المُؤسَّسة مش «إرهابية». التَّصنيف بَيتعدَّل حَسَب الحاجة السياسية. سنة 2018، حوالي 47 منظَّمة فلسطينية كانت «تحت المُراقَبة». سنة 2024، أَكثَر من 80.</p>
+<p>طَبقة ثانية — الدَّولة المانحة تَوقِّع على شَهادة (USAID Anti-Terrorism Certification, EU 7-step counter-terrorism financing, UK Counter-Terrorism Internal Review) بتضمَن إنّو ولا قِرش من المَبلَغ بَيوصَل ل«شَخص أو كَيان مُصنَّف إرهاب». الشَّهادة مش على المُموِّل فقط — على كل مُوظَّف، كل مُتعاقِد، كل مُورِّد بسِلسلة التَّمويل، صَولاً للنِّهاية. تَوقيعة وحدة كاذبة بتعرِّض المُموِّل والمؤسَّسة لمُلاحَقة جِنائية.</p>
+<p>طَبقة ثالثة — البُنوك العالَمية بترفُض التَّعامُل. تَجَنُّب المُخاطَر de-risking. أيّ تَحويل لمنظَّمة فلسطينية ممكن يَخسَر بَنك حِسابو المُراسِل بنيويورك. بَنوك أوروبية وآسيوية كلها بتختصِر التَّعامُل. أَكتَر من 200 جَمعية فلسطينية فَقَدت حسابها المَصرفي بين 2010 و2024، حسب أَرقام مُؤسَّسة Charity &amp; Security Network.</p>
+<p>طَبقة رابعة — التَّصنيف الذاتي للمؤسَّسة. حتى لو نَجَت من الطَّبقات الثلاثة الأولى، المؤسَّسة الفلسطينية بتفرض على نَفسها رَقابة ذاتية بحيث تَتجَنَّب أيّ مَوضوع، أيّ كلمة، أيّ شَريك ممكن يثير سؤال. الكلمة «نَكبة»، الكلمة «عَودة»، الكلمة «احتلال»، الكلمة «أَسير»، يتجَنَّبهن مُوظَّف العَلاقات العامة قبل ما يستخدمهن. الرَّقابة الذاتية هي طَبقة الإذن النِّهائية، والأَخفى.</p>
+<p>الأَربع طَبقات معاً، تُنتِج مَنظومة تَكافُل فلسطيني-للفلسطيني تعمَل بإذن أَجنبي مُتعَدِّد، تَخدِم سَكّان مَحرومين بصلاحيات تَزداد تقَلُّصاً، وتُدافِع عن وُجودها كل يَوم.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/04_hands_B.jpg')"></div><figcaption class="overlay"><div class="ar">عَطانا صار إذنَهم</div><div class="en">Our Giving Became Their Permission</div></figcaption></figure>
+<h2 data-mn="٧">7. الباب الملحوم</h2>
+<p>سنة 2025، شَوّان جَبارين عاد لمَكتب «الحَقّ». الباب لِسا ملحوم. شَركة لِحام إسرائيلية، بفاتورة من الحكومة، فَتَحته. الفُتحة بحَجم إنسان. جَبارين دَخَل. الكَراسي مَقلوبة. كل جِهاز كمبيوتر مَصادَر. الأَرشيف الوَرَقي اللي عُمرو أَربعين سنة، عَن خَمسين ألف حالة، نِصفو ضايع، نِصفو مَنثور.</p>
+<p>لكن لِسا في عَيلة مَجبور إنّو يكْتب تَقريرها. لِسا في أَسير بحاجة لمُحامٍ. لِسا في طِفل قُتل، وعيلتو ما بَتعرف وَين تَقدِّم. التَّكافُل الفلسطيني ما توقَّف عن العَمل لإنّو بابو لُحِم.</p>
+<p>العَطا فلسطيني بَيستمرّ. الإذن إسرائيلي. التَّعَوُّد بَينتج صَبر. الصَّبر بَينتج فِعل. الفِعل بَينتج تَصنيف جديد، وَرَقة جديدة، إذن جديد.</p>
+<p>عَطانا صار إذنَهم. هاد الملف.</p>
+<p>الملف اللي بعدو بيروح للظَّهر. للرَّفض. لِشو صار لمّا الـ«لا» الفلسطينية، بدون عُنف ولا سِلاح، اعتُبِرت إرهاب. بنشوف.</p>
+</div>
+  </article>
+</div>
+
+<section class="data-strip"><div class="lbl"><span class="lang-en">Key Facts</span><span class="lang-ar">أرقام مفتاح</span></div><div class="data-grid cols-3"><div class="data-cell"><div class="num">6</div><div class="lbl-body lang-en">Palestinian civil-society organisations designated &#x27;terrorist&#x27; by Israel in 2021</div><div class="lbl-body lang-ar">مؤسَّسات مُجتَمع مَدَني فلسطينية صَنَّفتها إسرائيل «إرهابية» سنة 2021</div><div class="src">Israeli MoD designation</div></div><div class="data-cell"><div class="num">9</div><div class="lbl-body lang-en">European countries that publicly rejected the designations</div><div class="lbl-body lang-ar">دولة أوروبية رَفَضت التَّصنيف عَلَنياً</div><div class="src">joint statement, 2022</div></div><div class="data-cell"><div class="num">0</div><div class="lbl-body lang-en">evidence packages substantiating the designations made public</div><div class="lbl-body lang-ar">ملف أدلة دَعم التَّصنيف نُشِر</div><div class="src">Israeli MoD, 2021–2026</div></div></div></section>
+
+<section class="pull-quote">
+  <div class="pq-inner">
+    <p class="lang-en">"A people who give to each other — the basis of the village, the basis of resistance — recoded as a thing requiring a license."</p>
+    <p class="lang-ar">«شَعب بيعطي بَعضو — هاي البِنية للقَرية، وهاي البِنية للمُقاومة — اتسَجَّلوا كإشي بدّو رخصة.»</p>
+    <span class="pq-attr"><span class="lang-en">From File 04 · Hands</span><span class="lang-ar">من الملف ٠٤ · اليدين</span></span>
+  </div>
+</section>
+
+<section class="article-foot">
+  <div class="article-foot-inner">
+    <div class="file-nav">
+      <a href="03.html"><span class="lang-en">← File 03 · Our Witness Became Their Report</span><span class="lang-ar">← ملف ٠٣ · شَهادَتنا صارت تَقريرَهم</span></a>
+      <a href="index.html" style="color: var(--accent)"><span class="lang-en">Series Index</span><span class="lang-ar">السلسلة</span></a>
+      <a href="05.html"><span class="lang-en">File 05 · Our Refusal Became Their Terror →</span><span class="lang-ar">ملف ٠٥ · رَفضنا صار إرهابَهم ←</span></a>
+    </div>
+    <div class="author-bio lang-en">
+      <strong>Hamzah Barhameyeh</strong> is a writer and strategist from Jerusalem, founder of <strong>AIDA Creative Studios</strong>. <em>When the Knife Entered / المفتاح صار بَصمة</em> is a seven-file body-organ map of what was replaced when the knife entered Palestinian life.
+    </div>
+    <div class="author-bio lang-ar">
+      <strong>حمزة برهمية</strong> كاتب واستراتيجي من القدس، ومؤسِّس <strong>عايدة كرييتف ستوديوز</strong>. <em>المفتاح صار بَصمة / When the Knife Entered</em> سلسلة من سَبع ملفات على الجَسَد — خريطة الأَعضاء — لما اللي صار لما الموسى دَخَل الحياة الفلسطينية.
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-foot">
+  <div>
+    <span class="lang-en">© 2026 AIDA Creative Studios · Jerusalem · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+    <span class="lang-ar">© 2026 عايدة كرييتف ستوديوز · القدس · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+  </div>
+  <div>The Key Became a Fingerprint · المفتاح صار بَصمة</div>
+</footer>
+
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-btn]').forEach(b => b.classList.toggle('active', b.dataset.langBtn === l));
+  try { localStorage.setItem('wtke-lang', l); } catch (_) {}
+}
+(function(){
+  try {
+    var saved = localStorage.getItem('wtke-lang');
+    if (saved === 'ar' || saved === 'en') setLang(saved);
+    else setLang(document.documentElement.lang || 'en');
+  } catch (_) { setLang('en'); }
+})();
+</script>
+
+</body>
+</html>

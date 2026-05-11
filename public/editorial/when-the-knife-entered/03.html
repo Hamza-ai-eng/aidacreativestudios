@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 03 — Our Witness Became Their Report | When the Knife Entered</title>
+<meta name="description" content="File 03 of Series 03 — When the Knife Entered. Our Witness Became Their Report. By Hamzah Barhameyeh, AIDA Creative Studios, Jerusalem.">
+<meta property="og:title" content="Our Witness Became Their Report — The Key Became a Fingerprint">
+<meta property="og:description" content="File 03 · Eyes · The witness was received. The witness was translated. The witness was placed on a shelf. The shelf is the report.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1A1714;
+  --bg-deep: #11100E;
+  --surface: #F5F0E8;
+  --surface-deep: #ECE5D8;
+  --accent: #2A3B4D;
+  --gold: #B8956A;
+  --ink: #1A1410;
+  --muted: #6B6259;
+  --rule: rgba(184,149,106,0.18);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html[lang="ar"] { direction: rtl; }
+html:not([lang="ar"]) .lang-ar { display: none !important; }
+html[lang="ar"] .lang-en { display: none !important; }
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="ar"] body { font-family: 'Amiri', Georgia, serif; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ---------- Top nav ---------- */
+nav.topnav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  background: rgba(17,16,14,0.94);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 14px 28px;
+  border-bottom: 1px solid rgba(245,240,232,0.06);
+  font-family: 'EB Garamond', serif; font-size: 0.82rem;
+  color: rgba(245,240,232,0.7); letter-spacing: 0.04em;
+}
+html[lang="ar"] nav.topnav { font-family: 'Amiri', serif; }
+nav.topnav a { text-decoration: none; color: rgba(245,240,232,0.55); transition: color .2s; }
+nav.topnav a:hover, nav.topnav a.active { color: var(--accent); }
+nav.topnav .crumb { flex: 1 1 auto; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; }
+nav.topnav .lang-toggle { display: flex; gap: 0.4rem; }
+nav.topnav .lang-toggle button {
+  background: transparent; border: 1px solid rgba(245,240,232,0.15);
+  color: rgba(245,240,232,0.5); padding: 3px 9px; font: inherit; cursor: pointer;
+  letter-spacing: 0.08em; transition: all .2s;
+}
+nav.topnav .lang-toggle button.active, nav.topnav .lang-toggle button:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+
+/* ---------- Body map (sticky aside) ---------- */
+aside.bodymap {
+  position: fixed; top: 76px; z-index: 50;
+  width: 76px; height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+html:not([lang="ar"]) aside.bodymap { right: 16px; }
+html[lang="ar"] aside.bodymap { left: 16px; }
+aside.bodymap svg { width: 100%; height: 100%; pointer-events: none; }
+aside.bodymap a { pointer-events: auto; }
+@media (max-width: 980px) { aside.bodymap { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 7vh;
+  margin-top: 0;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+  color: var(--surface);
+}
+.hero-bg, .hero-fade {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.hero-bg { background-size: cover; background-position: center; opacity: 0.85; }
+.hero-fade {
+  background:
+    linear-gradient(180deg,
+      rgba(17,16,14,0.55) 0%,
+      rgba(17,16,14,0.35) 35%,
+      rgba(17,16,14,0.82) 75%,
+      rgba(17,16,14,0.97) 100%);
+}
+.hero > * { position: relative; z-index: 2; }
+
+.ghost-num {
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-weight: 700;
+  font-size: clamp(15rem, 38vw, 32rem);
+  color: var(--accent);
+  opacity: 0.10;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+html:not([lang="ar"]) .ghost-num { right: -3vw; bottom: -4vh; }
+html[lang="ar"]      .ghost-num { left:  -3vw; bottom: -4vh; }
+
+.hero-flag { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.hero-organ {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 700; font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--gold); margin-bottom: 16px; letter-spacing: 0.02em;
+}
+html[lang="ar"] .hero-organ { font-family: 'Amiri', serif; }
+.hero-aphorism-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: 1.18;
+  color: var(--surface); margin-bottom: 8px; max-width: 880px;
+}
+.hero-aphorism-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.8rem, 4.5vw, 3.6rem); line-height: 1.05;
+  color: var(--surface); opacity: 0.86;
+  margin-bottom: 24px; max-width: 880px; letter-spacing: -0.01em;
+}
+html[lang="ar"] .hero-aphorism-en { display:none; }
+html:not([lang="ar"]) .hero-aphorism-ar { display:none; }
+html:not([lang="ar"]) .hero-aphorism-en { font-size: clamp(2.5rem, 6vw, 5.2rem); line-height: 1.05; opacity: 1; }
+
+.hero-kicker {
+  font-style: italic; font-family: 'EB Garamond', serif;
+  font-size: clamp(1.0rem, 1.6vw, 1.2rem);
+  color: rgba(245,240,232,0.72);
+  max-width: 640px; margin-bottom: 28px;
+}
+html[lang="ar"] .hero-kicker { font-family: 'Amiri', serif; }
+.hero-rule { width: 64px; height: 3px; background: var(--accent); margin-bottom: 18px; }
+.hero-byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .hero-byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* ---------- Series ribbon (umbrella title across pages) ---------- */
+.umbrella-ribbon {
+  background: var(--bg-deep);
+  color: var(--gold);
+  padding: 18px 6vw;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  border-top: 1px solid rgba(184,149,106,0.18);
+  border-bottom: 1px solid rgba(184,149,106,0.18);
+}
+.umbrella-ribbon .umb-title { color: var(--surface); }
+.umbrella-ribbon .umb-title-ar { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 14px; text-transform: none; }
+html:not([lang="ar"]) .umb-title-ar { display:none; }
+html[lang="ar"] .umb-title-en { display:none; }
+
+/* ---------- Article body ---------- */
+.article-wrap { background: var(--surface); padding: 8vh 0; }
+.article-body {
+  max-width: 740px; margin: 0 auto; padding: 0 24px;
+  font-size: 19px; line-height: 1.85;
+}
+.article-body p { margin-bottom: 1.35em; }
+html[lang="ar"] .article-body p {
+  font-family: 'Amiri', serif; font-size: 20px; line-height: 1.95;
+}
+.article-body p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  float: left; font-size: 4.4rem; line-height: 0.9;
+  padding-right: 12px; padding-top: 6px;
+  color: var(--accent);
+}
+html[lang="ar"] .article-body p:first-of-type::first-letter {
+  font-family: 'Amiri', serif; float: right;
+  padding-right: 0; padding-left: 12px; font-size: 3.8rem;
+}
+.article-body h2 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 1.85rem; line-height: 1.2;
+  margin: 3.5rem 0 1.1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  position: relative;
+  color: var(--ink);
+}
+html[lang="ar"] .article-body h2 {
+  font-family: 'Amiri', serif; font-weight: 700; font-size: 2rem;
+}
+/* Marginal Arabic numeral on each h2 */
+.article-body h2::before {
+  content: attr(data-mn);
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-size: 0.95rem; font-weight: 400;
+  color: var(--accent); opacity: 0.55;
+  top: 8px;
+}
+html:not([lang="ar"]) .article-body h2::before { left: -64px; }
+html[lang="ar"] .article-body h2::before { right: -64px; }
+@media (max-width: 900px) {
+  .article-body h2::before { position: static; display:inline-block; margin-right: 10px; opacity: 0.85; }
+  html[lang="ar"] .article-body h2::before { margin-left:10px; margin-right:0; }
+}
+.article-body hr {
+  border: 0; border-top: 1px solid rgba(26,20,16,0.15);
+  margin: 2.2rem 0;
+}
+.article-body em { font-style: italic; }
+.article-body strong { font-weight: 600; }
+
+/* Image panel (Image A, inline) */
+.image-panel {
+  margin: 4rem -16vw;
+  position: relative;
+}
+@media (max-width: 1100px) { .image-panel { margin-left: 0; margin-right: 0; } }
+.image-panel .img {
+  background-size: cover; background-position: center;
+  height: 56vh; min-height: 360px; max-height: 600px;
+  position: relative;
+}
+.image-panel .img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(17,16,14,0.55) 100%);
+  pointer-events: none;
+}
+.image-panel .caption {
+  position: absolute; bottom: 18px; left: 6%; right: 6%;
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(245,240,232,0.75);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+html[lang="ar"] .image-panel .caption { font-family: 'Amiri', serif; text-transform: none; letter-spacing: 0.04em; font-size: 0.9rem; }
+
+/* Image B — closing aphorism burned on top */
+.aphorism-burn {
+  margin: 4rem -16vw 2rem;
+  position: relative; overflow: hidden;
+  background-color: var(--bg-deep);
+}
+@media (max-width: 1100px) { .aphorism-burn { margin-left: 0; margin-right: 0; } }
+.aphorism-burn .img {
+  background-size: cover; background-position: center;
+  height: 80vh; min-height: 460px; max-height: 760px;
+  opacity: 0.78;
+}
+.aphorism-burn::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(17,16,14,0.4) 0%, rgba(17,16,14,0.15) 35%, rgba(17,16,14,0.75) 100%);
+  pointer-events: none;
+}
+.aphorism-burn .overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 0 6vw;
+}
+.aphorism-burn .overlay > * { color: var(--surface); }
+.aphorism-burn .ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.4rem); line-height: 1.18;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+  margin-bottom: 18px;
+}
+.aphorism-burn .en {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900;
+  font-size: clamp(1.2rem, 2.4vw, 2rem); line-height: 1.15;
+  letter-spacing: 0.01em; opacity: 0.92;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+}
+html:not([lang="ar"]) .aphorism-burn .ar { font-size: clamp(1.2rem, 2.4vw, 2rem); opacity: 0.9; }
+html:not([lang="ar"]) .aphorism-burn .en {
+  font-size: clamp(2.6rem, 6vw, 5.2rem); font-style: normal; opacity: 1;
+  text-transform: none; font-weight: 900;
+}
+
+/* ---------- Per-file infographic strip ---------- */
+.data-strip {
+  background: var(--bg);
+  color: var(--surface);
+  padding: 9vh 6vw;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.data-strip .lbl { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 36px; text-align: center; }
+.data-grid { display: grid; gap: 32px; max-width: 1120px; margin: 0 auto; }
+.data-grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.data-grid.cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+@media (max-width: 800px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px;} }
+@media (max-width: 480px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: 1fr;} }
+
+.data-cell { text-align: center; }
+.data-cell .num {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1;
+  color: var(--accent); margin-bottom: 8px;
+}
+.data-cell .lbl-body {
+  font-family: 'EB Garamond', serif; font-size: 0.96rem; line-height: 1.5;
+  color: rgba(245,240,232,0.78); max-width: 220px; margin: 0 auto 6px;
+}
+html[lang="ar"] .data-cell .lbl-body { font-family: 'Amiri', serif; font-size: 1.05rem; line-height: 1.7; }
+.data-cell .src {
+  font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.16em;
+  color: rgba(245,240,232,0.35); text-transform: uppercase;
+}
+
+/* ---------- Pull quote ---------- */
+.pull-quote {
+  background: var(--surface-deep); padding: 8vh 6vw;
+}
+.pq-inner { max-width: 820px; margin: 0 auto; position: relative;
+  padding: 0 36px;
+  border-inline-start: 4px solid var(--accent);
+}
+.pq-inner p {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.35;
+  color: var(--ink);
+}
+html[lang="ar"] .pq-inner p { font-family: 'Amiri', serif; font-style: normal; }
+.pq-attr { display: block; margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- Footer (article + site) ---------- */
+.article-foot { background: var(--surface); padding: 6vh 6vw; }
+.article-foot-inner { max-width: 820px; margin: 0 auto; display: grid; gap: 32px; }
+.file-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'EB Garamond', serif; font-size: 0.95rem;
+  border-top: 1px solid rgba(26,20,16,0.12);
+  border-bottom: 1px solid rgba(26,20,16,0.12);
+  padding: 18px 0;
+}
+html[lang="ar"] .file-nav { font-family: 'Amiri', serif; font-size: 1.05rem; }
+.file-nav a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.file-nav a:hover { color: var(--accent); }
+.author-bio { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+html[lang="ar"] .author-bio { font-family: 'Amiri', serif; font-size: 1rem; }
+.author-bio strong { color: var(--ink); }
+
+.site-foot {
+  background: var(--bg-deep); color: rgba(245,240,232,0.55);
+  padding: 28px 6vw; font-size: 0.78rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  font-family: 'Space Mono', monospace; letter-spacing: 0.06em;
+}
+html[lang="ar"] .site-foot { font-family: 'Amiri', serif; letter-spacing: 0; font-size: 0.95rem; }
+.site-foot a { color: var(--accent); text-decoration: none; }
+
+/* ---------- Index page ---------- */
+.index-hero {
+  position: relative; min-height: 92vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 9vh;
+  background-color: var(--bg-deep); color: var(--surface);
+  overflow: hidden;
+}
+.index-hero .hero-bg { background-image: linear-gradient(rgba(17,16,14,0.45),rgba(17,16,14,0.85)); }
+.index-hero .umb-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(3.2rem, 9vw, 8rem); line-height: 1.1;
+  margin-bottom: 12px;
+}
+.index-hero .umb-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 5.2rem); line-height: 1; letter-spacing: -0.01em;
+  margin-bottom: 28px; max-width: 980px;
+}
+html:not([lang="ar"]) .index-hero .umb-en { font-size: clamp(3.2rem, 9vw, 7.6rem); }
+.index-hero .umb-en .ar-inline { font-family: 'Amiri', serif; font-weight: 700; color: var(--accent); display: block; font-size: 0.6em; margin-bottom: 8px; opacity: 0.9; }
+.index-hero .umb-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-kicker { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.index-hero .umb-blurb { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(1rem, 1.6vw, 1.22rem); color: rgba(245,240,232,0.75); max-width: 720px; line-height: 1.75; margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-blurb { font-family: 'Amiri', serif; font-style: normal; }
+.index-hero .byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .index-hero .byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* file cards */
+.files { background: var(--surface); padding: 9vh 6vw; }
+.files .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; text-align: center; }
+html[lang="ar"] .files .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.file-card {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  min-height: 56vh; margin-bottom: 8px;
+  background: var(--bg); color: var(--surface);
+  position: relative; overflow: hidden;
+}
+.file-card.light { background: var(--surface-deep); color: var(--ink); }
+.file-card.reverse { grid-template-columns: 1fr 1.1fr; }
+.file-card.reverse .fc-img { order: 2; }
+.fc-img {
+  position: relative; min-height: 360px;
+  background-size: cover; background-position: center;
+}
+.fc-img::after {
+  content: ""; position: absolute; inset: 0;
+}
+.file-card:not(.light) .fc-img::after {
+  background: linear-gradient(90deg, rgba(17,16,14,0.32) 0%, transparent 50%);
+}
+.file-card.light .fc-img::after {
+  background: linear-gradient(90deg, rgba(245,240,232,0.22) 0%, transparent 50%);
+}
+.file-card.reverse:not(.light) .fc-img::after { background: linear-gradient(270deg, rgba(17,16,14,0.32) 0%, transparent 50%); }
+.file-card.reverse.light .fc-img::after { background: linear-gradient(270deg, rgba(245,240,232,0.22) 0%, transparent 50%); }
+.fc-text { padding: 7vh 5vw; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.fc-num {
+  position: absolute; opacity: 0.06;
+  font-family: 'Reem Kufi', 'Amiri', serif; font-weight: 700;
+  font-size: clamp(8rem, 18vw, 16rem); line-height: 1;
+  bottom: -2vh; pointer-events: none; user-select: none;
+  color: var(--art);
+}
+html:not([lang="ar"]) .file-card:not(.reverse) .fc-num { right: -2vw; }
+html:not([lang="ar"]) .file-card.reverse .fc-num { left: -2vw; }
+html[lang="ar"] .file-card:not(.reverse) .fc-num { left: -2vw; }
+html[lang="ar"] .file-card.reverse .fc-num { right: -2vw; }
+.fc-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--art); margin-bottom: 14px; }
+html[lang="ar"] .fc-meta { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-organ { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--art); margin-bottom: 10px; }
+html[lang="ar"] .fc-organ { font-family: 'Amiri', serif; }
+.fc-title-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.2;
+  margin-bottom: 12px;
+}
+.fc-title-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1;
+  margin-bottom: 18px;
+}
+html[lang="ar"] .fc-title-en { display:none; }
+html:not([lang="ar"]) .fc-title-ar { display:none; }
+html:not([lang="ar"]) .fc-title-en { font-size: clamp(1.8rem, 3.8vw, 3rem); }
+.fc-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.02rem; line-height: 1.7; margin-bottom: 24px; opacity: 0.88; max-width: 500px; }
+html[lang="ar"] .fc-kicker { font-family: 'Amiri', serif; font-style: normal; font-size: 1.1rem; }
+.fc-link {
+  font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.28em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--art); display: inline-flex; gap: 10px; align-items: center;
+  transition: gap .2s;
+}
+html[lang="ar"] .fc-link { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-link:hover { gap: 16px; }
+@media (max-width: 800px) {
+  .file-card, .file-card.reverse { grid-template-columns: 1fr; min-height: auto; }
+  .fc-img { min-height: 260px; order: 1 !important; }
+  .fc-text { padding: 6vh 6vw; }
+}
+
+/* Method strip */
+.method {
+  background: var(--surface-deep); padding: 9vh 6vw;
+  text-align: center;
+}
+.method .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+html[lang="ar"] .method .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.method p {
+  font-family: 'EB Garamond', serif; font-size: 1.05rem; line-height: 1.85;
+  max-width: 720px; margin: 0 auto 1em;
+  color: var(--ink);
+}
+html[lang="ar"] .method p { font-family: 'Amiri', serif; font-size: 1.14rem; }
+</style>
+</head>
+<body>
+
+
+<nav class="topnav">
+  <a href="index.html"><span class="lang-en">When the Knife Entered</span><span class="lang-ar">لما الموسى دخل</span></a>
+  <div class="crumb"><span class="lang-en">File 03 · Eyes</span><span class="lang-ar">ملف ٠٣ · العينين</span></div>
+  <a href="/en/khadija" class="lang-en">← AIDA</a>
+  <a href="/ar/khadija" class="lang-ar">AIDA →</a>
+  <div class="lang-toggle">
+    <button data-lang-btn="en" onclick="setLang('en')">EN</button>
+    <button data-lang-btn="ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<aside class="bodymap" aria-label="series body map">
+  <svg viewBox="0 0 80 320" xmlns="http://www.w3.org/2000/svg" aria-label="body-map navigator"><path d="M40 8 C 30 8, 22 16, 22 28 C 22 38, 30 46, 40 46 C 50 46, 58 38, 58 28 C 58 16, 50 8, 40 8 Z M 28 50 L 52 50 L 60 62 L 64 110 L 60 180 L 56 200 L 52 250 L 50 312 L 42 312 L 40 230 L 38 312 L 30 312 L 28 250 L 24 200 L 20 180 L 16 110 L 20 62 Z" fill="rgba(184,149,106,0.05)" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="20" y1="100" x2="14" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="60" y1="100" x2="66" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="40" y1="60" x2="40" y2="220" stroke="rgba(184,149,106,0.10)" stroke-width="0.5" stroke-dasharray="2 3"/><a href="01.html" aria-label="Heart — File 01"><circle cx="40" cy="90" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="02.html" aria-label="Lungs — File 02"><circle cx="40" cy="70" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="#" aria-label="Eyes — File 03"><circle cx="40" cy="30" r="4.5" fill="#2A3B4D" /></a><circle cx="40" cy="30" r="7.5" fill="none" stroke="#2A3B4D" stroke-width="0.8" opacity="0.6"/><a href="04.html" aria-label="Hands — File 04"><circle cx="18" cy="140" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="05.html" aria-label="Spine — File 05"><circle cx="62" cy="130" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="06.html" aria-label="Belly — File 06"><circle cx="40" cy="165" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="07.html" aria-label="Feet — File 07"><circle cx="40" cy="290" r="3" fill="rgba(184,149,106,0.55)" /></a></svg>
+</aside>
+
+<header class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('../images/leonardo/series-03/03_eyes_A.jpg')"></div>
+  <div class="hero-fade"></div>
+  <div class="ghost-num">٠٣</div>
+  <div class="hero-flag"><span class="lang-en">File 03 · Seven wounds</span><span class="lang-ar">ملف ٠٣ · سَبع جِراح</span></div>
+  <div class="hero-organ"><span class="lang-en">Eyes · العينين</span><span class="lang-ar">العينين · Eyes</span></div>
+  <h1 class="hero-aphorism-ar">شَهادَتنا صارت تَقريرَهم</h1>
+  <h1 class="hero-aphorism-en">Our Witness Became Their Report</h1>
+  <p class="hero-kicker"><span class="lang-en">The witness was received. The witness was translated. The witness was placed on a shelf. The shelf is the report.</span><span class="lang-ar">الشَّاهد تَسَلَّم. الشَّاهد تُرجِم. الشَّاهد انحَطّ على رَفّ. الرَّفّ هو التَّقرير.</span></p>
+  <div class="hero-rule"></div>
+  <p class="hero-byline">
+    <span class="lang-en">By Hamzah Barhameyeh · AIDA Creative Studios · Jerusalem · 2026</span>
+    <span class="lang-ar">حمزة برهمية · عايدة كرييتف ستوديوز · القدس · ٢٠٢٦</span>
+  </p>
+</header>
+
+
+<section class="umbrella-ribbon">
+  <span class="umb-title umb-title-en">Series 03 · The Key Became a Fingerprint</span>
+  <span class="umb-title umb-title-ar">سلسلة 03 · المفتاح صار بَصمة</span>
+  <span>عايدة · AIDA Creative Studios</span>
+</section>
+
+<div class="article-wrap">
+  <article class="article-body">
+    <div class="lang-en">
+<p>At six thirty-one in the morning of May 11, 2022, on Balat al-Shuhada Street in the city of Jenin, an Israeli army sniper fired a first burst of six bullets, from a sniper hole in the front of an armoured vehicle, at a group of six clearly identifiable journalists who had assembled at a distance of about one hundred and ninety metres from the convoy.</p>
+<p>The first burst hit a Palestinian journalist named Ali al-Samoudi in the shoulder. Eight seconds passed. The journalists, now visibly trying to take cover, did not yet know the eight seconds were a measurement.</p>
+<p>The sniper fired a second burst of seven bullets. One of those bullets, the fourth in the second burst, entered the head of Shireen Abu Akleh, a fifty-one-year-old Al Jazeera correspondent and Palestinian-American citizen, immediately below the line of her press helmet.</p>
+<p>She fell against the trunk of an olive tree. Her colleague Shatha Hanaysha knelt beside her and held her hand. Shireen did not speak.</p>
+<p>She died on the road.</p>
+<hr>
+<p>The witness died on the road. The next sentence is the file.</p>
+<p>Within four hours, the Israel Defense Forces issued a statement claiming that an exchange of fire had occurred in the area, and that Shireen&#x27;s death may have resulted from Palestinian gunfire. Within twenty-four hours, the Israeli prime minister at the time, Naftali Bennett, repeated the claim on his official social-media accounts. Within forty-eight hours, an Associated Press investigation, an open-source investigation by Bellingcat, and a review by the UN Office of the High Commissioner for Human Rights had each independently concluded, on the basis of physical and audio evidence, that no Palestinian fire was present in the immediate area at the moment of the shooting.</p>
+<p>The IDF revised its position approximately every five days for four months. The final IDF position, issued in September 2022, conceded a <em>high probability</em> that Shireen had been killed by an Israeli soldier, but described the killing as <em>unintentional</em>. No charges were filed. No soldier was named. No investigation was opened.</p>
+<p>Our witness became their report. The journalist who arrived in Jenin to record the army&#x27;s raid on a refugee camp, at the moment of her arrival, became the next of the army&#x27;s subjects of record. The recording she came to make was made instead about her. The form flipped in eight seconds. The instrument that survived was the army&#x27;s post-event statement. The instrument that was lost was the broadcast she would have filed by ten in the morning.</p>
+<hr>
+<figure class="image-panel" aria-label="Image A · File 03 · Eyes"><div class="img" style="background-image:url('../images/leonardo/series-03/03_eyes_A.jpg')"></div><figcaption class="caption"><span>Image A · File 03 · Eyes</span><span>Our Witness Became Their Report</span></figcaption></figure>
+<h2 data-mn="١">1. The eight-second reconstruction</h2>
+<p>In September 2022, in time for the International Day to End Impunity for Crimes Against Journalists, the London-based research agency Forensic Architecture, in collaboration with Al-Haq, the Palestinian human-rights organisation, published a forensic reconstruction of the killing. It was the first application of Forensic Architecture&#x27;s spatial-and-audio methodology, developed at Goldsmiths, University of London, to a single-event killing of a press worker.</p>
+<p>The method has three components. First, a three-dimensional reconstruction of the scene by photogrammetric integration of bystander photographs, surveillance footage, and the Al Jazeera broadcast itself. Second, a frame-by-frame audio analysis of the gunshots, using inter-aural time-difference triangulation to locate the sniper to within forty centimetres. Third, the merger of the two reconstructions into a four-dimensional sequence: time, space, sound, and bullet path as a single flow.</p>
+<p>The reconstruction found the following. The sniper was located in a sniper hole cut into the steel armour at the front of the leading IDF vehicle, approximately one hundred and ninety metres from Shireen&#x27;s position. The line of sight was unobstructed. The journalists were wearing helmets and vests with the word PRESS in reflective tape. The journalists had been at the position for several minutes before the first burst, in plain view of the convoy. The first burst was deliberately aimed at the journalist group.</p>
+<p>The eight-second pause between the first and second bursts was, on the basis of standard IDF marksman doctrine and the observable repositioning of the sniper&#x27;s aim, sufficient time to confirm visual identification of the targets and to choose to fire again. The second burst, by Forensic Architecture&#x27;s account, was not panicked or random. The second burst was elective.</p>
+<p>Shireen was killed in an elective second burst.</p>
+<p>On November 3, 2022, Forensic Architecture and Al-Haq jointly transmitted the full forensic dossier, including the three-dimensional model and the audio reconstruction, to the Office of the Prosecutor of the International Criminal Court at The Hague. The Israeli government has never recognised the Court&#x27;s jurisdiction. The dossier remains in the Office of the Prosecutor. The case file remains open.</p>
+<hr>
+<h2 data-mn="٢">2. Two hundred and sixty-two, and counting</h2>
+<p>The Committee to Protect Journalists, founded in New York in 1981 to defend journalists against political and criminal violence, has maintained, since 1992, a continuous database of work-related killings of media professionals worldwide. The database is the largest, longest, and most methodologically rigorous of its kind. It covers wars in Afghanistan, Iraq, Syria, Mexico, the Philippines, Russia, Ukraine, Somalia, the Democratic Republic of the Congo. More than three decades. Tens of thousands of journalist-years of professional life.</p>
+<p>Between October 7, 2023, and the time of writing, the Committee to Protect Journalists has documented and verified at least two hundred and sixty-two journalists and media workers killed in the Israel-Gaza war. More than ninety per cent of those killed are Palestinian. The figure exceeds the total number of journalists killed by all parties combined in any other single war in the database. The figure exceeds the totals from Vietnam (1955-1975), the Lebanese civil war (1975-1990), and Iraq (2003-2011) combined. It makes 2024, considered alone, the deadliest single year for journalists in the thirty-three years CPJ has kept records.</p>
+<p>The Committee&#x27;s 2024 annual special report attributed approximately seventy per cent of all journalist deaths worldwide that year to a single party: the Israel Defense Forces. The figure is not in dispute among the major press-freedom organisations. Reporters Without Borders has filed three separate communications with the International Criminal Court alleging the deliberate targeting of journalists.</p>
+<p>The number is the witness. The witness is the number. The two-hundred-and-sixty-second journalist had a name, a press card, a family in a refugee camp, a draft article in their notes for the morning of the day they were killed.</p>
+<hr>
+<h2 data-mn="٣">3. Wael Dahdouh on air</h2>
+<p>On the evening of October 25, 2023, the Al Jazeera Arabic Gaza bureau chief, Wael Dahdouh, was on air, broadcasting from a corridor of the al-Aqsa Martyrs Hospital in Deir al-Balah where displaced families had been sheltering since the start of the bombardment three weeks earlier. He had been broadcasting, with brief breaks, since the start of October. He had not seen his wife or children since October 13, when, on his urging, they had moved to Nuseirat refugee camp in central Gaza, on the assumption that Nuseirat, being further south, would be safer.</p>
+<p>The assumption rested on the IDF&#x27;s evacuation order, which had named Nuseirat as part of the southern safe zone.</p>
+<p>Twelve days after the move, an Israeli airstrike hit the house in Nuseirat where Dahdouh&#x27;s family was sheltering. His wife Amna, his fifteen-year-old son Mahmoud, his seven-year-old daughter Sham, and one of his grandsons were killed. In total, twelve members of his extended family died in the strike. Nine of the twelve were children.</p>
+<p>The phone call came to Wael&#x27;s mobile during the live broadcast. He took the call. He did not interrupt the broadcast. He completed the segment. He left the studio. He was driven to the morgue at the same hospital from which he had just broadcast. He arrived in time to identify his wife and his children. He spent the night at the hospital. The following morning, less than twenty-four hours after the strike, he returned to air. He continued reporting.</p>
+<p>On January 7, 2024, his eldest surviving son, the journalist Hamza Dahdouh, who had been reporting from Khan Younis with his colleague Mustafa Thuraya, was killed by an Israeli airstrike on the car they were travelling in. The strike hit the front passenger seat. Hamza was twenty-seven years old. He had a daughter. Wael travelled to Doha for treatment of injuries he had sustained on December 15, 2023 — the same Israeli strike that killed his cameraman, Samer Abudaqa. He returned to Gaza in the months that followed. He continued reporting.</p>
+<p>The Dahdouh story is read, in the international press, as a story about a man&#x27;s endurance. The story is also a story about an architecture. The architecture in which a journalist who covers the bombing of his city becomes a person whose family is bombed, becomes a person whose son is bombed, becomes a person who is himself wounded, becomes a person who stays on air. The architecture in which the witness&#x27;s body is moved into the same archive the witness is documenting. There is no separation between the camera and the casualty list. The press helmet is not protective equipment. The press helmet is a target reference.</p>
+<hr>
+<h2 data-mn="٤">4. Bisan Owda and the perfect victim</h2>
+<p>On September 25, 2024, the National Academy of Television Arts and Sciences in New York City conferred a News and Documentary Emmy Award for Outstanding Hard News Feature Story (Short Form) on a single-episode programme produced by Al Jazeera&#x27;s English-language platform AJ+ and the documentary series <em>Fault Lines</em>. The programme was titled <em>It&#x27;s Bisan from Gaza and I&#x27;m Still Alive</em>. Its presenter, director, and on-camera narrator was Bisan Owda, a twenty-six-year-old Palestinian filmmaker from Nuseirat refugee camp who, since October 7, 2023, had been filming almost daily video updates of her own life and her neighbours&#x27; lives under Israeli bombardment.</p>
+<p>The Emmy was the first major American journalism award for video reporting from inside Gaza since the start of the war. It was preceded by a 2024 Peabody and an Edward R. Murrow Award for News Series.</p>
+<p>In the four weeks before the Emmy ceremony, an organised letter campaign coordinated through a pro-Israel non-profit called Creative Community for Peace circulated an open letter, signed by approximately one hundred and fifty entertainment-industry figures, demanding that the Academy rescind Bisan&#x27;s nomination. The letter alleged that Bisan was a member of the Popular Front for the Liberation of Palestine, a Palestinian leftist political party designated as a terrorist organisation by the United States, the European Union, and Israel. The evidence offered for the allegation was Bisan&#x27;s social-media activity from her late teens.</p>
+<p>The Academy commissioned an internal review. The review, conducted in collaboration with independent press-freedom researchers, returned a finding that the Academy could not corroborate the membership claim. The Academy&#x27;s president stated, in a public letter on September 19, 2024, that the nomination would not be rescinded, that the editorial judgment of the journalists who had reviewed the work would be respected, and that the awarding of the Emmy would proceed. It did.</p>
+<p>Bisan, who could not travel to New York because she was inside Gaza and the borders were closed, accepted the Emmy by pre-recorded video from her family&#x27;s temporary apartment. She wore a press vest. She thanked her family. She did not stop documenting.</p>
+<p>The disqualification campaign is the file. The witness is reframed — not as a journalist who has documented a war, but as a security threat whose documentation is suspect on the grounds of her own person. The reframing does not depend on evidence. The reframing depends on a pre-existing structure: the Palestinian who refuses to perform the perfect victim is administratively redefined as part of the terror she documents. The demand for the perfect victim — non-violent in posture, polite in tone, grateful in framing, careful never to name the colonial relation by its name — is the precondition for being heard. Refusal of the demand is, in the present moment, the precondition for being arrested, deported, defunded, deplatformed, designated, fired.</p>
+<hr>
+<h2 data-mn="٥">5. The poet who knew</h2>
+<p>Refaat Alareer — forty-four years old, professor of English literature at the Islamic University of Gaza, editor of the 2014 anthology <em>Gaza Writes Back</em>, founder of the <em>We Are Not Numbers</em> mentorship project for young Gazan writers — was killed by an Israeli airstrike in northern Gaza on the night of December 6, 2023. The strike, on a building in the Shujaiya neighbourhood where he had taken refuge with his sister and her family, killed him together with his brother, his sister, and four of her children. The building was not a designated military target. The army has not commented on the strike.</p>
+<p>Five weeks before the strike, on November 1, 2023, Refaat had pinned to his Twitter account, as the most prominent statement on his profile, a poem he had originally written in 2011, had reposted in 2014, and had now reposted again. The poem is fewer than twenty lines long. It is titled <em>If I Must Die</em>. It opens with a conditional clause and instructions to a person who survives the speaker. It addresses a child. It speaks of a kite. The poem is, in form, a will.</p>
+<p>It was, in fact, his last public document.</p>
+<p>After the strike, the poem moved through the world. It was translated, in the first six months, into dozens of languages. It was carried on placards from Cape Town to Tokyo. The American writer Ken Chen, in <em>The Nation</em>, called it <em>the most famous poem written in my lifetime</em>. In December 2024, a posthumous collection of Refaat&#x27;s prose and poetry, edited by his colleagues at <em>We Are Not Numbers</em> and published by OR Books under the title <em>If I Must Die: Poetry and Prose</em>, became a bestseller in the United States, the United Kingdom, and France.</p>
+<p>The poem is not the file. The poem outlived the file. The poem is what the witness became when the witness understood that the witness&#x27;s body was already inside the archive.</p>
+<hr>
+<h2 data-mn="٦">6. The reports already exist</h2>
+<p>What the witnesses have given is not lacking in institutional reception.</p>
+<p>Amnesty International published, on February 1, 2022, after four years of fieldwork in the West Bank, the Gaza Strip, and inside the Green Line, a two-hundred-and-eighty-page report titled <em>Israel&#x27;s Apartheid Against Palestinians: A Cruel System of Domination and a Crime Against Humanity</em>. The report applies the legal definition of apartheid as it appears in the 1973 International Convention on the Suppression and Punishment of the Crime of Apartheid and in the 1998 Rome Statute. The report concludes that the State of Israel meets the definition.</p>
+<p>Human Rights Watch had reached the same conclusion in its April 2021 report, <em>A Threshold Crossed: Israeli Authorities and the Crimes of Apartheid and Persecution</em>. B&#x27;Tselem, the Israeli human-rights organisation, had reached the same conclusion in January 2021 in its position paper <em>A Regime of Jewish Supremacy from the Jordan River to the Mediterranean Sea: This Is Apartheid</em>. The UN Special Rapporteur on Human Rights in the Palestinian Territory, Francesca Albanese, applied the 1948 Genocide Convention to the Israeli campaign in Gaza in her March 2024 report <em>Anatomy of a Genocide</em>.</p>
+<p>The reports are public. The reports are exhaustively sourced. The reports have been received in chancelleries from Brussels to Washington. The reports have been adopted, in resolution form, by no major Western government.</p>
+<p>The witness was received. The witness was recorded. The witness was translated into the language of the institution most authorised to give it standing. After that translation, the witness was placed on a shelf. The shelf is the report. The report is the mechanism by which the witness is filed.</p>
+<p>This is not the institution failing to perform its function. This is the institution performing its function. The institution, in this form, exists to convert testimony into a shape that can be archived safely, defended in legal proceedings that may not be brought, cited in academic articles that may not be commissioned. The form is the disposal.</p>
+<p>The witness is not exhausted by the report. The body that gave the witness is the part of the witness that the report cannot contain.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/03_eyes_B.jpg')"></div><figcaption class="overlay"><div class="ar">شَهادَتنا صارت تَقريرَهم</div><div class="en">Our Witness Became Their Report</div></figcaption></figure>
+<p>The next file moves to the hands. To what happened when our giving itself was made to require their permission.</p>
+<p>Our witness became their report. What they could not enter into the report is what now moves in the streets carrying her name.</p>
+</div>
+    <div class="lang-ar">
+<p>السّاعة سِتّة وواحد وثلاثين دقيقة من صَباح أحَد عَشَر أيار 2022، على شارِع بَلاطَة الشُّهَداء بمَدينة جنين، قَنَّاص من جَيش الاحتلال أَطلَق رَشقة أَوَّليّة من سِتّ رَصاصات، من فُتحة قَنص بمُقَدِّمة آليّة مُدَرَّعة، باتِّجاه مَجموعة من سِتّ صحفيّين كانوا واضحين كصحفيّين، تَجَمَّعوا على بُعد مية وخَمسين متر من القافلة.</p>
+<p>الرَّشقة الأَوَّليّة أَصابت صحفي فلسطيني إسمو علي السَّمودي بكَتفو. مَرَّت ثَماني ثَواني. الصحفيّين، اللي صاروا بوضوح بيحاولوا يحتموا، ما عَرِفوا إنّو الثَّماني ثَواني هي قياس.</p>
+<p>القَنّاص أَطلَق رَشقة ثانية من سَبع رَصاصات. وَحدة من هاي الرَّصاصات، الرَّابعة بالرَّشقة الثانية، دخَلت رأس شيرين أبو عاقلة، مُراسِلة الجزيرة، عُمرها واحد وخَمسين سنة، مُواطِنة فلسطينية أمريكية، مُباشَرة تحت خَطّ خوذة الصِّحافة.</p>
+<p>وَقَعت على جِذع شَجرة زيتون. زميلتها، الصَّبيّة شَذا حنايشة، رَكعت جنبها وأَمسَكت إيدها. شيرين ما حَكَت. ماتت على الطريق.</p>
+<hr>
+<p>الشَّاهدة ماتَت على الطريق. الجُملة اللي بعدها هي الملف.</p>
+<p>خِلال أَربَع ساعات، الجيش الإسرائيلي أَصدَر بَيان بَيدَّعي إنّو، بالمنطقة اللي قُتِلت فيها شيرين، صار تَبادُل إطلاق نار بين مُسلَّحين فلسطينيين وجُنود إسرائيليين، وإنّو موتها يُحتمَل صار من نار فلسطينية. خِلال أَربعة وعشرين ساعة، رئيس الوزراء الإسرائيلي وقتها، نِفتالي بينيت، كَرَّر الادِّعاء على حساباتو الرَّسمية بوَسائل التَّواصل. خِلال ثَمانية وأَربعين ساعة، تَحقيق لوكالة أسوشيتد برِس، تَحقيق مَفتوح المَصادر من Bellingcat، ومُراجَعة مُنفصلة من مَكتب المُفوَّض السَّامي لحقوق الإنسان بالأمم المتحدة، كل واحد فيهم، بشَكل مُستقلّ، توصَّل لنفس النتيجة: ما كان في نار فلسطينية بالمنطقة المُباشِرة لحظة الإطلاق.</p>
+<p>الجيش عَدَّل موقفو كل خَمسة أيام لمُدّة أَربعة أشهُر. الموقف النِّهائي للجيش، اللي صَدَر بأيلول 2022، اعتَرَف باحتمال عالي إنّو شيرين انقَتلت بنار جُندي إسرائيلي، بسّ وَصَف القَتل كـ«غير مُتعمَّد». ما رُفِعت تُهَم. ما حُدِّد جُندي. ما فُتِح تَحقيق.</p>
+<p>شَهادتنا صارت تَقريرَهم. الصَّحفيّة اللي راحت لجنين تسجِّل عَمليّة الجيش على المُخيَّم، بلَحظة وُصولها صارت مَوضوع تَسجيل الجيش. التَّسجيل اللي إجَت تعملو، انعَمَل عنها هي. شَكل الفَورمة اتقَلَب بثَماني ثواني. الأَداة اللي نَجَت، بيان الجيش بعد الحدَث. الأَداة اللي ضاعت، البَثّ اللي كانت تُوصِلو السّاعة عَشَرة الصُّبح.</p>
+<hr>
+<figure class="image-panel" aria-label="صورة أ · الملف ٠٣ · العينين"><div class="img" style="background-image:url('../images/leonardo/series-03/03_eyes_A.jpg')"></div><figcaption class="caption"><span>صورة أ · الملف ٠٣ · العينين</span><span>شَهادَتنا صارت تَقريرَهم</span></figcaption></figure>
+<h2 data-mn="١">1. الثَّماني ثَواني — إعادة الإعمار</h2>
+<p>بأيلول 2022، بمناسبة اليَوم الدَّولي لإنهاء الإفلات من العِقاب على الجَرائم ضِدّ الصَّحفيّين، وكالة الأبحاث اللندنية «فورنزِك أركيتكتشر» — «العِمارة الجِنائية» — بالتَّعاون مع «الحقّ»، المُنظَّمة الفلسطينية لحقوق الإنسان، نَشَروا إعادة إعمار جِنائية للقَتل.</p>
+<p>كانت أوّل مَرّة فيها يُطبَّق المنهج التَّحليلي المكاني والصَّوتي، اللي طوَّرتو فورنزِك أركيتكتشر بكُلِّيّات غولدسميث بجامعة لندن، على حَدَث قَتل مُنفرِد لعامِل صحافة.</p>
+<p>المنهج بيرتكز على ثلاثة مُكوِّنات. الأول، إعادة إعمار ثلاثية الأبعاد دَقيقة للمَشهَد، من تَكامُل القياس التَّصويري لصوَر المارَّة، ولَقطات كاميرات المُراقبة، ولَقطات بَثّ الجزيرة نفسها. الثاني، تَحليل صَوتي إطار-بإطار للأَعيِرة النارية، باستعمال تَثليث فَرق الزمن بين الأُذنين لتَحديد موقع القَنّاص ضمن أَربعين سَنتيمتر. الثالث، دَمج هاي الإعادتين بتَسَلسُل رُباعي الأبعاد: الزَّمن والمَكان والصَّوت ومَسار الرَّصاصة كتَدفُّق واحد.</p>
+<p>إعادة الإعمار خَلَصَت لما يلي: القَنّاص كان موقعو بفُتحة قَنّاصة منحوتة بدَرَع الصُّلب بمُقَدِّمة الآلية الإسرائيلية الأولى بقافلة جنين، حوالي مية وتسعين متر من موقع شيرين. خط رؤية القَنّاص ما كان مُعاق. الصَّحفيّين كانوا لابسين الخوذ والصدارات بكلمة «PRESS» بشَريط عاكِس. الصَّحفيّين كانوا بالموقع لعدّة دقائق قبل الرَّشقة الأَوَّليّة، بمَرأى واضح من القافلة. الرَّشقة الأَوَّليّة صارت بقَصد مُتَعَمَّد على مَجموعة الصَّحفيّين.</p>
+<p>الوَقفة بثَماني ثَواني بين الرَّشقتين كانت، على أساس عَقيدة قَنّاصي الجيش الإسرائيلي القياسية، وعلى أساس إعادة تَحديد القَنّاص لهَدَفو القابِلة للمُلاحَظة، فترة كافية للتأكُّد البَصَري من الأهداف، ولاختيار إطلاق نار مرة ثانية. الرَّشقة الثانية، حسب الوكالة، ما كانت من ذُعر أو عَشوائية. الرَّشقة الثانية كانت اختيارية. شيرين انقَتلت بإطلاق نار اختياري ثاني.</p>
+<p>بثلاثة تشرين الثاني 2022، «فورنزِك أركيتكتشر» و«الحقّ» نَقَلوا الملفّ الجِنائي الكامل، بما فيه النَّموذج الثلاثي الأبعاد وإعادة الإعمار الصَّوتية، لمَكتب المُدَّعي العام للمَحكمة الجِنائية الدَّولية بلاهاي، كجُزء من التَّحقيق المَفتوح بملفّ فلسطين. الحكومة الإسرائيلية ما اعتَرَفَت بصَلاحيّة المَحكمة. الملفّ بَقي بمكتب المُدَّعي. القَضيّة مَفتوحة.</p>
+<hr>
+<h2 data-mn="٢">2. مِيتين واثنين وستّين، والعَدَّاد بيشتغل</h2>
+<p>«لِجنة حماية الصَّحفيّين» — اللي تأسَّست بنيويورك سنة 1981 للدِّفاع عن الصَّحفيّين ضد العُنف السياسي والإجرامي — بتحفظ منذ 1992 قاعدة بيانات مُستمِرَّة لحالات القَتل المُتعلِّق بالعَمل لمُحترِفي الإعلام بالعالم. القاعدة هي الأكبر والأَطول والأكثَر صَرامة منهجية بين أَمثالها. القاعدة بتشمل الحروب بأفغانستان، العراق، سوريا، مناطق تجّار المُخدِّرات بالمكسيك، الفلبين، روسيا، أوكرانيا، الصومال، جمهورية الكونغو الديمقراطية. القاعدة بتغطّي أكثر من ثلاث عقود وعَشَرات الآلاف من سنوات الحياة المِهنية للصَّحفيّين.</p>
+<p>بين سبعة تشرين أول 2023 ووقت كِتابة هاد الملف، «لِجنة حماية الصَّحفيّين» وَثَّقت وتَحقَّقت من على الأقلّ مِيتين واثنين وستّين صَحفي وعامِل إعلام انقَتلوا بحَرب إسرائيل-غزة. أكثر من تِسعين بالمية ممَّن قُتِلوا فلسطينيين.</p>
+<p>الرَّقَم بيتجاوَز مَجموع الصَّحفيّين اللي انقَتلوا من كل الأطراف بأي حَرب مُنفرِدة بالقاعدة. الرَّقَم بيتجاوَز مَجموع الصَّحفيّين اللي انقَتلوا بحَرب فيتنام (1955-1975)، والحَرب الأَهلية اللُّبنانية (1975-1990)، وحَرب العِراق (2003-2011) مَجموعة. الرَّقَم بيخلّي سنة 2024، لِوَحدها، أَعنف سنة مُنفرِدة للصَّحفيّين بالثلاث وثلاثين سنة اللي بتحفظ فيها لِجنة حماية الصَّحفيّين السِّجِلّات.</p>
+<p>تَقرير اللِّجنة السَّنوي الخاصّ لسنة 2024 نَسَب حوالي سَبعين بالمية من كل وَفَيات الصَّحفيّين بالعالم لتلك السنة لطَرف واحد: الجيش الإسرائيلي. الرَّقَم مش مَوضوع جَدَل بين مُنظَّمات حُرية الصَّحافة الكبرى. «مُراسلون بلا حدود» قَدَّمت ثلاث بَلاغات مُنفصلة للمَحكمة الجِنائية الدَّولية بتَدَّعي الاستهداف المُتعَمَّد للصَّحفيّين من جَيش الاحتلال.</p>
+<p>الرَّقَم هو الشَّاهد. الشَّاهد هو الرَّقَم. الصَّحفي رقم مِيتين واثنين وستّين كان عندو اسم، بِطاقة صحفية، عيلة بمُخيَّم لاجئين، مَقال بمسوَّداتو ليَوم اللي انقَتل فيه.</p>
+<hr>
+<h2 data-mn="٣">3. وائل الدَّحدوح على الهَوا</h2>
+<p>بمَسا خمسة وعِشرين تشرين أول 2023، رئيس مكتب الجزيرة العَرَبية بغزة، وائل الدَّحدوح، كان على الهَوا، يبثّ من مَمَرّ بمُستشفى شُهَداء الأقصى بدير البَلَح، حيث كانت العيلات النازحة تأوي منذ بداية القَصف ثلاث أسابيع قبل. كان يبثّ، باستراحات قَصيرة، منذ بداية تشرين. ما كان شاف زوجتو ولا أولادو منذ ثلاثعش تشرين أول، لمّا، بإلحاحو، انتقلوا لمُخيَّم النُّصَيرات بوسط غزة، على أساس إنّو النُّصَيرات، بكونها أكثَر للجَنوب، رح تكون أكثر أمان.</p>
+<p>الافتراض كان مَبني على أمر الإخلاء الإسرائيلي اللي سَمَّى النُّصَيرات كجُزء من المنطقة الآمنة الجنوبية.</p>
+<p>اثنا عَشَر يوم بعد الانتقال، ضَربة جوّيّة إسرائيلية ضَربَت البيت بالنُّصَيرات حيث كانت عيلة الدَّحدوح تأوي. زوجتو آمنة، ابنو محمود ابن الخَمسة عَشَر، ابنتو شَهَم بنت السَّبع، وحَفيد إلو، انقَتلوا. باجمالي، اثنا عَشَر فَرد من عيلتو الممتَدّة ماتوا بالضَّربة. تِسعة من الاثنا عَشَر كانوا أَطفال.</p>
+<p>المُكالمة وَصَلَت لمَحمول وائل خِلال البَثّ المُباشِر. رَدّ على المُكالمة. ما قاطَع البَثّ. أَكمَل الفِقرة. غادَر الاستوديو. اتحَزَم للمَشرَحة بنفس المُستشفى اللي كان يبثّ منو. وَصَل بالوقت ليتعرَّف على زوجتو وأولادو. قَضى الليلة بالمُستشفى. باليَوم التالي، أقَلّ من أَربعة وعشرين ساعة بعد الضَّربة، رِجِع للهَوا. كَمَّل التَّغطية.</p>
+<p>بسَبعة كانون ثاني 2024، ابنو الأكبر اللي ضَلّ عايش، الصَّحفي حَمزة الدَّحدوح، اللي كان يغطّي من خان يونس مع زميلو مُصطفى ثُرَيّا، انقَتل بضَربة جوّيّة إسرائيلية على السَّيارة اللي كانوا فيها. الضَّربة أَصابت مَقعد الرَّاكب الأَمامي. حَمزة كان عُمرو سَبعة وعِشرين سنة. عندو بنت. وائل سافَر للدَّوحة لعِلاج إصابات أُصيب فيها بـ15 كانون أول 2023 — نَفس الضَّربة الإسرائيلية اللي قَتَلَت مُصَوِّرو سامِر أبو دَقّة. رِجِع لغزة بالأشهُر التالية. كَمَّل التَّغطية.</p>
+<p>قِصّة الدَّحدوح بتنقرا، بالصِّحافة الدَّولية، كقِصّة عن صُمود رِجال. القِصّة كَمان قِصّة عن بِنية. البِنية اللي فيها صَحفي بيغطّي قَصف مَدينتو بيصير شخص بتنقَصف عيلتو، بيصير شخص بَينقتل ابنو، بيصير شخص هو نفسو يُجرَح، بيصير شخص بيضلّ على الهَوا. البِنية اللي فيها جَسد الشاهد بَينتقل لنفس الأرشيف اللي بيوثِّقو. ما في فَصل بين الكاميرا ولائحة الضَّحايا. خوذة الصِّحافة مش مُعدَّات حماية. خوذة الصِّحافة هي مَرجع استهداف.</p>
+<hr>
+<h2 data-mn="٤">4. بيسان عَوضة والضَّحيّة المِثاليّة</h2>
+<p>بخمسة وعشرين أيلول 2024، الأكاديمية الوَطنية لفُنون وعُلوم التِّلفزيون بنيويورك مَنَحت جائزة إيمي للأَخبار والوَثائقية لأَفضل قِصّة إخبارية تَحقيقية مُهمَّة (شَكل قَصير) لبَرنامج حَلقة مُنفرِدة من إنتاج مَنصّة الإنجليزية لـAJ+ التابعة للجزيرة وسِلسلة الوَثائقيات Fault Lines. عنوان البَرنامج: «أنا بيسان من غزة وأنا لِسا حيّة».</p>
+<p>مُقدِّمتو ومُخرِجتو وراويتو على الكاميرا بيسان عَوضة، صانعة أَفلام فلسطينية عُمرها ستّ وعِشرين سنة من مُخيَّم النُّصَيرات بغزة، اللي منذ سَبعة تشرين أول 2023 بتصوِّر، تَقريباً يومياً، تَحديثات فيديو لحياتها وحياة جيرانها تحت القَصف الإسرائيلي. الإيمي كانت أوَّل جائزة صَحافة أمريكية كُبرى لتَقرير فيديو من داخل غزة منذ بداية الحرب. سَبَقَتها بيبودي 2024 وجائزة إدوارد آر مورو لسَلاسل الأخبار.</p>
+<p>بالأسابيع الأربعة قَبل حَفل الإيمي، حَملة رسائل مُنظَّمة منسَّقة عَبر مُنظَّمة غير رِبحية مؤيِّدة لإسرائيل اسمها Creative Community for Peace نَشَرت رسالة مَفتوحة، موقَّعة من حوالي مية وخَمسين شَخصية بصناعة التَّرفيه، بتطالِب الأكاديمية تَسحب تَرشيح بيسان. الرسالة ادَّعت إنّو بيسان عُضو بـ«الجَبهة الشَّعبية لتَحرير فلسطين»، حزب فلسطيني يَساري مُصنَّف مُنظَّمة إرهابية من الولايات المتحدة والاتحاد الأوروبي وإسرائيل. الدَّليل المُقدَّم للادِّعاء كان نَشاط بيسان على وَسائل التَّواصل من أَواخر مُراهَقَتها.</p>
+<p>الأكاديمية كَلَّفَت بمُراجَعة داخلية. المُراجَعة، اللي اتعَملَت بالتَّعاون مع باحثين مُستقلِّين بحُريّة الصَّحافة، رِجعت بنَتيجة إنّو الأكاديمية ما قَدِرت تتحقَّق من ادِّعاء العُضويّة. رئيس الأكاديمية صَرَّح، برسالة عَلَنيّة بتسعتعش أيلول 2024، إنّو التَّرشيح ما رح يُسحَب، إنّو الحُكم التَّحريري للصَّحفيّين اللي راجَعوا العَمل سَيُحتَرَم، وإنّو مَنح الإيمي رح يستمرّ. وحَصَل.</p>
+<p>بيسان، اللي ما قَدِرت تسافِر لنيويورك لإنّها كانت داخل غزة والحدود مُغلَقة، استَلَمت الإيمي بفيديو مسجَّل مسبقاً من غرفة بشَقّة عيلتها المُؤقَّتة. لِبست صَدِريّة صَحافة. شَكَرت عيلتها. ما تَوقَّفت عن التَّوثيق.</p>
+<p>حَملة سَحب التَّرشيح هي الملف. الشَّاهدة بتُعاد صياغتها — مش كصَحفية وَثَّقت حَرب، بل كَتَهديد أَمني توثيقُها مَشكوك فيه على أساس شَخصها. إعادة الصِّياغة ما بتعتمِد على دَليل. إعادة الصِّياغة بتعتمِد على البِنية المُسبقة اللي فيها الفلسطيني اللي بيرفُض أداء الضَّحية المِثاليّة بيُعاد تَعريفو إدارياً كجُزء من الإرهاب اللي بيوثِّقو.</p>
+<hr>
+<h2 data-mn="٥">5. الشَّاعر اللي عَرَف</h2>
+<p>رَفعت العَرعير، عُمرو أَربعة وأَربعين سنة، أُستاذ الأَدب الإنجليزي بالجامعة الإسلامية بغزة، مُحرِّر مُختارات «غزة بترد» سنة 2014، مؤسِّس مَشروع «نحن لسنا أرقاماً» لإرشاد الكُتّاب الشَّباب الغزِّيّين، انقَتل بضَربة جوّيّة إسرائيلية بشَمال غزة بليلة سِتّة كانون أول 2023.</p>
+<p>الضَّربة، على مَبنى بحيّ الشُّجاعية حيث كان لاجئ مع أُختو وعيلتها، قَتَلتو مع أَخوه وأُختو وأَربعة من أولادها. المَبنى ما كان هَدَف عسكري مُعلَن. الجيش ما عَلَّق على الضَّربة.</p>
+<p>قَبل الضَّربة بخمس أسابيع، بأَوَّل تشرين الثاني 2023، رَفعت كان قد ثَبَّت على حسابو بتويتر، كأَبرز بَيان على ملفِّو الشخصي، قَصيدة كان قد كَتَبها أصلاً سنة 2011، أَعاد نَشرها سنة 2014، وأَعاد نَشرها مرّة جديدة. القَصيدة أَقَلّ من عِشرين بيت. عنوانها «إذا كان لا بُدّ أن أَموت». بتفتح بشَرط وتَعليمات لشَخص يَنجو من المتكلِّم. بتخاطِب طِفل. بتحكي عن طيّارة وَرَق. القَصيدة، بشَكلها، وَصية. كانت، فعلاً، آخر وَثيقة عَلَنيّة إلو.</p>
+<p>بعد الضَّربة، تحرَّكت القَصيدة بالعالم. تُرجِمت، بأَوَّل سِتّ شهور، لعَشَرات اللُّغات. حُمِلت على لافتات من كيب تاون لطوكيو. الكاتب الأمريكي كين تشن، بـ«ذا نيشن»، سَمّاها «أَشهر قَصيدة كُتِبت بحياتي». بكانون الأول 2024، مَجموعة بعد الوفاة من نَثر وشِعر رَفعت، حَرَّرها زُملاؤه بـ«نحن لسنا أَرقاماً» ونَشَرتها OR Books بعنوان «إذا كان لا بُدّ أن أَموت: شِعر ونَثر»، صارت من الأَكثَر مَبيعاً بأمريكا وبريطانيا وفرنسا.</p>
+<p>القَصيدة مش الملفّ. القَصيدة عاشت بعد الملفّ. القَصيدة هي ما صار إليه الشَّاهد لمّا الشَّاهد فِهِم إنّو جَسَدو من بَعد داخل الأرشيف.</p>
+<hr>
+<h2 data-mn="٦">6. التَّقارير موجودة بالأَصل</h2>
+<p>اللي قدَّموه الشُّهود ما هو ناقِص بالاستقبال المؤسَّسي.</p>
+<p>مُنظَّمة العَفو الدَّولية نَشَرت، بأَوَّل شُباط 2022، بعد أَربع سنين من البَحث الميداني بالضِفّة الغربية وغزة وداخل الخَطّ الأَخضر، تَقرير من مِيتين وثَمانين صفحة بعنوان «الفَصل العنصري الإسرائيلي ضد الفلسطينيين: نظام قاسي للهَيمنة وجَريمة ضد الإنسانية». التَّقرير بيطبِّق التَّعريف القانوني للفَصل العنصري كَما هو بـ«اتفاقية مَناهَضة جَريمة الفَصل العنصري» 1973 و«نظام روما الأَساسي للمَحكمة الجِنائية الدَّولية» 1998. التَّقرير خَلَص إنّو دَولة إسرائيل بتلبّي التَّعريف.</p>
+<p>هيومن رايتس ووتش وَصَلت لنفس النَّتيجة بتَقريرهم بنيسان 2021 «عُبور العَتَبة: السُّلطات الإسرائيلية وجَرائم الفَصل العنصري والاضطِهاد». بتسِلِم، مُنظَّمة حُقوق الإنسان الإسرائيلية، وَصَلت لنفس النَّتيجة بكانون الثاني 2021 بوَرَقة موقفها «نظام تَفَوُّق يَهودي من نَهر الأُردن إلى البَحر المُتوسِّط: هذا أبارتهايد».</p>
+<p>المُقرِّرة الخاصّة لحُقوق الإنسان بالأرض الفلسطينية فرانشيسكا ألبانيزي، بتَقريرها بآذار 2024 بعنوان «تَشريح إبادة جماعية»، طَبَّقت اتفاقية الإبادة الجماعية 1948 على الحَملة الإسرائيلية على غزة. تَقريرها له نفس المكانة. ما تبنَّى من أيّ حكومة كبيرة. مَذكور بكل المَراجع الأكاديمية الكبيرة.</p>
+<p>الشَّاهد تسَلَّم، تسَجَّل، تُرجِم للُّغة المؤسَّسة الأكثَر تَفويضاً بإعطائو موقف، وبعد هاي التَّرجمة، انحَطّ على رَفّ. الرَّفّ هو التَّقرير. التَّقرير هو آليّة التَّخلُّص من الشَّاهد. هاي مش فَشَل المؤسَّسة بأداء وَظيفتها. هاي المؤسَّسة بتأدّي وَظيفتها. المؤسَّسة بهاد التَّشكيل موجودة لتَحويل الشَّهادة لشَكل تقدر تنحَفظ بأمان، تُدافَع عنّا بإجراءات قانونية رُبَّما ما تَبدأ، تُذكَر بمَقالات أكاديمية رُبَّما ما تُكَلَّف. الشَّكل هو التَّخلُّص.</p>
+<p>الشَّاهد ما بيُستنفَد بالتَّقرير. الجَسَد اللي قَدَّم الشَّهادة هو الجُزء من الشَّاهد اللي التَّقرير ما بيقدر يحويه.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/03_eyes_B.jpg')"></div><figcaption class="overlay"><div class="ar">شَهادَتنا صارت تَقريرَهم</div><div class="en">Our Witness Became Their Report</div></figcaption></figure>
+<p>الملفّ اللي بعدو بيروح للإيدين. لِشو صار لمّا العَطا نفسو احتاج إذن. بنشوف.</p>
+<p>شَهادتنا صارت تَقريرَهم. اللي ما قَدِروا يدخِّلوه على التَّقرير، هو اللي بَيتحرَّك بالشَّوارع، وهو حامِل اسمها.</p>
+</div>
+  </article>
+</div>
+
+<section class="data-strip"><div class="lbl"><span class="lang-en">Key Facts</span><span class="lang-ar">أرقام مفتاح</span></div><div class="data-grid cols-3"><div class="data-cell"><div class="num">280</div><div class="lbl-body lang-en">pages — Amnesty International&#x27;s apartheid report</div><div class="lbl-body lang-ar">صفحة — تقرير منظمة العفو الدولية عن الأبارتهايد</div><div class="src">Amnesty, Feb 2022</div></div><div class="data-cell"><div class="num">4</div><div class="lbl-body lang-en">major institutional bodies have declared apartheid: AI, HRW, B&#x27;Tselem, UN</div><div class="lbl-body lang-ar">هيئات مؤسَّسية كبرى أعلنت الأبارتهايد: العفو، هيومن رايتس ووتش، بتسيلم، الأمم المتحدة</div><div class="src">2021–2024</div></div><div class="data-cell"><div class="num">0</div><div class="lbl-body lang-en">major Western governments have adopted any of those resolutions</div><div class="lbl-body lang-ar">حكومات غربية كبرى تَبَنَّت أيًّا من هاي القرارات</div><div class="src">as of 2026</div></div></div></section>
+
+<section class="pull-quote">
+  <div class="pq-inner">
+    <p class="lang-en">"The witness was received. The witness was translated. The witness was placed on a shelf. The shelf is the report."</p>
+    <p class="lang-ar">«الشَّاهد تَسَلَّم. الشَّاهد تُرجِم. الشَّاهد انحَطّ على رَفّ. الرَّفّ هو التَّقرير.»</p>
+    <span class="pq-attr"><span class="lang-en">From File 03 · Eyes</span><span class="lang-ar">من الملف ٠٣ · العينين</span></span>
+  </div>
+</section>
+
+<section class="article-foot">
+  <div class="article-foot-inner">
+    <div class="file-nav">
+      <a href="02.html"><span class="lang-en">← File 02 · Our Air Became Their Permit</span><span class="lang-ar">← ملف ٠٢ · هَوانا صار تَصريحَهم</span></a>
+      <a href="index.html" style="color: var(--accent)"><span class="lang-en">Series Index</span><span class="lang-ar">السلسلة</span></a>
+      <a href="04.html"><span class="lang-en">File 04 · Our Giving Became Their Permission →</span><span class="lang-ar">ملف ٠٤ · عَطانا صار إذنَهم ←</span></a>
+    </div>
+    <div class="author-bio lang-en">
+      <strong>Hamzah Barhameyeh</strong> is a writer and strategist from Jerusalem, founder of <strong>AIDA Creative Studios</strong>. <em>When the Knife Entered / المفتاح صار بَصمة</em> is a seven-file body-organ map of what was replaced when the knife entered Palestinian life.
+    </div>
+    <div class="author-bio lang-ar">
+      <strong>حمزة برهمية</strong> كاتب واستراتيجي من القدس، ومؤسِّس <strong>عايدة كرييتف ستوديوز</strong>. <em>المفتاح صار بَصمة / When the Knife Entered</em> سلسلة من سَبع ملفات على الجَسَد — خريطة الأَعضاء — لما اللي صار لما الموسى دَخَل الحياة الفلسطينية.
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-foot">
+  <div>
+    <span class="lang-en">© 2026 AIDA Creative Studios · Jerusalem · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+    <span class="lang-ar">© 2026 عايدة كرييتف ستوديوز · القدس · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+  </div>
+  <div>The Key Became a Fingerprint · المفتاح صار بَصمة</div>
+</footer>
+
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-btn]').forEach(b => b.classList.toggle('active', b.dataset.langBtn === l));
+  try { localStorage.setItem('wtke-lang', l); } catch (_) {}
+}
+(function(){
+  try {
+    var saved = localStorage.getItem('wtke-lang');
+    if (saved === 'ar' || saved === 'en') setLang(saved);
+    else setLang(document.documentElement.lang || 'en');
+  } catch (_) { setLang('en'); }
+})();
+</script>
+
+</body>
+</html>

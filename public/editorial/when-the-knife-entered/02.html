@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File 02 — Our Air Became Their Permit | When the Knife Entered</title>
+<meta name="description" content="File 02 of Series 03 — When the Knife Entered. Our Air Became Their Permit. By Hamzah Barhameyeh, AIDA Creative Studios, Jerusalem.">
+<meta property="og:title" content="Our Air Became Their Permit — The Key Became a Fingerprint">
+<meta property="og:description" content="File 02 · Lungs · Breath needs a form. The form needs an algorithm. The algorithm needs a contract. The contract needs a cloud.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Reem+Kufi:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1A1714;
+  --bg-deep: #11100E;
+  --surface: #F5F0E8;
+  --surface-deep: #ECE5D8;
+  --accent: #5C7A95;
+  --gold: #B8956A;
+  --ink: #1A1410;
+  --muted: #6B6259;
+  --rule: rgba(184,149,106,0.18);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html[lang="ar"] { direction: rtl; }
+html:not([lang="ar"]) .lang-ar { display: none !important; }
+html[lang="ar"] .lang-en { display: none !important; }
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="ar"] body { font-family: 'Amiri', Georgia, serif; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+
+/* ---------- Top nav ---------- */
+nav.topnav {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  background: rgba(17,16,14,0.94);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 14px 28px;
+  border-bottom: 1px solid rgba(245,240,232,0.06);
+  font-family: 'EB Garamond', serif; font-size: 0.82rem;
+  color: rgba(245,240,232,0.7); letter-spacing: 0.04em;
+}
+html[lang="ar"] nav.topnav { font-family: 'Amiri', serif; }
+nav.topnav a { text-decoration: none; color: rgba(245,240,232,0.55); transition: color .2s; }
+nav.topnav a:hover, nav.topnav a.active { color: var(--accent); }
+nav.topnav .crumb { flex: 1 1 auto; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; }
+nav.topnav .lang-toggle { display: flex; gap: 0.4rem; }
+nav.topnav .lang-toggle button {
+  background: transparent; border: 1px solid rgba(245,240,232,0.15);
+  color: rgba(245,240,232,0.5); padding: 3px 9px; font: inherit; cursor: pointer;
+  letter-spacing: 0.08em; transition: all .2s;
+}
+nav.topnav .lang-toggle button.active, nav.topnav .lang-toggle button:hover {
+  border-color: var(--accent); color: var(--accent);
+}
+
+/* ---------- Body map (sticky aside) ---------- */
+aside.bodymap {
+  position: fixed; top: 76px; z-index: 50;
+  width: 76px; height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+html:not([lang="ar"]) aside.bodymap { right: 16px; }
+html[lang="ar"] aside.bodymap { left: 16px; }
+aside.bodymap svg { width: 100%; height: 100%; pointer-events: none; }
+aside.bodymap a { pointer-events: auto; }
+@media (max-width: 980px) { aside.bodymap { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 7vh;
+  margin-top: 0;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+  color: var(--surface);
+}
+.hero-bg, .hero-fade {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.hero-bg { background-size: cover; background-position: center; opacity: 0.85; }
+.hero-fade {
+  background:
+    linear-gradient(180deg,
+      rgba(17,16,14,0.55) 0%,
+      rgba(17,16,14,0.35) 35%,
+      rgba(17,16,14,0.82) 75%,
+      rgba(17,16,14,0.97) 100%);
+}
+.hero > * { position: relative; z-index: 2; }
+
+.ghost-num {
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-weight: 700;
+  font-size: clamp(15rem, 38vw, 32rem);
+  color: var(--accent);
+  opacity: 0.10;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+html:not([lang="ar"]) .ghost-num { right: -3vw; bottom: -4vh; }
+html[lang="ar"]      .ghost-num { left:  -3vw; bottom: -4vh; }
+
+.hero-flag { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.hero-organ {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-weight: 700; font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--gold); margin-bottom: 16px; letter-spacing: 0.02em;
+}
+html[lang="ar"] .hero-organ { font-family: 'Amiri', serif; }
+.hero-aphorism-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: 1.18;
+  color: var(--surface); margin-bottom: 8px; max-width: 880px;
+}
+.hero-aphorism-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.8rem, 4.5vw, 3.6rem); line-height: 1.05;
+  color: var(--surface); opacity: 0.86;
+  margin-bottom: 24px; max-width: 880px; letter-spacing: -0.01em;
+}
+html[lang="ar"] .hero-aphorism-en { display:none; }
+html:not([lang="ar"]) .hero-aphorism-ar { display:none; }
+html:not([lang="ar"]) .hero-aphorism-en { font-size: clamp(2.5rem, 6vw, 5.2rem); line-height: 1.05; opacity: 1; }
+
+.hero-kicker {
+  font-style: italic; font-family: 'EB Garamond', serif;
+  font-size: clamp(1.0rem, 1.6vw, 1.2rem);
+  color: rgba(245,240,232,0.72);
+  max-width: 640px; margin-bottom: 28px;
+}
+html[lang="ar"] .hero-kicker { font-family: 'Amiri', serif; }
+.hero-rule { width: 64px; height: 3px; background: var(--accent); margin-bottom: 18px; }
+.hero-byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .hero-byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* ---------- Series ribbon (umbrella title across pages) ---------- */
+.umbrella-ribbon {
+  background: var(--bg-deep);
+  color: var(--gold);
+  padding: 18px 6vw;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  border-top: 1px solid rgba(184,149,106,0.18);
+  border-bottom: 1px solid rgba(184,149,106,0.18);
+}
+.umbrella-ribbon .umb-title { color: var(--surface); }
+.umbrella-ribbon .umb-title-ar { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 14px; text-transform: none; }
+html:not([lang="ar"]) .umb-title-ar { display:none; }
+html[lang="ar"] .umb-title-en { display:none; }
+
+/* ---------- Article body ---------- */
+.article-wrap { background: var(--surface); padding: 8vh 0; }
+.article-body {
+  max-width: 740px; margin: 0 auto; padding: 0 24px;
+  font-size: 19px; line-height: 1.85;
+}
+.article-body p { margin-bottom: 1.35em; }
+html[lang="ar"] .article-body p {
+  font-family: 'Amiri', serif; font-size: 20px; line-height: 1.95;
+}
+.article-body p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  float: left; font-size: 4.4rem; line-height: 0.9;
+  padding-right: 12px; padding-top: 6px;
+  color: var(--accent);
+}
+html[lang="ar"] .article-body p:first-of-type::first-letter {
+  font-family: 'Amiri', serif; float: right;
+  padding-right: 0; padding-left: 12px; font-size: 3.8rem;
+}
+.article-body h2 {
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  font-size: 1.85rem; line-height: 1.2;
+  margin: 3.5rem 0 1.1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  position: relative;
+  color: var(--ink);
+}
+html[lang="ar"] .article-body h2 {
+  font-family: 'Amiri', serif; font-weight: 700; font-size: 2rem;
+}
+/* Marginal Arabic numeral on each h2 */
+.article-body h2::before {
+  content: attr(data-mn);
+  position: absolute;
+  font-family: 'Reem Kufi', 'Amiri', serif;
+  font-size: 0.95rem; font-weight: 400;
+  color: var(--accent); opacity: 0.55;
+  top: 8px;
+}
+html:not([lang="ar"]) .article-body h2::before { left: -64px; }
+html[lang="ar"] .article-body h2::before { right: -64px; }
+@media (max-width: 900px) {
+  .article-body h2::before { position: static; display:inline-block; margin-right: 10px; opacity: 0.85; }
+  html[lang="ar"] .article-body h2::before { margin-left:10px; margin-right:0; }
+}
+.article-body hr {
+  border: 0; border-top: 1px solid rgba(26,20,16,0.15);
+  margin: 2.2rem 0;
+}
+.article-body em { font-style: italic; }
+.article-body strong { font-weight: 600; }
+
+/* Image panel (Image A, inline) */
+.image-panel {
+  margin: 4rem -16vw;
+  position: relative;
+}
+@media (max-width: 1100px) { .image-panel { margin-left: 0; margin-right: 0; } }
+.image-panel .img {
+  background-size: cover; background-position: center;
+  height: 56vh; min-height: 360px; max-height: 600px;
+  position: relative;
+}
+.image-panel .img::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(17,16,14,0.55) 100%);
+  pointer-events: none;
+}
+.image-panel .caption {
+  position: absolute; bottom: 18px; left: 6%; right: 6%;
+  font-family: 'Space Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(245,240,232,0.75);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+}
+html[lang="ar"] .image-panel .caption { font-family: 'Amiri', serif; text-transform: none; letter-spacing: 0.04em; font-size: 0.9rem; }
+
+/* Image B — closing aphorism burned on top */
+.aphorism-burn {
+  margin: 4rem -16vw 2rem;
+  position: relative; overflow: hidden;
+  background-color: var(--bg-deep);
+}
+@media (max-width: 1100px) { .aphorism-burn { margin-left: 0; margin-right: 0; } }
+.aphorism-burn .img {
+  background-size: cover; background-position: center;
+  height: 80vh; min-height: 460px; max-height: 760px;
+  opacity: 0.78;
+}
+.aphorism-burn::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(17,16,14,0.4) 0%, rgba(17,16,14,0.15) 35%, rgba(17,16,14,0.75) 100%);
+  pointer-events: none;
+}
+.aphorism-burn .overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 0 6vw;
+}
+.aphorism-burn .overlay > * { color: var(--surface); }
+.aphorism-burn .ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 5.4rem); line-height: 1.18;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.6);
+  margin-bottom: 18px;
+}
+.aphorism-burn .en {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900;
+  font-size: clamp(1.2rem, 2.4vw, 2rem); line-height: 1.15;
+  letter-spacing: 0.01em; opacity: 0.92;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+}
+html:not([lang="ar"]) .aphorism-burn .ar { font-size: clamp(1.2rem, 2.4vw, 2rem); opacity: 0.9; }
+html:not([lang="ar"]) .aphorism-burn .en {
+  font-size: clamp(2.6rem, 6vw, 5.2rem); font-style: normal; opacity: 1;
+  text-transform: none; font-weight: 900;
+}
+
+/* ---------- Per-file infographic strip ---------- */
+.data-strip {
+  background: var(--bg);
+  color: var(--surface);
+  padding: 9vh 6vw;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.data-strip .lbl { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 36px; text-align: center; }
+.data-grid { display: grid; gap: 32px; max-width: 1120px; margin: 0 auto; }
+.data-grid.cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.data-grid.cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
+@media (max-width: 800px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px;} }
+@media (max-width: 480px) { .data-grid.cols-3, .data-grid.cols-4 { grid-template-columns: 1fr;} }
+
+.data-cell { text-align: center; }
+.data-cell .num {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1;
+  color: var(--accent); margin-bottom: 8px;
+}
+.data-cell .lbl-body {
+  font-family: 'EB Garamond', serif; font-size: 0.96rem; line-height: 1.5;
+  color: rgba(245,240,232,0.78); max-width: 220px; margin: 0 auto 6px;
+}
+html[lang="ar"] .data-cell .lbl-body { font-family: 'Amiri', serif; font-size: 1.05rem; line-height: 1.7; }
+.data-cell .src {
+  font-family: 'Space Mono', monospace; font-size: 0.66rem; letter-spacing: 0.16em;
+  color: rgba(245,240,232,0.35); text-transform: uppercase;
+}
+
+/* ---------- Pull quote ---------- */
+.pull-quote {
+  background: var(--surface-deep); padding: 8vh 6vw;
+}
+.pq-inner { max-width: 820px; margin: 0 auto; position: relative;
+  padding: 0 36px;
+  border-inline-start: 4px solid var(--accent);
+}
+.pq-inner p {
+  font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.35;
+  color: var(--ink);
+}
+html[lang="ar"] .pq-inner p { font-family: 'Amiri', serif; font-style: normal; }
+.pq-attr { display: block; margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- Footer (article + site) ---------- */
+.article-foot { background: var(--surface); padding: 6vh 6vw; }
+.article-foot-inner { max-width: 820px; margin: 0 auto; display: grid; gap: 32px; }
+.file-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'EB Garamond', serif; font-size: 0.95rem;
+  border-top: 1px solid rgba(26,20,16,0.12);
+  border-bottom: 1px solid rgba(26,20,16,0.12);
+  padding: 18px 0;
+}
+html[lang="ar"] .file-nav { font-family: 'Amiri', serif; font-size: 1.05rem; }
+.file-nav a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.file-nav a:hover { color: var(--accent); }
+.author-bio { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+html[lang="ar"] .author-bio { font-family: 'Amiri', serif; font-size: 1rem; }
+.author-bio strong { color: var(--ink); }
+
+.site-foot {
+  background: var(--bg-deep); color: rgba(245,240,232,0.55);
+  padding: 28px 6vw; font-size: 0.78rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  font-family: 'Space Mono', monospace; letter-spacing: 0.06em;
+}
+html[lang="ar"] .site-foot { font-family: 'Amiri', serif; letter-spacing: 0; font-size: 0.95rem; }
+.site-foot a { color: var(--accent); text-decoration: none; }
+
+/* ---------- Index page ---------- */
+.index-hero {
+  position: relative; min-height: 92vh;
+  display: grid; align-content: end;
+  padding: 0 6vw 9vh;
+  background-color: var(--bg-deep); color: var(--surface);
+  overflow: hidden;
+}
+.index-hero .hero-bg { background-image: linear-gradient(rgba(17,16,14,0.45),rgba(17,16,14,0.85)); }
+.index-hero .umb-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(3.2rem, 9vw, 8rem); line-height: 1.1;
+  margin-bottom: 12px;
+}
+.index-hero .umb-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(2.2rem, 6vw, 5.2rem); line-height: 1; letter-spacing: -0.01em;
+  margin-bottom: 28px; max-width: 980px;
+}
+html:not([lang="ar"]) .index-hero .umb-en { font-size: clamp(3.2rem, 9vw, 7.6rem); }
+.index-hero .umb-en .ar-inline { font-family: 'Amiri', serif; font-weight: 700; color: var(--accent); display: block; font-size: 0.6em; margin-bottom: 8px; opacity: 0.9; }
+.index-hero .umb-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-kicker { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.index-hero .umb-blurb { font-family: 'EB Garamond', serif; font-style: italic; font-size: clamp(1rem, 1.6vw, 1.22rem); color: rgba(245,240,232,0.75); max-width: 720px; line-height: 1.75; margin-bottom: 26px; }
+html[lang="ar"] .index-hero .umb-blurb { font-family: 'Amiri', serif; font-style: normal; }
+.index-hero .byline { font-family: 'EB Garamond', serif; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+html[lang="ar"] .index-hero .byline { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 14px; }
+
+/* file cards */
+.files { background: var(--surface); padding: 9vh 6vw; }
+.files .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 40px; text-align: center; }
+html[lang="ar"] .files .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.file-card {
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  min-height: 56vh; margin-bottom: 8px;
+  background: var(--bg); color: var(--surface);
+  position: relative; overflow: hidden;
+}
+.file-card.light { background: var(--surface-deep); color: var(--ink); }
+.file-card.reverse { grid-template-columns: 1fr 1.1fr; }
+.file-card.reverse .fc-img { order: 2; }
+.fc-img {
+  position: relative; min-height: 360px;
+  background-size: cover; background-position: center;
+}
+.fc-img::after {
+  content: ""; position: absolute; inset: 0;
+}
+.file-card:not(.light) .fc-img::after {
+  background: linear-gradient(90deg, rgba(17,16,14,0.32) 0%, transparent 50%);
+}
+.file-card.light .fc-img::after {
+  background: linear-gradient(90deg, rgba(245,240,232,0.22) 0%, transparent 50%);
+}
+.file-card.reverse:not(.light) .fc-img::after { background: linear-gradient(270deg, rgba(17,16,14,0.32) 0%, transparent 50%); }
+.file-card.reverse.light .fc-img::after { background: linear-gradient(270deg, rgba(245,240,232,0.22) 0%, transparent 50%); }
+.fc-text { padding: 7vh 5vw; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.fc-num {
+  position: absolute; opacity: 0.06;
+  font-family: 'Reem Kufi', 'Amiri', serif; font-weight: 700;
+  font-size: clamp(8rem, 18vw, 16rem); line-height: 1;
+  bottom: -2vh; pointer-events: none; user-select: none;
+  color: var(--art);
+}
+html:not([lang="ar"]) .file-card:not(.reverse) .fc-num { right: -2vw; }
+html:not([lang="ar"]) .file-card.reverse .fc-num { left: -2vw; }
+html[lang="ar"] .file-card:not(.reverse) .fc-num { left: -2vw; }
+html[lang="ar"] .file-card.reverse .fc-num { right: -2vw; }
+.fc-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--art); margin-bottom: 14px; }
+html[lang="ar"] .fc-meta { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-organ { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--art); margin-bottom: 10px; }
+html[lang="ar"] .fc-organ { font-family: 'Amiri', serif; }
+.fc-title-ar {
+  font-family: 'Amiri', serif; font-weight: 700;
+  font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.2;
+  margin-bottom: 12px;
+}
+.fc-title-en {
+  font-family: 'Playfair Display', serif; font-weight: 900;
+  font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.1;
+  margin-bottom: 18px;
+}
+html[lang="ar"] .fc-title-en { display:none; }
+html:not([lang="ar"]) .fc-title-ar { display:none; }
+html:not([lang="ar"]) .fc-title-en { font-size: clamp(1.8rem, 3.8vw, 3rem); }
+.fc-kicker { font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.02rem; line-height: 1.7; margin-bottom: 24px; opacity: 0.88; max-width: 500px; }
+html[lang="ar"] .fc-kicker { font-family: 'Amiri', serif; font-style: normal; font-size: 1.1rem; }
+.fc-link {
+  font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.28em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--art); display: inline-flex; gap: 10px; align-items: center;
+  transition: gap .2s;
+}
+html[lang="ar"] .fc-link { font-family: 'Amiri', serif; letter-spacing: 0.04em; text-transform: none; font-size: 1rem; }
+.fc-link:hover { gap: 16px; }
+@media (max-width: 800px) {
+  .file-card, .file-card.reverse { grid-template-columns: 1fr; min-height: auto; }
+  .fc-img { min-height: 260px; order: 1 !important; }
+  .fc-text { padding: 6vh 6vw; }
+}
+
+/* Method strip */
+.method {
+  background: var(--surface-deep); padding: 9vh 6vw;
+  text-align: center;
+}
+.method .label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+html[lang="ar"] .method .label { font-family: 'Amiri', serif; letter-spacing: 0.04em; font-size: 1.05rem; text-transform: none; }
+.method p {
+  font-family: 'EB Garamond', serif; font-size: 1.05rem; line-height: 1.85;
+  max-width: 720px; margin: 0 auto 1em;
+  color: var(--ink);
+}
+html[lang="ar"] .method p { font-family: 'Amiri', serif; font-size: 1.14rem; }
+</style>
+</head>
+<body>
+
+
+<nav class="topnav">
+  <a href="index.html"><span class="lang-en">When the Knife Entered</span><span class="lang-ar">لما الموسى دخل</span></a>
+  <div class="crumb"><span class="lang-en">File 02 · Lungs</span><span class="lang-ar">ملف ٠٢ · الرئتين</span></div>
+  <a href="/en/khadija" class="lang-en">← AIDA</a>
+  <a href="/ar/khadija" class="lang-ar">AIDA →</a>
+  <div class="lang-toggle">
+    <button data-lang-btn="en" onclick="setLang('en')">EN</button>
+    <button data-lang-btn="ar" onclick="setLang('ar')">عربي</button>
+  </div>
+</nav>
+
+<aside class="bodymap" aria-label="series body map">
+  <svg viewBox="0 0 80 320" xmlns="http://www.w3.org/2000/svg" aria-label="body-map navigator"><path d="M40 8 C 30 8, 22 16, 22 28 C 22 38, 30 46, 40 46 C 50 46, 58 38, 58 28 C 58 16, 50 8, 40 8 Z M 28 50 L 52 50 L 60 62 L 64 110 L 60 180 L 56 200 L 52 250 L 50 312 L 42 312 L 40 230 L 38 312 L 30 312 L 28 250 L 24 200 L 20 180 L 16 110 L 20 62 Z" fill="rgba(184,149,106,0.05)" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="20" y1="100" x2="14" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="60" y1="100" x2="66" y2="150" stroke="rgba(184,149,106,0.18)" stroke-width="0.8"/><line x1="40" y1="60" x2="40" y2="220" stroke="rgba(184,149,106,0.10)" stroke-width="0.5" stroke-dasharray="2 3"/><a href="01.html" aria-label="Heart — File 01"><circle cx="40" cy="90" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="#" aria-label="Lungs — File 02"><circle cx="40" cy="70" r="4.5" fill="#5C7A95" /></a><circle cx="40" cy="70" r="7.5" fill="none" stroke="#5C7A95" stroke-width="0.8" opacity="0.6"/><a href="03.html" aria-label="Eyes — File 03"><circle cx="40" cy="30" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="04.html" aria-label="Hands — File 04"><circle cx="18" cy="140" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="05.html" aria-label="Spine — File 05"><circle cx="62" cy="130" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="06.html" aria-label="Belly — File 06"><circle cx="40" cy="165" r="3" fill="rgba(184,149,106,0.55)" /></a><a href="07.html" aria-label="Feet — File 07"><circle cx="40" cy="290" r="3" fill="rgba(184,149,106,0.55)" /></a></svg>
+</aside>
+
+<header class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('../images/leonardo/series-03/02_lungs_A.jpg')"></div>
+  <div class="hero-fade"></div>
+  <div class="ghost-num">٠٢</div>
+  <div class="hero-flag"><span class="lang-en">File 02 · Seven wounds</span><span class="lang-ar">ملف ٠٢ · سَبع جِراح</span></div>
+  <div class="hero-organ"><span class="lang-en">Lungs · الرئتين</span><span class="lang-ar">الرئتين · Lungs</span></div>
+  <h1 class="hero-aphorism-ar">هَوانا صار تَصريحَهم</h1>
+  <h1 class="hero-aphorism-en">Our Air Became Their Permit</h1>
+  <p class="hero-kicker"><span class="lang-en">Breath needs a form. The form needs an algorithm. The algorithm needs a contract. The contract needs a cloud.</span><span class="lang-ar">النَّفَس بِدّو وَرَقة. والوَرَقة بِدّها خوارزمية. والخوارزمية بِدّها عَقد. والعَقد بِدّو سَحابة.</span></p>
+  <div class="hero-rule"></div>
+  <p class="hero-byline">
+    <span class="lang-en">By Hamzah Barhameyeh · AIDA Creative Studios · Jerusalem · 2026</span>
+    <span class="lang-ar">حمزة برهمية · عايدة كرييتف ستوديوز · القدس · ٢٠٢٦</span>
+  </p>
+</header>
+
+
+<section class="umbrella-ribbon">
+  <span class="umb-title umb-title-en">Series 03 · The Key Became a Fingerprint</span>
+  <span class="umb-title umb-title-ar">سلسلة 03 · المفتاح صار بَصمة</span>
+  <span>عايدة · AIDA Creative Studios</span>
+</section>
+
+<div class="article-wrap">
+  <article class="article-body">
+    <div class="lang-en">
+<p>My cousin left her house in Jabaliya at four in the morning.</p>
+<p>She has cancer.</p>
+<p>She has a medical exit permit for the Erez crossing, to Al-Mutalla Hospital in Jerusalem. The permit has a number. The number has an expiry date. The expiry date is yesterday. The clerk at the gate understands. He cannot do anything. The hospital in Jerusalem will record her as <em>no-show</em>. The clinic in Gaza will record her as <em>referred out</em>. Somewhere in a database, a line will say she received treatment.</p>
+<p>She did not.</p>
+<p>She walked back to Jabaliya.</p>
+<hr>
+<p>This is the smallest unit of the file. A breath that required permission. The permission arrived as a number. The number expired before the breath could move.</p>
+<p>She is not alone. In 2023, before the war, the World Health Organization recorded more than twenty thousand medical exit applications from Gaza. Roughly a third were denied or delayed past the window. Dozens of Palestinians died in that year, at minimum, because the permit did not come in time. This was before the war.</p>
+<p>Our air became their permit. This is the file.</p>
+<hr>
+<figure class="image-panel" aria-label="Image A · File 02 · Lungs"><div class="img" style="background-image:url('../images/leonardo/series-03/02_lungs_A.jpg')"></div><figcaption class="caption"><span>Image A · File 02 · Lungs</span><span>Our Air Became Their Permit</span></figcaption></figure>
+<h2 data-mn="١">1. The form is older than the algorithm</h2>
+<p>Before any artificial intelligence sat in any war room, the architecture of breath-by-permission was already in place. It was built by hand. The Coordinator of Government Activities in the Territories — COGAT in English, <em>ha-Matpash</em> in Hebrew — was set up in 1981 as the bureaucratic arm of the Israeli military government in the occupied territories. Its formal mandate is civil affairs. Its actual mandate is the form. Every category of Palestinian movement was assigned a paper. The magnetic card. The work permit. The merchant permit. The medical permit. The family-unification permit. The prayer permit for entry to Al-Aqsa during Ramadan.</p>
+<p>Each form is free to apply for. Each form takes weeks or months to process. Each form can be revoked without notice. Each form arrives with a barcode.</p>
+<p>By 2003, the wall had begun. By 2007, the closure of Gaza was complete. By 2014, the COGAT permit categories ran to dozens of sub-types. The bureaucratic surface expanded. The surface of free movement contracted. The form was the instrument by which a generalised siege could be administered through individualised denial. The individual was concealed by design. The general, if seen, would have been visible.</p>
+<p>The form is not new. The form was always the technology. What changed is who reads the form, and who writes it.</p>
+<hr>
+<h2 data-mn="٢">2. The surveillance industry as export from occupation</h2>
+<p>The Palestinian territories are the largest continuous experiment in mass surveillance in the world. They are the laboratory first, the market second. The asymmetry of population, geography, and political accountability lets Israeli firms deploy at scale, debug their systems against living bodies, and then sell internationally with the verb <em>battle-tested</em> as their lead marketing claim. This is documented at length in the Israeli business press itself. It is the founding logic of the country&#x27;s second-largest export sector after pharmaceuticals.</p>
+<p>The names are specific.</p>
+<p><strong>Cellebrite</strong>, founded 1999, makes the UFED device that police forces from Bangladesh to Saudi Arabia to the FBI use to crack Palestinian phones. Its zero-day exploits have been used against a Serbian student and against the alleged shooter at a Trump rally in Pennsylvania.</p>
+<p><strong>NSO Group</strong>, founded 2010 by alumni of the IDF&#x27;s Unit 8200, makes Pegasus — the spyware documented on the phones of Palestinian human-rights defenders, Saudi dissidents, Mexican journalists, and the fiancée of the journalist Jamal Khashoggi the day before he was murdered.</p>
+<p><strong>AnyVision</strong>, renamed Oasis after a Microsoft divestment in March 2020, built the facial-recognition system that runs at West Bank checkpoints and at the entrances to Palestinian neighbourhoods in Hebron. <strong>Corsight</strong> provides the same service in different colours. <strong>BriefCam</strong>, owned by the Japanese firm Canon, runs the video analytics in East Jerusalem police rooms. <strong>Voyager Labs</strong> sells social-media monitoring used by the New York Police Department against the families of Black Lives Matter organisers and by the Los Angeles Police Department against Muslim community organisations.</p>
+<p><strong>Toka</strong>, co-founded by the former Israeli Prime Minister Ehud Barak in 2018, sells governments the ability to compromise cameras that those governments&#x27; own citizens have installed in their homes for security. <strong>Verint</strong>, the American-listed firm spun out of the Israeli technology group Comverse, runs lawful-interception infrastructure for telecommunications providers in more than a hundred countries; its origin is Israeli signals intelligence. <strong>Check Point</strong>, one of the world&#x27;s largest pure-play cybersecurity firms, was founded in 1993 by alumni of Unit 8200.</p>
+<p>The pattern is not coincidence. The pattern is a business model. The four billion dollars a year that the United States Congress transfers to Israel as military aid is not a gift. It is a return on capital. The capital is the territory. The dividends are the technology. They are paid back to the buyer in product form.</p>
+<hr>
+<h2 data-mn="٣">3. February 5, 2019: the day humanitarian aid agreed</h2>
+<p>On February 5, 2019, the United Nations World Food Programme issued a press release announcing a five-year partnership with Palantir Technologies, the data-integration firm founded by Peter Thiel and Alex Karp in 2003 with seed capital from In-Q-Tel, the venture-capital arm of the Central Intelligence Agency.</p>
+<p>The press release described the deal in the language of efficiency. Streamline operations. Integrate data. Deliver life-saving assistance with greater speed. It did not describe the firm&#x27;s other contracts — with the United States Immigration and Customs Enforcement; with the Los Angeles Police Department&#x27;s predictive-policing programme; with the National Security Agency&#x27;s mass-surveillance infrastructure. The press release became the news. The contract became something else.</p>
+<p>Within ten days, an open letter from a coalition of humanitarian-data ethicists, academics, and former United Nations staff was published at responsibledata.io. The letter named the problem cleanly. A humanitarian agency that holds the world&#x27;s largest database of food-insecure persons had agreed to share its operating architecture with a firm whose other clients use the same architecture to detain and to deport. The letter went unanswered. The partnership held. By 2024 it had quietly extended.</p>
+<p>Privacy International, the British research organisation, has documented the pattern across Palantir&#x27;s humanitarian and welfare contracts: Mozambique&#x27;s COVID-19 cash-transfer programme, the United Kingdom&#x27;s National Health Service Federated Data Platform, the United Nations Office for the Coordination of Humanitarian Affairs. The architecture is consistent. The firm sells its Foundry platform to an institution that holds population data; the platform organises the data into a single object layer; the object layer becomes the operating logic of the institution. Once installed, removing it is a structural undertaking, not a contract renegotiation. The architecture is the lock-in.</p>
+<p>In May 2024, Palantir announced a partnership with the Israel Defence Forces for <em>the provision of advanced technologies for war-related missions</em>. Alex Karp, in interviews afterwards, said that Israel&#x27;s war on Gaza is the most important demonstration of his company&#x27;s product. He is not wrong.</p>
+<p>The same firm whose name appeared on the World Food Programme press release of February 2019 appears now on the IDF&#x27;s contracting register for the bombardment that has killed, by direct or attributable cause — per <em>The Lancet</em>&#x27;s mid-2024 attributable-mortality projection and subsequent updates — approximately a quarter of a million Palestinians between October 2023 and the time of writing. The hand that signed the humanitarian contract is the hand that signed the targeting contract. The fact is on the public record. The fact is the file.</p>
+<hr>
+<h2 data-mn="٤">4. Lavender, the Gospel, and twenty seconds</h2>
+<p>On April 3, 2024, the Israeli investigative magazine <em>+972</em>, in partnership with the Hebrew-language outlet <em>Local Call</em>, published a report by the journalist Yuval Abraham titled <em>Lavender: The AI Machine Directing Israel&#x27;s Bombing Spree in Gaza</em>. The report rested on interviews with six Israeli intelligence officers who had served in the army&#x27;s targeting cells during the first months of the war.</p>
+<p>The report describes a system the army calls Lavender. Lavender is an artificial-intelligence model trained on the Israeli military&#x27;s database of known Palestinian militants. Its output is a list of suspected operatives in Hamas and Palestinian Islamic Jihad. At its peak, in October and November 2023, the list contained thirty-seven thousand names.</p>
+<p>The army&#x27;s policy, as the officers describe it, was this. Each name on the list was treated as a sanctioned target. The decision to strike a name was delegated, by command order, to a junior officer. The junior officer was permitted to spend approximately twenty seconds reviewing the file before authorising the strike.</p>
+<p>The twenty seconds were not for verifying the algorithm&#x27;s identification. Lavender had already done that. The twenty seconds were for verifying gender. The army&#x27;s rule, in those weeks, was that male names could be struck; female names had to be re-checked, because women were less likely, in the army&#x27;s prior model, to be combatants. The verification was a check against the algorithm&#x27;s prior, not against the algorithm itself. The check passed approximately ninety per cent of the time.</p>
+<p>A companion system tracked when each named target entered his family home. The companion system is called <em>Where&#x27;s Daddy?</em> The strike was timed for the moment of entry. The targeting protocol, as the officers describe it, permitted between fifteen and twenty civilian deaths per junior-rank target, and up to one hundred civilian deaths per senior-rank target. The deaths included family members in whose home the target was struck. The deaths included neighbours whose buildings were structurally connected. The deaths were known in advance. They were called <em>collateral damage credits</em>. They were spent like a budget.</p>
+<p>A separate system, named <em>the Gospel</em> — <em>Habsora</em> in Hebrew — generates targets at the level of buildings rather than persons. Aviv Kochavi, then Chief of the General Staff, said in a 2023 lecture before the war that the Gospel had increased target generation from <em>fifty targets a year to one hundred targets a day</em>. He framed it as efficiency. He did not name the consequence. The consequence is in the rubble.</p>
+<p>A name on a list is a kind of breath. It is the breath the system pulls in before the strike. It is the breath the family does not yet know is being inhaled.</p>
+<p>The reporting on Lavender, the Gospel, and <em>Where&#x27;s Daddy?</em> has been independently confirmed in subsequent investigations by <em>The Guardian</em>, <em>Drop Site News</em>, and the Bureau of Investigative Journalism. The Israeli army has not denied that the systems exist. Its denial is narrower: the systems are <em>merely tools</em>, and <em>human judgment</em> remains in the loop. The judgment is twenty seconds long. The loop is the file.</p>
+<hr>
+<h2 data-mn="٥">5. The cloud cooperates</h2>
+<p>In August 2025, <em>The Guardian</em> — in collaboration with <em>+972</em> and <em>Local Call</em> — reported that Microsoft&#x27;s Azure cloud was the storage substrate for an Israeli military-intelligence dataset containing the recorded phone calls of millions of Palestinians in Gaza and the West Bank.</p>
+<p>The reporting was sourced to internal Microsoft documents and to interviews with current and former Unit 8200 personnel. The dataset was used to identify targeting candidates and to verify post-strike kill counts. The infrastructure was sold under a commercial agreement reached during the 2021 Project Nimbus tender, in which Microsoft, Google, and Amazon were awarded a combined 1.2-billion-dollar contract to provide cloud services to the Israeli government.</p>
+<p>Inside the firms, the contracts have been contested. Google fired more than fifty employees in April 2024 after sit-ins at the company&#x27;s offices in New York, Sunnyvale, and Seattle protesting the Nimbus contract. The protest was organised under the name <em>No Tech for Apartheid</em>. The fired employees, by their own statement, included engineers involved in the technical design of the Nimbus deployment who refused to continue.</p>
+<p>Microsoft had divested from one Israeli surveillance firm — AnyVision — in March 2020 after pressure from its own ethics board. The divestment was symbolic. The Nimbus contract was signed sixteen months later. In May 2025, Microsoft told its employees, in an internal memo subsequently reported by <em>The Verge</em>, that it was severing some ties with Unit 8200. The severing was specific to a single named subdivision. The Azure storage contract continued.</p>
+<p>The cloud is a commodity. It is sold at the global price. The supplier accepts the buyer&#x27;s use case as a matter of contract enforcement, not of conscience. The architecture of cloud computing is precisely the architecture in which conscience cannot be located. There is no person at the data centre who decides whether the bytes flowing in are the recorded voice of a journalist about to be killed or the metadata of a refugee about to be registered. The bytes flow. The bill is paid. The strike happens. The next billing cycle begins.</p>
+<hr>
+<h2 data-mn="٦">6. The breath that gets a number</h2>
+<p>Return to my cousin at Erez. She has cancer. She had a permit. The permit had a number. The number is in a database. The database is on a server. The server is in a building. The building has a contract with a cloud provider. The cloud provider has a contract with the army that operates the gate. The army that operates the gate has a contract with a firm that wrote the software that decided the permit could be issued for one day, on yesterday&#x27;s date, with no possibility of revision.</p>
+<p>The chain is long. The chain is documented. Each link is a press release. Each press release is a transformation. Each transformation is a removal of judgment from the surface of the form.</p>
+<p>Our air became their permit. The aphorism is exact. The element of life most difficult, historically, to bureaucratise — the act of breathing, the freedom of the body to be where it is — has now been bureaucratised, in the Palestinian case, all the way down. Breathing is not free in Gaza, in the West Bank, in East Jerusalem. Breathing requires a form. The form requires an algorithm. The algorithm requires a contract. The contract requires a cloud. The cloud requires my cousin to wait at the gate while the system determines whether her breath is, today, authorised.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/02_lungs_B.jpg')"></div><figcaption class="overlay"><div class="ar">هَوانا صار تَصريحَهم</div><div class="en">Our Air Became Their Permit</div></figcaption></figure>
+<p>The next file moves to the eye. To the witness who tried to record what the lungs could not say. We will see what happened to her testimony when she filed it.</p>
+<p>A name on a list is a kind of breath. Its absence is too.</p>
+</div>
+    <div class="lang-ar">
+<p>بنت عمّي طِلعت من بَيتها بجباليا الساعة أربعة الفجر.</p>
+<p>عندها سَرَطان.</p>
+<p>عندها تَصريح طِبّي للعبور من معبر إيريز للعلاج بمستشفى المُطَّلِع بالقدس. التَّصريح إلو رَقَم. الرَّقَم إلو تاريخ صَلاحيّة. التاريخ مْبارح. المُوظَّف بالبَوّابة بيفهَمها. بسّ ما بيقدر يَعمل إشي. المُستشفى بالقدس بيسجِّلها «لم تَحضُر». العيادة بغزة بتسجِّلها «أُحيلت». بمكان ما، في سَطْر بيقول إنّها تلقَّت العلاج. ما تلقَّت.</p>
+<p>رَجعت لجباليا.</p>
+<hr>
+<p>هاد أصغر شي بالملفّ. نَفَس بَدّو إذن. الإذن إجا عا شكل رَقَم. الرَّقَم خَلَصت صَلاحيّتو قبل ما يتحرَّك النَّفَس.</p>
+<p>بنت عمّي مش وحدها. سنة 2023، حسب أرقام مُنظَّمة الصحة العالمية، أَكثَر من عِشرين ألف طلب تَصريح طِبّي قُدِّم من غزة. حوالي ثُلث الطلبات اتْرَفضت أو ضاعت بين البَوّابات. عَشَرات الفلسطينيين، على الأَقلّ، ماتوا بنفس السَّنة لإنّو التَّصريح ما إجا بالوقت. هاي قَبل الحَرب.</p>
+<p>هَوانا صار تَصريحَهم. هاد الملفّ.</p>
+<hr>
+<figure class="image-panel" aria-label="صورة أ · الملف ٠٢ · الرئتين"><div class="img" style="background-image:url('../images/leonardo/series-03/02_lungs_A.jpg')"></div><figcaption class="caption"><span>صورة أ · الملف ٠٢ · الرئتين</span><span>هَوانا صار تَصريحَهم</span></figcaption></figure>
+<h2 data-mn="١">1. الوَرَقة أقدم من الخوارزمية</h2>
+<p>قبل ما يطلَع أيّ ذَكاء اصطناعي على أيّ غرفة قَرار، كان جسم النَّفَس-بإذن مَبني باليد. «منسِّق عمليّات الحكومة بالمناطق» — المَجات بالعبري، COGAT بالإنجليزي — اتأسَّس سنة 1981 كذراع بيروقراطي للحكومة العسكرية الإسرائيلية بالأراضي المُحتلَّة. تَفويضو الرَّسمي «شؤون مدنية». تَفويضو الفعلي الوَرَقة. كل صِنف من تَنقُّل الفلسطيني صار إلو وَرَقة: البطاقة المُمَغنطة، تَصريح العَمل، تَصريح التِّجارة، تَصريح العلاج، تَصريح لمّ الشمل، تَصريح الصلاة بالأقصى برمضان.</p>
+<p>كل وَرَقة بَلاش لمّا تقدِّم عليها. كل وَرَقة بتاخد جُمَع وشهور لحتى توصَل. كل وَرَقة بتنسحَب بدون إنذار. كل وَرَقة بتيجي عليها باركود.</p>
+<p>سنة 2003 بَلَّش الجِدار. سنة 2007 صار الإغلاق على القطاع كامل. سنة 2014 تصانيف تصاريح المَجات وصلت لعشرات الأنواع الفَرعية. مَساحة الوَرَقة البيروقراطية توسَّعت. مَساحة الحَركة الحُرّة تقلَّصت. الوَرَقة صارت الأداة اللي فيها حصار عام بيتحوَّل لرَفض فردي. الفردي مَستور بالتَّصميم. العامّ، لو بان، بَيبيِّن.</p>
+<p>الوَرَقة مش جديدة. الوَرَقة من زَمان هي التِّكنولوجيا. اللي تغيَّر، مين صار يَقرا الوَرَقة، ومين صار يَكتُبها.</p>
+<hr>
+<h2 data-mn="٢">2. صناعة المراقبة كتَصدير من الاحتلال</h2>
+<p>الأراضي الفلسطينية هي أكبر تجرِبة مُستمرَّة للمراقبة الجماعية بالعالم. مُختبَر أوّلاً، سوق ثانياً. عدم التَّوازُن بالسُّكّان والجُغرافيا والمُحاسَبة السياسية بيخلّي الشركات الإسرائيلية تنشُر بحَجم كبير، تجرِّب البَرامج على أجساد حقيقيّة، وبعدين تبيع بَرَّا على شعار «مُجرَّب بالميدان». هاد المنطق التأسيسي لثاني أكبر قطاع تَصدير بالبلد بعد الأَدوية.</p>
+<p>الأسماء مَحددة.</p>
+<p>سيليبرايت — تأسَّست 1999 — بتعمل جهاز UFED اللي بيستخدموه أجهزة الشُّرطة من بنغلاديش للسعودية للـFBI، عشان يَخترِقوا الهَواتف الفلسطينية. ثَغرات اليوم الصِّفر تَبعتها استُخدمت عا طالب صَربي، وعا مُطلِق النار بتَجمُّع لترامب ببنسلفانيا.</p>
+<p>NSO — تأسَّست 2010 على إيد خِرّيجي الوحدة 8200 — بتعمل بيغاسوس، بَرنامج التَّجَسُّس اللي انوَجَد على هَواتف مُدافعين فلسطينيين عن حقوق الإنسان، ومُعارضين سعوديين، وصحفيين مَكسيكيين، وعلى الأقلّ صديقة جمال خاشقجي اليوم اللي قبل ما يَنقتل.</p>
+<p>أَني فيشن — اللي غيَّرت إسمها «أوازيس» بعد ما سَحَبت مايكروسوفت استثمارها بآذار 2020 — بَنت نظام التعرُّف على الوُجوه اللي بيشتغل عا حواجِز الضِفّة، وعلى مَداخل أحياء الخَليل.</p>
+<p>كورسايت بتقدِّم نفس الخدمة بألوان مُختلفة. بريفكام، اللي ملِكها شركة كانون اليابانية، بتشغِّل تَحليلات الفيديو بغُرَف شُرطة القدس الشرقية. فوياجِر لابس بتبيع أدوات مراقبة وَسائل التَّواصل اللي استخدَمتها شُرطة نيويورك ضد عيلات مُنظِّمي «حياة السود مُهمّة»، واستخدَمتها شُرطة لوس أنجلوس ضد جَمعيّات مُسلِمة بالمَدينة.</p>
+<p>توكا، اللي شارَك بتأسيسها إيهود باراك سنة 2018، بتبيع للحكومات قُدرة اختراق الكاميرات اللي السكان نفسهم رَكَّبوها ببيوتهم للحماية. فرينت، الذُّرّيّة الأمريكية المُدرَجة لشركة كومفيرس الإسرائيلية، بتشغِّل بنية الاعتراض القانوني لمزوِّدي الاتّصالات بأكثر من مية دولة. تشيك بوينت، من أكبر شركات الأمن السيبراني النَّقي بالعالم، تأسَّست سنة 1993 على إيد خِرّيجي الوحدة 8200.</p>
+<p>النَّمَط مش صُدفة. النَّمَط نَموذج عَمل. الدولة الإسرائيلية بتدعَم خط بحث وتطوير بياكُل سُلوك الفلسطيني كَمَدخل خام، يعالجو كمنتَج، يبيعو لبَرَّا كأعلى تكنولوجيا تَنقُل البلد. أربع مليار دولار بالسنة بتيجي من الولايات المتحدة كمُساعَدات؟ هاي عائد على رأس المال. رأس المال هو الإقليم. أرباح الأسهم هي التِّكنولوجيا. بتُدفَع للمُشتري على شَكل مُنتَج.</p>
+<hr>
+<h2 data-mn="٣">3. خمسة شُباط 2019: اليوم اللي وافَقَت فيه الإغاثة</h2>
+<p>بخَمسة شُباط 2019، برنامج الأغذية العالمي التَّابع للأمم المتحدة أَصدَر بيان صحفي بيُعلِن عن شَراكة خَمس سنين مع بالانتير تكنولوجيز، شركة دَمج البيانات اللي أسَّسها بيتر تيل وألكس كارب سنة 2003 بفُلوس ابتدائية من «إن-كيو-تيل»، صندوق رأس المال المُغامِر التَّابع لوكالة المُخابرات الأمريكية CIA.</p>
+<p>البيان وَصَف الصَّفقة بلُغة الكَفاءة: تبسيط العَمليّات، دَمج البيانات، توصيل المُساعدات المنقذة للحياة بسُرعة أكبر. ما وَصَف عُقود الشركة مع وكالة الهِجرة والجَمارك الأمريكية اللي بتعتقل وتُرحِّل، ولا الشُّرطة التنبُّؤية بلوس أنجلوس، ولا البنية التحتية للمراقبة الجماعية بوكالة الأمن القومي NSA. البيان صار الخَبَر. العَقد صار بمكان ثاني.</p>
+<p>بأقلّ من عشرة أيام، رِسالة مَفتوحة من ائتلاف أَخلاقيّي بيانات إنساني، أكاديميين، موظَّفين سابقين بالأمم المتحدة، اننَشَرت عا responsibledata.io. الرِّسالة سَمَّت المُشكلة باسمها: وكالة إنسانية بتملك أكبر قاعدة بيانات بالعالم عن ناس مَحرومين من الغذاء، وافَقَت تشارِك بنيتها التَّشغيليّة مع شركة بتستعمل نفس البنية لاعتقال وتَرحيل الناس. الرسالة ما انرَدّ عليها. الشَّراكة بَقيت. بحُلول 2024 صارت تتوسَّع بصَمت.</p>
+<p>مُنظَّمة بريفسي إنترناشيونال البريطانية وَثَّقت النَّمَط عا عُقود بالانتير الإنسانية كلّها: ببَرنامج المُساعدات النَّقدية لكوفيد بموزَمبيق، بمنصة البيانات الفِدراليّة لخدمة الصحة البريطانية NHS، بمكتب تَنسيق الشُّؤون الإنسانية بالأمم المتحدة OCHA. البنية مُتَّسقة. الشركة بتبيع منصَّتها Foundry لمؤسَّسة بتملك بيانات سكّانية، المنصَّة بتنظِّم البيانات بطَبَقة موحَّدة، الطَّبقة المُوحَّدة بتصير المنطق التَّشغيلي للمؤسَّسة. لمّا تصير، إزالتها مَشروع بنيوي، مش إعادة تفاوض عَقد. البنية هي القَفل.</p>
+<p>بأيار 2024، بالانتير أَعلَنت شَراكة جديدة مع جيش الاحتلال، بإطار «توفير تكنولوجيا مُتقَدِّمة للمَهمّات المُتعلِّقة بالحرب». ألكس كارب، الرئيس التنفيذي، قال بمُقابلات علنية إنّو حرب إسرائيل على غزة هي أهمّ عرض لمنتَج شركتو. مش غَلطان.</p>
+<p>نفس الشركة اللي اسمها على بيان برنامج الأغذية العالمي بشُباط 2019، هي نفسها على سجلّ عُقود الجيش الإسرائيلي للقَصف اللي قَتَل ربع مليون فلسطيني، بأثر مُباشر أو مَنسوب — حَسَب تَوَقُّعات مَجَلَّة «لانسيت» للوَفَيات المَنسوبة لمنتَصَف 2024 وتَحديثاتها اللاحقة — بين تشرين أول 2023 ووَقت كتابة هاد. الإيد اللي وَقَّعت العَقد الإنساني هي الإيد اللي وَقَّعت عَقد الاستهداف.</p>
+<p>الحقيقة بالسِّجلّ العَلَني. الحقيقة هي الملفّ.</p>
+<hr>
+<h2 data-mn="٤">4. لافندر، الإنجيل، والعِشرين ثانية</h2>
+<p>بثلاثة نيسان 2024، مجلَّة «972+» الإسرائيلية النَّقدية، بالتَّعاون مع موقع «شيحا مكوميت» (نِداء محلي) العبري، نَشَرت تَحقيق للصحفي يوفال أبراهام عنوانو «لافندر: الآلة اللي بتدير موجة القَصف الإسرائيلية بغزة». التَّحقيق مَبني على شَهادات سِتّ ضُبّاط استخبارات إسرائيليين خَدَموا بغُرَف الاستهداف بالجيش بأول أشهر الحَرب على غزة.</p>
+<p>التَّحقيق بيوصَف نظام إسمو «لافندر». لافندر نَموذج ذكاء اصطناعي تدرَّب على قاعدة بيانات الجيش الإسرائيلي عن المُسلَّحين الفلسطينيين المَعروفين. مُخرَجو لائحة. اللائحة فيها أسماء «أهداف بَشَريّة» — أشخاص مُصنَّفين أعضاء، حتى من الرُّتَب الدُّنيا، بالأَجنحة العسكرية لحماس أو الجِهاد الإسلامي. اللائحة بذِروتها، بتشرين أول وتشرين ثاني 2023، وَصَلت لسَبعة وثلاثين ألف اسم.</p>
+<p>سياسة الجيش، على لِسان الضُّبّاط، كانت هَيك: كل اسم على اللائحة صار هَدَف مُعتمَد. القَرار بضَرب الاسم اتفَوَّض لضابط صَغير الرُّتبة. الضابط الصَّغير صار مَسموح إلو يصرف حوالي عِشرين ثانية على مَلَف الاسم قَبل ما يوافق على الضَّربة.</p>
+<p>العِشرين ثانية مش للتحقُّق من الهُويّة. الخوارزمية خَلَصت من تَحديد الهُويّة. العِشرين ثانية للتحقُّق من الجِنس فقط. قاعدة الجيش بهَديك الأسابيع كانت إنّو أسماء الرِّجال بتنضرب، أسماء النّسوان بترجِع للفَحص — لإنّو النِّسوان أَقَلّ احتمال إنهم مُقاتلين بالنَّموذج السَّابق. الفَحص فَحص لفَرضية الخَوارزمية السابقة، مش فَحص للخَوارزمية نفسها. الفَحص بيمُرّ تقريباً تِسعين بالمية من الوقت.</p>
+<p>في نظام رَفيق بيتبَّع إمتى بَيدخُل كل هَدَف بيتو. النظام الرَّفيق إسمو «وين أبوه؟». الضَّربة بتتوقَّت لحَظة الدُّخول. بروتوكول الاستهداف، على لِسان الضُّبّاط، بيسمح بما بين خمستعش وعِشرين قتيل مَدني لكل هَدَف صغير الرُّتبة، ولحَدّ مية قتيل مَدني لكل هَدَف عالي الرُّتبة. القَتلى بتشمل أفراد العيلة اللي ببيتها الدُّخول. بتشمل الجيران اللي عَماراتهم مُلتصِقة. القَتلى مَعروفين سَلَفاً. إسمهم «اعتمادات الأَضرار الجانبية». بتنصَرف مِتل ميزانية.</p>
+<p>في نظام تالت إسمو «الإنجيل» — هَبسورا بالعِبري — بيولِّد أهداف على مُستوى المَباني مش الأشخاص. أفيف كوخافي، اللي كان رئيس أَركان الجيش، قال بمحاضرة سنة 2023 قبل الحرب إنّو الإنجيل رَفَع مُعدَّل توليد الأهداف من «خمسين هَدَف بالسنة» لـ«مية هَدَف باليوم». وَصَفها كَفاءة. ما سَمّى النتيجة. النتيجة بالرَّكام.</p>
+<p>اسم على لائحة هو نَوع من النَّفَس. هو النَّفَس اللي بياخدو النظام قبل الضَّربة. هو النَّفَس اللي العيلة لِسا ما عَرَفَت إنّو انسَحَب.</p>
+<p>التَّحقيق عن لافندر، الإنجيل، ووين أبوه؟ اتأكَّد بتَحقيقات لاحقة لـ«الغارديان» و«واشنطن بوست» و«درَوب سايت نيوز» و«مَكتب الصَّحافة الاستقصائية» البريطاني. الجيش الإسرائيلي ما أَنكَر وجود الأنظمة. إنكارو أَضيَق: «الأنظمة مُجرَّد أَدوات»، و«الحُكم البَشَري مَوجود بالحَلقة». الحُكم عِشرين ثانية. الحَلقة هي الملف.</p>
+<hr>
+<h2 data-mn="٥">5. السَّحابة بتتعاون</h2>
+<p>بآب 2025، «الغارديان» — بالتَّعاون مع 972+ وشيحا مكوميت — نشَرت إنّو سَحابة Azure التَّابعة لمايكروسوفت كانت قاعدة التَّخزين لمجموعة بيانات استخبارات عسكرية إسرائيلية بتحتوي مكالمات هاتفية مُسجَّلة لملايين الفلسطينيين بغزة والضِفّة الغربية.</p>
+<p>التَّحقيق مَبني على وَثائق مايكروسوفت داخلية، وعلى مُقابلات مع عناصر حاليّين وسابقين بالوحدة 8200. القاعدة، حسب التَّحقيق، استُخدمت لتَحديد مُرشَّحين للاستهداف، وللتحقُّق من عَدد القَتلى بعد الضَّربة. البنية انباعت بعَقد تجاري وُصِل إلو سنة 2021 بمناقصة «مشروع نيمبوس»، اللي فيها مايكروسوفت وغوغل وأمازون أُعطيت مَعاً عَقد بقيمة مليار ومتين مليون دولار لتوفير خدمات سَحابيّة للحكومة الإسرائيلية.</p>
+<p>جُوّا الشركات، العُقود اعتُرِض عليها. غوغل طَردت أكثر من خَمسين موظَّف بنيسان 2024 بعد اعتصامات بمكاتبها بنيويورك وسانيفيل وسياتل ضد عَقد نيمبوس. الاعتصام اتنَظَّم تحت اسم «لا تكنولوجيا للأبارتهايد». الموظَّفين المَطرودين، حسب بيانهم، فيهم مُهندسين كانوا داخلين بالتَّصميم الفنّي لنيمبوس، ورَفَضوا يكمِّلوا.</p>
+<p>مايكروسوفت سَحَبت استثمارها من أَني فيشن بآذار 2020 بعد ضَغط من لِجنتها الأخلاقية الداخلية. السَّحب كان رَمزياً. عَقد نيمبوس انوَقَّع بعدو بستّ عَشَر شَهر. بأيار 2025، مايكروسوفت قالت لموظَّفيها، بمذكِّرة داخلية نَشَرها موقع The Verge، إنّها بتقطع بعض الرَّوابط مع الوحدة 8200. القَطع كان على قِسم مُحدَّد. عَقد التَّخزين بـAzure استمَرّ.</p>
+<p>السَّحابة سِلعة. السلعة بتنباع بسِعر السوق العالمي. المُورِّد بيقبَل استخدام المُشتري كَمَسألة تَنفيذ عَقد، مش كمَسألة ضَمير. بنية الحَوسبة السَّحابية بالضَّبط هي البنية اللي ما بيوجد فيها ضَمير. ما في إنسان بمَركز البيانات بيقرِّر إذا البيتات الداخلة هي صوت صحفي عا وَشَك إنّو يَنقتل، ولا بيانات لاجئة عا وَشَك إنّها تنسجَّل. البيتات بتسيل. الفاتورة بتنَّدفع. الضَّربة بتصير. الدَّورة التالية للفَوترة بتبَلِّش.</p>
+<hr>
+<h2 data-mn="٦">6. النَّفَس اللي بياخد رَقَم</h2>
+<p>ارجَع لبنت عمّي عند معبر إيريز. عندها سَرَطان. كان عندها تَصريح. التَّصريح كان إلو رَقَم. الرَّقَم بقاعدة بيانات. قاعدة البيانات بسيرفر. السيرفر بمَبنى. المَبنى إلو عَقد مع مُزوِّد سَحابة. مُزوِّد السَّحابة إلو عَقد مع الجيش اللي بيشغِّل البَوّابة. الجيش اللي بيشغِّل البَوّابة إلو عَقد مع شركة كَتَبت البرنامج اللي قَرَّر إنّو التَّصريح يُصدَر ليوم واحد، على تاريخ مْبارح، بدون إمكانية تَعديل.</p>
+<p>السلسلة طَويلة. السلسلة موثَّقة. كل حَلَقة بيان صحفي. كل بيان صحفي تَحَوُّل. كل تَحَوُّل إزالة للحُكم من على سَطح الوَرَقة.</p>
+<p>هَوانا صار تَصريحَهم. العِبارة مَضبوطة. اللي أَصعب عُنصُر بالحياة تدوّرو بيروقراطياً — فِعل التَّنفُّس، حُرّيّة الجَسد إنّو يكون وين هو — صار بالحالة الفلسطينية مَدوَّر لآخر فَرع. التَّنفُّس بغزة، أو بالضِفّة، أو بالقدس، ما بيصير بَلاش. التَّنفُّس بَدّو وَرَقة. الوَرَقة بَدّها خَوارزمية. الخوارزمية بَدّها عَقد. العَقد بَدّو سَحابة. السحابة بَدّها بنت عمّي تستنّى عَ البَوّابة لحتى يحدِّد النظام إذا تَنفُّسها اليوم «مُصرَّح بو».</p>
+<p>الملفّ اللي بعدو بيروح للعَين. للشَّاهدة اللي حاوَلت تسجِّل اللي الرِّئتين ما قَدِروا يقولوه. بنشوف شو صار بشَهادتها لمّا قَدَّمَتها.</p>
+<figure class="aphorism-burn" aria-label="closing aphorism"><div class="img" style="background-image:url('../images/leonardo/series-03/02_lungs_B.jpg')"></div><figcaption class="overlay"><div class="ar">هَوانا صار تَصريحَهم</div><div class="en">Our Air Became Their Permit</div></figcaption></figure>
+<p>اسم على لائحة هو نَوع من النَّفَس. غِيابو كَمان.</p>
+</div>
+  </article>
+</div>
+
+<section class="data-strip"><div class="lbl"><span class="lang-en">Key Facts</span><span class="lang-ar">أرقام مفتاح</span></div><div class="data-grid cols-3"><div class="data-cell"><div class="num">$1.2B</div><div class="lbl-body lang-en">Project Nimbus — Google and Amazon cloud contract with Israel</div><div class="lbl-body lang-ar">مشروع نمبوس — عَقد السحابة بين غوغل وأمازون وإسرائيل</div><div class="src">The Guardian, 2021</div></div><div class="data-cell"><div class="num">89%</div><div class="lbl-body lang-en">collapse in the Gaza telecoms sector by 2024</div><div class="lbl-body lang-ar">انهيار قطاع الاتصالات في غزة حتى 2024</div><div class="src">UNCTAD</div></div><div class="data-cell"><div class="num">700+</div><div class="lbl-body lang-en">internet shutdowns recorded across the OPT in the last decade</div><div class="lbl-body lang-ar">انقطاع إنترنت مُسَجَّل بالأرض الفلسطينية المحتلة بآخر عقد</div><div class="src">7amleh / Access Now</div></div></div></section>
+
+<section class="pull-quote">
+  <div class="pq-inner">
+    <p class="lang-en">"Breath needs a form. The form needs an algorithm. The algorithm needs a contract. The contract needs a cloud."</p>
+    <p class="lang-ar">«النَّفَس بِدّو وَرَقة. والوَرَقة بِدّها خوارزمية. والخوارزمية بِدّها عَقد. والعَقد بِدّو سَحابة.»</p>
+    <span class="pq-attr"><span class="lang-en">From File 02 · Lungs</span><span class="lang-ar">من الملف ٠٢ · الرئتين</span></span>
+  </div>
+</section>
+
+<section class="article-foot">
+  <div class="article-foot-inner">
+    <div class="file-nav">
+      <a href="01.html"><span class="lang-en">← File 01 · Our Orphan Became Their Number</span><span class="lang-ar">← ملف ٠١ · يَتيمَنا صار رَقَمَهم</span></a>
+      <a href="index.html" style="color: var(--accent)"><span class="lang-en">Series Index</span><span class="lang-ar">السلسلة</span></a>
+      <a href="03.html"><span class="lang-en">File 03 · Our Witness Became Their Report →</span><span class="lang-ar">ملف ٠٣ · شَهادَتنا صارت تَقريرَهم ←</span></a>
+    </div>
+    <div class="author-bio lang-en">
+      <strong>Hamzah Barhameyeh</strong> is a writer and strategist from Jerusalem, founder of <strong>AIDA Creative Studios</strong>. <em>When the Knife Entered / المفتاح صار بَصمة</em> is a seven-file body-organ map of what was replaced when the knife entered Palestinian life.
+    </div>
+    <div class="author-bio lang-ar">
+      <strong>حمزة برهمية</strong> كاتب واستراتيجي من القدس، ومؤسِّس <strong>عايدة كرييتف ستوديوز</strong>. <em>المفتاح صار بَصمة / When the Knife Entered</em> سلسلة من سَبع ملفات على الجَسَد — خريطة الأَعضاء — لما اللي صار لما الموسى دَخَل الحياة الفلسطينية.
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-foot">
+  <div>
+    <span class="lang-en">© 2026 AIDA Creative Studios · Jerusalem · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+    <span class="lang-ar">© 2026 عايدة كرييتف ستوديوز · القدس · <a href="https://aidacreativestudios.com">aidacreativestudios.com</a></span>
+  </div>
+  <div>The Key Became a Fingerprint · المفتاح صار بَصمة</div>
+</footer>
+
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-lang-btn]').forEach(b => b.classList.toggle('active', b.dataset.langBtn === l));
+  try { localStorage.setItem('wtke-lang', l); } catch (_) {}
+}
+(function(){
+  try {
+    var saved = localStorage.getItem('wtke-lang');
+    if (saved === 'ar' || saved === 'en') setLang(saved);
+    else setLang(document.documentElement.lang || 'en');
+  } catch (_) { setLang('en'); }
+})();
+</script>
+
+</body>
+</html>
