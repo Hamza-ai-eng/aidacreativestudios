@@ -374,7 +374,11 @@ html[lang="ar"] .site-foot { font-family: 'Amiri', serif; letter-spacing: 0; fon
   background-color: var(--bg-deep); color: var(--surface);
   overflow: hidden;
 }
-.index-hero .hero-bg { background-image: linear-gradient(180deg, rgba(17,16,14,0.55) 0%, rgba(17,16,14,0.70) 50%, rgba(17,16,14,0.92) 100%); }
+/* STACKING: text must sit above the absolute bg layer — without this the
+   absolute .hero-bg stacks on top of subsequent static siblings and the
+   title appears to show the image through it. */
+.index-hero > * { position: relative; z-index: 2; }
+.index-hero .hero-bg { z-index: 1; opacity: 1; background-image: linear-gradient(180deg, rgba(17,16,14,0.55) 0%, rgba(17,16,14,0.70) 50%, rgba(17,16,14,0.92) 100%); }
 .index-hero .umb-ar {
   font-family: 'Amiri', serif; font-weight: 700;
   font-size: clamp(3.2rem, 9vw, 8rem); line-height: 1.1;
