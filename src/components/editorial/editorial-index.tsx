@@ -310,7 +310,7 @@ export function EditorialIndex() {
                 marginBottom: "0.4rem",
               }}
             >
-              When the Knife Entered
+              The Key Became a Fingerprint
             </h4>
             <p
               style={{

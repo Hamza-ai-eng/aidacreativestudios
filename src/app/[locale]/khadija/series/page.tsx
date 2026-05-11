@@ -38,6 +38,14 @@ const SERIES_TITLES: Record<string, { en: string; ar: string; description: { en:
       ar: "ستّ مقالات عن طريقة إقصاء الفلسطيني من العالم الرقمي — كهربا، دفع، عقود، لغة، جغرافيا، محاسبة.",
     },
   },
+  "when-the-knife-entered": {
+    en: "The Key Became a Fingerprint",
+    ar: "المفتاح صار بَصمة",
+    description: {
+      en: "Seven essays mapped along the body — heart, lungs, eyes, hands, spine, belly, feet. Each file an X became Y replacement that chorus the umbrella title.",
+      ar: "سَبع مقالات على الجَسَد — القلب، الرئتين، العينين، اليدين، العمود الفقري، البطن، القدمين. كل ملف فيه استبدال «صار» بيلاقي العنوان الكبير.",
+    },
+  },
 };
 
 export default async function SeriesIndex({
